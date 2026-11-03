@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="LcwtMLP_RFFI" xd:componentRef="LcwtMLP_RFFI" xd:initiationInterval="134434" xd:clockPeriod="5.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
+  <xd:arg xd:name="din" xd:originalName="din" xd:direction="in" xd:interfaceRef="din_V_V" xd:busTypeRef="acc_fifo" xd:dataWidth="33"/>
+  <xd:arg xd:name="dout.data" xd:originalName="dout" xd:direction="out" xd:interfaceRef="dout" xd:busTypeRef="axis" xd:dataWidth="32"/>
+  <xd:arg xd:name="dout.keep" xd:originalName="dout" xd:direction="out" xd:interfaceRef="dout" xd:busTypeRef="axis" xd:dataWidth="4"/>
+  <xd:arg xd:name="dout.strb" xd:originalName="dout" xd:direction="out" xd:interfaceRef="dout" xd:busTypeRef="axis" xd:dataWidth="4"/>
+  <xd:arg xd:name="dout.last" xd:originalName="dout" xd:direction="out" xd:interfaceRef="dout" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:latencyEstimates xd:best-case="34081" xd:worst-case="134433" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="7684" xd:FF="19526" xd:BRAM="14" xd:DSP="140"/>
+</xd:acceleratorMap>

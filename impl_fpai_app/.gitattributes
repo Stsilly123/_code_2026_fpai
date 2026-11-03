@@ -1,0 +1,13 @@
+# 放在子目录里，只作用于 impl_fpai_app/，不动仓库其它部分。
+
+# build.sh 要在板子（Linux）上能直接跑。本机 core.autocrlf=true，
+# 不写这条的话 checkout 出来是 CRLF —— Linux 的 bash 会在 shebang 上
+# 直接报 "bad interpreter: /usr/bin/env bash^M"。msys 的 bash 容忍 CRLF，
+# 所以在 Windows 上测不出这个问题，必须在这里钉死。
+*.sh  text eol=lf
+
+# 模型产物、帧流是二进制，绝不能被 autocrlf 当文本转行尾。
+# （exp_wide_ls_BY.raw 前 8000 字节里有 NUL，git 本来就会判成二进制；
+#   这里显式声明是防止换一份产物后判据变了。）
+*.raw  binary
+*.bin  binary

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_631" tag="SCHEDULE" content="Option &apos;relax_ii_for_timing&apos; is enabled, will increase II to preserve clock frequency constraints."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;LcwtMLP_RFFI/SRC/pl_lcwt.cpp&apos; ..."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;LcwtMLP_RFFI/SRC/top.cpp&apos; ..."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 102.836 ; gain = 17.664"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 102.836 ; gain = 17.664"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rx_frame&apos; into &apos;LcwtMLP_RFFI&apos; (LcwtMLP_RFFI/SRC/top.cpp:97)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;13&gt;&apos; into &apos;lcwt_synthesis&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:334)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;13&gt;&apos; into &apos;lcwt_synthesis&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:333)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;13&gt;&apos; into &apos;lcwt_synthesis&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:332)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;13&gt;&apos; into &apos;lcwt_synthesis&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:331)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;13&gt;&apos; into &apos;lcwt_analysis&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:173)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;13&gt;&apos; into &apos;lcwt_analysis&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:172)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;13&gt;&apos; into &apos;lcwt_analysis&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:171)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;13&gt;&apos; into &apos;lcwt_analysis&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:170)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;lcwt_analysis&apos; into &apos;lcwt_patch_core&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:446)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;lcwt_synthesis&apos; into &apos;lcwt_patch_core&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:447)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;rq&lt;16&gt;&apos; into &apos;patch_embed&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:414)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;patch_embed&apos; into &apos;lcwt_patch_core&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:450)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;lcwt_patch_core&apos; into &apos;LcwtMLP_RFFI_frame&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:465)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;LcwtMLP_RFFI_frame&apos; into &apos;LcwtMLP_RFFI&apos; (LcwtMLP_RFFI/SRC/top.cpp:98)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;sat16o&apos; into &apos;drain_frame&apos; (LcwtMLP_RFFI/SRC/top.cpp:66)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;sat16o&apos; into &apos;drain_frame&apos; (LcwtMLP_RFFI/SRC/top.cpp:65)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;drain_frame&apos; into &apos;LcwtMLP_RFFI&apos; (LcwtMLP_RFFI/SRC/top.cpp:99)."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:15 . Memory (MB): peak = 124.219 ; gain = 39.047"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:15 . Memory (MB): peak = 132.395 ; gain = 47.223"/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;AN_WLOAD&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:83) in function &apos;LcwtMLP_RFFI&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;AN_MAC&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:129) in function &apos;LcwtMLP_RFFI&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;SY_WLOAD&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:229) in function &apos;LcwtMLP_RFFI&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;SY_MAC&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:273) in function &apos;LcwtMLP_RFFI&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;PT_RE&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:390) in function &apos;LcwtMLP_RFFI&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;PT_IM&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:401) in function &apos;LcwtMLP_RFFI&apos; for pipelining."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.3.1.1&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:85) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 2."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.3.1.1.1&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:87) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 2."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;AN_INIT&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:120) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.3.3.1.1&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:122) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 8."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;AN_LANE&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:132) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;AN_SUM&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:157) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 4."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.1.1&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:231) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 2."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.1.1.1&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:233) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 2."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;SY_INIT&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:264) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 2."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;Loop-1.4.3.1.1&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:266) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 16."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;SY_LANE&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:276) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 2."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;SY_SUM&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:319) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 2."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;PT_INIT&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:384) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 38."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;PT_RE_MAC&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:394) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 38."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;PT_IM_MAC&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:405) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 38."/>
+	<Message severity="INFO" prefix="[HLS 200-489]" key="HLS 200-489" tag="" content="Unrolling loop &apos;PT_STORE&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:412) in function &apos;LcwtMLP_RFFI&apos; completely with a factor of 38."/>
+	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;HOFF&apos; completely based on array size."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;war.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:71) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;wr.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:94) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;wi.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:94) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;ac.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:116) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;wsr.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:218) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;wlr.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:240) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;wli.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:240) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;whr.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:240) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;whi.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:240) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;ac.V.1&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:260) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;PATCH_W.V&apos;  in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;PATCH_B.V&apos;  in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;acc.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:378) in dimension 1 completely."/>
+	<Message severity="WARNING" prefix="[XFORM 203-104]" key="XFORM_PARTITION_VAR_INDEX_118" tag="ARRAY,SDX_ARRAY" content="Completely partitioning array &apos;vv.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:380) accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:420:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;vv.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:380) in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;HOFF&apos; in dimension 1 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;war.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:71) in dimension 2 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;ac.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:116) in dimension 2 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;wsr.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:218) in dimension 2 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;ac.V.1&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:260) in dimension 2 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;war.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:71) in dimension 3 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;wsr.V&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:218) in dimension 3 completely."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;aesl_mux_load.4i32P.i2&apos; into &apos;LcwtMLP_RFFI&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:80-&gt;LcwtMLP_RFFI/SRC/pl_lcwt.cpp:446-&gt;LcwtMLP_RFFI/SRC/pl_lcwt.cpp:465-&gt;LcwtMLP_RFFI/SRC/top.cpp:98)."/>
+	<Message severity="INFO" prefix="[XFORM 203-603]" key="XFORM_INLINE_STATUS_221" tag="" content="Inlining function &apos;aesl_mux_load.4i32P.i2&apos; into &apos;LcwtMLP_RFFI&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:226-&gt;LcwtMLP_RFFI/SRC/pl_lcwt.cpp:447-&gt;LcwtMLP_RFFI/SRC/pl_lcwt.cpp:465-&gt;LcwtMLP_RFFI/SRC/top.cpp:98)."/>
+	<Message severity="INFO" prefix="[XFORM 203-11]" key="XFORM_EXPR_BALANCE_STATUS_178" tag="" content="Balancing expressions in function &apos;LcwtMLP_RFFI&apos; (LcwtMLP_RFFI/SRC/top.cpp:80)...40 expression(s) balanced."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Pre-synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:17 . Memory (MB): peak = 173.715 ; gain = 88.543"/>
+	<Message severity="WARNING" prefix="[XFORM 203-542]" key="XFORM_LOOPFLAT_INVALID_219" tag="LOOP,SDX_LOOP" content="Cannot flatten a loop nest &apos;AN_PT&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:107:39) in function &apos;LcwtMLP_RFFI&apos; : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch."/>
+	<Message severity="WARNING" prefix="[XFORM 203-542]" key="XFORM_LOOPFLAT_INVALID_219" tag="LOOP,SDX_LOOP" content="Cannot flatten a loop nest &apos;AN_LV&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:75:43) in function &apos;LcwtMLP_RFFI&apos; : 
+
+more than one sub loop."/>
+	<Message severity="WARNING" prefix="[XFORM 203-542]" key="XFORM_LOOPFLAT_INVALID_219" tag="LOOP,SDX_LOOP" content="Cannot flatten a loop nest &apos;SY_PT&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:257:38) in function &apos;LcwtMLP_RFFI&apos; : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch."/>
+	<Message severity="WARNING" prefix="[XFORM 203-542]" key="XFORM_LOOPFLAT_INVALID_219" tag="LOOP,SDX_LOOP" content="Cannot flatten a loop nest &apos;SY_LV&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:222:48) in function &apos;LcwtMLP_RFFI&apos; : 
+
+more than one sub loop."/>
+	<Message severity="WARNING" prefix="[XFORM 203-542]" key="XFORM_LOOPFLAT_INVALID_219" tag="LOOP,SDX_LOOP" content="Cannot flatten a loop nest &apos;PL_TOKEN&apos; (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:377:40) in function &apos;LcwtMLP_RFFI&apos; : 
+
+more than one sub loop."/>
+	<Message severity="INFO" prefix="[XFORM 203-541]" key="XFORM_LOOPFLAT_STATUS_218" tag="" content="Flattening a loop nest &apos;DR_TOK&apos; (LcwtMLP_RFFI/SRC/top.cpp:59:40) in function &apos;LcwtMLP_RFFI&apos;."/>
+	<Message severity="WARNING" prefix="[XFORM 203-542]" key="XFORM_LOOPFLAT_INVALID_219" tag="LOOP,SDX_LOOP" content="Cannot flatten a loop nest &apos;FRAME&apos; (LcwtMLP_RFFI/SRC/top.cpp:96:41) in function &apos;LcwtMLP_RFFI&apos; : 
+
+more than one sub loop."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished Architecture Synthesis Time (s): cpu = 00:00:05 ; elapsed = 00:00:19 . Memory (MB): peak = 189.320 ; gain = 104.148"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;LcwtMLP_RFFI&apos; ..."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;LcwtMLP_RFFI&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;RX&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;CP_IN&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;AN_WLOAD&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;AN_PRE&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;AN_MAC&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;SY_WLOAD&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;SY_PRE&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 4."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;SY_MAC&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;PT_RE&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 5."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;PT_IM&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 5."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;PT_WR&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 2."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;DR_TOK_L&apos;."/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_44" tag="" content="Pipelining result : Target II = 1, Final II = 1, Depth = 6."/>
+	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 20.235 seconds; current allocated memory: 144.158 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-434]" key="HLS 200-434" tag="SDX" content="Only 12 loops out of a total 18 loops have been pipelined in this design."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing."/>
+	<Message severity="WARNING" prefix="[BIND 205-102]" key="BIND_102_679" tag="" content="The specified resource core for memory &apos;tokT_V&apos; will be ignored if a simpler one can be used."/>
+	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..."/>
+	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 1.735 seconds; current allocated memory: 155.079 MB."/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;LcwtMLP_RFFI&apos;"/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------"/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;LcwtMLP_RFFI/din_V_V&apos; to &apos;ap_fifo&apos;."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;LcwtMLP_RFFI/dout_V_data_V&apos; to &apos;axis&apos; (register, both mode)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;LcwtMLP_RFFI/dout_V_keep_V&apos; to &apos;axis&apos; (register, both mode)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;LcwtMLP_RFFI/dout_V_strb_V&apos; to &apos;axis&apos; (register, both mode)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;LcwtMLP_RFFI/dout_V_last_V&apos; to &apos;axis&apos; (register, both mode)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;LcwtMLP_RFFI&apos; to &apos;ap_ctrl_hs&apos;."/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_LCWT_A_V&apos; to &apos;LcwtMLP_RFFI_LCWTbkb&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_LCWT_S_V&apos; to &apos;LcwtMLP_RFFI_LCWTcud&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_0&apos; to &apos;LcwtMLP_RFFI_PATCdEe&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_1&apos; to &apos;LcwtMLP_RFFI_PATCeOg&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_2&apos; to &apos;LcwtMLP_RFFI_PATCfYi&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_3&apos; to &apos;LcwtMLP_RFFI_PATCg8j&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_4&apos; to &apos;LcwtMLP_RFFI_PATChbi&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_5&apos; to &apos;LcwtMLP_RFFI_PATCibs&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_6&apos; to &apos;LcwtMLP_RFFI_PATCjbC&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_7&apos; to &apos;LcwtMLP_RFFI_PATCkbM&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_8&apos; to &apos;LcwtMLP_RFFI_PATClbW&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_9&apos; to &apos;LcwtMLP_RFFI_PATCmb6&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_10&apos; to &apos;LcwtMLP_RFFI_PATCncg&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_11&apos; to &apos;LcwtMLP_RFFI_PATCocq&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_12&apos; to &apos;LcwtMLP_RFFI_PATCpcA&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_13&apos; to &apos;LcwtMLP_RFFI_PATCqcK&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_14&apos; to &apos;LcwtMLP_RFFI_PATCrcU&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_15&apos; to &apos;LcwtMLP_RFFI_PATCsc4&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_16&apos; to &apos;LcwtMLP_RFFI_PATCtde&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_17&apos; to &apos;LcwtMLP_RFFI_PATCudo&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_18&apos; to &apos;LcwtMLP_RFFI_PATCvdy&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_19&apos; to &apos;LcwtMLP_RFFI_PATCwdI&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_20&apos; to &apos;LcwtMLP_RFFI_PATCxdS&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_21&apos; to &apos;LcwtMLP_RFFI_PATCyd2&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_22&apos; to &apos;LcwtMLP_RFFI_PATCzec&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_23&apos; to &apos;LcwtMLP_RFFI_PATCAem&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_24&apos; to &apos;LcwtMLP_RFFI_PATCBew&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_25&apos; to &apos;LcwtMLP_RFFI_PATCCeG&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_26&apos; to &apos;LcwtMLP_RFFI_PATCDeQ&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_27&apos; to &apos;LcwtMLP_RFFI_PATCEe0&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_28&apos; to &apos;LcwtMLP_RFFI_PATCFfa&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_29&apos; to &apos;LcwtMLP_RFFI_PATCGfk&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_30&apos; to &apos;LcwtMLP_RFFI_PATCHfu&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_31&apos; to &apos;LcwtMLP_RFFI_PATCIfE&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_32&apos; to &apos;LcwtMLP_RFFI_PATCJfO&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_33&apos; to &apos;LcwtMLP_RFFI_PATCKfY&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_34&apos; to &apos;LcwtMLP_RFFI_PATCLf8&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_35&apos; to &apos;LcwtMLP_RFFI_PATCMgi&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_36&apos; to &apos;LcwtMLP_RFFI_PATCNgs&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_PATCH_W_V_37&apos; to &apos;LcwtMLP_RFFI_PATCOgC&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mux_42_32_1_1&apos; to &apos;LcwtMLP_RFFI_mux_PgM&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mux_164_16_1_1&apos; to &apos;LcwtMLP_RFFI_mux_QgW&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mux_164_25_1_1&apos; to &apos;LcwtMLP_RFFI_mux_Rg6&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mux_42_16_1_1&apos; to &apos;LcwtMLP_RFFI_mux_Shg&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mux_42_25_1_1&apos; to &apos;LcwtMLP_RFFI_mux_Thq&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mux_83_25_1_1&apos; to &apos;LcwtMLP_RFFI_mux_UhA&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mux_386_32_1_1&apos; to &apos;LcwtMLP_RFFI_mux_VhK&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mac_muladd_25s_16s_43ns_43_3_1&apos; to &apos;LcwtMLP_RFFI_mac_WhU&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mac_muladd_14s_25s_42s_42_3_1&apos; to &apos;LcwtMLP_RFFI_mac_Xh4&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mac_muladd_15s_25s_43s_43_3_1&apos; to &apos;LcwtMLP_RFFI_mac_Yie&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mac_muladd_16s_25s_44ns_44_3_1&apos; to &apos;LcwtMLP_RFFI_mac_Zio&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mac_muladd_14s_25s_43ns_43_3_1&apos; to &apos;LcwtMLP_RFFI_mac_0iy&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mac_muladd_15s_25s_44ns_44_3_1&apos; to &apos;LcwtMLP_RFFI_mac_1iI&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[SYN 201-210]" key="SYN_210_889" tag="" content="Renamed object name &apos;LcwtMLP_RFFI_mac_muladd_16s_25s_44s_44_3_1&apos; to &apos;LcwtMLP_RFFI_mac_2iS&apos; due to the length limit 20"/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mac_0iy&apos;: 16 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mac_1iI&apos;: 21 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mac_2iS&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mac_WhU&apos;: 64 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mac_Xh4&apos;: 16 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mac_Yie&apos;: 21 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mac_Zio&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mux_PgM&apos;: 2 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mux_QgW&apos;: 18 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mux_Rg6&apos;: 2 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mux_Shg&apos;: 12 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mux_Thq&apos;: 6 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mux_UhA&apos;: 8 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;LcwtMLP_RFFI_mux_VhK&apos;: 1 instance(s)."/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;LcwtMLP_RFFI&apos;."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="" content=" Elapsed time: 3.126 seconds; current allocated memory: 171.436 MB."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_LOFF_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_LCWTbkb_rom&apos; using block ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_LCWTcud_rom&apos; using block ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCdEe_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCeOg_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCfYi_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCg8j_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATChbi_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCibs_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCjbC_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCkbM_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATClbW_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCmb6_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCncg_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCocq_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCpcA_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCqcK_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCrcU_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCsc4_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCtde_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCudo_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCvdy_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCwdI_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCxdS_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCyd2_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCzec_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCAem_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCBew_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCCeG_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCDeQ_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCEe0_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCFfa_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCGfk_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCHfu_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCIfE_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCJfO_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCKfY_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCLf8_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCMgi_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCNgs_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-279]" key="RTMG_279_1793" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_PATCOgC_rom&apos; using distributed ROMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_lr_i_ram (RAM)&apos; using block RAMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_hr_i_ram (RAM)&apos; using block RAMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_xr0_V_ram (RAM)&apos; using block RAMs."/>
+	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;LcwtMLP_RFFI_tokT_V_ram (RAM_2P_BRAM)&apos; using block RAMs."/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_965" tag="" content="Finished generating all RTL models Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 285.285 ; gain = 200.113"/>
+	<Message severity="INFO" prefix="[SYSC 207-301]" key="SYSC_301_1065" tag="" content="Generating SystemC RTL for LcwtMLP_RFFI."/>
+	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for LcwtMLP_RFFI."/>
+	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for LcwtMLP_RFFI."/>
+	<Message severity="INFO" prefix="[HLS 200-112]" key="HLS_112_964" tag="" content="Total elapsed time: 33.547 seconds; peak allocated memory: 171.436 MB."/>
+	<Message severity="INFO" prefix="[Common 17-206]" key="Common 17-206" tag="" content="Exiting vivado_hls at Thu Oct 22 20:22:36 2026..."/>
+</Messages>

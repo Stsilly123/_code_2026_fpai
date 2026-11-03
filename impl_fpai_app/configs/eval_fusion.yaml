@@ -1,0 +1,242 @@
+# 验收预设：融合（部署口径，单折 fold2）
+# 运行：./rffi_deploy configs/eval_fusion.yaml
+# 由 configs/rffi_transformer.yaml 派生，只改了 无（原样复制）；其余与部署配置一致。
+# 本文件由 tools/make_eval_configs.py 生成，别手改。
+
+# rffi_deploy 的配置（20 类 / 四 DMA 数据通路）。
+#
+# **所有路径都是 CWD 相对**，所以要从 impl_fpai_app/ 下运行：
+#     ./build/rffi_deploy configs/rffi_transformer.yaml
+#
+# 数据通路：
+#   网口原始 IQ ──┬─ PL dma0/dma1：LCWT 主干 -> 16×38 token（int16 Q4，每帧 1216 B）
+#                 │                 -> NPU 的 LCWT 头 -> 20 类 logits
+#                 ├─ PL dma2     ：均衡后 IQ（int16 Q10，每帧 1024 B）
+#                 │                 -> PerSampleNorm -> XF 五折 × 平移 TTA（NPU）
+#                 └─ PL dma3     ：专家特征 193 维（int32 Q12，每帧 1024 B）
+#   三路概率在 log 空间融合（XF 0.6 / PL 0.2 / EX 0.2），top-k 打到控制台并回帧。
+#   专家那路：dma3 的 193 维特征 -> NPU 上的 MLP（imodel/expert/）。
+#   专家不可用的帧自动退回两路（pl_weight，默认 1/3）。
+
+sys:
+  # **本板 = 30TAI = ZG330。** 100TAI 才叫 buyi（布衣）。
+  # 设备名必须和 bitstream 配对：zg330 -> axi://zg330aiu。
+  # 在 ZG 的 bitstream 上用 buyi 打开设备，会把 PS 的 AXI 总线锁死（实测）。
+  run_backend: zg330
+
+  # 仅 PC 端走 socket:// 连板子时用；板端走 axi:// 会忽略它。
+  ip: 192.168.1.100
+
+  npu_addr: "0x40000000"
+  dma_addr: "0x80000000"
+
+  # 只在 buyi(100TAI) 分支生效；ZG330 分支代码里 #if 掉了。
+  mmuMode: true
+
+  # true = 每折 Session 打开逐算子计时，第一帧后打一行 [XF-P]
+  # （wall/copy/hw/other 合计）。**只做诊断用，会增加每次前向的开销**。
+  profile: false
+
+# 启动时的运行模式。上位机可以在同一条 TCP 连接上发控制帧随时切换
+# （tools/send_cmd.py），这里的值只是开机默认。
+#   fast     快速：只跑 transformer（XF），PL 只取 dma2 的均衡 IQ，不跑 LCWT 头/TTA/专家
+#   fusion   聚合（默认）：XF + PL + 专家三路融合，回 class top-k
+#   analysis 信号分析：三路都跑，回帧附带 原始 IQ/均衡 IQ/FFT 幅度/193 维专家特征，
+#            预测不计入准确率
+runtime:
+  mode: fusion
+
+# XF（均衡 Transformer）单折，吃 dma2 的均衡输出。
+xf:
+  enable: true
+  required: true        # 装载失败就退出（部署时保持 true）
+  names: ./names/class_names_20.txt
+  seg_len: 256          # 与图输入 [1,2,256] 对齐
+  num_classes: 20
+  # 圆周平移 TTA，与 Transformer_Train/scripts/collect_xf_folds_tta.py 的 SHIFTS 一致。
+  shifts: [-2, -1, 0, 1, 2]
+  # 读输出走 demo 的顺序：forward -> waitForReady -> reset(1) -> .to(Host)。
+  # reset(1) 已经解决「迟一拍」，所以双前向工作区关掉（开着只是白白 ×2 耗时）。
+  double_forward: false
+  # reset(1) 的时机（调在 cast<FPAIDevice>() 的句柄上，与 demo 一致）：
+  #   fold  = 每次前向后 reset（最贴 demo；25 次/帧）
+  #   frame = 25 次前向全做完后 reset 一次
+  #   off   = 不 reset（上一版，fold4 会出 NaN 的那条路）
+  # 现在用 frame 试延迟：fold 模式一帧 25 次复位，是没有依据的开销。
+  # ⚠ 纯配置项，不用重编。如果准确率掉 / 出现 NaN / 结果错一帧，改回 fold。
+  reset_mode: fold
+  # 单折 × 五平移必须全部成功才认这一帧的 XF 结果。
+  require_all: true
+
+  # **必须是 ZG330 的最终 `_ZG` 产物**（不是 quantized 阶段图）。
+  # 现用 **单折（fold2）的 batch=5 图**：输入 [5,2,256]（1 折 × 5 平移），
+  # 输出 [5,20]，一帧一次 forward。行序 shift 主序：row = shift。
+  # 图输入 batch=5，所以 shifts 必须保持 5 个。
+  # 换别的折只改下面两行（fold0..4）；单折 INT8 约 78.5~79.7%，
+  # 比五折 82.81% 低 ~3 点，融合结果也会跟着降。
+  # 输入口径：均衡 IQ / 1024 → 图外 per-sample norm → 图内 Cast int8。
+  fused_folds: 0
+  models:
+    - json: ./imodel/xf20/fold2_b5_ZG.json
+      raw:  ./imodel/xf20/fold2_b5_ZG.raw
+
+  # 回退 1：五张 batch=5 图（5 次/帧，每折一张）。数值与 fused 逐位一致。
+  # 用时把 fused_folds 改成 0，并解开下面这块。
+  # models:
+  #   - json: ./imodel/xf20/fold0_b5_ZG.json
+  #     raw:  ./imodel/xf20/fold0_b5_ZG.raw
+  #   - json: ./imodel/xf20/fold1_b5_ZG.json
+  #     raw:  ./imodel/xf20/fold1_b5_ZG.raw
+  #   - json: ./imodel/xf20/fold2_b5_ZG.json
+  #     raw:  ./imodel/xf20/fold2_b5_ZG.raw
+  #   - json: ./imodel/xf20/fold3_b5_ZG.json
+  #     raw:  ./imodel/xf20/fold3_b5_ZG.raw
+  #   - json: ./imodel/xf20/fold4_b5_ZG.json
+  #     raw:  ./imodel/xf20/fold4_b5_ZG.raw
+
+  # 回退 2：batch=1 图（25 次/帧）。三者数值逐位一致，只是慢。
+  # models:
+  #   - json: ./imodel/xf20/fold0_ZG.json
+  #     raw:  ./imodel/xf20/fold0_ZG.raw
+  #   - json: ./imodel/xf20/fold1_ZG.json
+  #     raw:  ./imodel/xf20/fold1_ZG.raw
+  #   - json: ./imodel/xf20/fold2_ZG.json
+  #     raw:  ./imodel/xf20/fold2_ZG.raw
+  #   - json: ./imodel/xf20/fold3_ZG.json
+  #     raw:  ./imodel/xf20/fold3_ZG.raw
+  #   - json: ./imodel/xf20/fold4_ZG.json
+  #     raw:  ./imodel/xf20/fold4_ZG.raw
+
+input:
+  mode: tcp             # tcp | file
+  bind: 0.0.0.0
+  port: 9527
+  # mode=file 时读这个帧流文件（由 tools/send_iq.py --dump-frames 生成）。
+  # 上板第一件事就用它跑通，绕开网络变量。
+  file: ./samples/frames.bin
+  topk: 5
+  print_every: 1        # 每 N 帧打一行；1 = 全打
+  # 无信号判定：载荷（原始未归一化）的 std 低于它就回 status=NoSignal。0 = 关闭。
+  # 阈值必须拿**真实空采数据**定，别拍脑袋。
+  signal_min_std: 0.0
+  skip_nosignal: false
+  idle_warn_ms: 0
+
+  # 逐帧评测导出（一次性对拍用）：非空时每帧写一段定长二进制记录 ——
+  # seq / label / 可用标志 + XF 概率 20 + PL 概率 20 + 专家特征 193。
+  # 文件头 16 B = "RFEV" + 版本 + ncls + nexp；每帧 16 + 4*(20+20+193) = 948 B。
+  # 用 tools/fuse_board_eval.py 读。**测延迟必须留空**。
+  eval_dump: ""
+
+# 决策融合：log p = (1-w)·log p_xf + w·log p_pl
+# 正式口径 w=1/3（XF 权重是 PL 的两倍），与 scripts/fuse_xf_pl.py --w 0.3333 一致。
+# 在 test 上（XF 五折×平移 + PL 单次前向）w=0.25~0.35 都在 0.829~0.832，不是尖峰。
+#
+# 三路（专家可用时优先走这条）：
+#   log p = w3_xf·log p_xf + w3_pl·log p_pl + w3_ex·log p_ex
+# 权重与 Transformer_Train/scripts/fuse_int8_3way_20cls.py 一致（0.6/0.2/0.2 = XF 单折
+# INT8 + PL + EX 的离线最优口径）。权重和不必为 1，argmax 只认比例。
+fusion:
+  pl_weight: 0.3333333
+  w3_xf: 0.6
+  w3_pl: 0.2
+  w3_ex: 0.2
+
+# PL 侧 LCWT 主干（dma1）、均衡输出（dma2）与专家特征（dma3）。
+pl:
+  enable: true
+  # true = PL 打不开就退出。**XF 依赖 dma2 的均衡输出，所以部署时必须是 true。**
+  required: true
+  # PL 单帧失败时是否退回 XF 单独出结果。false = 该帧回 status=Error。
+  fallback_to_xf: true
+
+  udmabuf: udmabuf0
+  dma0_base: "0x80400000"    # MM2S：灌 IQ 进 HLS
+  dma1_base: "0x80410000"    # S2MM：收 token 流（1216 B/帧 = 304 拍 × 4 B）
+  dma2_base: "0x80420000"    # S2MM：收均衡输出（1024 B/帧）；0 = 不用
+  dma3_base: "0x80430000"    # S2MM：收专家特征（1024 B/帧）；0 = 不用
+
+  # XF 的输入来自 dma2，部署口径必须 true。
+  eq_enable: true
+  # dma3 收专家特征。PL 的专家模块输出口不排空会反压，正常保持 true。
+  expert_enable: true
+
+  # 一次 xfer / 一次 eq 收帧的单帧等待上限。PL 一轮 8 帧的 xfer 只要 ~0.8 ms，
+  # 100 ms 已经是 125 倍余量。
+  # 原来 5000 -> 1000 -> 100：板端偶尔出现一次「描述符 STATUS=0xffffffff」
+  # 的取指错（实测 32 帧撞一次），错了要等满上限才判失败再重试，整帧白等。
+  # 1000 时那一帧 1.03 s，均值从 9.9 ms 被拉到 42 ms；100 ms 时只多 ~0.1 s。
+  timeout_ms: 100
+  total_timeout_ms: 15000
+
+  # PL 已裁掉 MLP/head：dma1 给的是 16×38 的 Q4 token，logits 由 NPU 头算。
+  # 图：Transformer_Train/icraft_work 编译的 lcwt_head_20cls_lnps_b5_ZG.*
+  # 输入 [5,608] float32（**LN 之后**的 token），输出 [5,20] 的 head(mean δ)。
+  # 原图 fp16_ZG 的 LayerNorm 被编成 host 算子 Sqrt/Div，板端 aarch64 的
+  # HostBackend 没注册这两个，apply() 必挂；所以 LN 与常数项 W·mean(z) 都搬到
+  # PS 侧，图里只剩 21 个 @zhuget(330) 硬算子。
+  # batch=5 是为 TTA 准备的：5 个平移各占一行，一次前向算完（实测与 [1,608]
+  # 图逐位相同）。同平移的复制帧在 PS 侧按 token 内容去重，不再重复过图。
+  head_json: ./imodel/lcwt_head/lcwt_head_20cls_lnps_b5_ZG.json
+  head_raw:  ./imodel/lcwt_head/lcwt_head_20cls_lnps_b5_ZG.raw
+  head_aux:  ./imodel/lcwt_head/lcwt_head_20cls_aux.bin
+  # 必须和图的输入 batch 一致，LcwtHead::open() 会核。
+  head_batch: 5
+
+  # 专家 MLP（dma3 的 193 维特征 -> 20 类 logits），NPU fp16 图。
+  # 口径与 Transformer_Train/deploy_artifacts/expert_mlp/README.md 一致：
+  #   q12/4096 -> 按 kExpertSrcIdx 取 165 维 -> z=(f-mu)/sd -> clip(±C)/C -> 补零 256
+  # 归一化常数和取维表都在 src/expert_norm_fp16.h 里（与 fp16 图配套，C=16）。
+  # expert_clamp 改成 2 时会和 int8 图配套，但常数头仍是这一份 —— 换图必须一起换。
+  # 模型 = PL 的 193 维去掉 const 组（幅度/相位直方图，138..165）后的 165 维。
+  # 文件名带 165，防止误用旧图：旧图输入也是 [1,256]，换错不会报错。
+  expert_json: ./imodel/expert/expert_mlp_165_fp16_ZG.json
+  expert_raw:  ./imodel/expert/expert_mlp_165_fp16_ZG.raw
+  expert_clamp: 16.0
+
+  # token 反量化除数：PL 的 TOK_OUT_SHIFT=4 → Q4 → 16。
+  # 改成 3 (Q5) → 32；改成 2 (Q6) → 64。**必须和 PL 侧一致**，否则精度静默掉。
+  token_divisor: 16.0
+
+  # PL 的圆周平移 TTA（与 scripts/collect_pl_logits.py --tta 一致）。
+  # 每帧两轮 xfer：
+  #   第一轮 = 8 份 shift 0（eq、专家特征和 shift 0 的 token 都从这里取）
+  #   第二轮 = 其余平移各占一槽，装一次 xfer（这一轮的 eq/专家收走即扔）
+  # 每个槽的 304 拍解包成 608 个 float 后按 token 内容去重，唯一行批量过 NPU 头
+  # （head_batch=5 一次最多 5 行）；同平移的多槽结果（逐字节相同）再取逐类中位数，
+  # 和其余平移平均。别合成一轮：混平移后 4 个 shift 0 槽的 eq 只对上
+  # 3 个，eq 自检会挂、XF 不出结果。
+  # 最多 8 个；只看延迟、不在乎最后 1~2 个点时改成 [0]。
+  tta_shifts: [-2, -1, 0, 1, 2]
+
+  # true = 第二轮的 xfer + NPU 头丢给工作线程，和 XF 并行跑。
+  # 但两路都要用 NPU，forward 期间由 npu_mutex() 串行 —— 并行只能藏在
+  # XF 的 host 侧空隙里，收益比 LCWT 头在 PL 上时小。对不上就关掉排查。
+  # cross_frame=true 时这项只影响非流水的回退路径。
+  overlap_xf: true
+
+  # true = 跨帧流水：整轮 PL（A+B）丢给工作线程，和**上一帧**的 XF 并行。
+  #   [PL(N+1)] ∥ [──── XF(N) ────] → 出 N 的结果
+  # 稳态每帧周期 = max(PL ~3.7 ms, XF ~6.8 ms)，PL 整个藏住（9.1 -> ~7.0 ms）。
+  # 代价：单个结果的「收到→出结果」多一帧流水延迟，日志里 ms=帧周期、lat=延迟。
+  # 只在 XF 也打开时生效；false = 退回上面那条 overlap_xf 老路径。
+  cross_frame: true
+
+  # 第一轮 8 份 shift 0 里至少几帧与逐类中位数逐位一致；
+  # 正常应等于 8。DMA 漏写出现过 0xA5 空洞，留 4 的余量。
+  # 第二轮的非零平移只按「过半」查（实测混平移时偶有单槽不同）。
+  min_agree_frames: 4
+  min_eq_agree_frames: 4
+
+  # LCWT 权重 hash，仅用于启动日志对账。不知道就留空。
+  # weights_hash: "..."
+
+  # 诊断导出（一次性对拍用）：非空时**每一帧**的 shift=0 那一轮把实际发给 PL 的
+  # 8192 B 输入、9728 B dout、8192 B eq、8192 B 专家特征写成
+  # <前缀>_fNN.in/.out/.eq/.exp，并逐帧逐平移打 [PLDBG] 的 20 个 logits（float，
+  # NPU 头输出）。
+  # 和 Python 参考逐位比，定位「输入 / PL 硬件 / token 解包 / NPU 头」哪一段错。
+  # 路径是 CWD 相对，父目录必须已存在（这里就是当前目录）。不需要时留空。
+  # ⚠ 测延迟必须留空：每帧多写 35 KB 文件 + 5 行日志。
+  # [PLHASH] 的 in/out/eq/exp 指纹不受这里控制，留空也照样打。
+  diag_dump: ""

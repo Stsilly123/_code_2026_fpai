@@ -1,0 +1,6 @@
+verilog xil_defaultlib  \
+"d:/FPGA_PR/RFFI_FPAI/SRC/ip/windex_buf_2b_16w/windex_buf_2b_16w_sim_netlist.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

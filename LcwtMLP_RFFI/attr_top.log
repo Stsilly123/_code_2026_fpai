@@ -1,0 +1,75 @@
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source attr_top.tcl -notrace
+Command: open_checkpoint D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/ooc_rpt/post_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 266.504 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2787 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1286.504 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2018.3 (64-bit) build 2405991
+open_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 1286.504 ; gain = 1020.000
+TOP-LEVEL LUT cells = 8156
+  51  neg_mul_reg_31282[51]
+  36  tmp_222_reg_31310[0]
+  33  p_0620_0_i_i_reg_10782[31]
+  32  neg_ti1_reg_31277[3]
+  27  tmp_172_reg_32342[0]
+  22  ap_CS_fsm[0]
+  21  tmp_268_reg_31450[15]
+  20  tmp_193_reg_32417[15]
+  20  ap_CS_fsm[101]
+  20  icmp1_reg_32336[0]
+  19  logits_19_V_reg_34917[15]
+  19  logits_14_V_reg_34870[15]
+  19  logits_5_V_reg_34825[15]
+  19  logits_4_V_reg_34820[15]
+  19  logits_17_V_reg_34885[15]
+  19  logits_16_V_reg_34880[15]
+  19  logits_7_V_reg_34835[15]
+  19  logits_6_V_reg_34830[15]
+  19  logits_11_V_reg_34855[15]
+  19  logits_18_V_reg_34890[15]
+  19  logits_9_V_reg_34845[15]
+  19  logits_10_V_reg_34850[15]
+  19  logits_1_V_reg_34805[15]
+  19  logits_8_V_reg_34840[15]
+  19  logits_0_V_reg_34800[15]
+  19  logits_13_V_reg_34865[15]
+  19  logits_12_V_reg_34860[15]
+  19  logits_3_V_reg_34815[15]
+  19  logits_2_V_reg_34810[15]
+  19  logits_15_V_reg_34875[15]
+  18  icmp54_reg_31445[0]
+  18  icmp2_reg_32407[0]
+  18  dout_V_data_V_1_payload_A[31]
+  17  icmp9_reg_34730[0]
+  17  icmp17_reg_34770[0]
+  17  icmp4_reg_34705[0]
+  17  icmp22_reg_34795[0]
+  17  icmp12_reg_34745[0]
+  17  icmp3_reg_34700[0]
+  17  icmp21_reg_34790[0]
+  17  icmp8_reg_34725[0]
+  17  icmp11_reg_34740[0]
+  17  icmp16_reg_34765[0]
+  17  icmp7_reg_34720[0]
+  17  icmp15_reg_34760[0]
+  17  icmp20_reg_34785[0]
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 17:14:59 2026...

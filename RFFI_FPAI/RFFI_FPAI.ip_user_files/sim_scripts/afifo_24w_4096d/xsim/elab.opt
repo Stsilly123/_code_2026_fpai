@@ -1,0 +1,1 @@
+--relax --debug typical --mt auto -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot afifo_24w_4096d xil_defaultlib.afifo_24w_4096d xil_defaultlib.glbl -log elaborate.log

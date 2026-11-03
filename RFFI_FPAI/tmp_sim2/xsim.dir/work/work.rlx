@@ -1,0 +1,20 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_cfo.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_cmul16.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,ef_cfo,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_cmul16.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_cmul24.v,,ef_cmul16,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_cmul24.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_cumulant.v,,ef_cmul24,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_cumulant.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_dwt_db4.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,dsp_acc48;ef_cumulant,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_dwt_db4.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_dwt_feat.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,ef_dwt_db4,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_dwt_feat.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_fft_log.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,ef_dwt_feat,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_fft_log.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_hist.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,ef_fft_log,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_hist.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_log2lut.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,ef_hist,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_log2lut.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_power.v,,ef_log2lut,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_power.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_sqrt.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,ef_power,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_sqrt.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_zn.v,,ef_sqrt,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/ef_zn.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_feat_rffi.v,,ef_zn,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_feat_rffi.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/tb_expert_feat.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,expert_feat_rffi,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/expert_rom.vh,1792813586,verilog,,,,,,,,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/tb_expert_feat.v,1792813586,systemVerilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/tb_expert_feat_stress.v,,tb_expert_feat,,,.,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim2/tb_expert_feat_stress.v,1792813586,systemVerilog,,,,tb_expert_feat_stress,,,.,,,,,

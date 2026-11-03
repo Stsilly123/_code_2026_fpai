@@ -1,0 +1,21 @@
+{
+    // TerosHDL (VS Code extension) compiles every .v HLS writes with ModelSim
+    // vlog.  During export HLS then deletes those directories in the same Tcl
+    // process; the held handles turn that into "permission denied" and abort
+    // the script before export_design.  Exclude build products from the
+    // watcher; keep SRC/ watched.
+    "files.watcherExclude": {
+        "**/proj_export/**": true,
+        "**/proj_csynth/**": true,
+        "**/proj_csim/**": true,
+        "**/solution1/**": true,
+        "**/.autopilot/**": true
+    },
+    "search.exclude": {
+        "**/proj_export/**": true,
+        "**/proj_csynth/**": true,
+        "**/proj_csim/**": true,
+        "**/solution1/**": true,
+        "**/.autopilot/**": true
+    }
+}

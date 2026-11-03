@@ -1,0 +1,70 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sat Oct 24 22:04:05 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 2 -file D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/util_hier.rpt
+| Design       : expert_feat_rffi
+| Device       : 7z030ffg676-2
+| Design State : Synthesized
+----------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++----------------------+----------------+------------+------------+---------+------+-------+--------+--------+--------------+
+|       Instance       |     Module     | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP48 Blocks |
++----------------------+----------------+------------+------------+---------+------+-------+--------+--------+--------------+
+| expert_feat_rffi     |          (top) |      12997 |      12214 |     428 |  355 | 12417 |      3 |      5 |           77 |
+|   (expert_feat_rffi) |          (top) |        888 |        752 |     136 |    0 |   718 |      2 |      2 |            4 |
+|   u_atan             |       cordic_0 |        898 |        894 |       0 |    4 |   960 |      0 |      0 |            0 |
+|     (u_atan)         |       cordic_0 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            0 |
+|     U0               | cordic_v6_0_14 |        898 |        894 |       0 |    4 |   960 |      0 |      0 |            0 |
+|   u_cfo              |         ef_cfo |       2419 |       2354 |       0 |   65 |  2997 |      0 |      0 |           18 |
+|     (u_cfo)          |         ef_cfo |       2240 |       2175 |       0 |   65 |  2997 |      0 |      0 |            6 |
+|     u_acc_blki0      |   dsp_acc48_28 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_blki1      |   dsp_acc48_29 |         71 |         71 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_blki2      |   dsp_acc48_30 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_blki3      |   dsp_acc48_31 |         59 |         59 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_blkr0      |   dsp_acc48_32 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_blkr1      |   dsp_acc48_33 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_blkr2      |   dsp_acc48_34 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_blkr3      |   dsp_acc48_35 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_r1i        |   dsp_acc48_36 |         36 |         36 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_r1r        |   dsp_acc48_37 |          5 |          5 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_r20i       |   dsp_acc48_38 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_r20r       |   dsp_acc48_39 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   u_cum              |    ef_cumulant |       4164 |       4105 |       0 |   59 |  3658 |      0 |      0 |           19 |
+|     (u_cum)          |    ef_cumulant |       4061 |       4002 |       0 |   59 |  3658 |      0 |      0 |            8 |
+|     u_acc_sm2        |      dsp_acc48 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sm2zi      |   dsp_acc48_18 |          2 |          2 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sm2zr      |   dsp_acc48_19 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sm4        |   dsp_acc48_20 |         46 |         46 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sm6        |   dsp_acc48_21 |         44 |         44 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sz2i       |   dsp_acc48_22 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sz2r       |   dsp_acc48_23 |          4 |          4 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sz4i       |   dsp_acc48_24 |          3 |          3 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sz4r       |   dsp_acc48_25 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sz6i       |   dsp_acc48_26 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     u_acc_sz6r       |   dsp_acc48_27 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   u_dwt              |     ef_dwt_db4 |       1522 |       1330 |     192 |    0 |   778 |      0 |      0 |            8 |
+|   u_dwtf             |    ef_dwt_feat |        144 |        144 |       0 |    0 |   210 |      0 |      0 |            5 |
+|   u_fft              |     ef_fft_log |        892 |        609 |      84 |  199 |  1432 |      0 |      3 |           10 |
+|     (u_fft)          |     ef_fft_log |        394 |        310 |      84 |    0 |   255 |      0 |      0 |            6 |
+|     u_fft            |       xfft_256 |        498 |        299 |       0 |  199 |  1177 |      0 |      3 |            4 |
+|   u_hist             |        ef_hist |        837 |        821 |      16 |    0 |   581 |      0 |      0 |            6 |
+|   u_log              |     ef_log2lut |        207 |        206 |       0 |    1 |   132 |      1 |      0 |            1 |
+|     (u_log)          |     ef_log2lut |        207 |        206 |       0 |    1 |   132 |      0 |      0 |            1 |
+|     u_rom            |   log2_lut_rom |          0 |          0 |       0 |    0 |     0 |      1 |      0 |            0 |
+|   u_pow              |       ef_power |        262 |        262 |       0 |    0 |   240 |      0 |      0 |            3 |
+|   u_sqrt             |        ef_sqrt |        535 |        508 |       0 |   27 |   508 |      0 |      0 |            0 |
+|   u_zn               |          ef_zn |        229 |        229 |       0 |    0 |   203 |      0 |      0 |            3 |
++----------------------+----------------+------------+------------+---------+------+-------+--------+--------+--------------+
+
+

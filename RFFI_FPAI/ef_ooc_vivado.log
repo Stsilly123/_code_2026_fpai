@@ -1,0 +1,1985 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Oct 22 15:12:28 2026
+# Process ID: 16188
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI
+# Command line: vivado.exe -mode batch -nojournal -log ef_ooc_vivado.log -source SRC/pl_ai/tools/ooc_expert_synth.tcl
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc_vivado.log
+# Journal file: 
+#-----------------------------------------------------------
+source SRC/pl_ai/tools/ooc_expert_synth.tcl
+# set script_dir [file normalize [file dirname [info script]]]
+# set root       [file normalize [file join $script_dir .. .. ..]]
+# set src        [file join $root SRC pl_ai]
+# set exdir      [file join $src expert]
+# set ipdir      [file join $root RFFI_FPAI.srcs sources_1 ip]
+# set outdir     [file join $root ef_ooc]
+# file mkdir $outdir
+# set part xc7z030ffg676-2
+# create_project -in_memory -part $part
+# set_property include_dirs [list $exdir] [get_filesets sources_1]
+# add_files -norecurse [glob [file join $exdir *.v]]
+# add_files -norecurse [file join $exdir cordic_vl.vhd]
+# add_files -norecurse [file join $ipdir xfft_256 xfft_256.xci]
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.3/data/ip'.
+# add_files -norecurse [file join $ipdir cordic_0 cordic_0.xci]
+# add_files -norecurse [file join $ipdir log2_lut_rom log2_lut_rom.xci]
+# set_property top expert_feat_rffi [current_fileset]
+# set xdc [file join $outdir ooc_expert.xdc]
+# set fh [open $xdc w]
+# puts $fh "create_clock -period 5.000 -name sclk \[get_ports clk\]"
+# puts $fh "set_input_delay  -clock sclk 0.500 \[remove_from_collection \[all_inputs\] \[get_ports clk\]\]"
+# puts $fh "set_output_delay -clock sclk 0.500 \[all_outputs\]"
+# close $fh
+# add_files -fileset constrs_1 -norecurse $xdc
+# synth_design -top expert_feat_rffi -mode out_of_context -directive Default
+Command: synth_design -top expert_feat_rffi -mode out_of_context -directive Default
+Starting synth_design
+Using part: xc7z030ffg676-2
+WARNING: [Vivado_Tcl 4-393] The 'Synthesis' target of the following IPs are stale, please generate the output products using the generate_target or synth_ip command before running synth_design.
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/log2_lut_rom/log2_lut_rom.xci
+
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z030'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z030'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 28576 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 399.852 ; gain = 106.988
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'expert_feat_rffi' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:29]
+	Parameter DB4_LO0 bound to: 16'sb1111111101010010 
+	Parameter DB4_LO1 bound to: 16'sb0000001000011011 
+	Parameter DB4_LO2 bound to: 16'sb0000000111111001 
+	Parameter DB4_LO3 bound to: 16'sb1111010000001000 
+	Parameter DB4_LO4 bound to: 16'sb1111111000110110 
+	Parameter DB4_LO5 bound to: 16'sb0010100001100000 
+	Parameter DB4_LO6 bound to: 16'sb0010110111000000 
+	Parameter DB4_LO7 bound to: 16'sb0000111010111111 
+	Parameter DB4_HI0 bound to: 16'sb1111000101000001 
+	Parameter DB4_HI1 bound to: 16'sb0010110111000000 
+	Parameter DB4_HI2 bound to: 16'sb1101011110100000 
+	Parameter DB4_HI3 bound to: 16'sb1111111000110110 
+	Parameter DB4_HI4 bound to: 16'sb0000101111111000 
+	Parameter DB4_HI5 bound to: 16'sb0000000111111001 
+	Parameter DB4_HI6 bound to: 16'sb1111110111100101 
+	Parameter DB4_HI7 bound to: 16'sb1111111101010010 
+	Parameter HIST_AMP_E0 bound to: 16'sb0000001100110011 
+	Parameter HIST_AMP_E1 bound to: 16'sb0000010111010100 
+	Parameter HIST_AMP_E2 bound to: 16'sb0000100001110101 
+	Parameter HIST_AMP_E3 bound to: 16'sb0000101100010110 
+	Parameter HIST_AMP_E4 bound to: 16'sb0000110110110111 
+	Parameter HIST_AMP_E5 bound to: 16'sb0001000001011000 
+	Parameter HIST_AMP_E6 bound to: 16'sb0001001011111001 
+	Parameter HIST_AMP_E7 bound to: 16'sb0001010110011010 
+	Parameter HIST_AMP_E8 bound to: 16'sb0001100000111011 
+	Parameter HIST_AMP_E9 bound to: 16'sb0001101011011011 
+	Parameter HIST_AMP_E10 bound to: 16'sb0001110101111100 
+	Parameter HIST_AMP_E11 bound to: 16'sb0010000000011101 
+	Parameter HIST_AMP_E12 bound to: 16'sb0010001010111110 
+	Parameter HIST_AMP_E13 bound to: 16'sb0010010101011111 
+	Parameter HIST_AMP_E14 bound to: 16'sb0010100000000000 
+	Parameter HIST_PH_E0 bound to: 16'sb1101011000011101 
+	Parameter HIST_PH_E1 bound to: 16'sb1101111001111101 
+	Parameter HIST_PH_E2 bound to: 16'sb1110011011011110 
+	Parameter HIST_PH_E3 bound to: 16'sb1110111100111111 
+	Parameter HIST_PH_E4 bound to: 16'sb1111011110011111 
+	Parameter HIST_PH_E5 bound to: 16'sb0000000000000000 
+	Parameter HIST_PH_E6 bound to: 16'sb0000100001100001 
+	Parameter HIST_PH_E7 bound to: 16'sb0001000011000001 
+	Parameter HIST_PH_E8 bound to: 16'sb0001100100100010 
+	Parameter HIST_PH_E9 bound to: 16'sb0010000110000011 
+	Parameter HIST_PH_E10 bound to: 16'sb0010100111100011 
+	Parameter LN2_Q15 bound to: 32'sb00000000000000000101100010111001 
+	Parameter LN2_Q16 bound to: 32'sb00000000000000001011000101110010 
+	Parameter LOG10LN2_Q12 bound to: 32'sb00000000000000000110111011100111 
+	Parameter LOG20LN2_Q12 bound to: 32'sb00000000000000001101110111001111 
+	Parameter LOG_EPS_WAVELET bound to: 32'sb11111111111111100100010111100111 
+	Parameter LOG_EPS_FFT bound to: 32'sb11111111111111110010001011110100 
+	Parameter PI_Q12 bound to: 32'sb00000000000000000011001001000100 
+	Parameter RCP_236 bound to: 32'sb00000000000000000000000100010110 
+	Parameter RCP_255 bound to: 32'sb00000000000000000000000100000001 
+	Parameter RCP_44 bound to: 32'sb00000000000000000000010111010001 
+	Parameter RCP_DWT_22 bound to: 16'sb0000101110100011 
+	Parameter RCP_DWT_38 bound to: 16'sb0000011010111101 
+	Parameter RCP_DWT_69 bound to: 16'sb0000001110110110 
+	Parameter RCP_DWT_131 bound to: 16'sb0000000111110100 
+	Parameter FRAME_MAGIC bound to: 1163413041 - type: integer 
+	Parameter S_IDLE bound to: 5'b00000 
+	Parameter S_ZN bound to: 5'b00001 
+	Parameter S_LNRMS bound to: 5'b00010 
+	Parameter S_FFT bound to: 5'b00011 
+	Parameter S_DWT_I bound to: 5'b00100 
+	Parameter S_DWTF_I bound to: 5'b00101 
+	Parameter S_DWT_Q bound to: 5'b00110 
+	Parameter S_DWTF_Q bound to: 5'b00111 
+	Parameter S_HIST bound to: 5'b01000 
+	Parameter S_CUM bound to: 5'b01001 
+	Parameter S_CFO bound to: 5'b01010 
+	Parameter S_POW bound to: 5'b01011 
+	Parameter S_PACK bound to: 5'b01100 
+INFO: [Synth 8-6157] synthesizing module 'ef_zn' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_zn.v:13]
+	Parameter S_IDLE bound to: 4'b0000 
+	Parameter S_SQ bound to: 4'b0001 
+	Parameter S_SWAIT bound to: 4'b0010 
+	Parameter S_DIV bound to: 4'b0011 
+	Parameter S_RUN bound to: 4'b0100 
+	Parameter S_DONE bound to: 4'b0101 
+WARNING: [Synth 8-6014] Unused sequential element xs_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_zn.v:86]
+WARNING: [Synth 8-6014] Unused sequential element znq_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_zn.v:86]
+WARNING: [Synth 8-6014] Unused sequential element inv_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_zn.v:87]
+INFO: [Synth 8-6155] done synthesizing module 'ef_zn' (1#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_zn.v:13]
+INFO: [Synth 8-6157] synthesizing module 'ef_fft_log' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_fft_log.v:13]
+	Parameter DB4_LO0 bound to: 16'sb1111111101010010 
+	Parameter DB4_LO1 bound to: 16'sb0000001000011011 
+	Parameter DB4_LO2 bound to: 16'sb0000000111111001 
+	Parameter DB4_LO3 bound to: 16'sb1111010000001000 
+	Parameter DB4_LO4 bound to: 16'sb1111111000110110 
+	Parameter DB4_LO5 bound to: 16'sb0010100001100000 
+	Parameter DB4_LO6 bound to: 16'sb0010110111000000 
+	Parameter DB4_LO7 bound to: 16'sb0000111010111111 
+	Parameter DB4_HI0 bound to: 16'sb1111000101000001 
+	Parameter DB4_HI1 bound to: 16'sb0010110111000000 
+	Parameter DB4_HI2 bound to: 16'sb1101011110100000 
+	Parameter DB4_HI3 bound to: 16'sb1111111000110110 
+	Parameter DB4_HI4 bound to: 16'sb0000101111111000 
+	Parameter DB4_HI5 bound to: 16'sb0000000111111001 
+	Parameter DB4_HI6 bound to: 16'sb1111110111100101 
+	Parameter DB4_HI7 bound to: 16'sb1111111101010010 
+	Parameter HIST_AMP_E0 bound to: 16'sb0000001100110011 
+	Parameter HIST_AMP_E1 bound to: 16'sb0000010111010100 
+	Parameter HIST_AMP_E2 bound to: 16'sb0000100001110101 
+	Parameter HIST_AMP_E3 bound to: 16'sb0000101100010110 
+	Parameter HIST_AMP_E4 bound to: 16'sb0000110110110111 
+	Parameter HIST_AMP_E5 bound to: 16'sb0001000001011000 
+	Parameter HIST_AMP_E6 bound to: 16'sb0001001011111001 
+	Parameter HIST_AMP_E7 bound to: 16'sb0001010110011010 
+	Parameter HIST_AMP_E8 bound to: 16'sb0001100000111011 
+	Parameter HIST_AMP_E9 bound to: 16'sb0001101011011011 
+	Parameter HIST_AMP_E10 bound to: 16'sb0001110101111100 
+	Parameter HIST_AMP_E11 bound to: 16'sb0010000000011101 
+	Parameter HIST_AMP_E12 bound to: 16'sb0010001010111110 
+	Parameter HIST_AMP_E13 bound to: 16'sb0010010101011111 
+	Parameter HIST_AMP_E14 bound to: 16'sb0010100000000000 
+	Parameter HIST_PH_E0 bound to: 16'sb1101011000011101 
+	Parameter HIST_PH_E1 bound to: 16'sb1101111001111101 
+	Parameter HIST_PH_E2 bound to: 16'sb1110011011011110 
+	Parameter HIST_PH_E3 bound to: 16'sb1110111100111111 
+	Parameter HIST_PH_E4 bound to: 16'sb1111011110011111 
+	Parameter HIST_PH_E5 bound to: 16'sb0000000000000000 
+	Parameter HIST_PH_E6 bound to: 16'sb0000100001100001 
+	Parameter HIST_PH_E7 bound to: 16'sb0001000011000001 
+	Parameter HIST_PH_E8 bound to: 16'sb0001100100100010 
+	Parameter HIST_PH_E9 bound to: 16'sb0010000110000011 
+	Parameter HIST_PH_E10 bound to: 16'sb0010100111100011 
+	Parameter LN2_Q15 bound to: 32'sb00000000000000000101100010111001 
+	Parameter LN2_Q16 bound to: 32'sb00000000000000001011000101110010 
+	Parameter LOG10LN2_Q12 bound to: 32'sb00000000000000000110111011100111 
+	Parameter LOG20LN2_Q12 bound to: 32'sb00000000000000001101110111001111 
+	Parameter LOG_EPS_WAVELET bound to: 32'sb11111111111111100100010111100111 
+	Parameter LOG_EPS_FFT bound to: 32'sb11111111111111110010001011110100 
+	Parameter PI_Q12 bound to: 32'sb00000000000000000011001001000100 
+	Parameter RCP_236 bound to: 32'sb00000000000000000000000100010110 
+	Parameter RCP_255 bound to: 32'sb00000000000000000000000100000001 
+	Parameter RCP_44 bound to: 32'sb00000000000000000000010111010001 
+	Parameter RCP_DWT_22 bound to: 16'sb0000101110100011 
+	Parameter RCP_DWT_38 bound to: 16'sb0000011010111101 
+	Parameter RCP_DWT_69 bound to: 16'sb0000001110110110 
+	Parameter RCP_DWT_131 bound to: 16'sb0000000111110100 
+	Parameter S_IDLE bound to: 4'b0000 
+	Parameter S_CFG bound to: 4'b0001 
+	Parameter S_LOAD bound to: 4'b0010 
+	Parameter S_OUT bound to: 4'b0011 
+	Parameter S_LREQ bound to: 4'b0100 
+	Parameter S_LWAIT bound to: 4'b0101 
+	Parameter S_MEAN bound to: 4'b0110 
+	Parameter S_EMIT bound to: 4'b0111 
+INFO: [Synth 8-638] synthesizing module 'xfft_256' [d:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/xfft_256/synth/xfft_256.vhd:83]
+	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
+	Parameter C_S_AXIS_CONFIG_TDATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_S_AXIS_DATA_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_M_AXIS_DATA_TDATA_WIDTH bound to: 64 - type: integer 
+	Parameter C_M_AXIS_DATA_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_M_AXIS_STATUS_TDATA_WIDTH bound to: 1 - type: integer 
+	Parameter C_THROTTLE_SCHEME bound to: 1 - type: integer 
+	Parameter C_CHANNELS bound to: 1 - type: integer 
+	Parameter C_NFFT_MAX bound to: 8 - type: integer 
+	Parameter C_ARCH bound to: 4 - type: integer 
+	Parameter C_HAS_NFFT bound to: 0 - type: integer 
+	Parameter C_USE_FLT_PT bound to: 0 - type: integer 
+	Parameter C_INPUT_WIDTH bound to: 16 - type: integer 
+	Parameter C_TWIDDLE_WIDTH bound to: 16 - type: integer 
+	Parameter C_OUTPUT_WIDTH bound to: 25 - type: integer 
+	Parameter C_HAS_SCALING bound to: 0 - type: integer 
+	Parameter C_HAS_BFP bound to: 0 - type: integer 
+	Parameter C_HAS_ROUNDING bound to: 1 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_HAS_ARESETN bound to: 1 - type: integer 
+	Parameter C_HAS_OVFLO bound to: 0 - type: integer 
+	Parameter C_HAS_NATURAL_INPUT bound to: 1 - type: integer 
+	Parameter C_HAS_NATURAL_OUTPUT bound to: 0 - type: integer 
+	Parameter C_HAS_CYCLIC_PREFIX bound to: 0 - type: integer 
+	Parameter C_HAS_XK_INDEX bound to: 0 - type: integer 
+	Parameter C_DATA_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_TWIDDLE_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_BRAM_STAGES bound to: 0 - type: integer 
+	Parameter C_REORDER_MEM_TYPE bound to: 1 - type: integer 
+	Parameter C_USE_HYBRID_RAM bound to: 0 - type: integer 
+	Parameter C_OPTIMIZE_GOAL bound to: 0 - type: integer 
+	Parameter C_CMPY_TYPE bound to: 1 - type: integer 
+	Parameter C_BFLY_TYPE bound to: 1 - type: integer 
+INFO: [Synth 8-3491] module 'xfft_v9_1_1' declared at 'd:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/xfft_256/hdl/xfft_v9_1_vh_rfs.vhd:102725' bound to instance 'U0' of component 'xfft_v9_1_1' [d:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/xfft_256/synth/xfft_256.vhd:190]
+WARNING: [Synth 8-5858] RAM adel30_reg from Abstract Data Type (record/struct) for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5858] RAM bdel_reg from Abstract Data Type (record/struct) for this pattern/configuration is not supported. This will most likely be implemented in registers
+WARNING: [Synth 8-5858] RAM sub_reg from Abstract Data Type (record/struct) for this pattern/configuration is not supported. This will most likely be implemented in registers
+INFO: [Synth 8-256] done synthesizing module 'xfft_256' (47#1) [d:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/xfft_256/synth/xfft_256.vhd:83]
+WARNING: [Synth 8-6014] Unused sequential element cfg_done_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_fft_log.v:132]
+INFO: [Synth 8-6155] done synthesizing module 'ef_fft_log' (48#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_fft_log.v:13]
+INFO: [Synth 8-6157] synthesizing module 'ef_dwt_db4' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_db4.v:13]
+	Parameter DB4_LO0 bound to: 16'sb1111111101010010 
+	Parameter DB4_LO1 bound to: 16'sb0000001000011011 
+	Parameter DB4_LO2 bound to: 16'sb0000000111111001 
+	Parameter DB4_LO3 bound to: 16'sb1111010000001000 
+	Parameter DB4_LO4 bound to: 16'sb1111111000110110 
+	Parameter DB4_LO5 bound to: 16'sb0010100001100000 
+	Parameter DB4_LO6 bound to: 16'sb0010110111000000 
+	Parameter DB4_LO7 bound to: 16'sb0000111010111111 
+	Parameter DB4_HI0 bound to: 16'sb1111000101000001 
+	Parameter DB4_HI1 bound to: 16'sb0010110111000000 
+	Parameter DB4_HI2 bound to: 16'sb1101011110100000 
+	Parameter DB4_HI3 bound to: 16'sb1111111000110110 
+	Parameter DB4_HI4 bound to: 16'sb0000101111111000 
+	Parameter DB4_HI5 bound to: 16'sb0000000111111001 
+	Parameter DB4_HI6 bound to: 16'sb1111110111100101 
+	Parameter DB4_HI7 bound to: 16'sb1111111101010010 
+	Parameter HIST_AMP_E0 bound to: 16'sb0000001100110011 
+	Parameter HIST_AMP_E1 bound to: 16'sb0000010111010100 
+	Parameter HIST_AMP_E2 bound to: 16'sb0000100001110101 
+	Parameter HIST_AMP_E3 bound to: 16'sb0000101100010110 
+	Parameter HIST_AMP_E4 bound to: 16'sb0000110110110111 
+	Parameter HIST_AMP_E5 bound to: 16'sb0001000001011000 
+	Parameter HIST_AMP_E6 bound to: 16'sb0001001011111001 
+	Parameter HIST_AMP_E7 bound to: 16'sb0001010110011010 
+	Parameter HIST_AMP_E8 bound to: 16'sb0001100000111011 
+	Parameter HIST_AMP_E9 bound to: 16'sb0001101011011011 
+	Parameter HIST_AMP_E10 bound to: 16'sb0001110101111100 
+	Parameter HIST_AMP_E11 bound to: 16'sb0010000000011101 
+	Parameter HIST_AMP_E12 bound to: 16'sb0010001010111110 
+	Parameter HIST_AMP_E13 bound to: 16'sb0010010101011111 
+	Parameter HIST_AMP_E14 bound to: 16'sb0010100000000000 
+	Parameter HIST_PH_E0 bound to: 16'sb1101011000011101 
+	Parameter HIST_PH_E1 bound to: 16'sb1101111001111101 
+	Parameter HIST_PH_E2 bound to: 16'sb1110011011011110 
+	Parameter HIST_PH_E3 bound to: 16'sb1110111100111111 
+	Parameter HIST_PH_E4 bound to: 16'sb1111011110011111 
+	Parameter HIST_PH_E5 bound to: 16'sb0000000000000000 
+	Parameter HIST_PH_E6 bound to: 16'sb0000100001100001 
+	Parameter HIST_PH_E7 bound to: 16'sb0001000011000001 
+	Parameter HIST_PH_E8 bound to: 16'sb0001100100100010 
+	Parameter HIST_PH_E9 bound to: 16'sb0010000110000011 
+	Parameter HIST_PH_E10 bound to: 16'sb0010100111100011 
+	Parameter LN2_Q15 bound to: 32'sb00000000000000000101100010111001 
+	Parameter LN2_Q16 bound to: 32'sb00000000000000001011000101110010 
+	Parameter LOG10LN2_Q12 bound to: 32'sb00000000000000000110111011100111 
+	Parameter LOG20LN2_Q12 bound to: 32'sb00000000000000001101110111001111 
+	Parameter LOG_EPS_WAVELET bound to: 32'sb11111111111111100100010111100111 
+	Parameter LOG_EPS_FFT bound to: 32'sb11111111111111110010001011110100 
+	Parameter PI_Q12 bound to: 32'sb00000000000000000011001001000100 
+	Parameter RCP_236 bound to: 32'sb00000000000000000000000100010110 
+	Parameter RCP_255 bound to: 32'sb00000000000000000000000100000001 
+	Parameter RCP_44 bound to: 32'sb00000000000000000000010111010001 
+	Parameter RCP_DWT_22 bound to: 16'sb0000101110100011 
+	Parameter RCP_DWT_38 bound to: 16'sb0000011010111101 
+	Parameter RCP_DWT_69 bound to: 16'sb0000001110110110 
+	Parameter RCP_DWT_131 bound to: 16'sb0000000111110100 
+	Parameter S_IDLE bound to: 3'b000 
+	Parameter S_ALIGN bound to: 3'b001 
+	Parameter S_FETCH bound to: 3'b010 
+	Parameter S_MAC bound to: 3'b011 
+	Parameter S_FIN bound to: 3'b100 
+	Parameter S_ESUM bound to: 3'b101 
+	Parameter S_EADD bound to: 3'b110 
+INFO: [Synth 8-6155] done synthesizing module 'ef_dwt_db4' (49#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_db4.v:13]
+INFO: [Synth 8-6157] synthesizing module 'ef_dwt_feat' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_feat.v:13]
+	Parameter DB4_LO0 bound to: 16'sb1111111101010010 
+	Parameter DB4_LO1 bound to: 16'sb0000001000011011 
+	Parameter DB4_LO2 bound to: 16'sb0000000111111001 
+	Parameter DB4_LO3 bound to: 16'sb1111010000001000 
+	Parameter DB4_LO4 bound to: 16'sb1111111000110110 
+	Parameter DB4_LO5 bound to: 16'sb0010100001100000 
+	Parameter DB4_LO6 bound to: 16'sb0010110111000000 
+	Parameter DB4_LO7 bound to: 16'sb0000111010111111 
+	Parameter DB4_HI0 bound to: 16'sb1111000101000001 
+	Parameter DB4_HI1 bound to: 16'sb0010110111000000 
+	Parameter DB4_HI2 bound to: 16'sb1101011110100000 
+	Parameter DB4_HI3 bound to: 16'sb1111111000110110 
+	Parameter DB4_HI4 bound to: 16'sb0000101111111000 
+	Parameter DB4_HI5 bound to: 16'sb0000000111111001 
+	Parameter DB4_HI6 bound to: 16'sb1111110111100101 
+	Parameter DB4_HI7 bound to: 16'sb1111111101010010 
+	Parameter HIST_AMP_E0 bound to: 16'sb0000001100110011 
+	Parameter HIST_AMP_E1 bound to: 16'sb0000010111010100 
+	Parameter HIST_AMP_E2 bound to: 16'sb0000100001110101 
+	Parameter HIST_AMP_E3 bound to: 16'sb0000101100010110 
+	Parameter HIST_AMP_E4 bound to: 16'sb0000110110110111 
+	Parameter HIST_AMP_E5 bound to: 16'sb0001000001011000 
+	Parameter HIST_AMP_E6 bound to: 16'sb0001001011111001 
+	Parameter HIST_AMP_E7 bound to: 16'sb0001010110011010 
+	Parameter HIST_AMP_E8 bound to: 16'sb0001100000111011 
+	Parameter HIST_AMP_E9 bound to: 16'sb0001101011011011 
+	Parameter HIST_AMP_E10 bound to: 16'sb0001110101111100 
+	Parameter HIST_AMP_E11 bound to: 16'sb0010000000011101 
+	Parameter HIST_AMP_E12 bound to: 16'sb0010001010111110 
+	Parameter HIST_AMP_E13 bound to: 16'sb0010010101011111 
+	Parameter HIST_AMP_E14 bound to: 16'sb0010100000000000 
+	Parameter HIST_PH_E0 bound to: 16'sb1101011000011101 
+	Parameter HIST_PH_E1 bound to: 16'sb1101111001111101 
+	Parameter HIST_PH_E2 bound to: 16'sb1110011011011110 
+	Parameter HIST_PH_E3 bound to: 16'sb1110111100111111 
+	Parameter HIST_PH_E4 bound to: 16'sb1111011110011111 
+	Parameter HIST_PH_E5 bound to: 16'sb0000000000000000 
+	Parameter HIST_PH_E6 bound to: 16'sb0000100001100001 
+	Parameter HIST_PH_E7 bound to: 16'sb0001000011000001 
+	Parameter HIST_PH_E8 bound to: 16'sb0001100100100010 
+	Parameter HIST_PH_E9 bound to: 16'sb0010000110000011 
+	Parameter HIST_PH_E10 bound to: 16'sb0010100111100011 
+	Parameter LN2_Q15 bound to: 32'sb00000000000000000101100010111001 
+	Parameter LN2_Q16 bound to: 32'sb00000000000000001011000101110010 
+	Parameter LOG10LN2_Q12 bound to: 32'sb00000000000000000110111011100111 
+	Parameter LOG20LN2_Q12 bound to: 32'sb00000000000000001101110111001111 
+	Parameter LOG_EPS_WAVELET bound to: 32'sb11111111111111100100010111100111 
+	Parameter LOG_EPS_FFT bound to: 32'sb11111111111111110010001011110100 
+	Parameter PI_Q12 bound to: 32'sb00000000000000000011001001000100 
+	Parameter RCP_236 bound to: 32'sb00000000000000000000000100010110 
+	Parameter RCP_255 bound to: 32'sb00000000000000000000000100000001 
+	Parameter RCP_44 bound to: 32'sb00000000000000000000010111010001 
+	Parameter RCP_DWT_22 bound to: 16'sb0000101110100011 
+	Parameter RCP_DWT_38 bound to: 16'sb0000011010111101 
+	Parameter RCP_DWT_69 bound to: 16'sb0000001110110110 
+	Parameter RCP_DWT_131 bound to: 16'sb0000000111110100 
+	Parameter LOG24LN2_Q12 bound to: 68139 - type: integer 
+	Parameter S_IDLE bound to: 2'b00 
+	Parameter S_CALC bound to: 2'b01 
+	Parameter S_REQ bound to: 2'b10 
+	Parameter S_WAIT bound to: 2'b11 
+INFO: [Synth 8-226] default block is never used [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_feat.v:94]
+INFO: [Synth 8-6155] done synthesizing module 'ef_dwt_feat' (50#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_feat.v:13]
+INFO: [Synth 8-6157] synthesizing module 'ef_hist' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_hist.v:16]
+	Parameter DB4_LO0 bound to: 16'sb1111111101010010 
+	Parameter DB4_LO1 bound to: 16'sb0000001000011011 
+	Parameter DB4_LO2 bound to: 16'sb0000000111111001 
+	Parameter DB4_LO3 bound to: 16'sb1111010000001000 
+	Parameter DB4_LO4 bound to: 16'sb1111111000110110 
+	Parameter DB4_LO5 bound to: 16'sb0010100001100000 
+	Parameter DB4_LO6 bound to: 16'sb0010110111000000 
+	Parameter DB4_LO7 bound to: 16'sb0000111010111111 
+	Parameter DB4_HI0 bound to: 16'sb1111000101000001 
+	Parameter DB4_HI1 bound to: 16'sb0010110111000000 
+	Parameter DB4_HI2 bound to: 16'sb1101011110100000 
+	Parameter DB4_HI3 bound to: 16'sb1111111000110110 
+	Parameter DB4_HI4 bound to: 16'sb0000101111111000 
+	Parameter DB4_HI5 bound to: 16'sb0000000111111001 
+	Parameter DB4_HI6 bound to: 16'sb1111110111100101 
+	Parameter DB4_HI7 bound to: 16'sb1111111101010010 
+	Parameter HIST_AMP_E0 bound to: 16'sb0000001100110011 
+	Parameter HIST_AMP_E1 bound to: 16'sb0000010111010100 
+	Parameter HIST_AMP_E2 bound to: 16'sb0000100001110101 
+	Parameter HIST_AMP_E3 bound to: 16'sb0000101100010110 
+	Parameter HIST_AMP_E4 bound to: 16'sb0000110110110111 
+	Parameter HIST_AMP_E5 bound to: 16'sb0001000001011000 
+	Parameter HIST_AMP_E6 bound to: 16'sb0001001011111001 
+	Parameter HIST_AMP_E7 bound to: 16'sb0001010110011010 
+	Parameter HIST_AMP_E8 bound to: 16'sb0001100000111011 
+	Parameter HIST_AMP_E9 bound to: 16'sb0001101011011011 
+	Parameter HIST_AMP_E10 bound to: 16'sb0001110101111100 
+	Parameter HIST_AMP_E11 bound to: 16'sb0010000000011101 
+	Parameter HIST_AMP_E12 bound to: 16'sb0010001010111110 
+	Parameter HIST_AMP_E13 bound to: 16'sb0010010101011111 
+	Parameter HIST_AMP_E14 bound to: 16'sb0010100000000000 
+	Parameter HIST_PH_E0 bound to: 16'sb1101011000011101 
+	Parameter HIST_PH_E1 bound to: 16'sb1101111001111101 
+	Parameter HIST_PH_E2 bound to: 16'sb1110011011011110 
+	Parameter HIST_PH_E3 bound to: 16'sb1110111100111111 
+	Parameter HIST_PH_E4 bound to: 16'sb1111011110011111 
+	Parameter HIST_PH_E5 bound to: 16'sb0000000000000000 
+	Parameter HIST_PH_E6 bound to: 16'sb0000100001100001 
+	Parameter HIST_PH_E7 bound to: 16'sb0001000011000001 
+	Parameter HIST_PH_E8 bound to: 16'sb0001100100100010 
+	Parameter HIST_PH_E9 bound to: 16'sb0010000110000011 
+	Parameter HIST_PH_E10 bound to: 16'sb0010100111100011 
+	Parameter LN2_Q15 bound to: 32'sb00000000000000000101100010111001 
+	Parameter LN2_Q16 bound to: 32'sb00000000000000001011000101110010 
+	Parameter LOG10LN2_Q12 bound to: 32'sb00000000000000000110111011100111 
+	Parameter LOG20LN2_Q12 bound to: 32'sb00000000000000001101110111001111 
+	Parameter LOG_EPS_WAVELET bound to: 32'sb11111111111111100100010111100111 
+	Parameter LOG_EPS_FFT bound to: 32'sb11111111111111110010001011110100 
+	Parameter PI_Q12 bound to: 32'sb00000000000000000011001001000100 
+	Parameter RCP_236 bound to: 32'sb00000000000000000000000100010110 
+	Parameter RCP_255 bound to: 32'sb00000000000000000000000100000001 
+	Parameter RCP_44 bound to: 32'sb00000000000000000000010111010001 
+	Parameter RCP_DWT_22 bound to: 16'sb0000101110100011 
+	Parameter RCP_DWT_38 bound to: 16'sb0000011010111101 
+	Parameter RCP_DWT_69 bound to: 16'sb0000001110110110 
+	Parameter RCP_DWT_131 bound to: 16'sb0000000111110100 
+	Parameter S_IDLE bound to: 2'b00 
+	Parameter S_ISSUE bound to: 2'b01 
+	Parameter S_DRAIN bound to: 2'b10 
+	Parameter S_DONE bound to: 2'b11 
+INFO: [Synth 8-226] default block is never used [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_hist.v:118]
+INFO: [Synth 8-6155] done synthesizing module 'ef_hist' (51#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_hist.v:16]
+INFO: [Synth 8-6157] synthesizing module 'ef_cumulant' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:14]
+	Parameter DB4_LO0 bound to: 16'sb1111111101010010 
+	Parameter DB4_LO1 bound to: 16'sb0000001000011011 
+	Parameter DB4_LO2 bound to: 16'sb0000000111111001 
+	Parameter DB4_LO3 bound to: 16'sb1111010000001000 
+	Parameter DB4_LO4 bound to: 16'sb1111111000110110 
+	Parameter DB4_LO5 bound to: 16'sb0010100001100000 
+	Parameter DB4_LO6 bound to: 16'sb0010110111000000 
+	Parameter DB4_LO7 bound to: 16'sb0000111010111111 
+	Parameter DB4_HI0 bound to: 16'sb1111000101000001 
+	Parameter DB4_HI1 bound to: 16'sb0010110111000000 
+	Parameter DB4_HI2 bound to: 16'sb1101011110100000 
+	Parameter DB4_HI3 bound to: 16'sb1111111000110110 
+	Parameter DB4_HI4 bound to: 16'sb0000101111111000 
+	Parameter DB4_HI5 bound to: 16'sb0000000111111001 
+	Parameter DB4_HI6 bound to: 16'sb1111110111100101 
+	Parameter DB4_HI7 bound to: 16'sb1111111101010010 
+	Parameter HIST_AMP_E0 bound to: 16'sb0000001100110011 
+	Parameter HIST_AMP_E1 bound to: 16'sb0000010111010100 
+	Parameter HIST_AMP_E2 bound to: 16'sb0000100001110101 
+	Parameter HIST_AMP_E3 bound to: 16'sb0000101100010110 
+	Parameter HIST_AMP_E4 bound to: 16'sb0000110110110111 
+	Parameter HIST_AMP_E5 bound to: 16'sb0001000001011000 
+	Parameter HIST_AMP_E6 bound to: 16'sb0001001011111001 
+	Parameter HIST_AMP_E7 bound to: 16'sb0001010110011010 
+	Parameter HIST_AMP_E8 bound to: 16'sb0001100000111011 
+	Parameter HIST_AMP_E9 bound to: 16'sb0001101011011011 
+	Parameter HIST_AMP_E10 bound to: 16'sb0001110101111100 
+	Parameter HIST_AMP_E11 bound to: 16'sb0010000000011101 
+	Parameter HIST_AMP_E12 bound to: 16'sb0010001010111110 
+	Parameter HIST_AMP_E13 bound to: 16'sb0010010101011111 
+	Parameter HIST_AMP_E14 bound to: 16'sb0010100000000000 
+	Parameter HIST_PH_E0 bound to: 16'sb1101011000011101 
+	Parameter HIST_PH_E1 bound to: 16'sb1101111001111101 
+	Parameter HIST_PH_E2 bound to: 16'sb1110011011011110 
+	Parameter HIST_PH_E3 bound to: 16'sb1110111100111111 
+	Parameter HIST_PH_E4 bound to: 16'sb1111011110011111 
+	Parameter HIST_PH_E5 bound to: 16'sb0000000000000000 
+	Parameter HIST_PH_E6 bound to: 16'sb0000100001100001 
+	Parameter HIST_PH_E7 bound to: 16'sb0001000011000001 
+	Parameter HIST_PH_E8 bound to: 16'sb0001100100100010 
+	Parameter HIST_PH_E9 bound to: 16'sb0010000110000011 
+	Parameter HIST_PH_E10 bound to: 16'sb0010100111100011 
+	Parameter LN2_Q15 bound to: 32'sb00000000000000000101100010111001 
+	Parameter LN2_Q16 bound to: 32'sb00000000000000001011000101110010 
+	Parameter LOG10LN2_Q12 bound to: 32'sb00000000000000000110111011100111 
+	Parameter LOG20LN2_Q12 bound to: 32'sb00000000000000001101110111001111 
+	Parameter LOG_EPS_WAVELET bound to: 32'sb11111111111111100100010111100111 
+	Parameter LOG_EPS_FFT bound to: 32'sb11111111111111110010001011110100 
+	Parameter PI_Q12 bound to: 32'sb00000000000000000011001001000100 
+	Parameter RCP_236 bound to: 32'sb00000000000000000000000100010110 
+	Parameter RCP_255 bound to: 32'sb00000000000000000000000100000001 
+	Parameter RCP_44 bound to: 32'sb00000000000000000000010111010001 
+	Parameter RCP_DWT_22 bound to: 16'sb0000101110100011 
+	Parameter RCP_DWT_38 bound to: 16'sb0000011010111101 
+	Parameter RCP_DWT_69 bound to: 16'sb0000001110110110 
+	Parameter RCP_DWT_131 bound to: 16'sb0000000111110100 
+	Parameter S_IDLE bound to: 3'b000 
+	Parameter S_WAIT bound to: 3'b001 
+	Parameter S_SAMPLE bound to: 3'b010 
+	Parameter S_FINAL bound to: 3'b011 
+	Parameter S_SQR bound to: 3'b100 
+	Parameter S_ISSUE bound to: 3'b101 
+	Parameter S_COLL bound to: 3'b110 
+	Parameter S_DONE bound to: 3'b111 
+	Parameter S_ASM bound to: 4'b1000 
+WARNING: [Synth 8-6014] Unused sequential element c21x3_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:121]
+WARNING: [Synth 8-6014] Unused sequential element mre_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:312]
+WARNING: [Synth 8-6014] Unused sequential element mim_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:312]
+WARNING: [Synth 8-6014] Unused sequential element mabs_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:319]
+WARNING: [Synth 8-6014] Unused sequential element mabs2_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:320]
+WARNING: [Synth 8-6014] Unused sequential element mmsb_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:322]
+WARNING: [Synth 8-6014] Unused sequential element msh_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:325]
+WARNING: [Synth 8-6014] Unused sequential element rsc_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:327]
+WARNING: [Synth 8-6014] Unused sequential element imc_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:328]
+WARNING: [Synth 8-6014] Unused sequential element tr_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:333]
+WARNING: [Synth 8-6014] Unused sequential element ti_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:334]
+INFO: [Synth 8-6155] done synthesizing module 'ef_cumulant' (52#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:14]
+INFO: [Synth 8-6157] synthesizing module 'ef_cfo' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:16]
+	Parameter DB4_LO0 bound to: 16'sb1111111101010010 
+	Parameter DB4_LO1 bound to: 16'sb0000001000011011 
+	Parameter DB4_LO2 bound to: 16'sb0000000111111001 
+	Parameter DB4_LO3 bound to: 16'sb1111010000001000 
+	Parameter DB4_LO4 bound to: 16'sb1111111000110110 
+	Parameter DB4_LO5 bound to: 16'sb0010100001100000 
+	Parameter DB4_LO6 bound to: 16'sb0010110111000000 
+	Parameter DB4_LO7 bound to: 16'sb0000111010111111 
+	Parameter DB4_HI0 bound to: 16'sb1111000101000001 
+	Parameter DB4_HI1 bound to: 16'sb0010110111000000 
+	Parameter DB4_HI2 bound to: 16'sb1101011110100000 
+	Parameter DB4_HI3 bound to: 16'sb1111111000110110 
+	Parameter DB4_HI4 bound to: 16'sb0000101111111000 
+	Parameter DB4_HI5 bound to: 16'sb0000000111111001 
+	Parameter DB4_HI6 bound to: 16'sb1111110111100101 
+	Parameter DB4_HI7 bound to: 16'sb1111111101010010 
+	Parameter HIST_AMP_E0 bound to: 16'sb0000001100110011 
+	Parameter HIST_AMP_E1 bound to: 16'sb0000010111010100 
+	Parameter HIST_AMP_E2 bound to: 16'sb0000100001110101 
+	Parameter HIST_AMP_E3 bound to: 16'sb0000101100010110 
+	Parameter HIST_AMP_E4 bound to: 16'sb0000110110110111 
+	Parameter HIST_AMP_E5 bound to: 16'sb0001000001011000 
+	Parameter HIST_AMP_E6 bound to: 16'sb0001001011111001 
+	Parameter HIST_AMP_E7 bound to: 16'sb0001010110011010 
+	Parameter HIST_AMP_E8 bound to: 16'sb0001100000111011 
+	Parameter HIST_AMP_E9 bound to: 16'sb0001101011011011 
+	Parameter HIST_AMP_E10 bound to: 16'sb0001110101111100 
+	Parameter HIST_AMP_E11 bound to: 16'sb0010000000011101 
+	Parameter HIST_AMP_E12 bound to: 16'sb0010001010111110 
+	Parameter HIST_AMP_E13 bound to: 16'sb0010010101011111 
+	Parameter HIST_AMP_E14 bound to: 16'sb0010100000000000 
+	Parameter HIST_PH_E0 bound to: 16'sb1101011000011101 
+	Parameter HIST_PH_E1 bound to: 16'sb1101111001111101 
+	Parameter HIST_PH_E2 bound to: 16'sb1110011011011110 
+	Parameter HIST_PH_E3 bound to: 16'sb1110111100111111 
+	Parameter HIST_PH_E4 bound to: 16'sb1111011110011111 
+	Parameter HIST_PH_E5 bound to: 16'sb0000000000000000 
+	Parameter HIST_PH_E6 bound to: 16'sb0000100001100001 
+	Parameter HIST_PH_E7 bound to: 16'sb0001000011000001 
+	Parameter HIST_PH_E8 bound to: 16'sb0001100100100010 
+	Parameter HIST_PH_E9 bound to: 16'sb0010000110000011 
+	Parameter HIST_PH_E10 bound to: 16'sb0010100111100011 
+	Parameter LN2_Q15 bound to: 32'sb00000000000000000101100010111001 
+	Parameter LN2_Q16 bound to: 32'sb00000000000000001011000101110010 
+	Parameter LOG10LN2_Q12 bound to: 32'sb00000000000000000110111011100111 
+	Parameter LOG20LN2_Q12 bound to: 32'sb00000000000000001101110111001111 
+	Parameter LOG_EPS_WAVELET bound to: 32'sb11111111111111100100010111100111 
+	Parameter LOG_EPS_FFT bound to: 32'sb11111111111111110010001011110100 
+	Parameter PI_Q12 bound to: 32'sb00000000000000000011001001000100 
+	Parameter RCP_236 bound to: 32'sb00000000000000000000000100010110 
+	Parameter RCP_255 bound to: 32'sb00000000000000000000000100000001 
+	Parameter RCP_44 bound to: 32'sb00000000000000000000010111010001 
+	Parameter RCP_DWT_22 bound to: 16'sb0000101110100011 
+	Parameter RCP_DWT_38 bound to: 16'sb0000011010111101 
+	Parameter RCP_DWT_69 bound to: 16'sb0000001110110110 
+	Parameter RCP_DWT_131 bound to: 16'sb0000000111110100 
+	Parameter S_IDLE bound to: 4'b0000 
+	Parameter S_WAIT bound to: 4'b0001 
+	Parameter S_SAMPLE bound to: 4'b0010 
+	Parameter S_MEAN bound to: 4'b0011 
+	Parameter S_NORM bound to: 4'b0100 
+	Parameter S_SQR bound to: 4'b0101 
+	Parameter S_ISSUE bound to: 4'b0110 
+	Parameter S_COLL bound to: 4'b0111 
+	Parameter S_BSTD bound to: 4'b1000 
+	Parameter S_ISSUE2 bound to: 4'b1001 
+	Parameter S_COLL2 bound to: 4'b1010 
+	Parameter S_ASM bound to: 4'b1011 
+	Parameter S_DONE bound to: 4'b1100 
+WARNING: [Synth 8-6014] Unused sequential element mre_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:276]
+WARNING: [Synth 8-6014] Unused sequential element mim_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:276]
+WARNING: [Synth 8-6014] Unused sequential element mabs_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:283]
+WARNING: [Synth 8-6014] Unused sequential element mabs2_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:284]
+WARNING: [Synth 8-6014] Unused sequential element mmsb_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:286]
+WARNING: [Synth 8-6014] Unused sequential element msh_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:289]
+WARNING: [Synth 8-6014] Unused sequential element sreg_reg[2] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:290]
+WARNING: [Synth 8-6014] Unused sequential element sreg_reg[3] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:290]
+WARNING: [Synth 8-6014] Unused sequential element sreg_reg[4] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:290]
+WARNING: [Synth 8-6014] Unused sequential element sreg_reg[5] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:290]
+WARNING: [Synth 8-6014] Unused sequential element rsc_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:291]
+WARNING: [Synth 8-6014] Unused sequential element imc_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:292]
+WARNING: [Synth 8-6014] Unused sequential element tr_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:296]
+WARNING: [Synth 8-6014] Unused sequential element ti_reg was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:297]
+WARNING: [Synth 8-6014] Unused sequential element sqs_reg[2] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:318]
+WARNING: [Synth 8-6014] Unused sequential element sqs_reg[3] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:318]
+WARNING: [Synth 8-6014] Unused sequential element sqs_reg[4] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:318]
+WARNING: [Synth 8-6014] Unused sequential element sqs_reg[5] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:318]
+INFO: [Synth 8-6155] done synthesizing module 'ef_cfo' (53#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:16]
+INFO: [Synth 8-6157] synthesizing module 'ef_power' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_power.v:20]
+	Parameter DB4_LO0 bound to: 16'sb1111111101010010 
+	Parameter DB4_LO1 bound to: 16'sb0000001000011011 
+	Parameter DB4_LO2 bound to: 16'sb0000000111111001 
+	Parameter DB4_LO3 bound to: 16'sb1111010000001000 
+	Parameter DB4_LO4 bound to: 16'sb1111111000110110 
+	Parameter DB4_LO5 bound to: 16'sb0010100001100000 
+	Parameter DB4_LO6 bound to: 16'sb0010110111000000 
+	Parameter DB4_LO7 bound to: 16'sb0000111010111111 
+	Parameter DB4_HI0 bound to: 16'sb1111000101000001 
+	Parameter DB4_HI1 bound to: 16'sb0010110111000000 
+	Parameter DB4_HI2 bound to: 16'sb1101011110100000 
+	Parameter DB4_HI3 bound to: 16'sb1111111000110110 
+	Parameter DB4_HI4 bound to: 16'sb0000101111111000 
+	Parameter DB4_HI5 bound to: 16'sb0000000111111001 
+	Parameter DB4_HI6 bound to: 16'sb1111110111100101 
+	Parameter DB4_HI7 bound to: 16'sb1111111101010010 
+	Parameter HIST_AMP_E0 bound to: 16'sb0000001100110011 
+	Parameter HIST_AMP_E1 bound to: 16'sb0000010111010100 
+	Parameter HIST_AMP_E2 bound to: 16'sb0000100001110101 
+	Parameter HIST_AMP_E3 bound to: 16'sb0000101100010110 
+	Parameter HIST_AMP_E4 bound to: 16'sb0000110110110111 
+	Parameter HIST_AMP_E5 bound to: 16'sb0001000001011000 
+	Parameter HIST_AMP_E6 bound to: 16'sb0001001011111001 
+	Parameter HIST_AMP_E7 bound to: 16'sb0001010110011010 
+	Parameter HIST_AMP_E8 bound to: 16'sb0001100000111011 
+	Parameter HIST_AMP_E9 bound to: 16'sb0001101011011011 
+	Parameter HIST_AMP_E10 bound to: 16'sb0001110101111100 
+	Parameter HIST_AMP_E11 bound to: 16'sb0010000000011101 
+	Parameter HIST_AMP_E12 bound to: 16'sb0010001010111110 
+	Parameter HIST_AMP_E13 bound to: 16'sb0010010101011111 
+	Parameter HIST_AMP_E14 bound to: 16'sb0010100000000000 
+	Parameter HIST_PH_E0 bound to: 16'sb1101011000011101 
+	Parameter HIST_PH_E1 bound to: 16'sb1101111001111101 
+	Parameter HIST_PH_E2 bound to: 16'sb1110011011011110 
+	Parameter HIST_PH_E3 bound to: 16'sb1110111100111111 
+	Parameter HIST_PH_E4 bound to: 16'sb1111011110011111 
+	Parameter HIST_PH_E5 bound to: 16'sb0000000000000000 
+	Parameter HIST_PH_E6 bound to: 16'sb0000100001100001 
+	Parameter HIST_PH_E7 bound to: 16'sb0001000011000001 
+	Parameter HIST_PH_E8 bound to: 16'sb0001100100100010 
+	Parameter HIST_PH_E9 bound to: 16'sb0010000110000011 
+	Parameter HIST_PH_E10 bound to: 16'sb0010100111100011 
+	Parameter LN2_Q15 bound to: 32'sb00000000000000000101100010111001 
+	Parameter LN2_Q16 bound to: 32'sb00000000000000001011000101110010 
+	Parameter LOG10LN2_Q12 bound to: 32'sb00000000000000000110111011100111 
+	Parameter LOG20LN2_Q12 bound to: 32'sb00000000000000001101110111001111 
+	Parameter LOG_EPS_WAVELET bound to: 32'sb11111111111111100100010111100111 
+	Parameter LOG_EPS_FFT bound to: 32'sb11111111111111110010001011110100 
+	Parameter PI_Q12 bound to: 32'sb00000000000000000011001001000100 
+	Parameter RCP_236 bound to: 32'sb00000000000000000000000100010110 
+	Parameter RCP_255 bound to: 32'sb00000000000000000000000100000001 
+	Parameter RCP_44 bound to: 32'sb00000000000000000000010111010001 
+	Parameter RCP_DWT_22 bound to: 16'sb0000101110100011 
+	Parameter RCP_DWT_38 bound to: 16'sb0000011010111101 
+	Parameter RCP_DWT_69 bound to: 16'sb0000001110110110 
+	Parameter RCP_DWT_131 bound to: 16'sb0000000111110100 
+	Parameter S_IDLE bound to: 3'b000 
+	Parameter S_LSTART bound to: 3'b001 
+	Parameter S_WAIT bound to: 3'b010 
+	Parameter S_ASM bound to: 3'b011 
+	Parameter S_DONE bound to: 3'b100 
+INFO: [Synth 8-6155] done synthesizing module 'ef_power' (54#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_power.v:20]
+INFO: [Synth 8-6157] synthesizing module 'ef_sqrt' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_sqrt.v:16]
+INFO: [Synth 8-6155] done synthesizing module 'ef_sqrt' (55#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_sqrt.v:16]
+INFO: [Synth 8-638] synthesizing module 'cordic_atan_vl' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/cordic_vl.vhd:61]
+INFO: [Synth 8-256] done synthesizing module 'cordic_atan_vl' (71#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/cordic_vl.vhd:61]
+INFO: [Synth 8-6157] synthesizing module 'ef_log2lut' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_log2lut.v:14]
+	Parameter LAT bound to: 5 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'log2_lut_rom' [d:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/log2_lut_rom/synth/log2_lut_rom.vhd:68]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 3 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 1 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: log2_lut_rom.mif - type: string 
+	Parameter C_INIT_FILE bound to: log2_lut_rom.mem - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 36 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 36 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 1024 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 36 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 36 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 1024 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 10 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_READ_LATENCY_A bound to: 1 - type: integer 
+	Parameter C_READ_LATENCY_B bound to: 1 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 1 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 0 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     2.6924 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_4_2' declared at 'd:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/log2_lut_rom/hdl/blk_mem_gen_v8_4_vhsyn_rfs.vhd:195321' bound to instance 'U0' of component 'blk_mem_gen_v8_4_2' [d:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/log2_lut_rom/synth/log2_lut_rom.vhd:232]
+INFO: [Synth 8-256] done synthesizing module 'log2_lut_rom' (80#1) [d:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/ip/log2_lut_rom/synth/log2_lut_rom.vhd:68]
+INFO: [Synth 8-6155] done synthesizing module 'ef_log2lut' (81#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_log2lut.v:14]
+WARNING: [Synth 8-6014] Unused sequential element frame_ready_reg[0] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:485]
+WARNING: [Synth 8-6014] Unused sequential element frame_ready_reg[1] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:485]
+WARNING: [Synth 8-6014] Unused sequential element frame_ready_reg[2] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:485]
+WARNING: [Synth 8-6014] Unused sequential element frame_ready_reg[3] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:485]
+WARNING: [Synth 8-6014] Unused sequential element frame_ready_reg[4] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:485]
+WARNING: [Synth 8-6014] Unused sequential element frame_ready_reg[5] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:485]
+WARNING: [Synth 8-6014] Unused sequential element frame_ready_reg[6] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:485]
+WARNING: [Synth 8-6014] Unused sequential element frame_ready_reg[7] was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:485]
+INFO: [Synth 8-6155] done synthesizing module 'expert_feat_rffi' (82#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:29]
+WARNING: [Synth 8-3917] design expert_feat_rffi has port m_tkeep[3] driven by constant 1
+WARNING: [Synth 8-3917] design expert_feat_rffi has port m_tkeep[2] driven by constant 1
+WARNING: [Synth 8-3917] design expert_feat_rffi has port m_tkeep[1] driven by constant 1
+WARNING: [Synth 8-3917] design expert_feat_rffi has port m_tkeep[0] driven by constant 1
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SSRA
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SSRB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ENB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port REGCEB
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port WEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ADDRB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[35]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[34]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[33]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[32]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[31]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[30]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[29]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[28]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[27]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[26]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[25]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[24]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[23]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[22]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[21]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[20]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[19]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[18]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[17]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[16]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[15]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[14]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[13]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port DINB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port SLEEP
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ECCPIPECE
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ram_rstram_b
+WARNING: [Synth 8-3331] design blk_mem_gen_prim_wrapper_init has unconnected port ram_rstreg_b
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port RSTA[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEA[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEA[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEA[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port REGCEB[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEB[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEB[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port WEB[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTSBITERR
+WARNING: [Synth 8-3331] design blk_mem_gen_generic_cstr has unconnected port INJECTDBITERR
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port CLKB
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[35]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[34]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[33]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[32]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[31]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[30]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[29]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[28]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[27]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[26]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[25]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[24]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[23]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[22]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[21]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[20]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[19]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[18]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[17]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[16]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[15]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[14]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[13]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[12]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[11]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[10]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[9]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[8]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[7]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[6]
+WARNING: [Synth 8-3331] design blk_mem_output_block has unconnected port DOUTB_I[5]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:01:13 ; elapsed = 00:01:15 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 2219 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/ooc_expert.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command 'remove_from_collection' is not supported in the xdc constraint file. [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/ooc_expert.xdc:2]
+Finished Parsing XDC File [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/ooc_expert.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1159.098 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 60 instances were transformed.
+  DSP48E => DSP48E1: 2 instances
+  FD => FDRE: 3 instances
+  FDE => FDRE: 55 instances
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1159.098 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.146 . Memory (MB): peak = 1159.098 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:25 ; elapsed = 00:01:28 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z030ffg676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:25 ; elapsed = 00:01:28 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for u_fft/u_fft. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for u_log/u_rom. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:25 ; elapsed = 00:01:28 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'opa1_reg[17:0]' into 'opa0_reg[17:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_zn.v:58]
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cyc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cyc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "div_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "sq_req" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sq_in" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "done" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ivlo" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "reading_last_symbol" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "event_tlast_unexpected" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "r_count_mask" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5547] Trying to map ROM "half_sincos_table" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5547] Trying to map ROM "half_sincos_table" into Block RAM due to explicit "ram_style" or "rom_style" specification
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_fft_log.v:230]
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "m_tready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "m_tready" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "emit_idx" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_fft_log.v:106]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_fft_log.v:105]
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "fetch_n" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "done" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_db4.v:203]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_db4.v:204]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ef_dwt_db4'
+INFO: [Synth 8-5544] ROM "rcp_sel1" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bi" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "done" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'at_req_reg' into 'sq_req_reg' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_hist.v:107]
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "src_addr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_hist.v:78]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ef_hist'
+WARNING: [Synth 8-6014] Unused sequential element atn_reg_rep was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_hist.v:82]
+INFO: [Synth 8-4471] merging register 'imreg_reg[5][23:0]' into 'imreg_reg[3][23:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:330]
+INFO: [Synth 8-5544] ROM "magtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "sreg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rsreg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "bio" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ar" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "m2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "z2i_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "z4r_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "z4i_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sz6r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sz6i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sm2zr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sm4" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sm6" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "opa0" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "opa0" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "c20r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20sqr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20sqi" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c21sq" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c41r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20x4r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20x4i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20c4r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20c4i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c60r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "f42neg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "magtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "sreg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rsreg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "sp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "bio" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ar" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "m2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "z2i_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "z4r_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "z4i_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sz6r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sz6i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sm2zr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sm4" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "Sm6" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "opa0" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "opa0" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "c20r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20sqr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20sqi" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c21sq" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c41r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20x4r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20x4i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20c4r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c20c4i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "c60r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "f42neg" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "sqv" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sqv" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sqv" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sqv" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sqv" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sqv" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bio" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sq_req" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "done" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "opa0" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "mag0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ang30" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ang50" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'last_i_reg[15:0]' into 'sri_reg[19][15:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:157]
+INFO: [Synth 8-4471] merging register 'last_q_reg[15:0]' into 'srq_reg[19][15:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:157]
+INFO: [Synth 8-5544] ROM "BLKr_reg[0]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "BLKr_reg[1]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "BLKr_reg[2]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "BLKr_reg[3]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "sri" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "magtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "mval_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[8]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[9]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[10]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[11]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "cyc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cyc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "t" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "a" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "R1r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "R1i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "R20r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "opa0" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "opa0" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "kcur" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "bsq01" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "bsq23" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "varv" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "BLKr_reg[0]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "BLKr_reg[1]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "BLKr_reg[2]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "BLKr_reg[3]" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "sri" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "magtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "mval_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[8]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[9]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[10]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[11]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "cyc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cyc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "t" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "a" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "R1r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "R1i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "R20r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "opa0" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "opa0" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "kcur" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5544] ROM "sreg" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rsq" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sq_req" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "at_req" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "done" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ang20" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ef_power'
+INFO: [Synth 8-5545] ROM "e_d0" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "m_now" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e_d0" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "m_now" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5587] ROM size for "state" is below threshold of ROM address width. It will be mapped to LUTs
+WARNING: [Synth 8-6014] Unused sequential element pk_idx_reg_rep was removed.  [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_feat_rffi.v:483]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                              000 |                              000
+                 S_ALIGN |                              001 |                              001
+                 S_FETCH |                              010 |                              010
+                   S_MAC |                              011 |                              011
+                   S_FIN |                              100 |                              100
+                  S_ESUM |                              101 |                              101
+                  S_EADD |                              110 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ef_dwt_db4'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                               00 |                               00
+                 S_ISSUE |                               01 |                               01
+                 S_DRAIN |                               10 |                               10
+                  S_DONE |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'ef_hist'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                           000001 |                              000
+                S_LSTART |                           000010 |                              001
+                  S_WAIT |                           000100 |                              010
+                   S_ASM |                           001000 |                              011
+                  S_DONE |                           010000 |                              100
+                  iSTATE |                           100000 |                              111
+*
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'ef_power'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:31 ; elapsed = 00:01:34 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |ef_cumulant__GB0       |           1|     20198|
+|2     |ef_cumulant__GB1       |           1|      6769|
+|3     |ef_cumulant__GB2       |           1|      9492|
+|4     |expert_feat_rffi__GCB0 |           1|     29468|
+|5     |expert_feat_rffi__GCB1 |           1|      5450|
+|6     |expert_feat_rffi__GCB2 |           1|     13300|
+|7     |expert_feat_rffi__GCB3 |           1|     15628|
+|8     |expert_feat_rffi__GCB4 |           1|     11064|
++------+-----------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 400 (col length:80)
+BRAMs: 530 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5580] Multithreading enabled for synth_design using a maximum of 2 processes.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "magtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+WARNING: [Synth 8-3917] design expert_feat_rffi has port m_tkeep[3] driven by constant 1
+WARNING: [Synth 8-3917] design expert_feat_rffi has port m_tkeep[2] driven by constant 1
+WARNING: [Synth 8-3917] design expert_feat_rffi has port m_tkeep[1] driven by constant 1
+WARNING: [Synth 8-3917] design expert_feat_rffi has port m_tkeep[0] driven by constant 1
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zi_reg[39]' (FDRE) to 'u_cumi_6/m2zi_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zi_reg[40]' (FDRE) to 'u_cumi_6/m2zi_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zi_reg[41]' (FDRE) to 'u_cumi_6/m2zi_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zi_reg[42]' (FDRE) to 'u_cumi_6/m2zi_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zi_reg[43]' (FDRE) to 'u_cumi_6/m2zi_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zi_reg[44]' (FDRE) to 'u_cumi_6/m2zi_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zi_reg[45]' (FDRE) to 'u_cumi_6/m2zi_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zi_reg[46]' (FDRE) to 'u_cumi_6/m2zi_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zr_reg[39]' (FDRE) to 'u_cumi_6/m2zr_reg[40]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zr_reg[40]' (FDRE) to 'u_cumi_6/m2zr_reg[41]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zr_reg[41]' (FDRE) to 'u_cumi_6/m2zr_reg[42]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zr_reg[42]' (FDRE) to 'u_cumi_6/m2zr_reg[43]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zr_reg[43]' (FDRE) to 'u_cumi_6/m2zr_reg[44]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zr_reg[44]' (FDRE) to 'u_cumi_6/m2zr_reg[45]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zr_reg[45]' (FDRE) to 'u_cumi_6/m2zr_reg[46]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/m2zr_reg[46]' (FDRE) to 'u_cumi_6/m2zr_reg[47]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[0]' (FDRE) to 'u_cumi_6/ang5_reg[1]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[1]' (FDRE) to 'u_cumi_6/ang5_reg[3]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[2]' (FDRE) to 'u_cumi_6/ang5_reg[6]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[3]' (FDRE) to 'u_cumi_6/ang5_reg[4]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[4]' (FDRE) to 'u_cumi_6/ang5_reg[5]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[5]' (FDRE) to 'u_cumi_6/ang5_reg[7]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[6]' (FDRE) to 'u_cumi_6/ang5_reg[9]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[7]' (FDRE) to 'u_cumi_6/ang5_reg[8]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[8]' (FDRE) to 'u_cumi_6/ang5_reg[10]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[9]' (FDRE) to 'u_cumi_6/ang5_reg[12]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[10]' (FDRE) to 'u_cumi_6/ang5_reg[11]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[11]' (FDRE) to 'u_cumi_6/ang5_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[12]' (FDRE) to 'u_cumi_6/ang5_reg[13]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang5_reg[14]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[0]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[1]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[2]' (FDRE) to 'u_cumi_6/ang3_reg[13]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[3]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[4]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[5]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[6]' (FDRE) to 'u_cumi_6/ang3_reg[13]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[7]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[8]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[9]' (FDRE) to 'u_cumi_6/ang3_reg[13]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[10]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[11]' (FDRE) to 'u_cumi_6/ang3_reg[14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_6/ang3_reg[12]' (FDRE) to 'u_cumi_6/ang3_reg[13]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_cumi_6/\ang3_reg[14] )
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/angtmp_reg[3][14]' (FDE) to 'u_cumi_7/angtmp_reg[3][15]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/angtmp_reg[2][14]' (FDE) to 'u_cumi_7/angtmp_reg[2][15]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/angtmp_reg[1][14]' (FDE) to 'u_cumi_7/angtmp_reg[1][15]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/angtmp_reg[0][14]' (FDE) to 'u_cumi_7/angtmp_reg[0][15]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][0]' (FDE) to 'u_cumi_7/imreg_reg[3][1]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][1]' (FDE) to 'u_cumi_7/imreg_reg[3][2]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][2]' (FDE) to 'u_cumi_7/imreg_reg[3][3]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][3]' (FDE) to 'u_cumi_7/imreg_reg[3][4]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][4]' (FDE) to 'u_cumi_7/imreg_reg[3][5]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][5]' (FDE) to 'u_cumi_7/imreg_reg[3][6]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][6]' (FDE) to 'u_cumi_7/imreg_reg[3][7]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][7]' (FDE) to 'u_cumi_7/imreg_reg[3][8]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][8]' (FDE) to 'u_cumi_7/imreg_reg[3][9]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][9]' (FDE) to 'u_cumi_7/imreg_reg[3][10]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][10]' (FDE) to 'u_cumi_7/imreg_reg[3][11]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][11]' (FDE) to 'u_cumi_7/imreg_reg[3][12]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][12]' (FDE) to 'u_cumi_7/imreg_reg[3][13]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][13]' (FDE) to 'u_cumi_7/imreg_reg[3][14]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][14]' (FDE) to 'u_cumi_7/imreg_reg[3][15]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][15]' (FDE) to 'u_cumi_7/imreg_reg[3][16]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][16]' (FDE) to 'u_cumi_7/imreg_reg[3][17]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][17]' (FDE) to 'u_cumi_7/imreg_reg[3][18]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][18]' (FDE) to 'u_cumi_7/imreg_reg[3][19]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][19]' (FDE) to 'u_cumi_7/imreg_reg[3][20]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][20]' (FDE) to 'u_cumi_7/imreg_reg[3][21]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][21]' (FDE) to 'u_cumi_7/imreg_reg[3][22]'
+INFO: [Synth 8-3886] merging instance 'u_cumi_7/imreg_reg[3][22]' (FDE) to 'u_cumi_7/imreg_reg[3][23]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_cumi_7/\imreg_reg[3][23] )
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/lgv_reg[29]' (FDRE) to 'i_1/u_pow/lgv_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/lgv_reg[30]' (FDRE) to 'i_1/u_pow/lgv_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/ln_rms_reg[29]' (FDRE) to 'i_1/ln_rms_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/ln_rms_reg[30]' (FDRE) to 'i_1/ln_rms_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[0]' (FDRE) to 'i_1/u_pow/mean_q_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[1]' (FDRE) to 'i_1/u_pow/mean_x_reg[1]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[18]' (FDRE) to 'i_1/u_pow/mean_q_reg[19]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[19]' (FDRE) to 'i_1/u_pow/mean_q_reg[20]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[20]' (FDRE) to 'i_1/u_pow/mean_q_reg[21]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[21]' (FDRE) to 'i_1/u_pow/mean_q_reg[22]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[22]' (FDRE) to 'i_1/u_pow/mean_q_reg[23]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[23]' (FDRE) to 'i_1/u_pow/mean_q_reg[24]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[24]' (FDRE) to 'i_1/u_pow/mean_q_reg[25]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[25]' (FDRE) to 'i_1/u_pow/mean_q_reg[26]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[26]' (FDRE) to 'i_1/u_pow/mean_q_reg[27]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[27]' (FDRE) to 'i_1/u_pow/mean_q_reg[28]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[28]' (FDRE) to 'i_1/u_pow/mean_q_reg[29]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[29]' (FDRE) to 'i_1/u_pow/mean_q_reg[30]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_q_reg[30]' (FDRE) to 'i_1/u_pow/mean_q_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[0]' (FDRE) to 'i_1/u_pow/mean_x_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\u_pow/mean_x_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[18]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[19]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[20]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[21]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[22]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[23]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[24]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[25]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[26]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Synth 8-3886] merging instance 'i_1/u_pow/mean_x_reg[27]' (FDRE) to 'i_1/u_pow/mean_x_reg[31]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\u_pow/log_p_reg[63] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (i_1/\state_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_cumi_7/\cyc_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_cumi_7/\fst_reg[5] )
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:62]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v:63]
+DSP Report: Generating DSP mul0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mul0.
+DSP Report: register A is absorbed into DSP mul0.
+DSP Report: operator mul0 is absorbed into DSP mul0.
+DSP Report: operator mul0 is absorbed into DSP mul0.
+DSP Report: Generating DSP p0_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register B is absorbed into DSP p0_reg.
+DSP Report: register A is absorbed into DSP p0_reg.
+DSP Report: register p0_reg is absorbed into DSP p0_reg.
+DSP Report: operator mul0 is absorbed into DSP p0_reg.
+DSP Report: operator mul0 is absorbed into DSP p0_reg.
+DSP Report: Generating DSP mul0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mul0.
+DSP Report: register A is absorbed into DSP mul0.
+DSP Report: operator mul0 is absorbed into DSP mul0.
+DSP Report: operator mul0 is absorbed into DSP mul0.
+DSP Report: Generating DSP p0_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register B is absorbed into DSP p0_reg.
+DSP Report: register A is absorbed into DSP p0_reg.
+DSP Report: register p0_reg is absorbed into DSP p0_reg.
+DSP Report: operator mul0 is absorbed into DSP p0_reg.
+DSP Report: operator mul0 is absorbed into DSP p0_reg.
+DSP Report: Generating DSP mul1, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mul1.
+DSP Report: register A is absorbed into DSP mul1.
+DSP Report: operator mul1 is absorbed into DSP mul1.
+DSP Report: operator mul1 is absorbed into DSP mul1.
+DSP Report: Generating DSP p1_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register B is absorbed into DSP p1_reg.
+DSP Report: register A is absorbed into DSP p1_reg.
+DSP Report: register p1_reg is absorbed into DSP p1_reg.
+DSP Report: operator mul1 is absorbed into DSP p1_reg.
+DSP Report: operator mul1 is absorbed into DSP p1_reg.
+DSP Report: Generating DSP mul1, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP mul1.
+DSP Report: register A is absorbed into DSP mul1.
+DSP Report: operator mul1 is absorbed into DSP mul1.
+DSP Report: operator mul1 is absorbed into DSP mul1.
+DSP Report: Generating DSP p1_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register B is absorbed into DSP p1_reg.
+DSP Report: register A is absorbed into DSP p1_reg.
+DSP Report: register p1_reg is absorbed into DSP p1_reg.
+DSP Report: operator mul1 is absorbed into DSP p1_reg.
+DSP Report: operator mul1 is absorbed into DSP p1_reg.
+INFO: [Synth 8-4471] merging register 'opb1_reg[17:0]' into 'opb1_reg[17:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:74]
+INFO: [Synth 8-4471] merging register 'opb0_reg[17:0]' into 'opb0_reg[17:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:73]
+INFO: [Synth 8-4471] merging register 'opa1_reg[17:0]' into 'opa1_reg[17:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:74]
+INFO: [Synth 8-4471] merging register 'opa1_reg[17:0]' into 'opa1_reg[17:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:74]
+INFO: [Synth 8-4471] merging register 'opb1_reg[17:0]' into 'opb1_reg[17:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:74]
+INFO: [Synth 8-4471] merging register 'opa0_reg[17:0]' into 'opa0_reg[17:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:73]
+INFO: [Synth 8-4471] merging register 'p1_reg[35:0]' into 'p1_reg[35:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:165]
+INFO: [Synth 8-4471] merging register 'p0_reg[35:0]' into 'p0_reg[35:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:100]
+INFO: [Synth 8-4471] merging register 'p1_reg[35:0]' into 'p1_reg[35:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v:165]
+INFO: [Synth 8-5544] ROM "angtmp_reg[5]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[3]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[4]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[2]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[0]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "angtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "magtmp_reg[1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "mval_reg[1]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[0]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[10]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[11]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[6]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[7]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[2]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[3]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[4]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[5]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[8]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mval_reg[9]" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+DSP Report: Generating DSP R1r3, operation Mode is: PCIN+(A2*B2)'.
+DSP Report: register opb1_reg is absorbed into DSP R1r3.
+DSP Report: register opa1_reg is absorbed into DSP R1r3.
+DSP Report: register p1_reg is absorbed into DSP R1r3.
+DSP Report: operator mul1 is absorbed into DSP R1r3.
+DSP Report: operator R1r3 is absorbed into DSP R1r3.
+DSP Report: Generating DSP R1i2, operation Mode is: (C:0x800)+(A2*B2)'.
+DSP Report: register opb1_reg is absorbed into DSP R1i2.
+DSP Report: register opa1_reg is absorbed into DSP R1i2.
+DSP Report: register p1_reg is absorbed into DSP R1i2.
+DSP Report: operator mul1 is absorbed into DSP R1i2.
+DSP Report: operator R1i2 is absorbed into DSP R1i2.
+DSP Report: Generating DSP R1i2, operation Mode is: PCIN-(A2*B2)'.
+DSP Report: register opb0_reg is absorbed into DSP R1i2.
+DSP Report: register opa0_reg is absorbed into DSP R1i2.
+DSP Report: register p0_reg is absorbed into DSP R1i2.
+DSP Report: operator mul0 is absorbed into DSP R1i2.
+DSP Report: operator R1i2 is absorbed into DSP R1i2.
+DSP Report: Generating DSP p0_reg, operation Mode is: (A2*B2)'.
+DSP Report: register opa0_reg is absorbed into DSP p0_reg.
+DSP Report: register opb0_reg is absorbed into DSP p0_reg.
+DSP Report: register p0_reg is absorbed into DSP p0_reg.
+DSP Report: operator mul0 is absorbed into DSP p0_reg.
+DSP Report: Generating DSP p_0_out, operation Mode is: C+(A2*B2)'.
+DSP Report: register opa1_reg is absorbed into DSP p_0_out.
+DSP Report: register opb1_reg is absorbed into DSP p_0_out.
+DSP Report: register p1_reg is absorbed into DSP p_0_out.
+DSP Report: operator mul1 is absorbed into DSP p_0_out.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+DSP Report: Generating DSP vexpr, operation Mode is: C-(A2*B2)'.
+DSP Report: register opb0_reg is absorbed into DSP vexpr.
+DSP Report: register opa0_reg is absorbed into DSP vexpr.
+DSP Report: register p0_reg is absorbed into DSP vexpr.
+DSP Report: operator mul0 is absorbed into DSP vexpr.
+DSP Report: operator vexpr is absorbed into DSP vexpr.
+DSP Report: Generating DSP m2sum0, operation Mode is: A*B.
+DSP Report: operator m2sum0 is absorbed into DSP m2sum0.
+DSP Report: Generating DSP sq_in_reg, operation Mode is: (PCIN+A*B)'.
+DSP Report: register sq_in_reg is absorbed into DSP sq_in_reg.
+DSP Report: operator m2sum is absorbed into DSP sq_in_reg.
+DSP Report: operator m2sum0 is absorbed into DSP sq_in_reg.
+DSP Report: Generating DSP acc2_reg, operation Mode is: (P or 0)+(A*B or 0).
+DSP Report: register acc2_reg is absorbed into DSP acc2_reg.
+DSP Report: operator acc20 is absorbed into DSP acc2_reg.
+DSP Report: operator az2 is absorbed into DSP acc2_reg.
+DSP Report: Generating DSP az2, operation Mode is: A*B.
+DSP Report: operator az2 is absorbed into DSP az2.
+DSP Report: Generating DSP acc3_reg, operation Mode is: (P or 0)+(A*B or 0).
+DSP Report: register acc3_reg is absorbed into DSP acc3_reg.
+DSP Report: operator acc30 is absorbed into DSP acc3_reg.
+DSP Report: operator az3t is absorbed into DSP acc3_reg.
+DSP Report: Generating DSP az4t, operation Mode is: A*B.
+DSP Report: operator az4t is absorbed into DSP az4t.
+DSP Report: operator az4t is absorbed into DSP az4t.
+INFO: [Synth 8-4471] merging register 'ca_s_reg[23:0]' into 'ca_s_reg[23:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_db4.v:132]
+INFO: [Synth 8-4471] merging register 'cd_s_reg[23:0]' into 'cd_s_reg[23:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_db4.v:132]
+DSP Report: Generating DSP prod3, operation Mode is: A*B.
+DSP Report: operator prod3 is absorbed into DSP prod3.
+DSP Report: Generating DSP sum4, operation Mode is: PCIN+A*B.
+DSP Report: operator sum4 is absorbed into DSP sum4.
+DSP Report: operator prod0 is absorbed into DSP sum4.
+DSP Report: Generating DSP sum4, operation Mode is: PCIN+A*B.
+DSP Report: operator sum4 is absorbed into DSP sum4.
+DSP Report: operator prod2 is absorbed into DSP sum4.
+DSP Report: Generating DSP sum4, operation Mode is: PCIN+A*B.
+DSP Report: operator sum4 is absorbed into DSP sum4.
+DSP Report: operator prod1 is absorbed into DSP sum4.
+DSP Report: Generating DSP sq_ca0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP sq_ca0.
+DSP Report: register ca_s_reg is absorbed into DSP sq_ca0.
+DSP Report: operator sq_ca0 is absorbed into DSP sq_ca0.
+DSP Report: operator sq_ca0 is absorbed into DSP sq_ca0.
+DSP Report: Generating DSP sq_ca_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register B is absorbed into DSP sq_ca_reg.
+DSP Report: register ca_s_reg is absorbed into DSP sq_ca_reg.
+DSP Report: register sq_ca_reg is absorbed into DSP sq_ca_reg.
+DSP Report: operator sq_ca0 is absorbed into DSP sq_ca_reg.
+DSP Report: operator sq_ca0 is absorbed into DSP sq_ca_reg.
+DSP Report: Generating DSP sq_cd0, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP sq_cd0.
+DSP Report: register cd_s_reg is absorbed into DSP sq_cd0.
+DSP Report: operator sq_cd0 is absorbed into DSP sq_cd0.
+DSP Report: operator sq_cd0 is absorbed into DSP sq_cd0.
+DSP Report: Generating DSP sq_cd_reg, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register B is absorbed into DSP sq_cd_reg.
+DSP Report: register cd_s_reg is absorbed into DSP sq_cd_reg.
+DSP Report: register sq_cd_reg is absorbed into DSP sq_cd_reg.
+DSP Report: operator sq_cd0 is absorbed into DSP sq_cd_reg.
+DSP Report: operator sq_cd0 is absorbed into DSP sq_cd_reg.
+INFO: [Synth 8-5544] ROM "u_dwtf/bi" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "u_dwtf/done" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 3 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_dwt_feat.v:60]
+DSP Report: Generating DSP u_dwtf/eprod, operation Mode is: A*B.
+DSP Report: operator u_dwtf/eprod is absorbed into DSP u_dwtf/eprod.
+DSP Report: operator u_dwtf/eprod is absorbed into DSP u_dwtf/eprod.
+DSP Report: Generating DSP u_dwtf/eprod, operation Mode is: A*B.
+DSP Report: operator u_dwtf/eprod is absorbed into DSP u_dwtf/eprod.
+DSP Report: operator u_dwtf/eprod is absorbed into DSP u_dwtf/eprod.
+DSP Report: Generating DSP u_dwtf/eprod, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator u_dwtf/eprod is absorbed into DSP u_dwtf/eprod.
+DSP Report: operator u_dwtf/eprod is absorbed into DSP u_dwtf/eprod.
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[63] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[62] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[61] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[60] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[59] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[58] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[57] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[56] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[55] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[54] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[53] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[52] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[51] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[50] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[49] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[48] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[47] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[46] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[45] driven by constant 0
+WARNING: [Synth 8-3917] design expert_feat_rffi__GCB2 has port log_p[44] driven by constant 0
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_dwt/\L_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (u_dwt/\need_reg[2] )
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[47]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[46]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[45]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[44]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[43]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[42]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[41]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[40]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[39]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[38]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[37]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[36]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[35]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[34]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[33]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[32]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[31]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[30]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[29]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[28]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[27]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[26]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[25]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[24]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[23]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[22]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[21]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[20]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[19]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[18]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_ca_reg[17]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[47]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[46]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[45]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[44]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[43]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[42]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[41]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[40]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[39]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[38]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[37]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[36]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[35]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[34]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[33]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[32]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[31]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[30]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[29]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[28]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[27]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[26]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[25]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[24]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[23]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[22]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[21]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[20]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[19]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[18]) is unused and will be removed from module ef_dwt_db4.
+WARNING: [Synth 8-3332] Sequential element (sq_cd_reg[17]) is unused and will be removed from module ef_dwt_db4.
+INFO: [Synth 8-5545] ROM "m_now" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "e_d0" won't be mapped to RAM because address size (64) is larger than maximum supported(25)
+DSP Report: Generating DSP sl_prod, operation Mode is: A2*B.
+DSP Report: register A is absorbed into DSP sl_prod.
+DSP Report: operator sl_prod is absorbed into DSP sl_prod.
+INFO: [Synth 8-4471] merging register 'cap_im_reg[24:0]' into 'cap_im_reg[24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_fft_log.v:106]
+INFO: [Synth 8-4471] merging register 'cap_re_reg[24:0]' into 'cap_re_reg[24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_fft_log.v:105]
+DSP Report: Generating DSP cap_im2, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP cap_im2.
+DSP Report: register cap_im_reg is absorbed into DSP cap_im2.
+DSP Report: operator cap_im2 is absorbed into DSP cap_im2.
+DSP Report: operator cap_im2 is absorbed into DSP cap_im2.
+DSP Report: Generating DSP cap_im2, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register B is absorbed into DSP cap_im2.
+DSP Report: register cap_im_reg is absorbed into DSP cap_im2.
+DSP Report: operator cap_im2 is absorbed into DSP cap_im2.
+DSP Report: operator cap_im2 is absorbed into DSP cap_im2.
+DSP Report: Generating DSP cap_re2, operation Mode is: A2*B2.
+DSP Report: register B is absorbed into DSP cap_re2.
+DSP Report: register cap_re_reg is absorbed into DSP cap_re2.
+DSP Report: operator cap_re2 is absorbed into DSP cap_re2.
+DSP Report: operator cap_re2 is absorbed into DSP cap_re2.
+DSP Report: Generating DSP cap_re2, operation Mode is: (PCIN>>17)+A2*B2.
+DSP Report: register B is absorbed into DSP cap_re2.
+DSP Report: register cap_re_reg is absorbed into DSP cap_re2.
+DSP Report: operator cap_re2 is absorbed into DSP cap_re2.
+DSP Report: operator cap_re2 is absorbed into DSP cap_re2.
+INFO: [Synth 8-4471] merging register 'opa0_reg[17:0]' into 'opa0_reg[17:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_zn.v:57]
+DSP Report: Generating DSP p0_reg, operation Mode is: (A2*B'')'.
+DSP Report: register ivlo_reg is absorbed into DSP p0_reg.
+DSP Report: register opb0_reg is absorbed into DSP p0_reg.
+DSP Report: register opa0_reg is absorbed into DSP p0_reg.
+DSP Report: register p0_reg is absorbed into DSP p0_reg.
+DSP Report: operator mul0 is absorbed into DSP p0_reg.
+DSP Report: Generating DSP p1_reg, operation Mode is: (A2*B'')'.
+DSP Report: register ivhi_reg is absorbed into DSP p1_reg.
+DSP Report: register opb1_reg is absorbed into DSP p1_reg.
+DSP Report: register opa0_reg is absorbed into DSP p1_reg.
+DSP Report: register p1_reg is absorbed into DSP p1_reg.
+DSP Report: operator mul1 is absorbed into DSP p1_reg.
+DSP Report: Generating DSP zexpr_i0, operation Mode is: PCIN+A:B+(C:0x20000).
+DSP Report: operator zexpr_i0 is absorbed into DSP zexpr_i0.
+DSP Report: Generating DSP di2, operation Mode is: A*B.
+DSP Report: operator di2 is absorbed into DSP di2.
+DSP Report: Generating DSP dq2, operation Mode is: A*B.
+DSP Report: operator dq2 is absorbed into DSP dq2.
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_zn/div_num_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_zn/rms32_reg[31] )
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ln_p_r_reg[63] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_fft/u_fft /U0/i_synth/\xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/run_addr_gen/r_count_mask_fixlen.gen_r_count_mask_reg[0].reg_fdre )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_fft/u_fft /U0/i_synth/\xfft_inst/non_floating_point.arch_e.xfft_inst/control/negate_twiddle_delay/no_sclr_lut.real_shift_ram.use_baseblock.not_use_hlutnm_srls.i_shift_ram /i_bb_inst/\f0.srl_sig_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_fft/u_fft /U0/i_synth/\axi_wrapper/gen_nrt_events.event_status_channel_halt_int_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_fft/u_fft /U0/i_synth/\xfft_inst/non_floating_point.arch_e.xfft_inst/control/negate_twiddle_delay/no_sclr_lut.real_shift_ram.use_baseblock.not_use_hlutnm_srls.i_shift_ram /i_bb_inst/\f0.srl_sig_reg[0][0] )
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/run_addr_gen/r_count_mask_fixlen.gen_r_count_mask_reg[0].reg_fdre) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/io_addr_gen/count_delay/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[0].i_fdre0) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/io_addr_gen/count_delay/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[0].i_fdre1) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/io_addr_gen/count_delay/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[1].i_fdre0) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/io_addr_gen/count_delay/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[1].i_fdre1) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/io_addr_gen/count_delay/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[2].i_fdre0) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/io_addr_gen/count_delay/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[2].i_fdre1) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/io_addr_gen/count_delay/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[3].i_fdre0) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/control/addr_gen/io_addr_gen/count_delay/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[3].i_fdre1) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/single_channel.datapath/has_rounding.rounder_real/reg_gate.delay_d_2/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[0].i_fdre0) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3332] Sequential element (xfft_inst/non_floating_point.arch_e.xfft_inst/single_channel.datapath/has_rounding.rounder_imag/reg_gate.delay_d_2/no_sclr_lut.real_shift_ram.use_baseblock.use_hlutnm_srls.srl_loop[0].i_fdre0) is unused and will be removed from module xfft_v9_1_1_viv.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.data_y_int_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.data_x_int_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.data_y_int_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.data_x_int_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.data_y_int_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.data_x_int_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.data_y_int_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.data_x_int_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.input_stage/gen_input_regs.phase_int_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/root_p_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_sqrt/rem_p_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_rot_reg/gen_rtl.gen_reg.d_reg_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_rot_reg/gen_rtl.gen_reg.d_reg_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_rot_reg/gen_rtl.gen_reg.d_reg_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_rot_reg/gen_rtl.gen_reg.d_reg_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_rot_reg/gen_rtl.gen_reg.d_reg_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\u_atan/u0/i_synth /\i_synth/gen_cordic.output_stage/gen_rotation.gen_translate.gen_phase_rot_reg/gen_rtl.gen_reg.d_reg_reg[17] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:04 ; elapsed = 00:02:17 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance i_1/i_8/feat_ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_3/i_83/zn_ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_3/i_75/frame_ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_3/u_fft/u_fft/U0/i_synth/i_0/xfft_inst/non_floating_point.arch_e.xfft_inst/control/block_ram_twiddle_gen.bram_twiddle_gen/tw0.twgen0/sin_pre_read_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_3/u_fft/u_fft/U0/i_synth/i_1/xfft_inst/non_floating_point.arch_e.xfft_inst/control/block_ram_twiddle_gen.bram_twiddle_gen/tw0.twgen0/cos_pre_read_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+
+Report RTL Partitions: 
++------+-----------------------+------------+----------+
+|      |RTL Partition          |Replication |Instances |
++------+-----------------------+------------+----------+
+|1     |ef_cumulant__GB0       |           1|     11806|
+|2     |ef_cumulant__GB1       |           1|      3857|
+|3     |ef_cumulant__GB2       |           1|      6666|
+|4     |expert_feat_rffi__GCB0 |           1|     18199|
+|5     |expert_feat_rffi__GCB1 |           1|      2847|
+|6     |expert_feat_rffi__GCB2 |           1|      7171|
+|7     |expert_feat_rffi__GCB3 |           1|      7019|
+|8     |expert_feat_rffi__GCB4 |           1|      6712|
++------+-----------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:13 ; elapsed = 00:02:26 . Memory (MB): peak = 1159.098 ; gain = 866.234
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:40 ; elapsed = 00:02:52 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------------+------------+----------+
+|      |RTL Partition           |Replication |Instances |
++------+------------------------+------------+----------+
+|1     |ef_cumulant__GB1        |           1|      3857|
+|2     |expert_feat_rffi__GCB0  |           1|     18021|
+|3     |expert_feat_rffi__GCB1  |           1|      2816|
+|4     |expert_feat_rffi__GCB4  |           1|      6710|
+|5     |expert_feat_rffi_GT0    |           1|     13496|
+|6     |expert_feat_rffi_GT0__1 |           1|     18370|
++------+------------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance i_1/feat_ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_3/zn_ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_3/frame_ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:49 ; elapsed = 00:03:13 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+------------------------+------------+----------+
+|      |RTL Partition           |Replication |Instances |
++------+------------------------+------------+----------+
+|1     |ef_cumulant__GB1        |           1|      2473|
+|2     |expert_feat_rffi__GCB0  |           1|      8601|
+|3     |expert_feat_rffi__GCB1  |           1|      1426|
+|4     |expert_feat_rffi__GCB4  |           1|      5064|
+|5     |expert_feat_rffi_GT0    |           1|      9185|
+|6     |expert_feat_rffi_GT0__1 |           1|      9270|
++------+------------------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance feat_ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance zn_ram_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance frame_ram_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:52 ; elapsed = 00:03:17 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:52 ; elapsed = 00:03:17 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:56 ; elapsed = 00:03:20 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:56 ; elapsed = 00:03:21 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:57 ; elapsed = 00:03:21 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:57 ; elapsed = 00:03:21 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |DSP48E        |         2|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+--------------+------+
+|      |Cell          |Count |
++------+--------------+------+
+|1     |DSP48E_bbox_1 |     1|
+|2     |DSP48E_bbox_2 |     1|
+|3     |CARRY4        |  1611|
+|4     |DSP48E1       |     8|
+|5     |DSP48E1_1     |     3|
+|6     |DSP48E1_10    |     1|
+|7     |DSP48E1_11    |     2|
+|8     |DSP48E1_12    |     2|
+|9     |DSP48E1_13    |     2|
+|10    |DSP48E1_14    |     4|
+|11    |DSP48E1_15    |     1|
+|12    |DSP48E1_16    |     2|
+|13    |DSP48E1_2     |     2|
+|14    |DSP48E1_3     |     2|
+|15    |DSP48E1_4     |    11|
+|16    |DSP48E1_5     |     1|
+|17    |DSP48E1_6     |     1|
+|18    |DSP48E1_7     |     1|
+|19    |DSP48E1_8     |     1|
+|20    |LUT1          |  1215|
+|21    |LUT2          |  5801|
+|22    |LUT3          |  2969|
+|23    |LUT4          |  2630|
+|24    |LUT5          |  2824|
+|25    |LUT6          |  5508|
+|26    |MUXCY         |   955|
+|27    |MUXF7         |   184|
+|28    |MUXF8         |    11|
+|29    |RAM128X1D     |     4|
+|30    |RAM32M        |    12|
+|31    |RAM64M        |    88|
+|32    |RAM64X1D      |     6|
+|33    |RAMB18E1      |     2|
+|34    |RAMB18E1_2    |     2|
+|35    |RAMB18E1_3    |     1|
+|36    |RAMB36E1      |     1|
+|37    |RAMB36E1_1    |     1|
+|38    |RAMB36E1_2    |     1|
+|39    |SRL16E        |   309|
+|40    |SRLC32E       |     9|
+|41    |XORCY         |   901|
+|42    |FD            |     3|
+|43    |FDE           |    55|
+|44    |FDRE          | 10505|
+|45    |FDSE          |    35|
++------+--------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:57 ; elapsed = 00:03:21 . Memory (MB): peak = 1261.250 ; gain = 968.387
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 189 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:34 ; elapsed = 00:03:12 . Memory (MB): peak = 1261.250 ; gain = 968.387
+Synthesis Optimization Complete : Time (s): cpu = 00:02:57 ; elapsed = 00:03:22 . Memory (MB): peak = 1261.250 ; gain = 968.387
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 3884 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/ooc_expert.xdc]
+CRITICAL WARNING: [Designutils 20-1307] Command 'remove_from_collection' is not supported in the xdc constraint file. [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/ooc_expert.xdc:2]
+Finished Parsing XDC File [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/ooc_expert.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1261.250 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 430 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 260 instances
+  DSP48E => DSP48E1: 2 instances
+  FD => FDRE: 3 instances
+  FDE => FDRE: 55 instances
+  RAM128X1D => RAM128X1D (RAMD64E, RAMD64E, MUXF7, MUXF7, RAMD64E, RAMD64E): 4 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 88 instances
+  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 6 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+541 Infos, 237 Warnings, 2 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:03:02 ; elapsed = 00:03:29 . Memory (MB): peak = 1261.250 ; gain = 977.297
+# report_utilization -file [file join $outdir util.rpt]
+# report_timing_summary -delay_type max -file [file join $outdir timing.rpt]
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+WARNING: [Timing 38-242] The property HD.CLK_SRC of clock port "clk" is not set. In out-of-context mode, this prevents timing estimation for clock delay/skew
+Resolution: Set the HD.CLK_SRC property of the out-of-context port to the location of the clock buffer instance in the top-level design
+report_timing_summary: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 1502.559 ; gain = 241.309
+# report_timing -delay_type max -max_paths 20 -file [file join $outdir timing_paths.rpt]
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 20 -nworst 1 -delay_type max -sort_by slack.
+# write_checkpoint -force [file join $outdir expert_ooc.dcp]
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1502.559 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1541.477 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/expert_ooc.dcp' has been generated.
+# puts "==== OOC SYNTH DONE ===="
+==== OOC SYNTH DONE ====
+INFO: [Common 17-206] Exiting Vivado at Thu Oct 22 15:16:24 2026...

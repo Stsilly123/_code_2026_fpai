@@ -1,0 +1,4 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_cfo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_power.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_power

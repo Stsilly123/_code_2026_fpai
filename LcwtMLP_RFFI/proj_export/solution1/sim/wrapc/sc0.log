@@ -1,0 +1,6 @@
+   Build using "D:/Xilinx/Vivado/2018.3/msys64/mingw64/bin/g++"
+   Compiling pl_lcwt.cpp_pre.cpp.tb.cpp
+   Compiling top.cpp_pre.cpp.tb.cpp
+   Compiling tb_lcwt.cpp_pre.cpp.tb.cpp
+   Compiling apatb_LcwtMLP_RFFI.cpp
+   Generating cosim.tv.exe

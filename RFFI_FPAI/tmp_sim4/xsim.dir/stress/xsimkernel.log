@@ -1,0 +1,7 @@
+Running: xsim.dir/stress/xsimk.exe -runall -simmode gui -wdb stress.wdb -simrunnum 0 -socket 61848
+Design successfully loaded
+Design Loading Memory Usage: 16412 KB (Peak: 16412 KB)
+Design Loading CPU Usage: 31 ms
+Simulation completed
+Simulation Memory Usage: 20532 KB (Peak: 20532 KB)
+Simulation CPU Usage: 39187 ms

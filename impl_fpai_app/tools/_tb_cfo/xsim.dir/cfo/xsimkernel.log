@@ -1,0 +1,7 @@
+Running: xsim.dir/cfo/xsimk.exe -runall -simmode gui -wdb cfo.wdb -simrunnum 0 -socket 60341
+Design successfully loaded
+Design Loading Memory Usage: 7628 KB (Peak: 7628 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 9012 KB (Peak: 9012 KB)
+Simulation CPU Usage: 718 ms

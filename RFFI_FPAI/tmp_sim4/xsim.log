@@ -1,0 +1,40 @@
+#-----------------------------------------------------------
+# xsim v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Oct 24 11:55:36 2026
+# Process ID: 22884
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim4
+# Command line: xsim.exe -mode tcl -source {xsim.dir/calls/xsim_script.tcl}
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim4/xsim.log
+# Journal file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim4\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/calls/xsim_script.tcl
+# xsim {calls} -autoloadwcfg -runall
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+run -all
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_expert_calls.dut.u_log.u_rom.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+call 0: 0/2048 words out of tolerance (drop=0)
+call 1: 0/2048 words out of tolerance (drop=0)
+call 2: 0/2048 words out of tolerance (drop=0)
+call 3: 0/2048 words out of tolerance (drop=0)
+call 4: 0/2048 words out of tolerance (drop=0)
+call 5: 0/2048 words out of tolerance (drop=0)
+call 6: 0/2048 words out of tolerance (drop=0)
+  call 7 frame 7 idx 248: got=xxxxxxxx exp=00000000
+  call 7 frame 7 idx 249: got=xxxxxxxx exp=00000000
+  call 7 frame 7 idx 250: got=xxxxxxxx exp=00000000
+  call 7 frame 7 idx 251: got=xxxxxxxx exp=00000000
+  call 7 frame 7 idx 252: got=xxxxxxxx exp=00000000
+  call 7 frame 7 idx 253: got=xxxxxxxx exp=00000000
+  call 7 frame 7 idx 254: got=xxxxxxxx exp=00000000
+  call 7 frame 7 idx 255: got=xxxxxxxx exp=00000000
+call 7: 8/2048 words out of tolerance (drop=0)
+EXPERT CALLS TB done: 1 errors over 8 calls
+$finish called at time : 6040867500 ps : File "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim4/tb_expert_calls.v" Line 116
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:05:48 . Memory (MB): peak = 219.285 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Oct 24 12:01:28 2026...

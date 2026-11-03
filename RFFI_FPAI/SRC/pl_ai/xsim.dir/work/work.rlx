@@ -1,0 +1,8 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v,1792676235,verilog,,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_rom.vh,ef_cfo,,,expert,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v,1792676071,verilog,,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v,D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_rom.vh,dsp_acc48;ef_cumulant,,,expert,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/expert_rom.vh,1792649279,verilog,,,,,,,,,,,,
+D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v,1792674928,verilog,,,,lstf_eq,,,.;./expert,,,,,

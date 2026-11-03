@@ -1,0 +1,44 @@
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source q2.tcl -notrace
+Command: open_checkpoint D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/ooc_rpt/post_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 269.047 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2074 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1264.207 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2018.3 (64-bit) build 2405991
+open_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1264.207 ; gain = 995.160
+  42  li_V_U/LcwtMLP_RFFI_lr_V_ram_U/ram_reg_i
+  22  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/ram_reg_i
+  2  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/ram_reg_i_1_
+  1  li_V_U/LcwtMLP_RFFI_lr_V_ram_U/wli_V_2_2_reg_8020[23]_i
+  1  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/wlr_V_5_2_reg_8070[22]_i
+  1  li_V_U/LcwtMLP_RFFI_lr_V_ram_U/wi_V_7_2_reg_4975[15]_i
+  1  li_V_U/LcwtMLP_RFFI_lr_V_ram_U/wli_6_V_reg_9312[16]_i
+  1  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/wlr_V_2_2_reg_8100[8]_i
+  1  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/wlr_V_2_2_reg_8100[10]_i
+  1  li_V_U/LcwtMLP_RFFI_lr_V_ram_U/wli_V_2_2_reg_8020[2]_i
+  1  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/wr_V_3_2_reg_5175[13]_i
+  1  li_V_U/LcwtMLP_RFFI_lr_V_ram_U/wi_V_4_2_reg_5005[23]_i
+  1  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/wr_V_9_2_reg_5115[23]_i
+  1  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/wlr_V_0_2_reg_8120[7]_i
+  1  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/wr_V_12_2_reg_5085[20]_i
+  1  lr_V_U/LcwtMLP_RFFI_lr_V_ram_U/wr_V_12_2_reg_5085[19]_i
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 17:24:26 2026...

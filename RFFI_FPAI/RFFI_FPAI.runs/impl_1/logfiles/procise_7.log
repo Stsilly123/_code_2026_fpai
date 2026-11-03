@@ -1,0 +1,17 @@
+>>set_device JFMQL30TAI676H
+  set_device elapsed_time 3.01 seconds, cpu_time 3.00 seconds
+  set_device used memory 660MB, procise used peak memory 694MB, current used memory 694MB
+>>increment_bit_cfg_v3 D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.runs/impl_1/ai7030_edif_top.bit D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.runs/impl_1/ai7030_edif_top_disable_icap.bit -disable_icap
+  /*****************************************/
+  Stage 1: Checking the source bitstream!
+  /*****************************************/
+  FPGA Part : 7z030aiffg676-2
+  IP Patch version: 53180205
+  Missing Bit Patch Info
+  Missing Patch Version Info
+  VCCM Absent, Bitstream Patch Inactive
+  /*****************************************/
+  Stage 2: Targeted Bitstream Patch Integration!
+  /*****************************************/
+  increment_bit_cfg_v3 elapsed_time 0.57 seconds, cpu_time 0.56 seconds
+  increment_bit_cfg_v3 used memory 165MB, procise used peak memory 859MB, current used memory 656MB

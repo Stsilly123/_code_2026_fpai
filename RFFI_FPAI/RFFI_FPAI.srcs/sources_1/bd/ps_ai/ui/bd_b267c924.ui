@@ -1,0 +1,121 @@
+{
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 6.8.11  2018-08-07 bk=1.4403 VDI=40 GEI=35 GUI=JA:9.0 non-TLS
+#  -string -flagsOSRD
+preplace port pl_clk_en_b_0 -pg 1 -y 680 -defaultsOSRD
+preplace port FCLK_RESET0_N_0 -pg 1 -y 740 -defaultsOSRD
+preplace port PJTAG_0 -pg 1 -y 280 -defaultsOSRD
+preplace port M_AI_HP_0 -pg 1 -y 280 -defaultsOSRD
+preplace port BYolo_GP0 -pg 1 -y 130 -defaultsOSRD
+preplace port pl_scan_clk_0 -pg 1 -y 740 -defaultsOSRD
+preplace port pl_bist_clk_0 -pg 1 -y 460 -defaultsOSRD
+preplace port gp_axi_aclk -pg 1 -y 950 -defaultsOSRD
+preplace port BYolo_GP1 -pg 1 -y 580 -defaultsOSRD
+preplace port AI_BIST_0 -pg 1 -y 260 -defaultsOSRD
+preplace port pl_rst_n_0 -pg 1 -y 720 -defaultsOSRD
+preplace port pl_clk_div_out_0 -pg 1 -y 460 -defaultsOSRD
+preplace port USBIND_0_0 -pg 1 -y 440 -defaultsOSRD
+preplace port S_AXI_HP3_0 -pg 1 -y 420 -defaultsOSRD
+preplace port S_AXI_HP1_0 -pg 1 -y 400 -defaultsOSRD
+preplace port soft_rst_n -pg 1 -y 1290 -defaultsOSRD
+preplace port S_AXI_HP2_FIFO_CTRL_0 -pg 1 -y 340 -defaultsOSRD
+preplace port S_AI_GP_0 -pg 1 -y 220 -defaultsOSRD
+preplace port hp_axi_aclk -pg 1 -y 1210 -defaultsOSRD
+preplace port S_AXI_HP2_0 -pg 1 -y 500 -defaultsOSRD
+preplace port ai_irq -pg 1 -y 1340 -defaultsOSRD
+preplace port AI_SCAN_0 -pg 1 -y 240 -defaultsOSRD
+preplace port reset_n -pg 1 -y 1270 -defaultsOSRD
+preplace port pl_scan_rst_n_0 -pg 1 -y 760 -defaultsOSRD
+preplace port customop_irq -pg 1 -y 1360 -defaultsOSRD
+preplace port DDR_0 -pg 1 -y 340 -defaultsOSRD
+preplace port User_GP0 -pg 1 -y 150 -defaultsOSRD
+preplace port S_AXI_HP0_FIFO_CTRL_0 -pg 1 -y 300 -defaultsOSRD
+preplace port S_AXI_HP1_FIFO_CTRL_0 -pg 1 -y 320 -defaultsOSRD
+preplace port FCLK_CLK0_0 -pg 1 -y 720 -defaultsOSRD
+preplace port pl_ra_clk_0 -pg 1 -y 440 -defaultsOSRD
+preplace port pl_itf_clk_0 -pg 1 -y 700 -defaultsOSRD
+preplace port pl_bist_rstn_0 -pg 1 -y 660 -defaultsOSRD
+preplace port S_AXI_HP3_FIFO_CTRL_0 -pg 1 -y 360 -defaultsOSRD
+preplace port FIXED_IO_0 -pg 1 -y 360 -defaultsOSRD
+preplace port S_AXI_HP0_0 -pg 1 -y 380 -defaultsOSRD
+preplace port AI_IRQ_0 -pg 1 -y 300 -defaultsOSRD
+preplace inst axi_interconnect_4 -pg 1 -lvl 8 -y 590 -defaultsOSRD
+preplace inst smartconnect_0 -pg 1 -lvl 7 -y 960 -defaultsOSRD
+preplace inst axi_dma_0 -pg 1 -lvl 4 -y 1000 -defaultsOSRD
+preplace inst smartconnect_1 -pg 1 -lvl 3 -y 1110 -defaultsOSRD
+preplace inst axi_dma_1 -pg 1 -lvl 6 -y 1410 -defaultsOSRD
+preplace inst axi_dma_2 -pg 1 -lvl 6 -y 1160 -defaultsOSRD
+preplace inst axi_dma_3 -pg 1 -lvl 6 -y 930 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 8 -y 1210 -defaultsOSRD
+preplace inst util_vector_logic_0 -pg 1 -lvl 1 -y 1280 -defaultsOSRD
+preplace inst proc_sys_reset_0 -pg 1 -lvl 2 -y 990 -defaultsOSRD
+preplace inst proc_sys_reset_1 -pg 1 -lvl 4 -y 1230 -defaultsOSRD
+preplace inst axi_interconnect_0 -pg 1 -lvl 10 -y 140 -defaultsOSRD
+preplace inst axi_interconnect_1 -pg 1 -lvl 10 -y 590 -defaultsOSRD
+preplace inst Signal_process_0 -pg 1 -lvl 5 -y 910 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 9 -y 480 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 9 2 NJ 340 NJ
+preplace netloc PJTAG_0_1 1 0 9 NJ 280 NJ 280 NJ 280 NJ 280 NJ 280 NJ 280 NJ 280 NJ 280 NJ
+preplace netloc Signal_process_0_eq 1 5 1 1780
+preplace netloc S_AXI_HP3_FIFO_CTRL_0_1 1 0 9 NJ 360 NJ 360 NJ 360 NJ 360 NJ 360 NJ 360 NJ 360 2560J 370 2990J
+preplace netloc axi_dma_1_M_AXI_S2MM 1 6 1 2260
+preplace netloc S_AI_GP_0_1 1 0 9 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ 220 NJ
+preplace netloc S_AXI_HP2_0_1 1 0 8 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ 500 NJ
+preplace netloc S_AXI_HP0_FIFO_CTRL_0_1 1 0 9 NJ 300 NJ 300 NJ 300 NJ 300 NJ 300 NJ 300 NJ 300 NJ 300 NJ
+preplace netloc axi_interconnect_1_M01_AXI 1 2 9 720 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 NJ 150 3600J 310 3920
+preplace netloc pl_clk_en_b_0_1 1 0 9 NJ 680 NJ 680 NJ 680 NJ 680 NJ 680 NJ 680 NJ 680 2560J 430 2950J
+preplace netloc processing_system7_1_FCLK_CLK0 1 0 10 NJ 950 340 1090 710 1020 1010 1110 NJ 1110 1820 330 NJ 330 NJ 330 3030 160 3610
+preplace netloc AI_SCAN_0_1 1 0 9 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ 240 NJ
+preplace netloc smartconnect_1_M02_AXI 1 3 3 NJ 1120 NJ 1120 N
+preplace netloc ARESETN_1 1 2 8 690J 890 NJ 890 1400J 1090 1840J 1060 2210 130 NJ 130 NJ 130 3620
+preplace netloc util_vector_logic_0_Res 1 1 3 350 1210 NJ 1210 NJ
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 9 2 3560J 740 NJ
+preplace netloc proc_sys_reset_1_peripheral_aresetn 1 4 4 1420 1140 1770 690 NJ 690 2590
+preplace netloc pl_bist_rstn_0_1 1 0 9 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 NJ 660 2220J 670 2570J 740 3050J
+preplace netloc axi_dma_3_M_AXI_S2MM 1 6 1 2240
+preplace netloc S_AXI_HP2_FIFO_CTRL_0_1 1 0 9 NJ 340 NJ 340 NJ 340 NJ 340 NJ 340 NJ 340 NJ 340 NJ 340 NJ
+preplace netloc axi_dma_0_M_AXI_SG 1 4 3 1450 1070 1790J 830 2240J
+preplace netloc axi_dma_2_M_AXI_S2MM 1 6 1 2250
+preplace netloc Signal_process_0_dout 1 5 1 1810
+preplace netloc processing_system7_0_pl_clk_div_out 1 9 2 3600J 450 3930J
+preplace netloc Signal_process_0_expert 1 5 1 1800
+preplace netloc processing_system7_0_AI_IRQ 1 9 2 NJ 300 NJ
+preplace netloc smartconnect_0_M00_AXI 1 7 1 2580
+preplace netloc pl_scan_clk_0_1 1 0 9 10J 320 NJ 320 NJ 320 NJ 320 NJ 320 NJ 320 NJ 320 NJ 320 3050J
+preplace netloc processing_system7_0_USBIND_0 1 9 2 NJ 440 NJ
+preplace netloc S_AXI_HP1_FIFO_CTRL_0_1 1 0 9 0J 310 NJ 310 NJ 310 NJ 310 NJ 310 NJ 310 NJ 310 NJ 310 3060J
+preplace netloc axi_dma_0_M_AXI_MM2S 1 4 3 1430 1080 1760J 820 2260J
+preplace netloc xlconcat_0_dout 1 8 1 3060
+preplace netloc S00_AXI_1 1 9 1 3570
+preplace netloc processing_system7_0_FIXED_IO 1 9 2 NJ 360 NJ
+preplace netloc axi_dma_0_mm2s_introut 1 4 4 1410 1260 NJ 1260 2230J 1190 NJ
+preplace netloc pl_rst_n_0_1 1 0 9 NJ 720 NJ 720 NJ 720 NJ 720 NJ 720 NJ 720 NJ 720 2560J 750 3040J
+preplace netloc pl_bist_clk_0_1 1 0 9 20J 400 NJ 400 NJ 400 NJ 400 NJ 400 NJ 400 NJ 400 NJ 400 2960J
+preplace netloc hp_axi_aclk_1 1 0 9 20J 1200 NJ 1200 NJ 1200 1020 900 1440 1100 1850 1030 2230 660 2570 360 2970
+preplace netloc axi_interconnect_0_M00_AXI 1 10 1 NJ
+preplace netloc S00_AXI_2 1 9 1 3590
+preplace netloc AI_BIST_0_1 1 0 9 NJ 260 NJ 260 NJ 260 NJ 260 NJ 260 NJ 260 NJ 260 NJ 260 NJ
+preplace netloc axi_interconnect_4_M00_AXI 1 8 1 3000
+preplace netloc ai_irq_1 1 0 8 20J 1350 NJ 1350 NJ 1350 NJ 1350 1440J 1270 NJ 1270 2280J 1230 NJ
+preplace netloc S_AXI_HP3_0_1 1 0 9 NJ 420 NJ 420 NJ 420 NJ 420 NJ 420 NJ 420 NJ 420 NJ 420 2990J
+preplace netloc axi_interconnect_0_M01_AXI 1 10 1 NJ
+preplace netloc S_AXI_HP1_0_1 1 0 9 0J 390 NJ 390 NJ 390 NJ 390 NJ 390 NJ 390 NJ 390 NJ 390 3060J
+preplace netloc smartconnect_1_M01_AXI 1 3 3 N 1100 1400J 1370 NJ
+preplace netloc soft_rst_n_1 1 0 1 NJ
+preplace netloc processing_system7_0_FCLK_CLK0 1 9 2 3570J 730 3930J
+preplace netloc M00_ARESETN_1 1 2 8 700 1010 1030 140 NJ 140 NJ 140 NJ 140 NJ 140 NJ 140 3580
+preplace netloc axi_dma_0_M_AXIS_MM2S 1 4 1 1410
+preplace netloc axi_interconnect_1_M00_AXI 1 10 1 NJ
+preplace netloc pl_scan_rst_n_0_1 1 0 9 30J 350 NJ 350 NJ 350 NJ 350 NJ 350 NJ 350 NJ 350 NJ 350 3020J
+preplace netloc pl_ra_clk_0_1 1 0 9 NJ 440 NJ 440 NJ 440 NJ 440 NJ 440 NJ 440 NJ 440 NJ 440 2980J
+preplace netloc pl_itf_clk_0_1 1 0 9 40J 410 NJ 410 NJ 410 NJ 410 NJ 410 NJ 410 NJ 410 NJ 410 3010J
+preplace netloc smartconnect_1_M03_AXI 1 3 3 1030J 1130 NJ 1130 1830
+preplace netloc smartconnect_1_M00_AXI 1 3 1 1000
+preplace netloc processing_system7_0_M_AI_HP 1 9 2 NJ 280 NJ
+preplace netloc S_AXI_HP0_0_1 1 0 9 NJ 380 NJ 380 NJ 380 NJ 380 NJ 380 NJ 380 NJ 380 NJ 380 NJ
+preplace netloc reset_n_1 1 0 1 NJ
+preplace netloc customop_irq_1 1 0 8 NJ 1360 NJ 1360 NJ 1360 NJ 1360 1450J 1280 NJ 1280 2270J 1210 NJ
+levelinfo -pg 1 -40 190 520 860 1230 1610 2040 2420 2800 3330 3770 3950 -top 0 -bot 1510
+"
+}
+0

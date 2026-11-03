@@ -1,0 +1,24 @@
+pl_dma_io —— 板上验过的 PL DMA 驱动，本目录是拷贝。
+
+来源:FPAI_PL/RFFI_FPAI/sw/pl_dma_io
+拷贝日期:2026-10-23（四 DMA 版本：dout + 均衡 + 专家特征 dma3）
+拷贝内容:pl_dma_io.c / pl_dma_io.h / README.md
+对应上游版本:2026-10-22 的 HLS 删 MLP 改动（dout 1216 B/帧，新增 dma3 专家特征）
+
+与上游的唯一差异（只在本工程拷贝里改，上游不动）:
+  pl_dma_io.c 把两处写死的 `msleep(20)` 换成 `msleep(PL_DMA_POST_MS)`，
+  宏默认 0，可用 -DPL_DMA_POST_MS=20 恢复上游行为。
+  原因：稳态每帧要跑 2 次 xfer + eq/专家接收，20 ms × 4 ≈ 80 ms/帧，
+  不能实时。默认 0 时仍保留 udmabuf_sync(FOR_CPU)。
+  app 另把 cfg.evict 置 0（上一版实测缓存挤兑不是必需），驱动默认仍是 1。
+  若 [PLHASH] 与 PC 定点参考对不上，先把 evict 改回 1，再加
+  -DPL_DMA_POST_MS=20 排查。
+
+sha256（拷贝时，改宏之前的原件）:
+  由 `sha256sum` 生成，见下
+
+原目录里的 libpl_dma_io.a、example 等可执行/预编产物没有拷贝：本工程直接编
+pl_dma_io.c,以保证 ABI 和优化选项与主程序一致。
+
+更新方式:从上面路径重新拷 pl_dma_io.c/.h，补回 PL_DMA_POST_MS 这一处改动。
+改动驱动的其它部分请改上游,不要在 impl_fpai_app 里改这份拷贝。

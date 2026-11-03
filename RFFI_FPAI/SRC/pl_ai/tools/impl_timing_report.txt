@@ -1,0 +1,112 @@
+整版实现（place & route）时序 / 资源报告
+==========================================
+来源：RFFI_FPAI.runs/impl_1/
+  ai7030_edif_top_timing_summary_routed.rpt   (2026-10-20 18:38, routed)
+  ai7030_edif_top_utilization_placed.rpt      (2026-10-20 18:28, fully placed)
+  ai7030_edif_top_route_status.rpt
+器件：xc7z030ffg676-2   顶层：ai7030_edif_top   状态：全布线完成，0 routing error
+
+一、总体结论
+------------
+  Setup (WNS) : +0.030 ns   违例端点 0 / 280145     —— 全部满足
+  Hold  (WHS) : +0.029 ns   违例端点 0 / 280142     —— 全部满足
+  Pulse Width (WPWS) : -0.409 ns   违例端点 2 / 88523  —— 唯一违例项
+
+  即：没有任何数据路径 setup/hold 违例；唯一的时序违例是
+  clk_out1_AI_CORE_CLK_ST 这个 1 GHz PLL 输出的脉宽（pulse width）检查，
+  与 lstf_eq 无关，也不在 u_lstf_eq 的时钟域里。
+
+二、唯一违例：clk_out1_AI_CORE_CLK_ST 脉宽检查
+----------------------------------------------
+  Clock : clk_out1_AI_CORE_CLK_ST
+  Waveform {0.000 0.500}  Period 1.000 ns (1000 MHz)
+  Source : U0_ps_ai_peripheral/ZGolo/u_AI_Mate_top/clkrst_wrapper_u0/
+           AI_CORE_CLK/inst/plle2_adv_inst/CLKOUT0
+
+  Check              Corner  Lib Pin             Required  Actual   Slack
+  Min Period         n/a     BUFG/I               1.409 ns  1.000 ns -0.409 ns
+    Location: BUFGCTRL_X0Y19
+    Pin: U0_ps_ai_peripheral/ZGolo/u_AI_Mate_top/clkrst_wrapper_u0/
+         AI_CORE_CLK/inst/clkout1_buf/I
+  Min Period         n/a     PLLE2_ADV/CLKOUT0     1.071 ns  1.000 ns -0.071 ns
+    Location: PLLE2_ADV_X1Y3
+    Pin: .../AI_CORE_CLK/inst/plle2_adv_inst/CLKOUT0
+
+  说明：这是 AI_Mate 内部 PLL 产出的 1 GHz 时钟，BUFG 入口要求最小周期
+  1.409 ns（-2 速度等级 BUFG 的硬限制），实际只有 1.000 ns。属于时钟
+  资源/频率配置问题，不是逻辑路径问题；改它要动 AI_Mate 的 clk_wiz/PLL
+  配置（不在本次可改范围内）。数据路径本身（FDRE/C 上 Actual 1.000 ns,
+  Required 0.700 ns）是过的。
+
+三、最紧的几条 setup 路径（全部满足，但余量很小，按 slack 排序）
+--------------------------------------------------------------
+1) slack +0.030 ns  —— MIG DDR PHY 内部（mem_refclk，1.25 ns 约束）
+   Source      : .../ddr_phy_4lanes_1.../phy_control_i/MEMREFCLK
+   Destination : .../ddr_phy_4lanes_0.../phy_control_i/PHYCTLMSTREMPTY
+   Data 1.183 ns (logic 0.576 + route 0.607)，Logic Levels 0
+   结论：MIG 硬核内部，RTL 不可改。
+
+2) slack +0.102 ns  —— LcwtMLP HLS IP（clk_pll_i 域）
+   Source      : .../u_rffi_Lcwt_0/inst/gps_V_U/LcwtMLP_RFFI_gps_V_ram_U/
+                 ram_reg/CLKBWRCLK
+   Destination : .../u_rffi_Lcwt_0/inst/LcwtMLP_RFFI_mul_cFz_U76/
+                 LcwtMLP_RFFI_mul_cFz_MulnS_6_U/buff2_reg__0/A[20]
+   Data 4.373 ns (logic 0.622 + route 3.751)，Logic Levels 0
+   结论：BRAM 时钟到乘法器输入的布线路径（HLS 导出 IP）。若要再压，
+   需要重新导出 Lcwt HLS IP（约束/流水），本轮不动。
+
+3) slack +0.115 ns  —— lstf_eq 自身（clk_pll_i 域，u_lstf_eq/sclk）
+   Source      : .../Signal_process_0/inst/u_lstf_eq/rr_reg[0]/C
+   Destination : .../Signal_process_0/inst/u_lstf_eq/scan_v_reg[3]/D
+   Data 4.774 ns (logic 1.691 + route 3.083)，Logic Levels 16
+   (CARRY4=11 LUT6=2 LUT5=1 LUT3=1 LUT1=1)
+   结论：atan2 前置的 |rr|/|ri| 取绝对值+取大值链，送到 scan_v。
+   eq 已经不是整版的关键路径（比 Lcwt 那条还松 0.013 ns）。
+
+4) slack +0.516 ns  —— MIG u_switch（sys_clk_p 域，200 MHz）
+   Source      : .../mig_7series_0_mig/u_ddr3_infrastructure/u_switch/
+                 switch_start_reg/C
+   Destination : .../u_switch/FSM_sequential_current_state_reg[0]/D
+   Data 4.341 ns (logic 0.266 + route 4.075，93.9% 是布线)
+   结论：MIG 内部，布线主导，不可改。
+
+5) clk_out1_clk_wiz_0 (100 MHz)：WNS +2.024 ns，19691 端点，无违例。
+
+四、各时钟域 WNS 一览（仅列关键域，单位 ns，违例端点数）
+--------------------------------------------------------
+  时钟域                              WNS      WHS      违例端点
+  clk_pll_i (主 PL 时钟)             0.102    0.039    0
+  sys_clk_p (200 MHz)                0.516    0.082    0
+  clk_out1_clk_wiz_0 (100 MHz)       2.024    0.056    0
+  mem_refclk                         0.030    0.114    0
+  clk_out1_AI_CORE_CLK_ST             n/a      n/a     2 (WPWS -0.409)
+  其余 iserdes/oserdes/MIG 时钟       均 > 0.18          0
+
+五、资源占用（整版，fully placed）
+---------------------------------
+  Slice LUTs                 55,567 / 78,600   70.70%
+    LUT as Logic             48,477 / 78,600   61.68%
+    LUT as Memory             7,090 / 26,600   26.65%
+      LUT as Distributed RAM  6,332
+      LUT as Shift Register     758
+  Slice Registers            76,618 / 157,200  48.74%
+  Block RAM Tile                101 / 265      38.11%
+    RAMB36                     87
+    RAMB18                     28
+  DSPs                          292 / 400      73.00%
+  Bonded IOB                    133 / 250      53.20%
+    Bonded IOPADs               130 / 130      100.00%   ← IO 管脚已满
+  BUFGCTRL                        8 / 32       25.00%
+  MMCME2_ADV                      2 / 5        40.00%
+  PLLE2_ADV                       3 / 5        60.00%
+
+  参考：lstf_eq 单独 OOC 综合（5 ns 时钟）为 LUT 5,611 / FF 3,268，
+  OOC WNS +0.328（未布线估算）。整版落在 clk_pll_i 后实测 +0.115。
+
+六、建议
+--------
+  - Setup/hold 已全部满足，不需要再为 lstf_eq 继续加流水拍。
+  - 唯一违例是 AI_CORE_CLK（1 GHz）的 BUFG 脉宽，属于 AI_Mate 时钟配置，
+    本轮按约定未改；若必须清零，需要动 AI_Mate 的 clk_wiz/PLL 输出频率或
+    时钟方案（BUFG 走 1 GHz 在 -2 器件上本身就超规格）。
+  - LUT 已到 70.7%、DSP 73%、IO 100%，后续再改动优先考虑省 LUT/省 DSP。

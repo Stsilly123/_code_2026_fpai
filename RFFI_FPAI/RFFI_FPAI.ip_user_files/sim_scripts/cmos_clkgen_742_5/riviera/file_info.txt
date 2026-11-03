@@ -1,0 +1,5 @@
+xpm_cdc.sv,systemverilog,xil_defaultlib,D:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv,incdir="../../../../SRC/ip/cmos_clkgen_742_5"
+xpm_memory.sv,systemverilog,xil_defaultlib,D:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv,incdir="../../../../SRC/ip/cmos_clkgen_742_5"
+xpm_VCOMP.vhd,vhdl,xpm,D:/Xilinx/Vivado/2018.3/data/ip/xpm/xpm_VCOMP.vhd,incdir="../../../../SRC/ip/cmos_clkgen_742_5"
+cmos_clkgen_742_5_sim_netlist.v,verilog,xil_defaultlib,d:/FPGA_PR/RFFI_FPAI/SRC/ip/cmos_clkgen_742_5/cmos_clkgen_742_5_sim_netlist.v,incdir="../../../../SRC/ip/cmos_clkgen_742_5"
+glbl.v,Verilog,xil_defaultlib,glbl.v

@@ -1,0 +1,333 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Oct 24 22:17:41 2026
+# Process ID: 16940
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI
+# Command line: vivado.exe -mode batch -source C:/Users/ADMINI~1/AppData/Local/Temp/srl_chk.tcl
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/vivado.log
+# Journal file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI\vivado.jou
+#-----------------------------------------------------------
+source C:/Users/ADMINI~1/AppData/Local/Temp/srl_chk.tcl
+# open_checkpoint {D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/expert_ooc.dcp}
+Command: open_checkpoint D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/expert_ooc.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 266.117 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1507 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1332.641 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 110 instances were transformed.
+  RAM128X1D => RAM128X1D (RAMD64E, RAMD64E, MUXF7, MUXF7, RAMD64E, RAMD64E): 4 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 88 instances
+  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 6 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2018.3 (64-bit) build 2405991
+open_checkpoint: Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1332.641 ; gain = 1066.523
+# set all [get_cells -hier -filter {REF_NAME == SRL16E}]
+# puts "SRL16E_TOTAL [llength $all]"
+SRL16E_TOTAL 434
+# set cfo [get_cells -hier -filter {REF_NAME == SRL16E && NAME =~ *u_cfo*}]
+# puts "SRL16E_CFO [llength $cfo]"
+SRL16E_CFO 65
+# set bad 0
+# foreach c $cfo {
+#   foreach i {0 1 2 3} {
+#     set p [get_pins -quiet ${c}/A${i}]
+#     if {$p eq ""} { continue }
+#     set n [get_nets -quiet -of_objects $p]
+#     set drv [get_pins -quiet -of_objects [get_nets -quiet -of_objects $p] -filter {DIRECTION == OUT}]
+#     if {[llength $drv] > 0} { puts "NONCONST $c A$i <- $drv"; incr bad }
+#   }
+# }
+NONCONST u_cfo/mabs_rot_reg[1][10]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][10]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][10]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][10]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][11]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][11]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][11]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][11]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][12]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][12]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][12]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][12]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][13]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][13]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][13]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][13]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][14]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][14]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][14]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][14]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][15]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][15]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][15]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][15]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][16]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][16]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][16]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][16]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][17]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][17]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][17]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][17]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][18]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][18]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][18]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][18]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][19]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][19]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][19]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][19]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][1]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][1]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][1]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][1]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][20]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][20]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][20]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][20]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][21]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][21]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][21]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][21]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][22]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][22]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][22]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][22]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][23]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][23]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][23]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][23]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][24]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][24]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][24]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][24]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][25]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][25]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][25]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][25]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][26]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][26]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][26]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][26]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][27]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][27]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][27]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][27]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][28]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][28]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][28]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][28]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][29]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][29]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][29]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][29]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][2]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][2]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][2]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][2]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][30]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][30]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][30]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][30]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][31]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][31]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][31]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][31]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][32]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][32]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][32]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][32]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][33]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][33]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][33]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][33]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][34]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][34]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][34]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][34]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][35]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][35]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][35]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][35]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][36]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][36]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][36]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][36]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][37]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][37]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][37]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][37]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][38]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][38]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][38]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][38]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][39]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][39]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][39]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][39]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][3]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][3]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][3]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][3]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][40]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][40]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][40]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][40]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][41]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][41]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][41]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][41]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][42]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][42]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][42]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][42]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][43]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][43]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][43]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][43]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][44]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][44]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][44]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][44]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][45]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][45]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][45]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][45]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][46]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][46]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][46]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][46]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][47]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][47]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][47]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][47]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][4]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][4]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][4]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][4]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][5]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][5]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][5]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][5]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][6]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][6]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][6]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][6]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][7]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][7]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][7]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][7]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][8]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][8]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][8]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][8]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][9]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][9]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mabs_rot_reg[1][9]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mabs_rot_reg[1][9]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][0]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][0]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][0]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][0]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][1]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][1]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][1]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][1]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][2]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][2]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][2]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][2]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][3]_srl5 A0 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][3]_srl5 A1 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][3]_srl5 A2 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][3]_srl5 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][4]_srl5 A0 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][4]_srl5 A1 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][4]_srl5 A2 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][4]_srl5 A3 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][5]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][5]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/mmsb_rot_reg[1][5]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/mmsb_rot_reg[1][5]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][0]_srl5 A0 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][0]_srl5 A1 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][0]_srl5 A2 <- u_cfo/VCC/P
+NONCONST u_cfo/msh_rot_reg[1][0]_srl5 A3 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][1]_srl5 A0 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][1]_srl5 A1 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][1]_srl5 A2 <- u_cfo/VCC/P
+NONCONST u_cfo/msh_rot_reg[1][1]_srl5 A3 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][2]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/msh_rot_reg[1][2]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/msh_rot_reg[1][2]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][2]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][3]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/msh_rot_reg[1][3]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/msh_rot_reg[1][3]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][3]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][4]_srl5 A0 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][4]_srl5 A1 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][4]_srl5 A2 <- u_cfo/VCC/P
+NONCONST u_cfo/msh_rot_reg[1][4]_srl5 A3 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][5]_srl5 A0 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][5]_srl5 A1 <- u_cfo/GND/G
+NONCONST u_cfo/msh_rot_reg[1][5]_srl5 A2 <- u_cfo/VCC/P
+NONCONST u_cfo/msh_rot_reg[1][5]_srl5 A3 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][0]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][0]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][0]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][0]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][1]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][1]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][1]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][1]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][2]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][2]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][2]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][2]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][3]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][3]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][3]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][3]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][4]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][4]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][4]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][4]_srl4 A3 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][5]_srl4 A0 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][5]_srl4 A1 <- u_cfo/VCC/P
+NONCONST u_cfo/sreg_reg[2][5]_srl4 A2 <- u_cfo/GND/G
+NONCONST u_cfo/sreg_reg[2][5]_srl4 A3 <- u_cfo/GND/G
+# puts "CFO_NONCONST_A $bad"
+CFO_NONCONST_A 260
+# foreach m {u_cfo u_hist u_pow u_cum u_zn u_dwt u_dwtf} {
+#   set s [get_cells -hier -filter "REF_NAME == SRL16E && NAME =~ *${m}*"]
+#   puts "SRL_${m} [llength $s]"
+# }
+SRL_u_cfo 65
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == SRL16E && NAME =~ *u_hist*}'.
+SRL_u_hist 0
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == SRL16E && NAME =~ *u_pow*}'.
+SRL_u_pow 0
+SRL_u_cum 59
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == SRL16E && NAME =~ *u_zn*}'.
+SRL_u_zn 0
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == SRL16E && NAME =~ *u_dwt*}'.
+SRL_u_dwt 0
+WARNING: [Vivado 12-180] No cells matched 'get_cells -hier -filter {REF_NAME == SRL16E && NAME =~ *u_dwtf*}'.
+SRL_u_dwtf 0
+# close_design
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 24 22:18:03 2026...

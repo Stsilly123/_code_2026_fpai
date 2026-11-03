@@ -1,0 +1,26 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <name>
+        <value string="sol_csynth"/>
+    </name>
+    <project>
+        <value string="proj_csynth"/>
+    </project>
+    <targetInfo>
+        <TargetInfo value="xc7z030:ffg676:-2"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/zynq/zynq" name="DefaultPlatform"/>
+        <library value="xilinx/zynq/zynq_fpv6" name="DefaultPlatform"/>
+    </libraryList>
+    <downStreamTool>
+        <DownStreamTool name="vivado"/>
+    </downStreamTool>
+    <clockList>
+        <clock default="false" name="default" uncertainty="20%" period="5"/>
+    </clockList>
+    <config>
+        <config_compile blackbox=""/>
+        <schedule model="LcwtMLP_RFFI"/>
+    </config>
+</AutoPilot:solution>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="afifo_16i_64o_largebuf_synth_1" LaunchPart="xc7z030ffg676-2" LaunchTime="1790916301">
+  <File Type="PA-TCL" Name="afifo_16i_64o_largebuf.tcl"/>
+  <File Type="REPORTS-TCL" Name="afifo_16i_64o_largebuf_reports.tcl"/>
+  <File Type="RDS-RDS" Name="afifo_16i_64o_largebuf.vds"/>
+  <File Type="RDS-UTIL" Name="afifo_16i_64o_largebuf_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="afifo_16i_64o_largebuf_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="afifo_16i_64o_largebuf.dcp"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/afifo_16i_64o_largebuf">
+    <File Path="$PPRDIR/SRC/ip/afifo_16i_64o_largebuf/afifo_16i_64o_largebuf.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="afifo_16i_64o_largebuf"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/afifo_16i_64o_largebuf">
+    <File Path="$PPRDIR/SRC/ip/afifo_16i_64o_largebuf/afifo_16i_64o_largebuf.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="afifo_16i_64o_largebuf"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
+    <Filter Type="Utils"/>
+    <Config>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

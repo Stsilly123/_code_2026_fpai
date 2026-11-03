@@ -1,0 +1,11 @@
+0.6
+2018.3
+Dec  7 2018
+00:33:28
+D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/cordic_atan_vl.v,1792813704,verilog,,D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/tb_ef_cfo.v,,cordic_atan_vl,,,.,,,,,
+D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/ef_cfo.v,1792813699,verilog,,D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/ef_sqrt.v,D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/expert_rom.vh,ef_cfo,,,.,,,,,
+D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/ef_cumulant.v,1792813699,verilog,,D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/cordic_atan_vl.v,D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/expert_rom.vh,dsp_acc48;ef_cumulant,,,.,,,,,
+D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/ef_sqrt.v,1792813699,verilog,,D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/ef_cumulant.v,,ef_sqrt,,,.,,,,,
+D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/expert_rom.vh,1792813699,verilog,,,,,,,,,,,,
+D:/FPGA/FPGA/impl_fpai_app/tools/_tb_cfo/tb_ef_cfo.v,1792813699,verilog,,,,tb_ef_cfo,,,.,,,,,
+D:/Xilinx/Vivado/2018.3/data/verilog/src/glbl.v,1544155481,verilog,,,,glbl,,,,,,,,

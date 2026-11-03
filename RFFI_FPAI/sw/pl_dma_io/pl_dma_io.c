@@ -1,0 +1,1671 @@
+/*
+ * pl_dma_io.c —— 实现。对外接口和契约看 pl_dma_io.h。
+ *
+ * ============================ 这份代码从哪来 ============================
+ * **全部原语都是从 sw/pl_dma_test/pl_dma_test.c 搬过来的**，不是重写 ——
+ * 那个程序在板上跑通过（frames 连跑 50+ 次干净），搬的时候尽量一个字符都别动，
+ * 只做三件事：① 全局变量改成句柄字段；② die()/printf 改成返回值 + 回调日志；
+ * ③ 把 mm2s 的「起 + 轮询 + 复位」拆开，好让收发并发。
+ *
+ * 下面是**搬运时的行号**（对着 2026-10-16 那次基线提交 f309548 的版本）。
+ * 两边从此刻起会各自漂移，将来对拍 pl_dma_test.c 的行为时按这张表找：
+ *
+ *   pl_dma_test.c 里的函数                      → 这里
+ *   rd / wr                         (522)       → rd / wr
+ *   now_ms / now_us                 (525/532)   → 同名
+ *   msleep                          (545)       → 同名
+ *   map_regs                        (570)       → open_regs
+ *   read_sysfs_raw / write_sysfs    (585/599)   → 同名
+ *   parse_maybe_hex                 (613)       → 同名
+ *   udmabuf_open                    (621)       → open_buf
+ *   sync_impl_call / sync_probe     (743/767)   → 同名（ioctl 候选表原样搬）
+ *   udmabuf_sysfs_sync              (811)       → 同名
+ *   udmabuf_sync                    (830)       → 同名（带句柄）
+ *   cache_evict                     (867)       → 同名（带句柄，scratch 进句柄）
+ *   count_bytes / find_data_end     (889/904)   → find_data_end（count_bytes 不搬）
+ *   chan_reset                      (1085)      → 同名
+ *   print_dmasr_err                 (1120)      → log_dmasr_err
+ *   bd_write / bd_read_sts          (999/1019)  → 同名（alt_desc 从句柄取）
+ *   sg_bd_pa / sg_bd_va / sg_bd_sts (1208-1211) → 同名（带句柄）
+ *   sg_build_ring                   (1216)      → 同名
+ *   wait_halted_clear               (1262)      → 同名
+ *   s2mm_sg_arm                     (1273)      → 同名
+ *   s2mm_sg_wait                    (2403)      → 同名
+ *   do_s2mm_sg / do_s2mm_simple     (2475/2538) → 收进 drain / xfer 的慢路径
+ *   s2mm_arm / s2mm_wait（热路径）  (2646/2667) → 同名
+ *   mm2s_start                      (2697)      → 同名
+ *   do_mm2s                         (2746)      → 只留下"轮询 + 复位"，收进 xfer
+ *   cmd_frames 的主循环             (3506-3675) → xfer_direct / xfer_sg
+ *   模式自动判定                    (4306-4325) → open 里
+ *
+ * 没搬的（都是那个工具自己的诊断脚手架，跟收发通路无关）：
+ *   probe / sg2 / sgprobe / carpet / irqscan、GIC 那一整段、desc_scan、
+ *   dump_bd_raw、dump_sg_bds、report_capture_shape、check_frames_out、
+ *   prepare_src、fill_pattern、hexdump、run_tag，以及 --dst-shift / --slow-rearm /
+ *   --buf-mem（板子上被 STRICT_DEVMEM 挡住，用不了）/ --one / --no-drain。
+ *
+ * ============================ 均衡 / 专家通路（新增）============================
+ * dma2（axi_dma_2，0x80420000，源 `Signal_process_0/eq`）和
+ * dma3（axi_dma_3，0x80430000，源 `Signal_process_0/expert`）都不在
+ * pl_dma_test.c 里 —— 都是后来加的 S2MM-only 通道。它们的直读时序照抄 dma1 的
+ * `s2mm_arm/wait`（同一块 IP、同样的 TLAST 行为），只是寄存器窗口和目标区不同；
+ * 所以这两个函数按通道参数化成了 `s2mm_arm_ch/wait_ch`，dma1 的调用点原样保留。
+ * 两条支路的收帧循环共用 `s2mm_recv_stream()`，只有通道、缓冲、帧长和名字不同。
+ *
+ * ============================ 和工具的三处有意不同 ============================
+ * 1) **memset 之后走 SYNC_FOR_DEVICE，不是 SYNC_FOR_CPU**。
+ *    工具里那句方向是反的（memset 完是"CPU 写好了要交给设备"，就该 for_device）。
+ *    它没暴露问题，是因为当时 udmabuf0 的 DT 上挂着 `dma-coherent`（映射可缓存），
+ *    sysfs 同步在那个配置下是空操作 —— 而那一行 2026-10-16 已经删掉了，
+ *    现在的映射会不会真的需要同步，取决于删掉之后内核给的映射属性。
+ *    所以这里按**语义**写对的方向，两边都不亏：非缓存映射下是空操作，可缓存映射下才对。
+ * 2) **排空的落点在缓冲区的角落（DRAIN_OFF），不是偏移 0**。
+ *    工具把残帧收到 dst[0..一帧)，那会盖掉调用者刚收到的第 1 帧。库不能这么干。
+ * 3) **不打 printf**。全部走 cfg.log；而且**稳态循环里一条日志都不发**
+ *    （这个是工具本来就守的规矩，见 pl_dma_test.c:3648 那段注释）。
+ */
+
+#define _GNU_SOURCE
+#include "pl_dma_io.h"
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <time.h>
+#include <sys/mman.h>
+#include <sys/ioctl.h>
+
+/* 内部沿用工具里的短名字，方便和原文逐行对拍（见上面那张表） */
+#define BD_OFF    PL_DMA_BD_OFF
+#define BD1_OFF   PL_DMA_BD1_OFF
+#define SRC_OFF   PL_DMA_SRC_OFF
+#define DST_OFF   PL_DMA_DST_OFF
+#define SRC_MAX   PL_DMA_SRC_MAX
+#define DST_MAX   PL_DMA_DST_MAX
+#define EQ_OFF    PL_DMA_EQ_OFF
+#define EQ_MAX    PL_DMA_EQ_MAX
+#define EXP_OFF   PL_DMA_EXP_OFF
+#define EXP_MAX   PL_DMA_EXP_MAX
+#define MAP_LEN   PL_DMA_MAP_LEN
+#define FILL_BYTE PL_DMA_FILL_BYTE
+
+#define FRAME_OUT_BYTES PL_DMA_FRAME_OUT_BYTES
+#define N_FRAMES_OUT    PL_DMA_N_FRAMES_OUT
+#define CALL_IN_BYTES   PL_DMA_CALL_IN_BYTES
+#define CALL_OUT_BYTES  PL_DMA_CALL_OUT_BYTES
+#define EQ_FRAME_BYTES  PL_DMA_EQ_FRAME_BYTES
+#define EQ_CALL_BYTES   PL_DMA_EQ_CALL_BYTES
+#define EXP_FRAME_BYTES PL_DMA_EXP_FRAME_BYTES
+#define EXP_CALL_BYTES  PL_DMA_EXP_CALL_BYTES
+#define DRAIN_OFF       PL_DMA_DRAIN_OFF
+
+#define DEF_DMA0   0x80400000UL
+#define DEF_DMA1   0x80410000UL
+#define DEF_DMA2   0x80420000UL
+#define DEF_DMA3   0x80430000UL
+#define REG_WINDOW 0x10000UL
+#define DEF_UDMABUF_NAME "udmabuf0"
+
+/* ─────────────── AXI DMA 寄存器偏移（xaxidma_hw.h）─────────────── */
+#define MM2S_CR       0x00
+#define MM2S_SR       0x04
+#define MM2S_CURDESC  0x08
+#define MM2S_TAILDESC 0x10
+
+#define S2MM_CR       0x30
+#define S2MM_SR       0x34
+#define S2MM_CURDESC  0x38
+#define S2MM_TAILDESC 0x40
+#define S2MM_DA       0x48
+#define S2MM_LENGTH   0x58
+
+#define CR_RUNSTOP   0x00000001u
+#define CR_RESET     0x00000004u
+#define CR_THRESHOLD(x) (((x) & 0xff) << 16)
+
+/* DMASR 位定义（IP 元数据 / BSP 一致；bit3 是 SGIncld，不是错误位） */
+#define SR_HALTED  0x00000001u
+#define SR_IDLE    0x00000002u
+#define SR_SGINCLD 0x00000008u
+#define SR_ERR     0x00000070u   /* DMAIntErr | DMASlvErr | DMADecErr */
+#define SR_ERR_SG  0x00000700u   /* SGIntErr | SGSlvErr | SGDecErr */
+#define SR_IOC     0x00001000u
+
+/* 描述符 CONTROL / STATUS 位 */
+#define BD_CTRL_SOF     0x08000000u
+#define BD_CTRL_EOF     0x04000000u
+#define BD_CTRL_LEN(l)  ((l) & 0x03FFFFFFu)
+#define BD_STS_COMPLETE 0x80000000u
+#define BD_STS_RXSOF    0x08000000u
+#define BD_STS_RXEOF    0x04000000u
+#define BD_STS_LEN_MASK 0x03FFFFFFu
+#define SG_DESC_LSB_MASK 0xFFFFFFC0u
+
+#define SYNC_FOR_DEVICE 1
+#define SYNC_FOR_CPU    0
+
+/* S2MM 走法 */
+#define MODE_SG     0
+#define MODE_DIRECT 1
+
+/* ─────────────────────── u-dma-buf 的 ioctl 候选表 ───────────────────────
+ * 板上的 u-dma-buf（3.2.5）同步口在 sysfs 上，这张表是**别的板子/别的版本**
+ * 的退路：逐个试，哪个返回 0 用哪个。ioctl 按号精确分发，号不对直接 ENOTTY，
+ * 不会产生副作用。 */
+struct u_dma_buf_sync {
+    uint64_t offset;
+    uint64_t size;
+    uint64_t flags;
+};
+#define U_DMA_BUF_SYNC_TO_DEVICE   0x00000001u
+#define U_DMA_BUF_SYNC_FROM_DEVICE 0x00000002u
+
+#define SYNC_KIND_U64    0
+#define SYNC_KIND_STRUCT 1
+#define SYNC_KIND_OWNER  2
+
+struct sync_impl {
+    const char   *name;
+    unsigned long cmd_dev;
+    unsigned long cmd_cpu;
+    int           kind;
+};
+
+static const struct sync_impl sync_cand[] = {
+    { "新版 大写'U' owner-handoff：_IOW('U',6/5,u64)",
+      _IOW('U', 6, uint64_t), _IOW('U', 5, uint64_t), SYNC_KIND_U64 },
+    { "新版 小写'u' owner-handoff：_IOW('u',6/5,u64)",
+      _IOW('u', 6, uint64_t), _IOW('u', 5, uint64_t), SYNC_KIND_U64 },
+    { "旧版 大写'U' SYNC：_IOW('U',0,结构体)，flags 选方向",
+      _IOW('U', 0, struct u_dma_buf_sync), 0, SYNC_KIND_STRUCT },
+    { "旧版 小写'u' SYNC：_IOW('u',0,结构体)，flags 选方向",
+      _IOW('u', 0, struct u_dma_buf_sync), 0, SYNC_KIND_STRUCT },
+    { "变体 大写'U' SYNC：_IOW('U',9,结构体)",
+      _IOW('U', 9, struct u_dma_buf_sync), 0, SYNC_KIND_STRUCT },
+    { "变体 小写'u' SYNC：_IOW('u',9,结构体)",
+      _IOW('u', 9, struct u_dma_buf_sync), 0, SYNC_KIND_STRUCT },
+    { "无参探针 GET_SYNC_OWNER：_IOR('U',4,u32)",
+      0, 0, SYNC_KIND_OWNER },
+};
+#define SYNC_NCAND ((int)(sizeof(sync_cand) / sizeof(sync_cand[0])))
+
+/* ─────────────────────────── 句柄 ─────────────────────────── */
+struct pl_dma_io {
+    volatile uint32_t *reg0, *reg1, *reg2, *reg3;
+    uint8_t  *buf_va;
+    uint64_t  buf_pa, buf_size;
+    size_t    map_len;
+    int       buf_fd;
+    void     *reg0_map, *reg1_map, *reg2_map, *reg3_map;   /* 留着 munmap 用 */
+
+    int       mode;                     /* dma1 的走法：MODE_SG / MODE_DIRECT */
+    int       alt_desc;
+    int       evict;
+    int       timeout_ms;
+    int       total_timeout_ms;
+    uint32_t  in_bytes, out_bytes;
+
+    int       eq_en;                    /* dma2 窗口映射成功 = 1；只支持直读 */
+    uint32_t  eq_bytes;                 /* 一次 eq_recv 的默认帧数（8192） */
+
+    int       exp_en;                   /* dma3 窗口映射成功 = 1；只支持直读 */
+    uint32_t  exp_bytes;                /* 一次 expert_recv 的默认帧数（8192） */
+
+    int       sync_via_sysfs;
+    int       sync_pick;
+    int       sync_warned;
+    int       evict_warned;
+
+    uint8_t  *evict_scratch;
+    char      ubuf[64];
+    char      ubuf_dev[80];
+
+    pl_dma_io_logfn log;
+    void      *log_user;
+};
+
+/* ─────────────────────────── 日志 ─────────────────────────── */
+static void L(pl_dma_io *h, const char *fmt, ...)
+{
+    va_list ap;
+    if (!h || !h->log)
+        return;
+    va_start(ap, fmt);
+    h->log(h->log_user, fmt, ap);
+    va_end(ap);
+}
+
+/* 记一条错误、把 errno 设好、返回 -1（错误路径统一走这儿，免得 close/open
+ * 里那些 sysfs 调用把 errno 盖掉）。 */
+static long fail(pl_dma_io *h, int err, const char *fmt, ...)
+{
+    va_list ap;
+    if (h && h->log) {
+        va_start(ap, fmt);
+        h->log(h->log_user, fmt, ap);
+        va_end(ap);
+    }
+    errno = err;
+    return -1;
+}
+
+void pl_dma_io_log_vprintf(void *user, const char *fmt, va_list ap)
+{
+    (void)user;
+    vprintf(fmt, ap);
+}
+
+/* ─────────────────────── 小工具（原样搬）─────────────────────── */
+static inline uint32_t rd(volatile uint32_t *b, uint32_t off) { return b[off >> 2]; }
+static inline void     wr(volatile uint32_t *b, uint32_t off, uint32_t v) { b[off >> 2] = v; }
+
+static uint64_t now_ms(void)
+{
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (uint64_t)ts.tv_sec * 1000u + (uint64_t)ts.tv_nsec / 1000000u;
+}
+
+static uint64_t now_us(void)
+{
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (uint64_t)ts.tv_sec * 1000000u + (uint64_t)ts.tv_nsec / 1000u;
+}
+
+static void msleep(int ms)
+{
+    struct timespec ts = { ms / 1000, (long)(ms % 1000) * 1000000L };
+    nanosleep(&ts, NULL);
+}
+
+/* ─────────────────────── /dev/mem 映射寄存器 ─────────────────────── */
+static volatile uint32_t *open_regs(pl_dma_io *h, uint64_t pa, const char *what,
+                                    void **keep)
+{
+    int fd = open("/dev/mem", O_RDWR | O_SYNC);
+    if (fd < 0)
+        return NULL;
+    void *p = mmap(NULL, REG_WINDOW, PROT_READ | PROT_WRITE, MAP_SHARED, fd, (off_t)pa);
+    int e = errno;
+    close(fd);
+    errno = e;
+    if (p == MAP_FAILED)
+        return NULL;
+    *keep = p;
+    L(h, "  %s 寄存器 %#lx 映射到 %p\n", what, (unsigned long)pa, p);
+    return (volatile uint32_t *)p;
+}
+
+/* ─────────────────────── sysfs 小工具（原样搬）─────────────────────── */
+static int read_sysfs_raw(const char *path, char *out, size_t sz)
+{
+    int fd = open(path, O_RDONLY);
+    if (fd < 0)
+        return -1;
+    ssize_t n = read(fd, out, sz - 1);
+    close(fd);
+    if (n < 0)
+        return -1;
+    out[n] = '\0';
+    return 0;
+}
+
+static int write_sysfs(const char *path, const char *val)
+{
+    int fd = open(path, O_WRONLY);
+    if (fd < 0)
+        return -1;
+    ssize_t n = write(fd, val, strlen(val));
+    int e = errno;
+    close(fd);
+    errno = e;
+    return n == (ssize_t)strlen(val) ? 0 : -1;
+}
+
+/* sysfs 里那个数是 "0x08000000" 还是 "134217728" 各家不一样，按前缀判，不写死进制 */
+static uint64_t parse_maybe_hex(const char *s)
+{
+    while (*s == ' ' || *s == '\t') s++;
+    if (s[0] == '0' && (s[1] == 'x' || s[1] == 'X'))
+        return strtoull(s + 2, NULL, 16);
+    return strtoull(s, NULL, 10);
+}
+
+/* ─────────────────────── 同步 ─────────────────────── */
+static int sync_impl_call(pl_dma_io *h, int idx, int for_dev, uint64_t size,
+                          int *saved_errno)
+{
+    const struct sync_impl *c = &sync_cand[idx];
+    unsigned long cmd = for_dev ? c->cmd_dev : (c->cmd_cpu ? c->cmd_cpu : c->cmd_dev);
+    int rc;
+
+    errno = 0;
+    if (c->kind == SYNC_KIND_U64) {
+        uint64_t v = 0;
+        rc = ioctl(h->buf_fd, cmd, &v);
+    } else if (c->kind == SYNC_KIND_OWNER) {
+        uint32_t v = 0;
+        rc = ioctl(h->buf_fd, _IOR('U', 4, uint32_t), &v);
+    } else {
+        struct u_dma_buf_sync s = { 0, size,
+                                    (for_dev ? U_DMA_BUF_SYNC_TO_DEVICE
+                                             : U_DMA_BUF_SYNC_FROM_DEVICE) };
+        rc = ioctl(h->buf_fd, cmd, &s);
+    }
+    if (saved_errno)
+        *saved_errno = errno;
+    return rc;
+}
+
+static void sync_probe(pl_dma_io *h)
+{
+    h->sync_pick = -1;
+    if (h->buf_fd < 0)
+        return;
+
+    L(h, "  u-dma-buf 同步接口探测（/dev/%s）：\n", h->ubuf);
+    for (int i = 0; i < SYNC_NCAND; i++) {
+        int e1 = 0, e2 = 0;
+        int r1 = sync_impl_call(h, i, 1, 0, &e1);
+        int r2 = sync_impl_call(h, i, 0, 0, &e2);
+        L(h, "    %-52s %s%s\n", sync_cand[i].name,
+          r1 == 0 ? "-(认了)" : strerror(e1),
+          r2 != 0 ? "   [反方向也不认]" : "");
+        if (r1 == 0 && h->sync_pick < 0 && sync_cand[i].kind != SYNC_KIND_OWNER)
+            h->sync_pick = i;
+    }
+    if (h->sync_pick >= 0)
+        L(h, "  u-dma-buf 同步：用 %s\n", sync_cand[h->sync_pick].name);
+    else
+        L(h, "  u-dma-buf 同步：驱动一个候选都不认 -> 这个版本没有同步 ioctl，\n"
+             "                 只能指望这块内存本来就是非缓存的\n");
+}
+
+/* 板上的 u-dma-buf 其实**有**同步接口，只是不在 ioctl 上而在 sysfs 上：
+ *   /sys/class/u-dma-buf/<name>/{sync_offset, sync_size, sync_for_cpu, sync_for_device}
+ * 后两个是可写的触发口（写 1 就干活），前两个先设好范围。 */
+static int udmabuf_sysfs_sync(pl_dma_io *h, int for_dev, uint64_t off, uint64_t size)
+{
+    char path[256], v[48];
+
+    snprintf(path, sizeof(path), "/sys/class/u-dma-buf/%s/sync_offset", h->ubuf);
+    snprintf(v, sizeof(v), "%llu", (unsigned long long)off);
+    if (write_sysfs(path, v) != 0)
+        return -1;
+
+    snprintf(path, sizeof(path), "/sys/class/u-dma-buf/%s/sync_size", h->ubuf);
+    snprintf(v, sizeof(v), "%llu", (unsigned long long)size);
+    if (write_sysfs(path, v) != 0)
+        return -1;
+
+    snprintf(path, sizeof(path), "/sys/class/u-dma-buf/%s/%s", h->ubuf,
+             for_dev ? "sync_for_device" : "sync_for_cpu");
+    return write_sysfs(path, "1");
+}
+
+/* ⚠️ 这个函数**慢**：sysfs 那条路是三次文件写，几百 µs 起。调用点只有三个：
+ * 挂第一帧之前、整轮收完之后、开库时。**绝不能进稳态收帧的循环里** ——
+ * 一帧的产期才 ~101 µs，中间夹一次同步就把流顶住了。 */
+static void udmabuf_sync(pl_dma_io *h, int for_dev)
+{
+    if (h->sync_via_sysfs) {
+        if (udmabuf_sysfs_sync(h, for_dev, 0, MAP_LEN) == 0)
+            return;
+        if (!h->sync_warned) {
+            h->sync_warned = 1;
+            L(h, "  (u-dma-buf sysfs 同步失败: %s，后面不再报)\n", strerror(errno));
+        }
+        return;
+    }
+
+    if (h->buf_fd < 0 || h->sync_pick < 0)
+        return;
+    int e = 0;
+    if (sync_impl_call(h, h->sync_pick, for_dev, MAP_LEN, &e) == 0)
+        return;
+    if (!h->sync_warned) {
+        h->sync_warned = 1;
+        L(h, "  (u-dma-buf 同步 ioctl 返回 %s，后面不再报)\n", strerror(e));
+    }
+}
+
+/* ─────────────────── 缓存挤兑 ───────────────────
+ * 踩一块远大于 L2 的缓冲，把目标那几行从 cache 里挤出去：之后读到的就是 DDR 里的
+ * 真相，而不是 CPU 的脏行。**这块板上它已经从"必需"退化成"保险"** ——
+ * 2026-10-16 删掉 udmabuf0 的 dma-coherent 之后，主因是映射属性，不是挤缓存。
+ * 默认开着（cfg.evict=1），关掉只影响可观测性，不影响正确性判断。 */
+static void cache_evict(pl_dma_io *h)
+{
+    enum { EVICT_BYTES = 8 << 20 };
+
+    if (!h->evict)
+        return;
+    if (!h->evict_scratch) {
+        h->evict_scratch = malloc(EVICT_BYTES);
+        if (!h->evict_scratch) {
+            if (!h->evict_warned) {
+                h->evict_warned = 1;
+                L(h, "  警告: 挤缓存用的 8MiB 分配失败，后面跳过这一步\n");
+            }
+            return;
+        }
+        memset(h->evict_scratch, 0x5A, EVICT_BYTES);
+    }
+    volatile uint8_t *p = h->evict_scratch;
+    uint32_t sum = 0;
+    for (size_t i = 0; i < EVICT_BYTES; i += 64) {
+        p[i] = (uint8_t)(p[i] + 1);
+        sum += p[i];
+    }
+    (void)sum;
+}
+
+/* 最后一个不是底色的字节的下一个位置 —— "内存里看起来落地了多少"。
+ * 只当旁证用（数据里恰好出现一个 0xA5 就会数错），权威值是寄存器/描述符。 */
+static size_t find_data_end(const uint8_t *p, size_t n, uint8_t fill)
+{
+    size_t i = n;
+    while (i > 0 && p[i - 1] == fill)
+        i--;
+    return i;
+}
+
+/* ─────────────────────── 通道复位 ─────────────────────── */
+static int chan_reset(pl_dma_io *h, volatile uint32_t *b, uint32_t cr_off,
+                      uint32_t sr_off, const char *name)
+{
+    wr(b, cr_off, CR_RESET);
+    uint64_t t0 = now_ms();
+    while (rd(b, cr_off) & CR_RESET) {
+        if (now_ms() - t0 > 1000) {
+            L(h, "  %s 复位超时（DMACR 的 Reset 位不自动清）\n", name);
+            return -1;
+        }
+    }
+    wr(b, sr_off, rd(b, sr_off));       /* 剩下的错误位手动 W1C */
+    return 0;
+}
+
+static void log_dmasr_err(pl_dma_io *h, const char *who, uint32_t sr)
+{
+    if (!(sr & (SR_ERR | SR_ERR_SG)))
+        return;
+    L(h, "  %s 错误位：", who);
+    if (sr & 0x10)  L(h, " DMAIntErr(描述符 buffer length=0／包长对不上描述符)");
+    if (sr & 0x20)  L(h, " DMASlvErr(访存被从机拒)");
+    if (sr & 0x40)  L(h, " DMADecErr(地址译码失败)");
+    if (sr & 0x100) L(h, " SGIntErr(取到 COMPLETE 已置位的旧描述符)");
+    if (sr & 0x200) L(h, " SGSlvErr(SG 取描述符被拒：查 m_axi_sg 到 DDR 那条路)");
+    if (sr & 0x400) L(h, " SGDecErr(SG 描述符地址译不出来)");
+    L(h, "\n");
+}
+
+/* ─────────────────────── 描述符 ───────────────────────
+ * 默认布局（Xilinx BSP，64 字节）：        alt_desc（PG021 32bit）：
+ *   0x00 NXTDESC                            0x00 NXTDESC
+ *   0x04 NXTDESC_MSB                        0x04 BUFA
+ *   0x08 BUFA                               0x08 (reserved)
+ *   0x0C BUFA_MSB                           0x0C CTRL
+ *   0x10 MCCTL                              0x10 STATUS
+ *   0x14 STRIDE/VSIZE
+ *   0x18 CTRL
+ *   0x1C STATUS
+ *
+ * ⚠ 开头那句 memset(bd, 0, 64) **不能省**：它顺带清掉上一轮硬件回写的
+ *   STATUS.COMPLETE —— 引擎取到 COMPLETE 已置位的描述符就是静默 SGIntErr。 */
+static void bd_write(pl_dma_io *h, uint32_t *bd, uint64_t next_pa,
+                     uint64_t bufa_pa, uint32_t ctrl)
+{
+    memset(bd, 0, 64);
+    if (!h->alt_desc) {
+        bd[0] = (uint32_t)(next_pa & SG_DESC_LSB_MASK);
+        bd[1] = (uint32_t)(next_pa >> 32);
+        bd[2] = (uint32_t)bufa_pa;
+        bd[3] = (uint32_t)(bufa_pa >> 32);
+        bd[6] = ctrl;
+    } else {
+        bd[0] = (uint32_t)(next_pa & SG_DESC_LSB_MASK);
+        bd[1] = (uint32_t)bufa_pa;
+        bd[2] = 0;
+        bd[3] = ctrl;
+    }
+}
+
+static uint32_t bd_read_sts(pl_dma_io *h, const uint32_t *bd)
+{
+    return h->alt_desc ? bd[4] : bd[7];
+}
+
+/* ─────────────────────── S2MM：SG 环 ─────────────────────── */
+static uint64_t  sg_bd_pa(pl_dma_io *h, int k)
+{ return h->buf_pa + BD1_OFF + (uint64_t)k * 64u; }
+static uint32_t *sg_bd_va(pl_dma_io *h, int k)
+{ return (uint32_t *)(h->buf_va + BD1_OFF + (size_t)k * 64u); }
+static uint32_t sg_bd_sts(pl_dma_io *h, int k)
+{ return bd_read_sts(h, sg_bd_va(h, k)); }
+
+/* 建环：第 k 个描述符指向 base_off 起的第 k 段缓冲，NXTDESC 指下一个，
+ * 最后一个指回第 0 个。尾巴不能留空指针 —— 硬件会预取 NXTDESC。 */
+static int sg_build_ring(pl_dma_io *h, uint32_t base_off, uint32_t frame_len, int nbd)
+{
+    if (nbd < 1 || nbd > (int)N_FRAMES_OUT)
+        return (int)fail(h, EINVAL, "SG 描述符个数 %d 越界（1..%u）\n",
+                         nbd, N_FRAMES_OUT);
+    if (frame_len == 0 || frame_len > 0xFFFFu)
+        return (int)fail(h, EINVAL, "SG 描述符长度 %u 越界（1..65535）\n", frame_len);
+    if ((uint64_t)base_off + (uint64_t)nbd * frame_len > DST_MAX)
+        return (int)fail(h, EINVAL, "SG 目标区不够：基址 %#x 起要 %llu 字节，只有 %lu\n",
+                         base_off, (unsigned long long)nbd * frame_len,
+                         (unsigned long)DST_MAX);
+
+    for (int k = 0; k < nbd; k++) {
+        uint64_t next = sg_bd_pa(h, (k + 1) % nbd);
+        uint64_t dat  = h->buf_pa + DST_OFF + base_off + (uint64_t)k * frame_len;
+        bd_write(h, sg_bd_va(h, k), next, dat, BD_CTRL_LEN(frame_len));
+    }
+    return 0;
+}
+
+/* 写 TAILDESC 之前等 DMASR.Halted 真的清掉 —— Halted 这位有"lag"，RS=1 之后
+ * 立刻写尾可能正好落进 lag 里：静默地什么都不发生，连错误位都不报。
+ * 返回等了多久（µs）；超时 -1。 */
+static long wait_halted_clear(volatile uint32_t *b, uint32_t sr_off, int timeout_us)
+{
+    uint64_t t0 = now_us();
+    for (;;) {
+        if (!(rd(b, sr_off) & SR_HALTED))
+            return (long)(now_us() - t0);
+        if (now_us() - t0 > (uint64_t)timeout_us)
+            return -1;
+    }
+}
+
+/* 挂环并开跑。顺序照 Xilinx 的 XAxiDma_BdRingStart()：CDESC -> RS=1 -> TDESC，
+ * 最后写尾描述符那一下才是"开跑"。 */
+static int s2mm_sg_arm(pl_dma_io *h, uint32_t base_off, uint32_t frame_len, int nbd)
+{
+    volatile uint32_t *b = h->reg1;
+
+    if (sg_build_ring(h, base_off, frame_len, nbd) < 0)
+        return -1;
+
+    __sync_synchronize();
+    udmabuf_sync(h, SYNC_FOR_DEVICE);   /* 描述符本身也得先落 DDR —— SG 引擎要去取 */
+
+    if (chan_reset(h, b, S2MM_CR, S2MM_SR, "S2MM") < 0)
+        return -1;
+
+    wr(b, S2MM_CR, 0);
+    wr(b, S2MM_SR, rd(b, S2MM_SR));
+    wr(b, S2MM_CURDESC, (uint32_t)(sg_bd_pa(h, 0) & SG_DESC_LSB_MASK));
+    wr(b, S2MM_CR, CR_RUNSTOP | CR_THRESHOLD(1));
+    __sync_synchronize();
+
+    long us = wait_halted_clear(b, S2MM_SR, 200000);
+    if (us < 0)
+        return (int)fail(h, EIO, "  S2MM RS=1 之后 200 ms 内 Halted 一直没清，"
+                                 "没法安全地写尾描述符\n");
+
+    wr(b, S2MM_TAILDESC,
+       (uint32_t)(sg_bd_pa(h, nbd - 1) & SG_DESC_LSB_MASK));   /* 写尾 = 开跑 */
+    return 0;
+}
+
+/* 等这一串描述符收完。描述符是按顺序完成的，所以只盯最后一个：
+ * 它 COMPLETE 了前面的一定都完了。 */
+static int s2mm_sg_wait(pl_dma_io *h, int nbd, uint32_t *len, uint32_t *sts,
+                        int timeout_ms)
+{
+    volatile uint32_t *b = h->reg1;
+    uint64_t t0 = now_ms();
+    uint32_t sr = 0;
+    int tick = 0;
+
+    if (nbd < 1)
+        return (int)fail(h, EINVAL, "SG 等 0 个描述符？\n");
+
+    for (;;) {
+        sr = rd(b, S2MM_SR);
+        if (sr & (SR_ERR | SR_ERR_SG)) {
+            L(h, "  S2MM(SG) 出错: DMASR=%#010x\n", sr);
+            log_dmasr_err(h, "S2MM", sr);
+            wr(b, S2MM_SR, sr);
+            chan_reset(h, b, S2MM_CR, S2MM_SR, "S2MM");
+            return (int)fail(h, EIO, "S2MM SG 出错（DMASR=%#010x）\n", sr);
+        }
+
+        if (sg_bd_sts(h, nbd - 1) & BD_STS_COMPLETE)
+            break;
+
+        /* 每 500 ms 把 MM2S 那一侧也带一行：S2MM 一直没动静时，"MM2S 完成没有"
+         * 是第一个分叉点（输入 FIFO 只有 2 帧深，HLS 排不出结果会反压住 MM2S）。 */
+        if (++tick % 500 == 0) {
+            uint32_t msr = rd(h->reg0, MM2S_SR);
+            uint32_t mbd = bd_read_sts(h, (const uint32_t *)(h->buf_va + BD_OFF));
+            L(h, "      …%llu ms  MM2S: DMASR=%#010x 描述符=%#010x[%s%s]"
+                 "  |  S2MM: DMASR=%#010x 末描述符=%#010x\n",
+               (unsigned long long)(now_ms() - t0), msr, mbd,
+               (mbd & BD_STS_COMPLETE) ? "COMPLETE" : "未完",
+               (msr & SR_IOC) ? " IOC" : "",
+               sr, sg_bd_sts(h, nbd - 1));
+        }
+
+        if (now_ms() - t0 > (uint64_t)timeout_ms) {
+            uint32_t late;
+            udmabuf_sync(h, SYNC_FOR_CPU);
+            cache_evict(h);             /* 先排除"读到旧 cache line"再下结论 */
+            late = sg_bd_sts(h, nbd - 1);
+            L(h, "  S2MM(SG) 超时 %d ms：DMASR=%#010x，最后一个描述符 STATUS=%#010x%s\n",
+               timeout_ms, sr, late,
+               (late & BD_STS_COMPLETE) ? "  <- 挤完缓存是 COMPLETE：刚才是读早了" : "");
+            if (!(late & BD_STS_COMPLETE))
+                L(h, "    提示：dout 只有 HLS 跑起来才有（要先灌数据进去）。\n");
+            wr(b, S2MM_SR, sr);
+            chan_reset(h, b, S2MM_CR, S2MM_SR, "S2MM");
+            return (int)fail(h, ETIMEDOUT, "S2MM SG 超时 %d ms\n", timeout_ms);
+        }
+        msleep(1);
+    }
+
+    for (int k = 0; k < nbd; k++) {
+        sts[k] = sg_bd_sts(h, k);
+        len[k] = sts[k] & BD_STS_LEN_MASK;
+    }
+    return 0;
+}
+
+/* ─────────────────────── S2MM：直读模式 ───────────────────────
+ * ⚠ 下面这两个是**热路径**：重挂时只做最少的事（清 IOC、写 DA、写 LENGTH、等 IOC）。
+ * 不 memset、不 sysfs 同步、不挤缓存、不软复位 —— 那些加起来是几百 µs 到几 ms 的
+ * 窗口，而 HLS 每帧只要 ~50~113 µs（一次调用 10,056~22,600 拍 @200 MHz）；软复位
+ * 期间 S2MM 的 TREADY 会抖，抖几下就吃掉几拍（旧格式实测每帧正好少 8 拍）。
+ * 慢活统一挪到整轮前后做一次。 */
+
+/* 挂一帧。顺序照 Xilinx 的 poll 例程：DMACR=0 -> DA -> DMACR=RS -> LENGTH。
+ *
+ * `_ch` 版按通道参数化：dout 走 reg1、边界 [DST_OFF, DST_OFF+DST_MAX)；
+ * 均衡走 reg2、边界 [EQ_OFF, EQ_OFF+EQ_MAX)；专家走 reg3、边界
+ * [EXP_OFF, EXP_OFF+EXP_MAX)。abs_off 是 udmabuf 里的绝对偏移。
+ * 三个通道共用同一段时序，只是寄存器和目标区不同。 */
+static int s2mm_arm_ch(pl_dma_io *h, volatile uint32_t *b,
+                       uint32_t abs_off, uint32_t length,
+                       uint32_t region_off, uint32_t region_max,
+                       const char *who)
+{
+    uint64_t dst_pa     = h->buf_pa + abs_off;
+    uint64_t region_end = (uint64_t)region_off + region_max;
+
+    if (length == 0 || (uint64_t)abs_off < region_off ||
+        (uint64_t)abs_off + length > region_end)
+        return (int)fail(h, EINVAL, "%s 目标偏移 %#x + 长度 %u 超出 %#x..%#llx\n",
+                         who, abs_off, length, region_off,
+                         (unsigned long long)region_end);
+
+    wr(b, S2MM_SR, rd(b, S2MM_SR));         /* 先 W1C，否则一进等待就被当成"已完成" */
+    wr(b, S2MM_CR, 0);
+    wr(b, S2MM_DA, (uint32_t)dst_pa);
+    wr(b, S2MM_CR, CR_RUNSTOP | CR_THRESHOLD(1));
+    __sync_synchronize();
+    wr(b, S2MM_LENGTH, length);             /* 写这个就开跑 */
+    return 0;
+}
+
+/* 等这一帧收完。返回**已收字节数**（S2MM_LENGTH 读回值，板上证实是已收量，不是
+ * 剩余量），-1 = 出错/超时。
+ * ⚠ 返回路径上除了出错/超时**一个字都不打** —— 这是热路径的一部分。 */
+static long s2mm_wait_ch(pl_dma_io *h, volatile uint32_t *b, uint32_t abs_off,
+                         int timeout_ms, int quiet, const char *who)
+{
+    uint32_t sr;
+    uint64_t t0 = now_ms();
+
+    for (;;) {
+        sr = rd(b, S2MM_SR);
+        if (sr & (SR_ERR | SR_ERR_SG)) {
+            L(h, "  %s 出错: DMASR=%#010x\n", who, sr);
+            log_dmasr_err(h, who, sr);
+            wr(b, S2MM_SR, sr);
+            chan_reset(h, b, S2MM_CR, S2MM_SR, who);
+            return fail(h, EIO, "%s 出错（DMASR=%#010x）\n", who, sr);
+        }
+        if (sr & SR_IOC)
+            return (long)rd(b, S2MM_LENGTH);
+        if (now_ms() - t0 > (uint64_t)timeout_ms) {
+            /* quiet：排空探测。超时 = "没有下一帧了"，是预期结果，不是错误，
+             * 不打日志（否则 app 每轮 drain 都在刷屏）。出错位仍然照报。 */
+            if (!quiet)
+                L(h, "  %s 超时 %d ms（DMASR=%#010x，目标 +%#x）\n",
+                  who, timeout_ms, sr, abs_off);
+            wr(b, S2MM_SR, sr);
+            chan_reset(h, b, S2MM_CR, S2MM_SR, who);
+            if (quiet) {
+                errno = ETIMEDOUT;
+                return -1;
+            }
+            return fail(h, ETIMEDOUT, "%s 超时 %d ms\n", who, timeout_ms);
+        }
+    }
+}
+
+/* dout 通道（axi_dma_1）的两个薄壳，调用点和原来完全一样。 */
+static int s2mm_arm(pl_dma_io *h, uint32_t dst_off, uint32_t length)
+{
+    return s2mm_arm_ch(h, h->reg1, DST_OFF + dst_off, length,
+                       DST_OFF, DST_MAX, "S2MM");
+}
+
+static long s2mm_wait(pl_dma_io *h, uint32_t dst_off, int timeout_ms, int quiet)
+{
+    return s2mm_wait_ch(h, h->reg1, DST_OFF + dst_off, timeout_ms, quiet, "S2MM");
+}
+
+/* ─────────────────────── MM2S（ait_dma_0，SG 模式）─────────────────────── */
+/* 只把 MM2S 起起来、不等它跑完 —— 它要和收帧并发（HLS 输入 FIFO 只有 2 帧深，
+ * 等 MM2S 跑完再收必然互相顶住）。 */
+static int mm2s_start(pl_dma_io *h, uint32_t length)
+{
+    volatile uint32_t *b = h->reg0;
+    uint64_t bd_pa  = h->buf_pa + BD_OFF;
+    uint64_t src_pa = h->buf_pa + SRC_OFF;
+    uint32_t *bd    = (uint32_t *)(h->buf_va + BD_OFF);
+
+    if (length == 0 || length > SRC_MAX)
+        return (int)fail(h, EINVAL, "MM2S 长度 %u 超出范围 (1..%lu)\n",
+                         length, (unsigned long)SRC_MAX);
+    if (length & 0x7)
+        return (int)fail(h, EINVAL, "MM2S 长度必须是 8 的倍数（m_axis 是 64bit）\n");
+    if (length > 16383u)
+        return (int)fail(h, EINVAL, "MM2S 长度 %u 超过单描述符上限 16383"
+                                    "（axi_dma_0 的 C_SG_LENGTH_WIDTH=14）\n", length);
+
+    /* 单描述符，NXTDESC 指向自己。因为是自环，传完必须马上复位，
+     * 否则硬件会把同一个描述符再跑一遍。 */
+    bd_write(h, bd, bd_pa, src_pa, BD_CTRL_SOF | BD_CTRL_EOF | BD_CTRL_LEN(length));
+    __sync_synchronize();
+    udmabuf_sync(h, SYNC_FOR_DEVICE);
+
+    if (chan_reset(h, b, MM2S_CR, MM2S_SR, "MM2S") < 0)
+        return (int)fail(h, EIO, "MM2S 复位超时\n");
+
+    wr(b, MM2S_CR, 0);
+    wr(b, MM2S_CURDESC, (uint32_t)bd_pa);
+    wr(b, MM2S_CR, CR_RUNSTOP | CR_THRESHOLD(1));
+    __sync_synchronize();
+
+    if (wait_halted_clear(b, MM2S_SR, 200000) < 0)
+        return (int)fail(h, EIO, "  MM2S RS=1 之后 200 ms 内 Halted 一直没清\n");
+
+    wr(b, MM2S_TAILDESC, (uint32_t)bd_pa);      /* 写尾描述符 = 开跑 */
+    return 0;
+}
+
+/* MM2S 收场：自环必须复位。**正常收场不打日志** —— 这是每轮都走的路径，
+ * 一打就是每帧好几行（app 5 个 TTA shift = 5 行）。只有异常时才打：
+ * DMASR 报错位，或描述符没 COMPLETE（卡在 HLS 之前/之中）。
+ * 不改判成败 —— 数据够不够由 S2MM 那边说了算。 */
+static void mm2s_stop(pl_dma_io *h, uint32_t length)
+{
+    uint32_t msr = rd(h->reg0, MM2S_SR);
+    uint32_t mbd = bd_read_sts(h, (const uint32_t *)(h->buf_va + BD_OFF));
+    chan_reset(h, h->reg0, MM2S_CR, MM2S_SR, "MM2S");
+
+    if ((msr & (SR_ERR | SR_ERR_SG)) || !(mbd & BD_STS_COMPLETE)) {
+        L(h, "  MM2S 收场异常：DMASR=%#010x [%s%s%s]  描述符 STATUS=%#010x <- %s"
+             "（本次发 %u B）\n",
+          msr,
+          (msr & SR_HALTED) ? "Halted " : "",
+          (msr & SR_IOC) ? "IOC " : "",
+          (msr & (SR_ERR | SR_ERR_SG)) ? "ERR " : "",
+          mbd,
+          (mbd & BD_STS_COMPLETE) ? "COMPLETE"
+                                  : "没完成：卡在 HLS 之前或之中，先别怪 S2MM",
+          length);
+    }
+    if (msr & (SR_ERR | SR_ERR_SG))
+        log_dmasr_err(h, "MM2S", msr);
+}
+
+/* ─────────────────────── 排空 ───────────────────────
+ * 收掉 HLS 输出里残留的帧。**任何"收了不满就走"的跑法都会给下一轮留存货**：
+ * 下一轮开跑时先吐出来的是上一轮的尾巴，第 1 帧就变成 668/652。
+ * 落点在 DRAIN_OFF（缓冲角落），不碰调用者刚收到的那些帧。 */
+static long drain_one(pl_dma_io *h, int timeout_ms)
+{
+    if (h->mode == MODE_SG) {
+        if (s2mm_sg_arm(h, DRAIN_OFF, FRAME_OUT_BYTES, 1) < 0)
+            return -1;
+        uint32_t len = 0, sts = 0;
+        if (s2mm_sg_wait(h, 1, &len, &sts, timeout_ms) < 0)
+            return -1;
+        chan_reset(h, h->reg1, S2MM_CR, S2MM_SR, "S2MM");
+        return (long)len;
+    }
+    if (s2mm_arm(h, DRAIN_OFF, FRAME_OUT_BYTES) < 0)
+        return -1;
+    return s2mm_wait(h, DRAIN_OFF, timeout_ms, 1);
+}
+
+int pl_dma_io_drain(pl_dma_io *h)
+{
+    int n = 0;
+    if (!h) {
+        errno = EINVAL;
+        return -1;
+    }
+    for (int i = 0; i < 16; i++) {
+        long got = drain_one(h, 300);
+        if (got < (long)FRAME_OUT_BYTES)
+            break;              /* 收不满一帧 = 榨干了（超时也走这条） */
+        n++;
+    }
+    return n;
+}
+
+/* ─────────────────────── 那一趟调用 ─────────────────────── */
+
+static int wait_budget(pl_dma_io *h, uint64_t t0)
+{
+    uint64_t cap = (h->total_timeout_ms > 0) ? (uint64_t)h->total_timeout_ms : 0;
+    if (cap) {
+        uint64_t used = now_ms() - t0;
+        if (used >= cap)
+            return 0;
+        if (cap - used < (uint64_t)h->timeout_ms)
+            return (int)(cap - used);
+    }
+    return h->timeout_ms;
+}
+
+/* 直读模式：按帧格子一帧一挂，中间不夹任何慢活。
+ *
+ * ⚠ **这个循环里一个字都不许打** —— printf 是几十~几百 µs（stdout 行缓冲，
+ *   每条 = 一次 write() 系统调用），而一帧的产期才 ~101 µs。短帧的信息先攒在
+ *   下面两个数组里，出了循环再报。工具的注释（pl_dma_test.c:3648）就是这么定的。 */
+static long xfer_direct(pl_dma_io *h, uint32_t nframes, uint64_t t0, uint32_t *full,
+                        uint32_t *short_k, long *short_n, int *n_short)
+{
+    long total = 0;
+    for (uint32_t k = 0; k < nframes; k++) {
+        int budget = wait_budget(h, t0);
+        if (budget <= 0)
+            return fail(h, ETIMEDOUT, "整轮预算 %d ms 用完（收到第 %u/%u 帧）\n",
+                        h->total_timeout_ms, k, nframes);
+
+        long n = s2mm_wait(h, k * FRAME_OUT_BYTES, budget, 0);
+
+        /* ⚠ 只在出错/超时时才停。**短帧绝不能 break**：收在 TLAST 上的那一笔
+         * 可能因为上一笔"提前结账"而少几拍，但再下一笔又回到帧边界。
+         * 每一笔按帧格子（k × FRAME_OUT_BYTES）挂，这样短的那格留底色、
+         * 别的格还在网格上。 */
+        if (n < 0)
+            return n;
+        total += n;
+        if (n == (long)FRAME_OUT_BYTES)
+            (*full)++;
+        else if (*n_short < (int)N_FRAMES_OUT) {
+            short_k[*n_short] = k;
+            short_n[*n_short] = n;
+            (*n_short)++;
+        }
+
+        /* 立刻挂下一帧，中间不夹任何慢活。 */
+        if (k + 1 < nframes && s2mm_arm(h, (k + 1) * FRAME_OUT_BYTES,
+                                        FRAME_OUT_BYTES) < 0)
+            return -1;
+    }
+    return total;
+}
+
+/* SG 模式：一个环挂满，MM2S 一开跑硬件就自己往下走，CPU 不插手。 */
+static long xfer_sg(pl_dma_io *h, uint32_t nframes, uint64_t t0, uint32_t *full)
+{
+    uint32_t lens[N_FRAMES_OUT], stss[N_FRAMES_OUT];
+    long total = 0;
+    int budget = wait_budget(h, t0);
+    if (budget <= 0)
+        return fail(h, ETIMEDOUT, "整轮预算 %d ms 用完\n", h->total_timeout_ms);
+
+    if (s2mm_sg_wait(h, (int)nframes, lens, stss, budget) < 0)
+        return -1;
+
+    for (uint32_t k = 0; k < nframes; k++) {
+        total += (long)lens[k];
+        if (lens[k] == FRAME_OUT_BYTES)
+            (*full)++;
+        else
+            L(h, "  帧 %u 只收到 %u / %u 字节（STATUS=%#010x）\n",
+              k + 1, lens[k], FRAME_OUT_BYTES, stss[k]);
+    }
+    return total;
+}
+
+static long xfer_impl(pl_dma_io *h, const void *in, uint32_t in_bytes,
+                      void *out, uint32_t out_bytes)
+{
+    if (!h)
+        return fail(NULL, EINVAL, "空句柄\n");
+
+    /* 给 0 = 用开库时配的默认尺寸，这样 cfg.in_bytes/out_bytes 有地方生效 */
+    if (in_bytes == 0)
+        in_bytes = h->in_bytes;
+    if (out_bytes == 0)
+        out_bytes = h->out_bytes;
+
+    if (in_bytes == 0 || in_bytes > SRC_MAX || (in_bytes & 7) || in_bytes > 16383u)
+        return fail(h, EINVAL, "in_bytes=%u 不合法（1..16383，且是 8 的倍数）\n", in_bytes);
+    if (out_bytes == 0 || out_bytes > PL_DMA_OUT_CAP ||
+        (out_bytes % FRAME_OUT_BYTES) != 0)
+        return fail(h, EINVAL, "out_bytes=%u 不合法（%u 的整数倍，且 ≤ %u）\n",
+                    out_bytes, FRAME_OUT_BYTES, PL_DMA_OUT_CAP);
+
+    uint32_t nframes = out_bytes / FRAME_OUT_BYTES;
+    if (h->mode == MODE_SG && nframes > N_FRAMES_OUT)
+        return fail(h, EINVAL, "SG 模式最多 %u 帧（out_bytes ≤ %u），要 %u 帧\n",
+                    N_FRAMES_OUT, N_FRAMES_OUT * FRAME_OUT_BYTES, nframes);
+
+    uint8_t *dst = h->buf_va + DST_OFF;
+
+    /* 1) 输入搬进 SRC（只有拷贝接口要）；目标区铺底色，好看出哪些字节没被写过 */
+    if (in)
+        memcpy(h->buf_va + SRC_OFF, in, in_bytes);
+    memset(dst, FILL_BYTE, out_bytes);
+
+    /* 2) 把这两笔写推给设备。**必须在挂 DMA 之前做完** —— 挂上之后再补就晚了。
+     *    方向是 FOR_DEVICE（CPU 写好了交给设备），见文件头"三处有意不同"。 */
+    __sync_synchronize();
+    udmabuf_sync(h, SYNC_FOR_DEVICE);
+    cache_evict(h);
+
+    /* 3) **先挂 S2MM，再起 MM2S**。反了第 1 帧会从帧中间切进去（实测 668 = 少 4 拍）。
+     *    整轮开始复位一次通道；之后每帧只重挂、绝不复位。 */
+    if (chan_reset(h, h->reg1, S2MM_CR, S2MM_SR, "S2MM") < 0)
+        return fail(h, EIO, "S2MM 复位超时\n");
+
+    if (h->mode == MODE_SG) {
+        if (s2mm_sg_arm(h, 0, FRAME_OUT_BYTES, (int)nframes) < 0) {
+            int e = errno;
+            return fail(h, e ? e : EIO, "S2MM SG 挂环失败\n");
+        }
+    } else {
+        if (s2mm_arm(h, 0, FRAME_OUT_BYTES) < 0)
+            return fail(h, errno ? errno : EIO, "S2MM 挂第 1 帧失败\n");
+    }
+
+    uint64_t t0 = now_ms();
+
+    if (mm2s_start(h, in_bytes) < 0)
+        return fail(h, errno ? errno : EIO, "MM2S 起不来（长度 %u）\n", in_bytes);
+
+    /* 4) 收帧。短帧的信息是在循环外报的（见 xfer_direct 上面那段）。 */
+    uint32_t full = 0;
+    uint32_t short_k[N_FRAMES_OUT];
+    long short_n[N_FRAMES_OUT];
+    int n_short = 0;
+    long total = (h->mode == MODE_SG)
+               ? xfer_sg(h, nframes, t0, &full)
+               : xfer_direct(h, nframes, t0, &full, short_k, short_n, &n_short);
+
+    for (int i = 0; i < n_short; i++)
+        L(h, "  帧 %u 只收到 %ld / %u 字节（内存里数据到 %zu 为止）\n",
+          short_k[i] + 1, short_n[i], FRAME_OUT_BYTES,
+          find_data_end(h->buf_va + DST_OFF + short_k[i] * FRAME_OUT_BYTES,
+                        FRAME_OUT_BYTES, FILL_BYTE));
+
+    /* 5) MM2S 该跑完了；自环必须立刻停掉。 */
+    mm2s_stop(h, in_bytes);
+
+    /* 6) **等一会儿再读缓冲**：DMA 的写是投递到 DDR 的，IOC 置起来那一刻最后几拍
+     *    可能还在路上。板上实测：收完当场读是 134/150 个高字节"不合规"，
+     *    等 20 ms 再读就是 0 个 —— 是读早了，不是数据错。 */
+    msleep(20);
+    udmabuf_sync(h, SYNC_FOR_CPU);
+    cache_evict(h);
+
+    if (total < 0) {
+        /* 出错：排空一下就交差，别把残帧留给下一轮 */
+        int nd = pl_dma_io_drain(h);
+        L(h, "  出错收场：排空 %d 帧\n", nd);
+        return total;                       /* errno 由 s2mm_wait/drain 设好了 */
+    }
+
+    if (total < (long)out_bytes) {
+        L(h, "  本轮只收到 %ld / %u 字节（整帧 %u / %u）—— 排空 HLS 里的残帧，"
+             "免得污染下一轮\n", total, out_bytes, full, nframes);
+        int nd = pl_dma_io_drain(h);
+        L(h, "  排空 %d 帧\n", nd);
+    }
+
+    if (out && total > 0)
+        memcpy(out, dst, (size_t)total);
+    return total;
+}
+
+long pl_dma_io_xfer(pl_dma_io *h, const void *in, uint32_t in_bytes,
+                    void *out, uint32_t out_bytes)
+{
+    return xfer_impl(h, in, in_bytes, out, out_bytes);
+}
+
+long pl_dma_io_xfer_ptr(pl_dma_io *h, uint32_t in_bytes, uint32_t out_bytes)
+{
+    return xfer_impl(h, NULL, in_bytes, NULL, out_bytes);
+}
+
+/* ─────────────────────── 只收的支路（dma2 / dma3）───────────────────────
+ * 和 dout 那条流完全独立：不灌输入、不启动 MM2S，只把 `Signal_process_0/eq`
+ * 或 `Signal_process_0/expert` 已经产出的 1024 B 帧收回来。dma2/dma3 在 BD 里
+ * 都是 S2MM-only、C_INCLUDE_SG=0，所以只实现直读模式（按帧挂、TLAST 收工），
+ * 跟 dout 的直读路径同一时序。
+ *
+ * 数据缓冲分别固定在 EQ_OFF / EXP_OFF（udmabuf 尾部各 8 KB），不跟 dout 的
+ * 目标区相交。排空落点借用 dout 区的角落：一帧 1024 B < 1216 B，塞得下。
+ *
+ * ⚠ 和 xfer 的热路径一样：收完一帧到挂下一帧之间只做 MMIO，不 memset、
+ *   不 sysfs 同步、不打日志；慢活都在整轮前后。 */
+
+/* 收一帧丢到共用的排空角落。 */
+static long s2mm_drain_one(pl_dma_io *h, volatile uint32_t *b,
+                           uint32_t frame_bytes, const char *who)
+{
+    uint32_t off = DST_OFF + DRAIN_OFF;
+
+    if (s2mm_arm_ch(h, b, off, frame_bytes, DST_OFF, DST_MAX, who) < 0)
+        return -1;
+    return s2mm_wait_ch(h, b, off, 300, 1, who);
+}
+
+/* 把一条只收支路里的残帧收掉：一帧一帧收，收不满就停。 */
+static int s2mm_drain_stream(pl_dma_io *h, volatile uint32_t *b,
+                             uint32_t frame_bytes, const char *who)
+{
+    int n = 0;
+
+    for (int i = 0; i < 16; i++) {
+        long got = s2mm_drain_one(h, b, frame_bytes, who);
+        if (got < (long)frame_bytes)
+            break;              /* 收不满一帧 = 榨干了（超时也走这条） */
+        n++;
+    }
+    return n;
+}
+
+int pl_dma_io_eq_drain(pl_dma_io *h)
+{
+    if (!h) {
+        errno = EINVAL;
+        return -1;
+    }
+    if (!h->eq_en)
+        return (int)fail(h, ENODEV, "eq 通道没开（cfg.dma2_base=0）\n");
+
+    return s2mm_drain_stream(h, h->reg2, EQ_FRAME_BYTES, "S2MM-eq");
+}
+
+int pl_dma_io_expert_drain(pl_dma_io *h)
+{
+    if (!h) {
+        errno = EINVAL;
+        return -1;
+    }
+    if (!h->exp_en)
+        return (int)fail(h, ENODEV, "专家通道没开（cfg.dma3_base=0）\n");
+
+    return s2mm_drain_stream(h, h->reg3, EXP_FRAME_BYTES, "S2MM-exp");
+}
+
+/* 一条只收支路的收帧主循环。eq 和专家共用，只有通道 / 缓冲 / 帧长 / 名字不同。
+ * `want` 已经由调用方按 frame_bytes 校验过。 */
+static long s2mm_recv_stream(pl_dma_io *h, volatile uint32_t *b,
+                             uint32_t off, uint32_t cap, uint32_t frame_bytes,
+                             uint32_t want, void *out, uint32_t *got_out,
+                             const char *who)
+{
+    if (got_out)
+        *got_out = 0;
+
+    uint32_t nframes = want / frame_bytes;
+    uint8_t *dst = h->buf_va + off;
+
+    /* 铺底色 + 推给设备：和 dout 一样，全部在挂 DMA 之前做完 */
+    memset(dst, FILL_BYTE, want);
+    __sync_synchronize();
+    udmabuf_sync(h, SYNC_FOR_DEVICE);
+    cache_evict(h);
+
+    /* ⚠ 这里**不能复位**。dout 那边可以在挂第 1 帧前复位，是因为那时 MM2S
+     * 还没起、流上一拍数据都没有；eq / 专家这边复位时上游（lstf_eq 的 ofifo、
+     * 专家模块的输出口）里已经压着数据，S2MM 的复位会让 TREADY 抖一下，正好
+     * 把待发的头几拍吃进 DMA 内部再丢掉 —— eq 板上实测每轮第 1 帧固定
+     * 1008/1024（少 4 拍），帧 2~8 因为不复位全整。上一轮收完通道是 idle 的，
+     * 直接挂即可：s2mm_arm_ch 自己会 W1C + DMACR=0 + RS，和帧 2~8 走的是
+     * 同一条已经验证干净的路径。 */
+    if (s2mm_arm_ch(h, b, off, frame_bytes, off, cap, who) < 0)
+        return fail(h, errno ? errno : EIO, "%s 挂第 1 帧失败\n", who);
+
+    uint64_t t0 = now_ms();
+    long total = 0, err = 0;
+    uint32_t full = 0;
+    uint32_t short_k[16];
+    long     short_n[16];
+    int      n_short = 0;
+
+    for (uint32_t k = 0; k < nframes; k++) {
+        int budget = wait_budget(h, t0);
+        if (budget <= 0) {
+            err = fail(h, ETIMEDOUT, "%s 整轮预算 %d ms 用完（收到第 %u/%u 帧）\n",
+                       who, h->total_timeout_ms, k, nframes);
+            break;
+        }
+
+        long n = s2mm_wait_ch(h, b, off + k * frame_bytes, budget, 0, who);
+        /* 短帧不 break：下一笔按帧格子挂，短的那格留底色。 */
+        if (n < 0) {
+            err = n;
+            break;
+        }
+        total += n;
+        if (n == (long)frame_bytes)
+            full++;
+        else if (n_short < 16) {
+            short_k[n_short] = k;
+            short_n[n_short] = n;
+            n_short++;
+        }
+
+        /* 立刻挂下一帧，中间不夹任何慢活。 */
+        if (k + 1 < nframes &&
+            s2mm_arm_ch(h, b, off + (k + 1) * frame_bytes,
+                        frame_bytes, off, cap, who) < 0) {
+            err = -1;
+            break;
+        }
+    }
+
+    /* 出错：先把 errno 存下来（排空会盖掉），排干净再交差。 */
+    if (err) {
+        int e = errno;
+        int nd = s2mm_drain_stream(h, b, frame_bytes, who);
+        L(h, "  %s 出错收场：收到 %ld / %u 字节，排空 %d 帧\n",
+          who, total, want, nd);
+        errno = e ? e : EIO;
+        return err;
+    }
+
+    /* DMA 的写是投递的，等 20 ms 再读（理由同 xfer） */
+    msleep(20);
+    udmabuf_sync(h, SYNC_FOR_CPU);
+    cache_evict(h);
+
+    for (int i = 0; i < n_short; i++)
+        L(h, "  %s 帧 %u 只收到 %ld / %u 字节（内存里数据到 %zu 为止）\n",
+          who, short_k[i] + 1, short_n[i], frame_bytes,
+          find_data_end(dst + short_k[i] * frame_bytes,
+                        frame_bytes, FILL_BYTE));
+
+    if (total < (long)want) {
+        int e = errno;
+        L(h, "  %s 本轮只收到 %ld / %u 字节（整帧 %u / %u）—— 排空残帧，"
+             "免得灌满下一轮\n", who, total, want, full, nframes);
+        int nd = s2mm_drain_stream(h, b, frame_bytes, who);
+        L(h, "  %s 排空 %d 帧\n", who, nd);
+        errno = e;
+    }
+
+    if (out && total > 0)
+        memcpy(out, dst, (size_t)total);
+    if (got_out)
+        *got_out = (uint32_t)total;
+    return total;
+}
+
+long pl_dma_io_eq_recv(pl_dma_io *h, void *eq, uint32_t eq_bytes,
+                       uint32_t *eq_got)
+{
+    if (eq_got)
+        *eq_got = 0;
+    if (!h)
+        return fail(NULL, EINVAL, "空句柄\n");
+    if (!h->eq_en)
+        return fail(h, ENODEV, "eq 通道没开（cfg.dma2_base=0）\n");
+
+    if (eq_bytes == 0)
+        eq_bytes = h->eq_bytes;
+    if (eq_bytes == 0 || eq_bytes > EQ_MAX ||
+        (eq_bytes % EQ_FRAME_BYTES) != 0)
+        return fail(h, EINVAL, "eq_bytes=%u 不合法（%u 的整数倍，且 ≤ %u）\n",
+                    eq_bytes, EQ_FRAME_BYTES, EQ_MAX);
+
+    return s2mm_recv_stream(h, h->reg2, EQ_OFF, EQ_MAX, EQ_FRAME_BYTES,
+                            eq_bytes, eq, eq_got, "S2MM-eq");
+}
+
+long pl_dma_io_eq_recv_ptr(pl_dma_io *h, uint32_t eq_bytes, uint32_t *eq_got)
+{
+    return pl_dma_io_eq_recv(h, NULL, eq_bytes, eq_got);
+}
+
+void *pl_dma_io_eq_ptr(pl_dma_io *h, uint32_t *cap)
+{
+    if (!h) {
+        errno = EINVAL;
+        return NULL;
+    }
+    if (!h->eq_en) {
+        errno = ENODEV;
+        return NULL;
+    }
+    if (cap)
+        *cap = PL_DMA_EQ_CAP;
+    return h->buf_va + EQ_OFF;
+}
+
+long pl_dma_io_expert_recv(pl_dma_io *h, void *exp, uint32_t expert_bytes,
+                           uint32_t *expert_got)
+{
+    if (expert_got)
+        *expert_got = 0;
+    if (!h)
+        return fail(NULL, EINVAL, "空句柄\n");
+    if (!h->exp_en)
+        return fail(h, ENODEV, "专家通道没开（cfg.dma3_base=0）\n");
+
+    if (expert_bytes == 0)
+        expert_bytes = h->exp_bytes;
+    if (expert_bytes == 0 || expert_bytes > EXP_MAX ||
+        (expert_bytes % EXP_FRAME_BYTES) != 0)
+        return fail(h, EINVAL, "expert_bytes=%u 不合法（%u 的整数倍，且 ≤ %u）\n",
+                    expert_bytes, EXP_FRAME_BYTES, EXP_MAX);
+
+    return s2mm_recv_stream(h, h->reg3, EXP_OFF, EXP_MAX, EXP_FRAME_BYTES,
+                            expert_bytes, exp, expert_got, "S2MM-exp");
+}
+
+long pl_dma_io_expert_recv_ptr(pl_dma_io *h, uint32_t expert_bytes,
+                               uint32_t *expert_got)
+{
+    return pl_dma_io_expert_recv(h, NULL, expert_bytes, expert_got);
+}
+
+void *pl_dma_io_expert_ptr(pl_dma_io *h, uint32_t *cap)
+{
+    if (!h) {
+        errno = EINVAL;
+        return NULL;
+    }
+    if (!h->exp_en) {
+        errno = ENODEV;
+        return NULL;
+    }
+    if (cap)
+        *cap = PL_DMA_EXP_CAP;
+    return h->buf_va + EXP_OFF;
+}
+
+void *pl_dma_io_in_ptr(pl_dma_io *h, uint32_t *cap)
+{
+    if (!h) {
+        errno = EINVAL;
+        return NULL;
+    }
+    if (cap)
+        *cap = PL_DMA_IN_CAP;
+    return h->buf_va + SRC_OFF;
+}
+
+void *pl_dma_io_out_ptr(pl_dma_io *h, uint32_t *cap)
+{
+    if (!h) {
+        errno = EINVAL;
+        return NULL;
+    }
+    if (cap)
+        *cap = PL_DMA_OUT_CAP;
+    return h->buf_va + DST_OFF;
+}
+
+int pl_dma_io_mode(const pl_dma_io *h)
+{
+    return h ? h->mode : -1;
+}
+
+/* ─────────────────────── 开 / 关 ─────────────────────── */
+
+void pl_dma_io_cfg_default(pl_dma_io_cfg *cfg)
+{
+    if (!cfg)
+        return;
+    memset(cfg, 0, sizeof(*cfg));
+    cfg->dma0_base       = DEF_DMA0;
+    cfg->dma1_base       = DEF_DMA1;
+    cfg->dma2_base       = DEF_DMA2;
+    cfg->dma3_base       = DEF_DMA3;
+    cfg->udmabuf_name    = DEF_UDMABUF_NAME;
+    cfg->buf_phys        = 0;
+    cfg->in_bytes        = CALL_IN_BYTES;
+    cfg->out_bytes       = CALL_OUT_BYTES;
+    cfg->eq_bytes        = EQ_CALL_BYTES;
+    cfg->expert_bytes    = EXP_CALL_BYTES;
+    cfg->timeout_ms      = 5000;
+    cfg->total_timeout_ms = 15000;
+    cfg->evict           = 1;
+    cfg->drain_on_open   = 1;
+    cfg->alt_desc        = 0;
+    cfg->force_mode      = -1;
+    cfg->log             = NULL;
+    cfg->log_user        = NULL;
+}
+
+static int open_buf(pl_dma_io *h)
+{
+    char path[256], raw[128];
+
+    /* phys_addr：先 /sys/class/... 再 /sys/udmabuf/...（老版本在这） */
+    if (h->buf_pa == 0) {
+        snprintf(path, sizeof(path), "/sys/class/u-dma-buf/%s/phys_addr", h->ubuf);
+        if (read_sysfs_raw(path, raw, sizeof(raw)) == 0) {
+            L(h, "  %s = %s", path, raw);
+            h->buf_pa = parse_maybe_hex(raw);
+        } else {
+            snprintf(path, sizeof(path), "/sys/udmabuf/%s/phys_addr", h->ubuf);
+            if (read_sysfs_raw(path, raw, sizeof(raw)) == 0) {
+                L(h, "  %s = %s", path, raw);
+                h->buf_pa = parse_maybe_hex(raw);
+            }
+        }
+    }
+
+    snprintf(path, sizeof(path), "/sys/class/u-dma-buf/%s/size", h->ubuf);
+    if (read_sysfs_raw(path, raw, sizeof(raw)) == 0) {
+        L(h, "  %s = %s", path, raw);
+        h->buf_size = parse_maybe_hex(raw);
+    }
+
+    /* 和"缓存一致性"有关的属性全列出来：决定 DMA 写完 CPU 看不看得见。
+     * 哪个文件不存在就跳过，各版本属性集不一样。 */
+    {
+        static const char *attrs[] = {
+            "sync_mode", "dma_coherent", "alloc_type", "driver_version",
+            "sync_direction", "sync_offset", "sync_size",
+        };
+        for (unsigned i = 0; i < sizeof(attrs) / sizeof(attrs[0]); i++) {
+            snprintf(path, sizeof(path), "/sys/class/u-dma-buf/%s/%s", h->ubuf, attrs[i]);
+            if (read_sysfs_raw(path, raw, sizeof(raw)) == 0)
+                L(h, "  %s = %s", path, raw);
+        }
+    }
+
+    if (h->buf_pa == 0)
+        return (int)fail(h, ENODEV,
+                         "  读不到 %s 的物理地址（sysfs 里没有）。确认 "
+                         "/sys/class/u-dma-buf/%s/ 存在，或用 cfg.buf_phys 手工指定\n",
+                         h->ubuf, h->ubuf);
+
+    h->map_len = MAP_LEN;
+
+    h->buf_fd = open(h->ubuf_dev, O_RDWR);
+    if (h->buf_fd < 0)
+        h->buf_fd = open(h->ubuf_dev, O_RDWR | O_SYNC);   /* 有些内核要 O_SYNC */
+    if (h->buf_fd < 0)
+        return (int)fail(h, EACCES, "  打不开 %s（要 root 吗？）: %s\n",
+                         h->ubuf_dev, strerror(errno));
+
+    h->buf_va = mmap(NULL, h->map_len, PROT_READ | PROT_WRITE, MAP_SHARED, h->buf_fd, 0);
+    if (h->buf_va == MAP_FAILED) {
+        int e = errno;
+        h->buf_va = NULL;
+        return (int)fail(h, e, "  mmap %s 失败 (%s)，请求长度 %#zx\n",
+                         h->ubuf_dev, strerror(e), h->map_len);
+    }
+
+    L(h, "  udmabuf : 物理 %#llx，映射 %#zx 字节到 %p\n",
+      (unsigned long long)h->buf_pa, h->map_len, h->buf_va);
+
+    if (h->buf_size && h->buf_size < h->map_len)
+        return (int)fail(h, ENOMEM, "%s 只有 %llu 字节，不够 %#zx\n",
+                         h->ubuf, (unsigned long long)h->buf_size, h->map_len);
+
+    /* 板上这个 u-dma-buf 的同步口在 sysfs 上（ikwzm 版），有就用它，不去猜 ioctl */
+    snprintf(path, sizeof(path), "/sys/class/u-dma-buf/%s/sync_for_cpu", h->ubuf);
+    if (access(path, W_OK) == 0) {
+        h->sync_via_sysfs = 1;
+        L(h, "  u-dma-buf 同步：用 sysfs（%s 可写）\n", path);
+    } else {
+        sync_probe(h);
+    }
+    return 0;
+}
+
+pl_dma_io *pl_dma_io_open(const pl_dma_io_cfg *cfg)
+{
+    pl_dma_io_cfg def;
+    pl_dma_io *h;
+    uint32_t sr1;
+
+    if (!cfg) {
+        pl_dma_io_cfg_default(&def);
+        cfg = &def;
+    }
+
+    h = calloc(1, sizeof(*h));
+    if (!h) {
+        errno = ENOMEM;
+        return NULL;
+    }
+    h->log          = cfg->log;
+    h->log_user     = cfg->log_user;
+    h->buf_pa       = cfg->buf_phys;
+    h->alt_desc     = cfg->alt_desc;
+    h->evict        = cfg->evict;
+    h->timeout_ms   = cfg->timeout_ms > 0 ? cfg->timeout_ms : 5000;
+    h->total_timeout_ms = cfg->total_timeout_ms;
+    h->in_bytes     = cfg->in_bytes ? cfg->in_bytes : CALL_IN_BYTES;
+    h->out_bytes    = cfg->out_bytes ? cfg->out_bytes : CALL_OUT_BYTES;
+    h->eq_bytes     = cfg->eq_bytes ? cfg->eq_bytes : EQ_CALL_BYTES;
+    h->exp_bytes    = cfg->expert_bytes ? cfg->expert_bytes : EXP_CALL_BYTES;
+    h->sync_pick    = -1;
+    h->buf_fd       = -1;
+
+    /* 均衡 / 专家通路默认开（cfg.dma2_base / dma3_base 非 0）。尺寸在开库时
+     * 就判掉，别等到第一次 recv 才发现配置错了。 */
+    if (cfg->dma2_base && (h->eq_bytes > EQ_MAX ||
+                           (h->eq_bytes % EQ_FRAME_BYTES) != 0)) {
+        L(h, "  cfg.eq_bytes=%u 不合法（%u 的整数倍，且 ≤ %u）\n",
+          h->eq_bytes, EQ_FRAME_BYTES, EQ_MAX);
+        free(h);
+        errno = EINVAL;
+        return NULL;
+    }
+    if (cfg->dma3_base && (h->exp_bytes > EXP_MAX ||
+                           (h->exp_bytes % EXP_FRAME_BYTES) != 0)) {
+        L(h, "  cfg.expert_bytes=%u 不合法（%u 的整数倍，且 ≤ %u）\n",
+          h->exp_bytes, EXP_FRAME_BYTES, EXP_MAX);
+        free(h);
+        errno = EINVAL;
+        return NULL;
+    }
+    snprintf(h->ubuf, sizeof(h->ubuf), "%s",
+             cfg->udmabuf_name ? cfg->udmabuf_name : DEF_UDMABUF_NAME);
+    if (!h->ubuf[0]) {            /* 空字符串当设备名是调用方的 bug，别拿去拼路径 */
+        free(h);
+        errno = EINVAL;
+        return NULL;
+    }
+    snprintf(h->ubuf_dev, sizeof(h->ubuf_dev), "/dev/%s", h->ubuf);
+
+    h->reg0 = open_regs(h, cfg->dma0_base ? cfg->dma0_base : DEF_DMA0,
+                        "axi_dma_0", &h->reg0_map);
+    if (!h->reg0) {
+        int e = errno;
+        L(h, "  映射 DMA0 寄存器窗口失败: %s\n", strerror(e));
+        pl_dma_io_close(h);
+        errno = e;
+        return NULL;
+    }
+    h->reg1 = open_regs(h, cfg->dma1_base ? cfg->dma1_base : DEF_DMA1,
+                        "axi_dma_1", &h->reg1_map);
+    if (!h->reg1) {
+        int e = errno;
+        L(h, "  映射 DMA1 寄存器窗口失败: %s\n", strerror(e));
+        pl_dma_io_close(h);
+        errno = e;
+        return NULL;
+    }
+
+    /* dma2（均衡）默认也映射。置 dma2_base=0 = 明确不要，跳过。 */
+    if (cfg->dma2_base) {
+        h->reg2 = open_regs(h, cfg->dma2_base, "axi_dma_2", &h->reg2_map);
+        if (!h->reg2) {
+            int e = errno;
+            L(h, "  映射 DMA2 寄存器窗口失败: %s（不想用就把 cfg.dma2_base 置 0）\n",
+              strerror(e));
+            pl_dma_io_close(h);
+            errno = e;
+            return NULL;
+        }
+    }
+
+    /* dma3（专家特征）。同样默认映射，置 dma3_base=0 = 明确不要。 */
+    if (cfg->dma3_base) {
+        h->reg3 = open_regs(h, cfg->dma3_base, "axi_dma_3", &h->reg3_map);
+        if (!h->reg3) {
+            int e = errno;
+            L(h, "  映射 DMA3 寄存器窗口失败: %s（不想用就把 cfg.dma3_base 置 0）\n",
+              strerror(e));
+            pl_dma_io_close(h);
+            errno = e;
+            return NULL;
+        }
+    }
+
+    if (open_buf(h) < 0) {
+        int e = errno;
+        pl_dma_io_close(h);
+        errno = e;
+        return NULL;
+    }
+
+    /* ── 自己问硬件：S2MM 通道到底有没有 SG 引擎 ──
+     * DMASR 的 bit3(SGIncld) 是 IP 参数 C_INCLUDE_SG 的**回显**，不是状态位，
+     * 任何时候读都作数。板上实测：dma1(SG=0) 读回 0x00000001（bit3 清）。 */
+    sr1 = rd(h->reg1, S2MM_SR);
+
+    if (sr1 == 0xFFFFFFFFu) {
+        L(h, "  !! S2MM DMASR 读回全 F = 这个寄存器窗口没译码，先确认 bitstream\n");
+        pl_dma_io_close(h);
+        errno = ENODEV;
+        return NULL;
+    }
+
+    {
+        int hw_sg = (sr1 & SR_SGINCLD) != 0;
+        if (cfg->force_mode < 0) {
+            h->mode = hw_sg ? MODE_SG : MODE_DIRECT;
+            L(h, "  S2MM 走法 : %s  <- 硬件自己说的（DMASR=%#010x, bit3 SGIncld=%d）\n",
+              hw_sg ? "SG 描述符环（CURDESC/TAILDESC）" : "直读模式（写 DA+LENGTH）",
+              sr1, hw_sg);
+        } else {
+            h->mode = cfg->force_mode ? MODE_DIRECT : MODE_SG;
+            L(h, "  S2MM 走法 : %s  <- 调用方强制的（硬件 DMASR=%#010x 说 bit3=%d）\n",
+              h->mode == MODE_SG ? "SG 描述符环" : "直读模式", sr1, hw_sg);
+            if ((hw_sg && h->mode == MODE_DIRECT) || (!hw_sg && h->mode == MODE_SG))
+                L(h, "     !! 这跟硬件对不上，多半一路超时\n");
+        }
+    }
+
+    /* ── dma2：只支持直读，且窗口必须真的译码 ──
+     * BD 里 axi_dma_2 是 S2MM-only + C_INCLUDE_SG=0。如果 bit3 回显是 1，
+     * 说明 bitstream 跟这个库的假设对不上，直接按 ENOTSUP 失败，不猜。 */
+    if (h->reg2) {
+        uint32_t sr2 = rd(h->reg2, S2MM_SR);
+        if (sr2 == 0xFFFFFFFFu) {
+            L(h, "  !! DMA2 DMASR 读回全 F = 这个寄存器窗口没译码，先确认 bitstream\n");
+            pl_dma_io_close(h);
+            errno = ENODEV;
+            return NULL;
+        }
+        if (sr2 & SR_SGINCLD) {
+            L(h, "  !! DMA2 回显是 SG 模式（DMASR=%#010x, bit3=1），"
+                 "本库的均衡通路只支持直读\n", sr2);
+            pl_dma_io_close(h);
+            errno = ENOTSUP;
+            return NULL;
+        }
+        h->eq_en = 1;
+        L(h, "  均衡通路: 直读，目标 +%#x，一次 %u B（%u 帧 × %u B），DMASR=%#010x\n",
+          EQ_OFF, h->eq_bytes, h->eq_bytes / EQ_FRAME_BYTES, EQ_FRAME_BYTES, sr2);
+    }
+
+    /* ── dma3：专家特征，要求同 dma2 ──
+     * BD 里 axi_dma_3（ps_ai_axi_dma_2_0）是 S2MM-only + C_INCLUDE_SG=0，
+     * 源是 Signal_process_0/expert。 */
+    if (h->reg3) {
+        uint32_t sr3 = rd(h->reg3, S2MM_SR);
+        if (sr3 == 0xFFFFFFFFu) {
+            L(h, "  !! DMA3 DMASR 读回全 F = 这个寄存器窗口没译码，先确认 bitstream\n");
+            pl_dma_io_close(h);
+            errno = ENODEV;
+            return NULL;
+        }
+        if (sr3 & SR_SGINCLD) {
+            L(h, "  !! DMA3 回显是 SG 模式（DMASR=%#010x, bit3=1），"
+                 "本库的专家通路只支持直读\n", sr3);
+            pl_dma_io_close(h);
+            errno = ENOTSUP;
+            return NULL;
+        }
+        h->exp_en = 1;
+        L(h, "  专家通路: 直读，目标 +%#x，一次 %u B（%u 帧 × %u B），DMASR=%#010x\n",
+          EXP_OFF, h->exp_bytes, h->exp_bytes / EXP_FRAME_BYTES,
+          EXP_FRAME_BYTES, sr3);
+    }
+
+    /* 开库时先把上一轮的残留排掉（约 300 ms 一次性成本）。
+     * 不清的话第一次 xfer 收到的第 1 帧就是上一轮的尾巴（668/652）。
+     * 专家 / eq 同理：每轮开头要是带着上一轮的残帧，第 1 帧必短。 */
+    if (cfg->drain_on_open) {
+        chan_reset(h, h->reg0, MM2S_CR, MM2S_SR, "MM2S");
+        int n = pl_dma_io_drain(h);
+        L(h, "  开库排空 dout：%d 帧%s\n", n, n < 0 ? "（出错，继续）" : "");
+        if (h->eq_en) {
+            int ne = pl_dma_io_eq_drain(h);
+            L(h, "  开库排空 eq：%d 帧%s\n", ne, ne < 0 ? "（出错，继续）" : "");
+        }
+        if (h->exp_en) {
+            int nx = pl_dma_io_expert_drain(h);
+            L(h, "  开库排空 expert：%d 帧%s\n", nx, nx < 0 ? "（出错，继续）" : "");
+        }
+    }
+    return h;
+}
+
+void pl_dma_io_close(pl_dma_io *h)
+{
+    if (!h)
+        return;
+    if (h->reg0)
+        chan_reset(h, h->reg0, MM2S_CR, MM2S_SR, "MM2S");   /* 自环，别留着它跑 */
+    if (h->reg1)
+        chan_reset(h, h->reg1, S2MM_CR, S2MM_SR, "S2MM");
+    if (h->reg2)
+        chan_reset(h, h->reg2, S2MM_CR, S2MM_SR, "S2MM-eq");
+    if (h->reg3)
+        chan_reset(h, h->reg3, S2MM_CR, S2MM_SR, "S2MM-exp");
+    if (h->buf_va)
+        munmap(h->buf_va, h->map_len);
+    if (h->buf_fd >= 0)
+        close(h->buf_fd);
+    if (h->reg0_map)
+        munmap(h->reg0_map, REG_WINDOW);
+    if (h->reg1_map)
+        munmap(h->reg1_map, REG_WINDOW);
+    if (h->reg2_map)
+        munmap(h->reg2_map, REG_WINDOW);
+    if (h->reg3_map)
+        munmap(h->reg3_map, REG_WINDOW);
+    free(h->evict_scratch);
+    free(h);
+}

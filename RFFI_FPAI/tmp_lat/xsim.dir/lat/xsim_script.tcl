@@ -1,0 +1,1 @@
+xsim {lat} -autoloadwcfg -runall

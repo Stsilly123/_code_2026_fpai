@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="804" viewBox="0 0 1240 804">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#BF9000"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#A6A6A6" stroke-width="1.6"/></pattern>
+</defs>
+<rect x="24.0" y="16.0" width="1192.0" height="50.0" fill="#FFFFFF" stroke="#BFBFBF" stroke-width="1"/>
+<rect x="24.0" y="16.0" width="1192.0" height="50.0" fill="#1F3864"/>
+<text x="40.0" y="48.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="23" fill="#FFFFFF" text-anchor="start" font-weight="600" font-style="normal">上下位机通信帧结构（TCP 服务端 :9527）</text>
+<text x="1200.0" y="45.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#DEEBF7" text-anchor="end" font-weight="400" font-style="normal">请求与结果复用同一连接 · 请求 32 B 头 + IQ 负载 · 结果 40 B 头 + k×8 B 条目 · 控制命令 dtype=2 零负载</text>
+<text x="38.0" y="92.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="15.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">(a) 请求帧（上位机 → 板卡）</text>
+<rect x="80.0" y="104.0" width="133.5" height="46.0" fill="#BDD7EE" stroke="#808080" stroke-width="0.8"/>
+<text x="147.5" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">magic</text>
+<text x="147.5" y="140.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="215.0" y="104.0" width="66.0" height="46.0" fill="#C6E0B4" stroke="#808080" stroke-width="0.8"/>
+<text x="248.8" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.8" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">version</text>
+<text x="248.8" y="138.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">2 B</text>
+<rect x="282.5" y="104.0" width="66.0" height="46.0" fill="#FFE699" stroke="#808080" stroke-width="0.8"/>
+<text x="316.2" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.8" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">dtype</text>
+<text x="316.2" y="138.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">2 B</text>
+<rect x="350.0" y="104.0" width="133.5" height="46.0" fill="#F8CBAD" stroke="#808080" stroke-width="0.8"/>
+<text x="417.5" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">label</text>
+<text x="417.5" y="140.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="485.0" y="104.0" width="133.5" height="46.0" fill="#D9D2E9" stroke="#808080" stroke-width="0.8"/>
+<text x="552.5" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">seq</text>
+<text x="552.5" y="140.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="620.0" y="104.0" width="133.5" height="46.0" fill="#BDD7EE" stroke="#808080" stroke-width="0.8"/>
+<text x="687.5" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">n_complex</text>
+<text x="687.5" y="140.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="755.0" y="104.0" width="133.5" height="46.0" fill="#C6E0B4" stroke="#808080" stroke-width="0.8"/>
+<text x="822.5" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">value_scale</text>
+<text x="822.5" y="140.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="890.0" y="104.0" width="268.5" height="46.0" fill="#D6DCE4" stroke="#808080" stroke-width="0.8"/>
+<text x="1025.0" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">timestamp_ns</text>
+<text x="1025.0" y="140.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">8 B</text>
+<line x1="80.0" y1="168.0" x2="1160.0" y2="168.0" stroke="#1F3864" stroke-width="1.4"/>
+<line x1="80.0" y1="163.0" x2="80.0" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="80.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">0</text>
+<line x1="215.0" y1="163.0" x2="215.0" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="215.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">4</text>
+<line x1="282.5" y1="163.0" x2="282.5" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="282.5" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">6</text>
+<line x1="350.0" y1="163.0" x2="350.0" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="350.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">8</text>
+<line x1="485.0" y1="163.0" x2="485.0" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="485.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">12</text>
+<line x1="620.0" y1="163.0" x2="620.0" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="620.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">16</text>
+<line x1="755.0" y1="163.0" x2="755.0" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="755.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">20</text>
+<line x1="890.0" y1="163.0" x2="890.0" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="890.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">24</text>
+<line x1="1160.0" y1="163.0" x2="1160.0" y2="173.0" stroke="#1F3864" stroke-width="1"/>
+<text x="1160.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">32</text>
+<text x="28.0" y="186.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">字节偏移</text>
+<text x="80.0" y="214.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">0x20</text>
+<text x="1160.0" y="214.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="end" font-weight="400" font-style="normal">0x20 + 4·n_complex</text>
+<rect x="80.0" y="220.0" width="1080.0" height="46.0" fill="url(#hatch)" stroke="#A6A6A6" stroke-width="1"/>
+<text x="620.0" y="248.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">IQ 负载：n_complex 个复样点 × 4 B（保留原始量纲，归一化由板端完成）</text>
+<rect x="80.0" y="284.0" width="58.0" height="32.0" fill="#DEEBF7" stroke="#808080" stroke-width="0.8"/>
+<text x="109.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">I0</text>
+<rect x="140.0" y="284.0" width="58.0" height="32.0" fill="#FCE4D6" stroke="#808080" stroke-width="0.8"/>
+<text x="169.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">Q0</text>
+<rect x="200.0" y="284.0" width="58.0" height="32.0" fill="#DEEBF7" stroke="#808080" stroke-width="0.8"/>
+<text x="229.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">I1</text>
+<rect x="260.0" y="284.0" width="58.0" height="32.0" fill="#FCE4D6" stroke="#808080" stroke-width="0.8"/>
+<text x="289.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">Q1</text>
+<rect x="320.0" y="284.0" width="58.0" height="32.0" fill="#DEEBF7" stroke="#808080" stroke-width="0.8"/>
+<text x="349.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">I2</text>
+<rect x="380.0" y="284.0" width="58.0" height="32.0" fill="#FCE4D6" stroke="#808080" stroke-width="0.8"/>
+<text x="409.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">Q2</text>
+<rect x="440.0" y="284.0" width="58.0" height="32.0" fill="#DEEBF7" stroke="#808080" stroke-width="0.8"/>
+<text x="469.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">I3</text>
+<rect x="500.0" y="284.0" width="58.0" height="32.0" fill="#FCE4D6" stroke="#808080" stroke-width="0.8"/>
+<text x="529.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">Q3</text>
+<text x="564.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="13" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">…</text>
+<text x="684.0" y="305.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">每个复样点 4 B：I、Q 各 int16，按 I0, Q0, I1, Q1, … 交错</text>
+<text x="38.0" y="358.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="15.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">(b) 结果帧（板卡 → 上位机）</text>
+<rect x="80.0" y="368.0" width="106.5" height="46.0" fill="#BDD7EE" stroke="#808080" stroke-width="0.8"/>
+<text x="134.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">magic</text>
+<text x="134.0" y="404.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="188.0" y="368.0" width="52.5" height="46.0" fill="#C6E0B4" stroke="#808080" stroke-width="0.8"/>
+<text x="215.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.8" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">version</text>
+<text x="215.0" y="402.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">2 B</text>
+<rect x="242.0" y="368.0" width="52.5" height="46.0" fill="#F8CBAD" stroke="#808080" stroke-width="0.8"/>
+<text x="269.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.8" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">status</text>
+<text x="269.0" y="402.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">2 B</text>
+<rect x="296.0" y="368.0" width="106.5" height="46.0" fill="#D9D2E9" stroke="#808080" stroke-width="0.8"/>
+<text x="350.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">seq</text>
+<text x="350.0" y="404.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="404.0" y="368.0" width="106.5" height="46.0" fill="#E4DFEC" stroke="#808080" stroke-width="0.8"/>
+<text x="458.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">label</text>
+<text x="458.0" y="404.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="512.0" y="368.0" width="52.5" height="46.0" fill="#FFF2CC" stroke="#808080" stroke-width="0.8"/>
+<text x="539.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.8" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">n_result</text>
+<text x="539.0" y="402.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">2 B</text>
+<rect x="566.0" y="368.0" width="52.5" height="46.0" fill="#FFE699" stroke="#808080" stroke-width="0.8"/>
+<text x="593.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.8" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">top-1</text>
+<text x="593.0" y="402.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">2 B</text>
+<rect x="620.0" y="368.0" width="106.5" height="46.0" fill="#C6E0B4" stroke="#808080" stroke-width="0.8"/>
+<text x="674.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">confidence</text>
+<text x="674.0" y="404.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="728.0" y="368.0" width="106.5" height="46.0" fill="#F8CBAD" stroke="#808080" stroke-width="0.8"/>
+<text x="782.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">latency_us</text>
+<text x="782.0" y="404.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="836.0" y="368.0" width="106.5" height="46.0" fill="#F2F2F2" stroke="#808080" stroke-width="0.8"/>
+<text x="890.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">reserved</text>
+<text x="890.0" y="404.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<rect x="944.0" y="368.0" width="214.5" height="46.0" fill="#D6DCE4" stroke="#808080" stroke-width="0.8"/>
+<text x="1052.0" y="388.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">timestamp_ns</text>
+<text x="1052.0" y="404.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">8 B</text>
+<line x1="80.0" y1="432.0" x2="1160.0" y2="432.0" stroke="#1F3864" stroke-width="1.4"/>
+<line x1="80.0" y1="427.0" x2="80.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="80.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">0</text>
+<line x1="188.0" y1="427.0" x2="188.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="188.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">4</text>
+<line x1="242.0" y1="427.0" x2="242.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="242.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">6</text>
+<line x1="296.0" y1="427.0" x2="296.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="296.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">8</text>
+<line x1="404.0" y1="427.0" x2="404.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="404.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">12</text>
+<line x1="512.0" y1="427.0" x2="512.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="512.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">16</text>
+<line x1="566.0" y1="427.0" x2="566.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="566.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">18</text>
+<line x1="620.0" y1="427.0" x2="620.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="620.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">20</text>
+<line x1="728.0" y1="427.0" x2="728.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="728.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">24</text>
+<line x1="836.0" y1="427.0" x2="836.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="836.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">28</text>
+<line x1="944.0" y1="427.0" x2="944.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="944.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">32</text>
+<line x1="1160.0" y1="427.0" x2="1160.0" y2="437.0" stroke="#1F3864" stroke-width="1"/>
+<text x="1160.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">40</text>
+<text x="28.0" y="450.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">字节偏移</text>
+<text x="80.0" y="470.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">0x28</text>
+<text x="1160.0" y="470.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="end" font-weight="400" font-style="normal">0x28 + 8·k</text>
+<rect x="80.0" y="476.0" width="1080.0" height="46.0" fill="url(#hatch)" stroke="#A6A6A6" stroke-width="1"/>
+<text x="620.0" y="504.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">top-k 列表：k 个条目 × 8 B（k = n_result，按置信度降序）</text>
+<text x="80.0" y="552.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">单个条目 8 B</text>
+<rect x="80.0" y="558.0" width="88.5" height="40.0" fill="#F8CBAD" stroke="#808080" stroke-width="0.8"/>
+<text x="125.0" y="575.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">class_id</text>
+<text x="125.0" y="591.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">2 B</text>
+<rect x="170.0" y="558.0" width="88.5" height="40.0" fill="#F2F2F2" stroke="#808080" stroke-width="0.8"/>
+<text x="215.0" y="575.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">保留</text>
+<text x="215.0" y="591.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">2 B</text>
+<rect x="260.0" y="558.0" width="178.5" height="40.0" fill="#C6E0B4" stroke="#808080" stroke-width="0.8"/>
+<text x="350.0" y="575.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">score（float32）</text>
+<text x="350.0" y="591.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">4 B</text>
+<text x="460.0" y="582.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">类别编号 uint16 + 保留 2 B + 置信度 float32</text>
+<text x="38.0" y="632.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="15.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">(c) 控制命令与应答（插入数据流，不携带 IQ 负载）</text>
+<rect x="60.0" y="650.0" width="470.0" height="74.0" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<text x="76.0" y="674.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="13.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">控制命令（请求帧）</text>
+<text x="76.0" y="696.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">dtype = 2，n_complex = 0，无 IQ 负载</text>
+<text x="76.0" y="714.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">label / seq 等字段照常填写</text>
+<line x1="545.0" y1="687.0" x2="700.0" y2="687.0" stroke="#BF9000" stroke-width="1.8" marker-end="url(#arrow)"/>
+<rect x="710.0" y="650.0" width="470.0" height="74.0" fill="#FFFFFF" stroke="#808080" stroke-width="1"/>
+<text x="726.0" y="674.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="13.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">CommandAck（结果帧，k = 0）</text>
+<text x="726.0" y="696.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">回显 seq，status = ACK</text>
+<text x="726.0" y="714.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.5" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">不回传 top-k 列表</text>
+<rect x="38.0" y="744.0" width="1164.0" height="28.5" fill="#F2F2F2" stroke="#BFBFBF" stroke-width="1" rx="3"/>
+<text x="46.0" y="758.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">接收侧以 recv_exact 循环读满定长头与负载；magic / version / dtype 与长度校验失败即断开该连接并回到 accept，不做盲目重同步。</text>
+<text x="24" y="794" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9" fill="#A6A6A6">说明：字段均为小端序；magic = 0x52464649（'RFFI'）；dtype：1 = IQ 数据，2 = 控制命令；top-k 条目按置信度降序。</text>
+</svg>

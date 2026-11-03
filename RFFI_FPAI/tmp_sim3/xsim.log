@@ -1,0 +1,45 @@
+#-----------------------------------------------------------
+# xsim v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Oct 24 11:49:10 2026
+# Process ID: 16856
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3
+# Command line: xsim.exe -mode tcl -source {xsim.dir/stress/xsim_script.tcl}
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3/xsim.log
+# Journal file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/stress/xsim_script.tcl
+# xsim {stress} -autoloadwcfg -runall
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+run -all
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_expert_feat_stress.dut.u_log.u_rom.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+-- phase 1: backpressure + input gaps --
+  [zero] fed=00000000..00000000 nout=256 frames=1 drops=0
+  OK        zero : 256 words (0 near-tol)
+  [maxamp] fed=7fff7fff..80008000 nout=512 frames=2 drops=0
+  OK      maxamp : 256 words (0 near-tol)
+  [hist_edge] fed=000000cd..00000000 nout=768 frames=3 drops=0
+  OK   hist_edge : 256 words (27 near-tol)
+  [phase_pi] fed=0001fc18..0000fc18 nout=1024 frames=4 drops=0
+  OK    phase_pi : 256 words (128 near-tol)
+  [random] fed=13a4eb2f..d9aeddaf nout=1280 frames=5 drops=0
+  OK      random : 256 words (23 near-tol)
+-- phase 2: reset mid-frame --
+  OK   rst_frame : 256 words (27 near-tol)
+TLAST errors: 0   total frames checked: 6
+TLAST positions:
+   0 : nout=255
+   1 : nout=511
+   2 : nout=767
+   3 : nout=1023
+   4 : nout=1279
+   5 : nout=1535
+EXPERT STRESS TB done: 0 errors
+$finish called at time : 1115907500 ps : File "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3/tb_expert_feat_stress.v" Line 250
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:40 . Memory (MB): peak = 219.418 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Oct 24 11:49:54 2026...

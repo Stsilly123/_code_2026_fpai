@@ -1,0 +1,5 @@
+vhdl xil_defaultlib  \
+"../../../ipstatic/hdl/ip/fft_spec_fft_cfg_s_core.vhd" \
+"../../../../RFFI_FPAI.srcs/sources_1/ip/RFFI_FFT_ConvNet_0_1/sim/RFFI_FFT_ConvNet_0.vhd" \
+
+nosort

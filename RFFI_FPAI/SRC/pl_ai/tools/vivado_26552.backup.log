@@ -1,0 +1,141 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Oct 20 21:26:27 2026
+# Process ID: 26552
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/tools
+# Command line: vivado.exe -notrace -mode batch -source eq_ooc_timing.tcl
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/tools/vivado.log
+# Journal file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/tools\vivado.jou
+#-----------------------------------------------------------
+source eq_ooc_timing.tcl -notrace
+Command: synth_design -top lstf_eq -part xc7z030ffg676-2 -mode out_of_context -flatten_hierarchy rebuilt
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z030'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z030'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 19028 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:01 ; elapsed = 00:00:02 . Memory (MB): peak = 364.082 ; gain = 104.805
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'lstf_eq' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:40]
+	Parameter SX bound to: 13 - type: integer 
+	Parameter QTW bound to: 17 - type: integer 
+	Parameter HTG bound to: 23 - type: integer 
+	Parameter TAP_SFT bound to: 13 - type: integer 
+	Parameter TAP_OUT_SFT bound to: 11 - type: integer 
+	Parameter GATE_K bound to: 64'b0000000000000000000000000000000000000000000000001011010000000000 
+	Parameter NFR bound to: 256 - type: integer 
+	Parameter ST_IDLE bound to: 5'b00000 
+	Parameter ST_ET bound to: 5'b00001 
+	Parameter ST_R1 bound to: 5'b00010 
+	Parameter ST_ATAN bound to: 5'b00011 
+	Parameter ST_ROT bound to: 5'b00100 
+	Parameter ST_PB bound to: 5'b00101 
+	Parameter ST_DFT bound to: 5'b00110 
+	Parameter ST_GATE bound to: 5'b00111 
+	Parameter ST_LS bound to: 5'b01000 
+	Parameter ST_NORM bound to: 5'b01001 
+	Parameter ST_INTERP bound to: 5'b01010 
+	Parameter ST_PW bound to: 5'b01011 
+	Parameter ST_RECIP bound to: 5'b01100 
+	Parameter ST_IDFT bound to: 5'b01101 
+	Parameter ST_FIR bound to: 5'b01110 
+	Parameter ST_BYP bound to: 5'b01111 
+	Parameter ST_NEXT bound to: 5'b10000 
+	Parameter ST_PWEPS bound to: 5'b10001 
+	Parameter ST_GATE2 bound to: 5'b10010 
+	Parameter NM_IDLE bound to: 2'b00 
+	Parameter NM_SHIFT bound to: 2'b01 
+	Parameter NM_FIN bound to: 2'b10 
+	Parameter NM_WR bound to: 2'b11 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1005]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1161]
+INFO: [Synth 8-226] default block is never used [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1362]
+INFO: [Synth 8-226] default block is never used [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:757]
+INFO: [Synth 8-6155] done synthesizing module 'lstf_eq' (1#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:40]
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[3] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[2] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[1] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[0] driven by constant 1
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 450.379 ; gain = 191.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 450.379 ; gain = 191.102
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z030ffg676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 450.379 ; gain = 191.102
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1642]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:2282]
+INFO: [Synth 8-5544] ROM "hn_re_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[10]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hn_re_reg[11]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "iss_addr1" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "nm_ph0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "nm_cnt" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "nm_sr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "nm_out_tap" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iss" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "iss" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "iss_b_sel" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "iss_rom_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "clr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "clr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "clr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "clr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "scan_start" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "scan_start" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "scan_start" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "scan_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "scan_msb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "cyc" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "cyc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rn" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rq" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "rq" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "it" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "rsub" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pbp" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "db" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "fn" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "xr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_cur_re" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "theta_r" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "xc" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_r" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "bin_re" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "bin_re" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "lstf_sign" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:2085]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:2084]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1211]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1210]

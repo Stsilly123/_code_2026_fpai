@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="720" viewBox="0 0 1240 720">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#BF9000"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#A6A6A6" stroke-width="1.6"/></pattern>
+</defs>
+<rect x="24.0" y="16.0" width="1192.0" height="50.0" fill="#FFFFFF" stroke="#BFBFBF" stroke-width="1"/>
+<rect x="24.0" y="16.0" width="1192.0" height="50.0" fill="#1F3864"/>
+<text x="40.0" y="48.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="22" fill="#FFFFFF" text-anchor="start" font-weight="600" font-style="normal">PS 侧预处理与三路融合流程</text>
+<text x="1200.0" y="45.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#DEEBF7" text-anchor="end" font-weight="400" font-style="normal">Q10 量化 · 均衡 IQ 中值 / 反量化 / 5 平移 · token Q4 · 专家特征归一化 · 对数加权融合</text>
+<text x="40.0" y="96.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="14.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">① 原始 IQ 量化与下发</text>
+<rect x="40.0" y="108.0" width="360.0" height="74.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="220.0" y="136.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.8" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">原始浮点 IQ</text>
+<text x="220.0" y="156.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.3" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">基带复数序列</text>
+<line x1="402.0" y1="145.0" x2="438.0" y2="145.0" stroke="#2E75B6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="440.0" y="108.0" width="360.0" height="74.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="620.0" y="136.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.8" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">Q10 量化</text>
+<text x="620.0" y="156.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.3" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">模拟 ADC 采样</text>
+<line x1="802.0" y1="145.0" x2="838.0" y2="145.0" stroke="#2E75B6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="840.0" y="108.0" width="360.0" height="74.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="1020.0" y="136.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.8" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">DMA 输入缓冲</text>
+<text x="1020.0" y="156.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.3" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">量化码值写入缓冲</text>
+<text x="40.0" y="206.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="14.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">② 均衡 IQ 支路：DMA 回传 → Transformer 输入</text>
+<rect x="40.0" y="216.0" width="136.0" height="84.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="108.0" y="244.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">均衡 IQ 回传</text>
+<text x="108.0" y="264.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">DMA 回传</text>
+<line x1="178.0" y1="258.0" x2="184.0" y2="258.0" stroke="#2E75B6" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="186.0" y="216.0" width="136.0" height="84.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="254.0" y="244.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">逐元素取中位数</text>
+<text x="254.0" y="264.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">Q10 码值</text>
+<line x1="324.0" y1="258.0" x2="330.0" y2="258.0" stroke="#2E75B6" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="332.0" y="216.0" width="136.0" height="84.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="400.0" y="244.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">Q10 反量化</text>
+<text x="400.0" y="264.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">→ 浮点</text>
+<line x1="470.0" y1="258.0" x2="476.0" y2="258.0" stroke="#2E75B6" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="478.0" y="216.0" width="136.0" height="84.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="546.0" y="244.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">归一化</text>
+<text x="546.0" y="264.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">与输入同口径</text>
+<line x1="616.0" y1="258.0" x2="622.0" y2="258.0" stroke="#2E75B6" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="624.0" y="216.0" width="136.0" height="84.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="692.0" y="244.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">5 个平移样本</text>
+<text x="692.0" y="264.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">作为模型输入</text>
+<line x1="762.0" y1="258.0" x2="768.0" y2="258.0" stroke="#2E75B6" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="770.0" y="216.0" width="136.0" height="84.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="838.0" y="244.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">Transformer</text>
+<text x="838.0" y="264.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">NPU 前向</text>
+<line x1="908.0" y1="258.0" x2="914.0" y2="258.0" stroke="#2E75B6" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="916.0" y="216.0" width="136.0" height="84.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="984.0" y="244.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">token 反量化</text>
+<text x="984.0" y="264.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">Q4 → 浮点</text>
+<line x1="1054.0" y1="258.0" x2="1060.0" y2="258.0" stroke="#2E75B6" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="1062.0" y="216.0" width="136.0" height="84.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="1130.0" y="244.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">PS 补归一化</text>
+<text x="1130.0" y="264.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">开方 / 除法</text>
+<text x="1130.0" y="280.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.8" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">常数项叠加</text>
+<rect x="545.0" y="316.0" width="300.0" height="48.0" fill="#FFFFFF" stroke="#D9D9D9" stroke-width="1" rx="4"/>
+<rect x="543.0" y="314.0" width="300.0" height="48.0" fill="#FFE699" stroke="#BF9000" stroke-width="1.2" rx="4"/>
+<text x="552.0" y="330.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.8" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">多平移融合有助于更充分地</text>
+<text x="552.0" y="345.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.8" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">捕获信号的相位特征</text>
+<line x1="693.0" y1="314.0" x2="693.0" y2="300.0" stroke="#BF9000" stroke-width="1.0" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+<text x="40.0" y="384.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="14.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">③ 专家特征支路</text>
+<rect x="40.0" y="396.0" width="240.0" height="84.0" fill="#C6E0B4" stroke="#548235" stroke-width="1.2" rx="5"/>
+<text x="160.0" y="424.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">专家特征</text>
+<text x="160.0" y="444.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">特征向量</text>
+<line x1="282.0" y1="438.0" x2="298.0" y2="438.0" stroke="#548235" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="300.0" y="396.0" width="240.0" height="84.0" fill="#C6E0B4" stroke="#548235" stroke-width="1.2" rx="5"/>
+<text x="420.0" y="424.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">均值方差归一化</text>
+<text x="420.0" y="444.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">(x − μ) / σ</text>
+<line x1="542.0" y1="438.0" x2="558.0" y2="438.0" stroke="#548235" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="560.0" y="396.0" width="240.0" height="84.0" fill="#C6E0B4" stroke="#548235" stroke-width="1.2" rx="5"/>
+<text x="680.0" y="424.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">钳位</text>
+<text x="680.0" y="444.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">限制幅值</text>
+<line x1="802.0" y1="438.0" x2="818.0" y2="438.0" stroke="#548235" stroke-width="1.4" marker-end="url(#arrow)"/>
+<rect x="820.0" y="396.0" width="240.0" height="84.0" fill="#C6E0B4" stroke="#548235" stroke-width="1.2" rx="5"/>
+<text x="940.0" y="424.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">补零</text>
+<text x="940.0" y="444.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">补齐长度</text>
+<line x1="1180.0" y1="300.0" x2="1180.0" y2="506.0" stroke="#548235" stroke-width="1.6"/>
+<line x1="1180.0" y1="506.0" x2="250.0" y2="506.0" stroke="#548235" stroke-width="1.6"/>
+<line x1="250.0" y1="506.0" x2="250.0" y2="542.0" stroke="#548235" stroke-width="1.6" marker-end="url(#arrow)"/>
+<line x1="1040.0" y1="480.0" x2="1040.0" y2="506.0" stroke="#548235" stroke-width="1.6"/>
+<rect x="1037.0" y="503.0" width="6.0" height="6.0" fill="#548235" rx="3"/>
+<text x="1172.0" y="320.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#548235" text-anchor="end" font-weight="400" font-style="normal">输出概率</text>
+<text x="1032.0" y="498.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#548235" text-anchor="end" font-weight="400" font-style="normal">进入融合</text>
+<text x="40.0" y="530.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="14.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">④ 三路输出概率融合</text>
+<rect x="40.0" y="542.0" width="300.0" height="74.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2" rx="5"/>
+<text x="190.0" y="570.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">三路输出概率取对数</text>
+<text x="190.0" y="590.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">log p1 · log p2 · log p3</text>
+<line x1="342.0" y1="579.0" x2="358.0" y2="579.0" stroke="#2E75B6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="360.0" y="542.0" width="300.0" height="74.0" fill="#FFE699" stroke="#BF9000" stroke-width="1.2" rx="5"/>
+<text x="510.0" y="570.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">按模型权重线性加权</text>
+<text x="510.0" y="590.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">每个模型的权重</text>
+<line x1="662.0" y1="579.0" x2="678.0" y2="579.0" stroke="#2E75B6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="680.0" y="542.0" width="220.0" height="74.0" fill="#C6E0B4" stroke="#548235" stroke-width="1.2" rx="5"/>
+<text x="790.0" y="570.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">Softmax</text>
+<text x="790.0" y="590.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#404040" text-anchor="middle" font-weight="400" font-style="normal">→ 类别概率</text>
+<line x1="902.0" y1="579.0" x2="918.0" y2="579.0" stroke="#2E75B6" stroke-width="1.6" marker-end="url(#arrow)"/>
+<rect x="920.0" y="542.0" width="280.0" height="74.0" fill="#F8CBAD" stroke="#C55A11" stroke-width="1.2" rx="5"/>
+<text x="1060.0" y="584.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.0" fill="#1F3864" text-anchor="middle" font-weight="600" font-style="normal">结果</text>
+<rect x="40.0" y="628.0" width="1160.0" height="43.0" fill="#F2F2F2" stroke="#BFBFBF" stroke-width="1" rx="3"/>
+<text x="48.0" y="642.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">NPU 不支持开方与除法：归一化改由 PS 完成，常数项叠加至 NPU 输出；专家特征经归一化、钳位与补零后进入融合。</text>
+<text x="48.0" y="656.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">三路输出概率取对数后按各模型权重线性加权，再经 Softmax 得到结果；多平移样本用于增强相位特征。</text>
+<text x="24" y="710" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9" fill="#A6A6A6">说明：全部环节按文案顺序排列；5 个平移样本共用与输入一致的归一化口径；融合为对数域加权 + Softmax。</text>
+</svg>

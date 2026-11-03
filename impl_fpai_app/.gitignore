@@ -1,0 +1,22 @@
+# 构建产物
+build/
+*.o
+*.obj
+*.exe
+
+# 测试数据，全部可由 tools/send_iq.py 重新生成（见 README「上板步骤」）：
+#   samples/frames.bin     帧流（离线自检用）
+#   samples/preprocess.raw preprocess_check 的输出
+#   samples/manifest.json  本次抽样的 idx/labels，对拍要用
+#   samples/board.log      板子控制台日志，对拍输入
+samples/
+
+# 本机上跑出来的临时文件
+*.raw.tmp
+
+# run.sh 的运行时产物：active.yaml（由预设生成）、pid、预设记录、各预设日志
+run/
+
+# imodel/ 里的 exp_wide_ls_BY.{json,raw} **故意提交**：那是部署产物本身，
+# 和 Transformer_Train/icraft_work/json&raw/ 同源（本仓库的约定是随仓库分发
+# 已导出模型）。重新生成要跑一遍 CLI 编译，不值得每次 clone 都做。

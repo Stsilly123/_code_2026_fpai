@@ -1,0 +1,238 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu Oct 22 20:24:29 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 3 -file D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/ooc_rpt/util_hier.rpt
+| Design       : LcwtMLP_RFFI
+| Device       : 7z030ffg676-2
+| Design State : Synthesized
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------------------+----------------------------------+------------+------------+---------+------+-------+--------+--------+--------------+
+|              Instance              |              Module              | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP48 Blocks |
++------------------------------------+----------------------------------+------------+------------+---------+------+-------+--------+--------+--------------+
+| LcwtMLP_RFFI                       |                            (top) |       4664 |       4664 |       0 |    0 | 10285 |      3 |      8 |          183 |
+|   (LcwtMLP_RFFI)                   |                            (top) |       1519 |       1519 |       0 |    0 | 10277 |      0 |      0 |          107 |
+|   LCWT_A_V_U                       |             LcwtMLP_RFFI_LCWTbkb |          7 |          7 |       0 |    0 |     0 |      0 |      2 |            0 |
+|     LcwtMLP_RFFI_LCWTbkb_rom_U     |         LcwtMLP_RFFI_LCWTbkb_rom |          7 |          7 |       0 |    0 |     0 |      0 |      2 |            0 |
+|   LCWT_S_V_U                       |             LcwtMLP_RFFI_LCWTcud |          7 |          7 |       0 |    0 |     0 |      0 |      2 |            0 |
+|     LcwtMLP_RFFI_LCWTcud_rom_U     |         LcwtMLP_RFFI_LCWTcud_rom |          7 |          7 |       0 |    0 |     0 |      0 |      2 |            0 |
+|   LOFF_U                           |                LcwtMLP_RFFI_LOFF |         12 |         12 |       0 |    0 |     8 |      0 |      0 |            0 |
+|     LcwtMLP_RFFI_LOFF_rom_U        |            LcwtMLP_RFFI_LOFF_rom |         12 |         12 |       0 |    0 |     8 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mac_0iy_U152        |             LcwtMLP_RFFI_mac_0iy |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_177 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U153        |           LcwtMLP_RFFI_mac_0iy_0 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_176 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U155        |           LcwtMLP_RFFI_mac_0iy_1 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_175 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U157        |           LcwtMLP_RFFI_mac_0iy_2 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_174 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U158        |           LcwtMLP_RFFI_mac_0iy_3 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_173 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U160        |           LcwtMLP_RFFI_mac_0iy_4 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_172 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U161        |           LcwtMLP_RFFI_mac_0iy_5 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_171 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U162        |           LcwtMLP_RFFI_mac_0iy_6 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_170 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U165        |           LcwtMLP_RFFI_mac_0iy_7 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_169 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U168        |           LcwtMLP_RFFI_mac_0iy_8 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_168 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U169        |           LcwtMLP_RFFI_mac_0iy_9 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_167 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U173        |          LcwtMLP_RFFI_mac_0iy_10 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_166 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U176        |          LcwtMLP_RFFI_mac_0iy_11 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_165 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U179        |          LcwtMLP_RFFI_mac_0iy_12 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_164 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U180        |          LcwtMLP_RFFI_mac_0iy_13 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U | LcwtMLP_RFFI_mac_0iy_DSP48_4_163 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_0iy_U181        |          LcwtMLP_RFFI_mac_0iy_14 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_0iy_DSP48_4_U |     LcwtMLP_RFFI_mac_0iy_DSP48_4 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U154        |             LcwtMLP_RFFI_mac_1iI |         21 |         21 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_162 |         21 |         21 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U156        |          LcwtMLP_RFFI_mac_1iI_15 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_161 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U159        |          LcwtMLP_RFFI_mac_1iI_16 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_160 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U163        |          LcwtMLP_RFFI_mac_1iI_17 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_159 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U164        |          LcwtMLP_RFFI_mac_1iI_18 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_158 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U166        |          LcwtMLP_RFFI_mac_1iI_19 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_157 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U167        |          LcwtMLP_RFFI_mac_1iI_20 |         22 |         22 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_156 |         22 |         22 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U170        |          LcwtMLP_RFFI_mac_1iI_21 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_155 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U171        |          LcwtMLP_RFFI_mac_1iI_22 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_154 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U172        |          LcwtMLP_RFFI_mac_1iI_23 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_153 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U174        |          LcwtMLP_RFFI_mac_1iI_24 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_152 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U177        |          LcwtMLP_RFFI_mac_1iI_25 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_151 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U178        |          LcwtMLP_RFFI_mac_1iI_26 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_150 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U182        |          LcwtMLP_RFFI_mac_1iI_27 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_149 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U183        |          LcwtMLP_RFFI_mac_1iI_28 |         17 |         17 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_148 |         17 |         17 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U184        |          LcwtMLP_RFFI_mac_1iI_29 |         17 |         17 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_147 |         17 |         17 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U185        |          LcwtMLP_RFFI_mac_1iI_30 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_146 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U186        |          LcwtMLP_RFFI_mac_1iI_31 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_145 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U187        |          LcwtMLP_RFFI_mac_1iI_32 |         21 |         21 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_144 |         21 |         21 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U188        |          LcwtMLP_RFFI_mac_1iI_33 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U | LcwtMLP_RFFI_mac_1iI_DSP48_5_143 |         16 |         16 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_1iI_U189        |          LcwtMLP_RFFI_mac_1iI_34 |         24 |         24 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_1iI_DSP48_5_U |     LcwtMLP_RFFI_mac_1iI_DSP48_5 |         24 |         24 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_2iS_U175        |             LcwtMLP_RFFI_mac_2iS |         23 |         23 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_2iS_DSP48_6_U |     LcwtMLP_RFFI_mac_2iS_DSP48_6 |         23 |         23 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U114        |             LcwtMLP_RFFI_mac_Xh4 |          2 |          2 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_142 |          2 |          2 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U115        |          LcwtMLP_RFFI_mac_Xh4_35 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_141 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U117        |          LcwtMLP_RFFI_mac_Xh4_36 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_140 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U119        |          LcwtMLP_RFFI_mac_Xh4_37 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_139 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U120        |          LcwtMLP_RFFI_mac_Xh4_38 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_138 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U122        |          LcwtMLP_RFFI_mac_Xh4_39 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_137 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U123        |          LcwtMLP_RFFI_mac_Xh4_40 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_136 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U124        |          LcwtMLP_RFFI_mac_Xh4_41 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_135 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U127        |          LcwtMLP_RFFI_mac_Xh4_42 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_134 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U130        |          LcwtMLP_RFFI_mac_Xh4_43 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_133 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U131        |          LcwtMLP_RFFI_mac_Xh4_44 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_132 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U135        |          LcwtMLP_RFFI_mac_Xh4_45 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_131 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U138        |          LcwtMLP_RFFI_mac_Xh4_46 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_130 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U141        |          LcwtMLP_RFFI_mac_Xh4_47 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_129 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U142        |          LcwtMLP_RFFI_mac_Xh4_48 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U | LcwtMLP_RFFI_mac_Xh4_DSP48_1_128 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Xh4_U143        |          LcwtMLP_RFFI_mac_Xh4_49 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Xh4_DSP48_1_U |     LcwtMLP_RFFI_mac_Xh4_DSP48_1 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U116        |             LcwtMLP_RFFI_mac_Yie |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_127 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U118        |          LcwtMLP_RFFI_mac_Yie_50 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_126 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U121        |          LcwtMLP_RFFI_mac_Yie_51 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_125 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U125        |          LcwtMLP_RFFI_mac_Yie_52 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_124 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U126        |          LcwtMLP_RFFI_mac_Yie_53 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_123 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U128        |          LcwtMLP_RFFI_mac_Yie_54 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_122 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U129        |          LcwtMLP_RFFI_mac_Yie_55 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_121 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U132        |          LcwtMLP_RFFI_mac_Yie_56 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_120 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U133        |          LcwtMLP_RFFI_mac_Yie_57 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_119 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U134        |          LcwtMLP_RFFI_mac_Yie_58 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_118 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U136        |          LcwtMLP_RFFI_mac_Yie_59 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_117 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U139        |          LcwtMLP_RFFI_mac_Yie_60 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_116 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U140        |          LcwtMLP_RFFI_mac_Yie_61 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_115 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U144        |          LcwtMLP_RFFI_mac_Yie_62 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_114 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U145        |          LcwtMLP_RFFI_mac_Yie_63 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_113 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U146        |          LcwtMLP_RFFI_mac_Yie_64 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_112 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U147        |          LcwtMLP_RFFI_mac_Yie_65 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_111 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U148        |          LcwtMLP_RFFI_mac_Yie_66 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_110 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U149        |          LcwtMLP_RFFI_mac_Yie_67 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_109 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U150        |          LcwtMLP_RFFI_mac_Yie_68 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U | LcwtMLP_RFFI_mac_Yie_DSP48_2_108 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Yie_U151        |          LcwtMLP_RFFI_mac_Yie_69 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Yie_DSP48_2_U |     LcwtMLP_RFFI_mac_Yie_DSP48_2 |          1 |          1 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mac_Zio_U137        |             LcwtMLP_RFFI_mac_Zio |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|     LcwtMLP_RFFI_mac_Zio_DSP48_3_U |     LcwtMLP_RFFI_mac_Zio_DSP48_3 |          0 |          0 |       0 |    0 |     0 |      0 |      0 |            1 |
+|   LcwtMLP_RFFI_mux_QgW_U2          |             LcwtMLP_RFFI_mux_QgW |         14 |         14 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U26         |          LcwtMLP_RFFI_mux_QgW_70 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U27         |          LcwtMLP_RFFI_mux_QgW_71 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U28         |          LcwtMLP_RFFI_mux_QgW_72 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U29         |          LcwtMLP_RFFI_mux_QgW_73 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U3          |          LcwtMLP_RFFI_mux_QgW_74 |         14 |         14 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U30         |          LcwtMLP_RFFI_mux_QgW_75 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U31         |          LcwtMLP_RFFI_mux_QgW_76 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U32         |          LcwtMLP_RFFI_mux_QgW_77 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U37         |          LcwtMLP_RFFI_mux_QgW_78 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U38         |          LcwtMLP_RFFI_mux_QgW_79 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U39         |          LcwtMLP_RFFI_mux_QgW_80 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U4          |          LcwtMLP_RFFI_mux_QgW_81 |         14 |         14 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U40         |          LcwtMLP_RFFI_mux_QgW_82 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U41         |          LcwtMLP_RFFI_mux_QgW_83 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U42         |          LcwtMLP_RFFI_mux_QgW_84 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U43         |          LcwtMLP_RFFI_mux_QgW_85 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_QgW_U44         |          LcwtMLP_RFFI_mux_QgW_86 |         15 |         15 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Rg6_U5          |             LcwtMLP_RFFI_mux_Rg6 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Rg6_U6          |          LcwtMLP_RFFI_mux_Rg6_87 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Shg_U10         |             LcwtMLP_RFFI_mux_Shg |         14 |         14 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Shg_U16         |          LcwtMLP_RFFI_mux_Shg_88 |         14 |         14 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Shg_U9          |          LcwtMLP_RFFI_mux_Shg_89 |         14 |         14 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Thq_U11         |             LcwtMLP_RFFI_mux_Thq |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Thq_U12         |          LcwtMLP_RFFI_mux_Thq_90 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Thq_U17         |          LcwtMLP_RFFI_mux_Thq_91 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Thq_U18         |          LcwtMLP_RFFI_mux_Thq_92 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Thq_U23         |          LcwtMLP_RFFI_mux_Thq_93 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_Thq_U24         |          LcwtMLP_RFFI_mux_Thq_94 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_UhA_U33         |             LcwtMLP_RFFI_mux_UhA |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_UhA_U34         |          LcwtMLP_RFFI_mux_UhA_95 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_UhA_U35         |          LcwtMLP_RFFI_mux_UhA_96 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_UhA_U36         |          LcwtMLP_RFFI_mux_UhA_97 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_UhA_U45         |          LcwtMLP_RFFI_mux_UhA_98 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_UhA_U46         |          LcwtMLP_RFFI_mux_UhA_99 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_UhA_U47         |         LcwtMLP_RFFI_mux_UhA_100 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_UhA_U48         |         LcwtMLP_RFFI_mux_UhA_101 |         25 |         25 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   LcwtMLP_RFFI_mux_VhK_U49         |             LcwtMLP_RFFI_mux_VhK |        312 |        312 |       0 |    0 |     0 |      0 |      0 |            0 |
+|   hi_i_U                           |                LcwtMLP_RFFI_hr_i |        200 |        200 |       0 |    0 |     0 |      0 |      1 |            0 |
+|     LcwtMLP_RFFI_hr_i_ram_U        |        LcwtMLP_RFFI_hr_i_ram_107 |        200 |        200 |       0 |    0 |     0 |      0 |      1 |            0 |
+|   hr_i_U                           |            LcwtMLP_RFFI_hr_i_102 |        209 |        209 |       0 |    0 |     0 |      0 |      1 |            0 |
+|     LcwtMLP_RFFI_hr_i_ram_U        |            LcwtMLP_RFFI_hr_i_ram |        209 |        209 |       0 |    0 |     0 |      0 |      1 |            0 |
+|   li_i_U                           |                LcwtMLP_RFFI_lr_i |        483 |        483 |       0 |    0 |     0 |      1 |      0 |            0 |
+|     LcwtMLP_RFFI_lr_i_ram_U        |        LcwtMLP_RFFI_lr_i_ram_106 |        483 |        483 |       0 |    0 |     0 |      1 |      0 |            0 |
+|   lr_i_U                           |            LcwtMLP_RFFI_lr_i_103 |        496 |        496 |       0 |    0 |     0 |      1 |      0 |            0 |
+|     LcwtMLP_RFFI_lr_i_ram_U        |            LcwtMLP_RFFI_lr_i_ram |        496 |        496 |       0 |    0 |     0 |      1 |      0 |            0 |
+|   tokT_V_U                         |              LcwtMLP_RFFI_tokT_V |         17 |         17 |       0 |    0 |     0 |      1 |      0 |            0 |
+|     LcwtMLP_RFFI_tokT_V_ram_U      |          LcwtMLP_RFFI_tokT_V_ram |         17 |         17 |       0 |    0 |     0 |      1 |      0 |            0 |
+|   xi0_V_U                          |               LcwtMLP_RFFI_xr0_V |         25 |         25 |       0 |    0 |     0 |      0 |      1 |            0 |
+|     LcwtMLP_RFFI_xr0_V_ram_U       |       LcwtMLP_RFFI_xr0_V_ram_105 |         25 |         25 |       0 |    0 |     0 |      0 |      1 |            0 |
+|   xr0_V_U                          |           LcwtMLP_RFFI_xr0_V_104 |         38 |         38 |       0 |    0 |     0 |      0 |      1 |            0 |
+|     LcwtMLP_RFFI_xr0_V_ram_U       |           LcwtMLP_RFFI_xr0_V_ram |         38 |         38 |       0 |    0 |     0 |      0 |      1 |            0 |
++------------------------------------+----------------------------------+------------+------------+---------+------+-------+--------+--------+--------------+
+
+

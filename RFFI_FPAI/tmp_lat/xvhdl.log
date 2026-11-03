@@ -1,0 +1,5 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_lat/xfft_256.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'xfft_256'
+INFO: [VRFC 10-163] Analyzing VHDL file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_lat/cordic_0.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'cordic_0'
+0'

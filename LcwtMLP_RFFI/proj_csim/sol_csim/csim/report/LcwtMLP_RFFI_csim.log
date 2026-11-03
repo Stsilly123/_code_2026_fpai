@@ -1,0 +1,23 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../LcwtMLP_RFFI/SRC/tb/tb_lcwt.cpp in debug mode
+   Compiling ../../../../LcwtMLP_RFFI/SRC/pl_lcwt.cpp in debug mode
+   Compiling ../../../../LcwtMLP_RFFI/SRC/top.cpp in debug mode
+   Generating csim.exe
+== WaveMLP PL front-end testbench (LCWT + tokens) ==
+  golden vectors loaded (8 frames)
+  stream: 2432 beats (expect 2432), leftover 0
+  TLAST placement : OK (0 bad frames)
+  TKEEP/TSTRB     : OK (0 bad beats)
+-- stream tokens (frame 0) --
+  tok_out    OK      608 values bit-exact   range[   -18,    24] nonzero  501/ 608
+-- internal stages (frame 0) --
+  lcwt_re    OK      256 values bit-exact   range[  -499,   700] nonzero  254/ 256
+  lcwt_im    OK      256 values bit-exact   range[  -688,   594] nonzero  254/ 256
+  tok        OK      608 values bit-exact   range[  -282,   388] nonzero  604/ 608
+-- non-degeneracy --
+  frame0 vs frame1 stream tokens differ in 576/608
+  frame0 token codes are non-constant: OK
+**PASS**
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

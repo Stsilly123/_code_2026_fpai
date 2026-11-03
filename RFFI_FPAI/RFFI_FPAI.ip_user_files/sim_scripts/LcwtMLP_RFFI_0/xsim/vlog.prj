@@ -1,0 +1,66 @@
+verilog xil_defaultlib  \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_hr_i.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_LCWTbkb.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_LCWTcud.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_LOFF.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_lr_i.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mac_0iy.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mac_1iI.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mac_2iS.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mac_WhU.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mac_Xh4.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mac_Yie.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mac_Zio.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mux_PgM.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mux_QgW.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mux_Rg6.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mux_Shg.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mux_Thq.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mux_UhA.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_mux_VhK.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCAem.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCBew.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCCeG.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCdEe.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCDeQ.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCEe0.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCeOg.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCFfa.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCfYi.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCg8j.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCGfk.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATChbi.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCHfu.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCibs.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCIfE.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCjbC.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCJfO.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCkbM.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCKfY.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATClbW.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCLf8.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCmb6.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCMgi.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCncg.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCNgs.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCocq.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCOgC.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCpcA.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCqcK.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCrcU.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCsc4.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCtde.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCudo.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCvdy.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCwdI.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCxdS.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCyd2.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_PATCzec.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_tokT_V.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI_xr0_V.v" \
+"../../../ipstatic/hdl/verilog/LcwtMLP_RFFI.v" \
+"../../../../RFFI_FPAI.srcs/sources_1/ip/LcwtMLP_RFFI_0/sim/LcwtMLP_RFFI_0.v" \
+
+verilog xil_defaultlib "glbl.v"
+
+nosort

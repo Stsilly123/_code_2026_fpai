@@ -1,0 +1,1466 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu Oct 22 20:24:33 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : report_timing -delay_type max -max_paths 25 -file D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/ooc_rpt/timing_paths.rpt
+| Design       : LcwtMLP_RFFI
+| Device       : 7z030-ffg676
+| Speed File   : -2  PRODUCTION 1.11 2025-11-03
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[0]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[0])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[0]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_109
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[0])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[10]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[10])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[10]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_99
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[10]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[10])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[11]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[11])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[11]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_98
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[11]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[11])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[12]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[12])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[12]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_97
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[12]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[12])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[13]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[13])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[13]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_96
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[13]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[13])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[14]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[14])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[14]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_95
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[14]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[14])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[15]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[15])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[15]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_94
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[15]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[15])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[16]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[16])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[16]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_93
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[16]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[16])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[17]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[17])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[17]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_92
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[17]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[17])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[1]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[1])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[1]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_108
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[1]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[1])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[2]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[2])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[2]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_107
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[2]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[2])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[3]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[3])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[3]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_106
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[3]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[3])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[4]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[4])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[4]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_105
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[4]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[4])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[5]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[5])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[5]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_104
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[5]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[5])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[6]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[6])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[6]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_103
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[6]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[6])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[7]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[7])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[7]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_102
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[7]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[7])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[8]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[8])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[8]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_101
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[8]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[8])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_reg_5451_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s0_V_3_reg_17848_reg/B[9]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_reg_5451_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_reg_5451_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_reg_5451_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[9])
+                                                      1.478     3.979 r  tmp3_fu_10303_p2/P[9]
+                         net (fo=1, unplaced)         0.419     4.398    tmp3_fu_10303_p2_n_100
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/B[9]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s0_V_3_reg_17848_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[9])
+                                                     -0.317     6.236    s0_V_3_reg_17848_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_s_reg_5403_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s1_V_3_reg_17853_reg/B[0]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_s_reg_5403_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_s_reg_5403_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_s_reg_5403_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[0])
+                                                      1.478     3.979 r  tmp5_fu_10309_p2/P[0]
+                         net (fo=1, unplaced)         0.419     4.398    tmp5_fu_10309_p2_n_109
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/B[0]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[0])
+                                                     -0.317     6.236    s1_V_3_reg_17853_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_s_reg_5403_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s1_V_3_reg_17853_reg/B[10]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_s_reg_5403_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_s_reg_5403_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_s_reg_5403_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[10])
+                                                      1.478     3.979 r  tmp5_fu_10309_p2/P[10]
+                         net (fo=1, unplaced)         0.419     4.398    tmp5_fu_10309_p2_n_99
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/B[10]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[10])
+                                                     -0.317     6.236    s1_V_3_reg_17853_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_s_reg_5403_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s1_V_3_reg_17853_reg/B[11]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_s_reg_5403_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_s_reg_5403_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_s_reg_5403_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[11])
+                                                      1.478     3.979 r  tmp5_fu_10309_p2/P[11]
+                         net (fo=1, unplaced)         0.419     4.398    tmp5_fu_10309_p2_n_98
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/B[11]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[11])
+                                                     -0.317     6.236    s1_V_3_reg_17853_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_s_reg_5403_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s1_V_3_reg_17853_reg/B[12]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_s_reg_5403_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_s_reg_5403_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_s_reg_5403_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[12])
+                                                      1.478     3.979 r  tmp5_fu_10309_p2/P[12]
+                         net (fo=1, unplaced)         0.419     4.398    tmp5_fu_10309_p2_n_97
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/B[12]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[12])
+                                                     -0.317     6.236    s1_V_3_reg_17853_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_s_reg_5403_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s1_V_3_reg_17853_reg/B[13]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_s_reg_5403_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_s_reg_5403_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_s_reg_5403_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[13])
+                                                      1.478     3.979 r  tmp5_fu_10309_p2/P[13]
+                         net (fo=1, unplaced)         0.419     4.398    tmp5_fu_10309_p2_n_96
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/B[13]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[13])
+                                                     -0.317     6.236    s1_V_3_reg_17853_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_s_reg_5403_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s1_V_3_reg_17853_reg/B[14]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_s_reg_5403_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_s_reg_5403_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_s_reg_5403_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[14])
+                                                      1.478     3.979 r  tmp5_fu_10309_p2/P[14]
+                         net (fo=1, unplaced)         0.419     4.398    tmp5_fu_10309_p2_n_95
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/B[14]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[14])
+                                                     -0.317     6.236    s1_V_3_reg_17853_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+Slack (MET) :             1.838ns  (required time - arrival time)
+  Source:                 ac_V_s_reg_5403_reg/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Destination:            s1_V_3_reg_17853_reg/B[15]
+                            (rising edge-triggered cell DSP48E1 clocked by ap_clk  {rise@0.000ns fall@2.500ns period=5.000ns})
+  Path Group:             ap_clk
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            5.000ns  (ap_clk rise@5.000ns - ap_clk rise@0.000ns)
+  Data Path Delay:        2.665ns  (logic 1.826ns (68.520%)  route 0.839ns (31.480%))
+  Logic Levels:           1  (DSP48E1=1)
+  Clock Path Skew:        -0.145ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    1.451ns = ( 6.451 - 5.000 ) 
+    Source Clock Delay      (SCD):    1.733ns
+    Clock Pessimism Removal (CPR):    0.137ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock ap_clk rise edge)     0.000     0.000 r  
+                                                      0.000     0.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     0.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.637     0.637 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.419     1.056    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.093     1.149 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.584     1.733    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  ac_V_s_reg_5403_reg/CLK
+  -------------------------------------------------------------------    -------------------
+                         DSP48E1 (Prop_dsp48e1_CLK_P[37])
+                                                      0.348     2.081 r  ac_V_s_reg_5403_reg/P[37]
+                         net (fo=1, unplaced)         0.419     2.501    ac_V_s_reg_5403_reg_n_72
+                         DSP48E1 (Prop_dsp48e1_A[19]_P[15])
+                                                      1.478     3.979 r  tmp5_fu_10309_p2/P[15]
+                         net (fo=1, unplaced)         0.419     4.398    tmp5_fu_10309_p2_n_94
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/B[15]
+  -------------------------------------------------------------------    -------------------
+
+                         (clock ap_clk rise edge)     5.000     5.000 r  
+                                                      0.000     5.000 r  ap_clk (IN)
+                         net (fo=0)                   0.000     5.000    ap_clk
+                         IBUF (Prop_ibuf_I_O)         0.530     5.530 r  ap_clk_IBUF_inst/O
+                         net (fo=1, unplaced)         0.398     5.929    ap_clk_IBUF
+                         BUFG (Prop_bufg_I_O)         0.083     6.012 r  ap_clk_IBUF_BUFG_inst/O
+                         net (fo=10475, unplaced)     0.439     6.451    ap_clk_IBUF_BUFG
+                         DSP48E1                                      r  s1_V_3_reg_17853_reg/CLK
+                         clock pessimism              0.137     6.588    
+                         clock uncertainty           -0.035     6.553    
+                         DSP48E1 (Setup_dsp48e1_CLK_B[15])
+                                                     -0.317     6.236    s1_V_3_reg_17853_reg
+  -------------------------------------------------------------------
+                         required time                          6.236    
+                         arrival time                          -4.398    
+  -------------------------------------------------------------------
+                         slack                                  1.838    
+
+
+
+

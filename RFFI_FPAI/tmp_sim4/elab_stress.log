@@ -1,0 +1,335 @@
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -L xbip_utils_v3_0_9 -L axi_utils_v2_0_5 -L c_reg_fd_v12_0_5 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_pipe_v3_0_5 -L xbip_dsp48_addsub_v3_0_5 -L xbip_addsub_v3_0_5 -L c_addsub_v12_0_12 -L c_mux_bit_v12_0_5 -L c_shift_ram_v12_0_12 -L xbip_bram18k_v3_0_5 -L mult_gen_v12_0_14 -L cmpy_v6_0_16 -L cordic_v6_0_14 -L floating_point_v7_0_15 -L xfft_v9_1_1 -L xil_defaultlib -L work -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm -s stress work.tb_expert_feat_stress work.glbl 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:721]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5687]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5688]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5695]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5697]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5700]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5704]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5705]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5709]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5710]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:721]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5687]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5688]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5695]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5697]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5700]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5704]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5705]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5709]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5710]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cmpy_v6_0/hdl/cmpy_v6_0_vh_rfs.vhd:9692]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cmpy_v6_0/hdl/cmpy_v6_0_vh_rfs.vhd:9695]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cmpy_v6_0/hdl/cmpy_v6_0_vh_rfs.vhd:9692]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cmpy_v6_0/hdl/cmpy_v6_0_vh_rfs.vhd:9695]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cmpy_v6_0/hdl/cmpy_v6_0_vh_rfs.vhd:9802]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cmpy_v6_0/hdl/cmpy_v6_0_vh_rfs.vhd:9804]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cmpy_v6_0/hdl/cmpy_v6_0_vh_rfs.vhd:9802]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cmpy_v6_0/hdl/cmpy_v6_0_vh_rfs.vhd:9804]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:721]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5687]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5688]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5695]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5697]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5700]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5704]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5705]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5709]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/c_addsub_v12_0/hdl/c_addsub_v12_0_vh_rfs.vhd:5710]
+WARNING: [VRFC 10-3499] library name 'xfft_v9_1_1' of instantiated unit conflicts with visible identifier [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim4/xfft_256.vhd:183]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cordic_v6_0/hdl/cordic_v6_0_vh_rfs.vhd:9656]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cordic_v6_0/hdl/cordic_v6_0_vh_rfs.vhd:9657]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cordic_v6_0/hdl/cordic_v6_0_vh_rfs.vhd:9661]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cordic_v6_0/hdl/cordic_v6_0_vh_rfs.vhd:9688]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_pipe_v3_0/hdl/xbip_pipe_v3_0_vh_rfs.vhd:375]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/cordic_v6_0/hdl/cordic_v6_0_vh_rfs.vhd:4008]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:549]
+WARNING: [VRFC 10-1303] range is empty (null range) [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:550]
+WARNING: [VRFC 10-3499] library name 'cordic_v6_0_14' of instantiated unit conflicts with visible identifier [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim4/cordic_0.vhd:140]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package xbip_utils_v3_0_9.xbip_utils_v3_0_9_pkg
+Compiling package xfft_v9_1_1.xfft_v9_1_1_viv_comp
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package ieee.math_real
+Compiling package axi_utils_v2_0_5.axi_utils_v2_0_5_pkg
+Compiling package mult_gen_v12_0_14.mult_gen_v12_0_14_pkg
+Compiling package ieee.std_logic_signed
+Compiling package cmpy_v6_0_16.cmpy_v6_0_16_pkg
+Compiling package floating_point_v7_0_15.floating_point_v7_0_15_consts
+Compiling package floating_point_v7_0_15.floating_point_v7_0_15_exp_table...
+Compiling package floating_point_v7_0_15.floating_point_v7_0_15_pkg
+Compiling package xfft_v9_1_1.pkg
+Compiling package xfft_v9_1_1.xfft_v9_1_1_axi_pkg
+Compiling package axi_utils_v2_0_5.global_util_pkg
+Compiling package axi_utils_v2_0_5.axi_utils_comps
+Compiling package unisim.vcomponents
+Compiling package c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_pkg
+Compiling package c_mux_bit_v12_0_5.c_mux_bit_v12_0_5_viv_comp
+Compiling package c_reg_fd_v12_0_5.c_reg_fd_v12_0_5_viv_comp
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv_comp
+Compiling package xbip_addsub_v3_0_5.xbip_addsub_v3_0_5_viv_comp
+Compiling package c_addsub_v12_0_12.c_addsub_v12_0_12_pkg
+Compiling package c_addsub_v12_0_12.c_addsub_v12_0_12_pkg_legacy
+Compiling package xfft_v9_1_1.half_sincos_tw_table
+Compiling package ieee.std_logic_textio
+Compiling package cordic_v6_0_14.cordic_v6_0_14_viv_comp
+Compiling package cordic_v6_0_14.cordic_pack
+Compiling package cordic_v6_0_14.cordic_hdl_comps
+Compiling package c_addsub_v12_0_12.c_addsub_v12_0_12_viv_comp
+Compiling module work.ef_zn
+Compiling architecture xilinx of entity axi_utils_v2_0_5.glb_srl_fifo [\glb_srl_fifo(width=1,has_uvprot...]
+Compiling architecture xilinx of entity axi_utils_v2_0_5.glb_ifx_slave [\glb_ifx_slave(width=1,has_uvpro...]
+Compiling architecture synth of entity xfft_v9_1_1.axi_wrapper_input_fifo [\axi_wrapper_input_fifo(c_fifo_w...]
+Compiling architecture xilinx of entity axi_utils_v2_0_5.glb_srl_fifo [\glb_srl_fifo(width=33,has_uvpro...]
+Compiling architecture xilinx of entity axi_utils_v2_0_5.glb_ifx_slave [\glb_ifx_slave(width=33,has_uvpr...]
+Compiling architecture synth of entity xfft_v9_1_1.axi_wrapper_input_fifo [\axi_wrapper_input_fifo(c_fifo_w...]
+Compiling architecture xilinx of entity axi_utils_v2_0_5.glb_srl_fifo [\glb_srl_fifo(width=51,has_uvpro...]
+Compiling architecture xilinx of entity axi_utils_v2_0_5.glb_ifx_master [\glb_ifx_master(width=51,afull_t...]
+Compiling architecture synth of entity xfft_v9_1_1.axi_wrapper_output_fifo [\axi_wrapper_output_fifo(c_fifo_...]
+Compiling architecture synth of entity xfft_v9_1_1.axi_wrapper [\axi_wrapper(c_arch=4,c_has_nfft...]
+Compiling architecture xilinx of entity xfft_v9_1_1.logic_gate [\logic_gate(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="10000000000000000000...]
+Compiling architecture xilinx of entity xfft_v9_1_1.logic_gate [\logic_gate(c_xdevicefamily="zyn...]
+Compiling architecture rtl of entity c_addsub_v12_0_12.c_addsub_v12_0_12_lut6_legacy [\c_addsub_v12_0_12_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_fabric_legacy [\c_addsub_v12_0_12_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_legacy [\c_addsub_v12_0_12_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_viv [\c_addsub_v12_0_12_viv(c_xdevice...]
+Compiling architecture xilinx of entity xfft_v9_1_1.unbiased_round [\unbiased_round(c_xdevicefamily=...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="11001010")(0,7)\]
+Compiling architecture xilinx of entity xfft_v9_1_1.mux_bus2 [\mux_bus2(c_xdevicefamily="zynq"...]
+Compiling architecture rb18_internal_vhdl_v of entity unisim.RB18_INTERNAL_VHDL [\RB18_INTERNAL_VHDL(bram_size=18...]
+Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(doa_reg=1,dob_reg=1,ra...]
+Compiling architecture xilinx of entity xfft_v9_1_1.dpm [\dpm(c_xdevicefamily="zynq",widt...]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_memory [\so_memory(c_xdevicefamily="zynq...]
+Compiling architecture xilinx of entity xfft_v9_1_1.mux_bus2 [\mux_bus2(c_xdevicefamily="zynq"...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="11001010")(7,0)\]
+Compiling architecture synth of entity cmpy_v6_0_16.cmpy_mux2to1 [\cmpy_mux2to1(c_xdevicefamily="z...]
+Compiling architecture xilinx of entity cmpy_v6_0_16.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity cmpy_v6_0_16.cmpy_xfft_so_sync [\cmpy_xfft_so_sync(c_xdevicefami...]
+Compiling architecture xilinx of entity cmpy_v6_0_16.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity cmpy_v6_0_16.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity cmpy_v6_0_16.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(adreg=0,carryinselreg=0...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(acascreg=2,adreg=0,areg...]
+Compiling architecture xilinx of entity cmpy_v6_0_16.delay_line [\delay_line(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity mult_gen_v12_0_14.op_resize [\op_resize(ai_width=25,bi_width=...]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2056]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2057]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2058]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2018.3/nightly/2018_12_06_2405991/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2059]
+Compiling architecture xilinx of entity cmpy_v6_0_16.cmpy_4_dsp48_mult [\cmpy_4_dsp48_mult(c_xdevicefami...]
+Compiling architecture xilinx of entity cmpy_v6_0_16.cmpy_4_dsp48 [\cmpy_4_dsp48(c_xdevicefamily="z...]
+Compiling architecture xilinx of entity cmpy_v6_0_16.cmpy_v6_0_16_synth [\cmpy_v6_0_16_synth(c_xdevicefam...]
+Compiling architecture xilinx of entity xfft_v9_1_1.cmpy [\cmpy(c_xdevicefamily="zynq",a_w...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture struct of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_legacy [\c_shift_ram_v12_0_12_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_viv [\c_shift_ram_v12_0_12_viv(c_xdev...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(adreg=0,carryinreg=0,ca...]
+Compiling architecture dsp48e_v of entity unisim.DSP48E [\DSP48E(carryinreg=0,carryinselr...]
+Compiling architecture xilinx of entity xfft_v9_1_1.butterfly_DSP48E [\butterfly_DSP48E(data_width=29,...]
+Compiling architecture xilinx of entity xfft_v9_1_1.bf_dsp [\bf_dsp(c_xdevicefamily="zynq",d...]
+Compiling architecture xilinx of entity xfft_v9_1_1.butterfly [\butterfly(c_xdevicefamily="zynq...]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_datapath [\so_datapath(c_xdevicefamily="zy...]
+Compiling architecture vcc_v of entity unisim.VCC [vcc_default]
+Compiling architecture xilinx of entity xfft_v9_1_1.twgen_half_sincos [\twgen_half_sincos(c_xdevicefami...]
+Compiling architecture xilinx of entity xfft_v9_1_1.twiddle_gen [\twiddle_gen(c_xdevicefamily="zy...]
+Compiling architecture struct of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_legacy [\c_shift_ram_v12_0_12_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_viv [\c_shift_ram_v12_0_12_viv(c_xdev...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture fdse_v of entity unisim.FDSE [fdse_default]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_control_fsm [\so_control_fsm(c_has_natural_ou...]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1000")(0,3)\]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="10001010")(0,7)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0000000000000001")(0...]
+Compiling architecture fd_v of entity unisim.FD [fd_default]
+Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
+Compiling architecture xorcy_v of entity unisim.XORCY [xorcy_default]
+Compiling architecture rtl of entity c_addsub_v12_0_12.c_addsub_v12_0_12_lut6_legacy [\c_addsub_v12_0_12_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_fabric_legacy [\c_addsub_v12_0_12_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_legacy [\c_addsub_v12_0_12_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_viv [\c_addsub_v12_0_12_viv(c_xdevice...]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_n_counter [\so_n_counter(c_xdevicefamily="z...]
+Compiling architecture fde_v of entity unisim.FDE [fde_default]
+Compiling architecture lut6_v of entity unisim.LUT6 [\LUT6(init="11111111000000001111...]
+Compiling architecture muxf7_v of entity unisim.MUXF7 [muxf7_default]
+Compiling architecture xilinx of entity xfft_v9_1_1.mux_bus8 [\mux_bus8(c_xdevicefamily="zynq"...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_run_addr_gen_rotator [\so_run_addr_gen_rotator(c_xdevi...]
+Compiling architecture lut1_v of entity unisim.LUT1 [\LUT1(init="0001")(0,3)\]
+Compiling architecture lut4_v of entity unisim.LUT4 [\LUT4(init="0010111000100010")(0...]
+Compiling architecture rtl of entity c_addsub_v12_0_12.c_addsub_v12_0_12_lut6_legacy [\c_addsub_v12_0_12_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_fabric_legacy [\c_addsub_v12_0_12_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_legacy [\c_addsub_v12_0_12_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_viv [\c_addsub_v12_0_12_viv(c_xdevice...]
+Compiling architecture struct of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_legacy [\c_shift_ram_v12_0_12_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_viv [\c_shift_ram_v12_0_12_viv(c_xdev...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture struct of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_legacy [\c_shift_ram_v12_0_12_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_viv [\c_shift_ram_v12_0_12_viv(c_xdev...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture struct of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_legacy [\c_shift_ram_v12_0_12_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_viv [\c_shift_ram_v12_0_12_viv(c_xdev...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture lut3_v of entity unisim.LUT3 [\LUT3(init="00000100")(0,7)\]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_run_addr_gen [\so_run_addr_gen(c_xdevicefamily...]
+Compiling architecture struct of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_legacy [\c_shift_ram_v12_0_12_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_viv [\c_shift_ram_v12_0_12_viv(c_xdev...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture srl16e_v of entity unisim.SRL16E [\SRL16E(0,15)\]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture structural of entity c_reg_fd_v12_0_5.c_reg_fd_v12_0_5_viv [\c_reg_fd_v12_0_5_viv(c_width=8,...]
+Compiling architecture rtl of entity c_addsub_v12_0_12.c_addsub_v12_0_12_lut6_legacy [\c_addsub_v12_0_12_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_fabric_legacy [\c_addsub_v12_0_12_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_legacy [\c_addsub_v12_0_12_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_viv [\c_addsub_v12_0_12_viv(c_xdevice...]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_io_addr_gen [\so_io_addr_gen(c_xdevicefamily=...]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_addr_gen [\so_addr_gen(c_xdevicefamily="zy...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture struct of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_legacy [\c_shift_ram_v12_0_12_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_12.c_shift_ram_v12_0_12_viv [\c_shift_ram_v12_0_12_viv(c_xdev...]
+Compiling architecture xilinx of entity xfft_v9_1_1.shift_ram [\shift_ram(c_xdevicefamily="zynq...]
+Compiling architecture xilinx of entity xfft_v9_1_1.so_control [\so_control(c_xdevicefamily="zyn...]
+Compiling architecture xilinx of entity xfft_v9_1_1.xfft_v9_1_1_e [\xfft_v9_1_1_e(c_xdevicefamily="...]
+Compiling architecture synth of entity xfft_v9_1_1.xfft_v9_1_1_core [\xfft_v9_1_1_core(c_xdevicefamil...]
+Compiling architecture synth of entity xfft_v9_1_1.xfft_v9_1_1_viv [\xfft_v9_1_1_viv(c_xdevicefamily...]
+Compiling architecture xilinx of entity xfft_v9_1_1.xfft_v9_1_1 [\xfft_v9_1_1(c_xdevicefamily="zy...]
+Compiling architecture xfft_256_arch of entity xil_defaultlib.xfft_256 [xfft_256_default]
+Compiling module work.ef_fft_log
+Compiling module work.ef_dwt_db4
+Compiling module work.ef_dwt_feat
+Compiling module work.ef_hist
+Compiling module unisims_ver.DSP48E1(ACASCREG=0,ADREG=0,ALUMO...
+Compiling module work.dsp_acc48
+Compiling module work.ef_cumulant
+Compiling module work.ef_cfo
+Compiling module work.ef_power
+Compiling module work.ef_sqrt
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_5.xbip_pipe_v3_0_5_viv [\xbip_pipe_v3_0_5_viv(c_latency=...]
+Compiling architecture structural of entity c_reg_fd_v12_0_5.c_reg_fd_v12_0_5_viv [\c_reg_fd_v12_0_5_viv(c_width=22...]
+Compiling architecture rtl of entity c_addsub_v12_0_12.c_addsub_v12_0_12_lut6_legacy [\c_addsub_v12_0_12_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_fabric_legacy [\c_addsub_v12_0_12_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_legacy [\c_addsub_v12_0_12_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_viv [\c_addsub_v12_0_12_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_14.addsub [\addsub(family="zynq",add_mode=1...]
+Compiling architecture rtl of entity c_addsub_v12_0_12.c_addsub_v12_0_12_lut6_legacy [\c_addsub_v12_0_12_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_fabric_legacy [\c_addsub_v12_0_12_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_legacy [\c_addsub_v12_0_12_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_viv [\c_addsub_v12_0_12_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_14.addsub [\addsub(family="zynq",add_mode=0...]
+Compiling architecture struct_all of entity cordic_v6_0_14.delay [\delay(delay_len=1,family="zynq"...]
+Compiling architecture structural of entity c_reg_fd_v12_0_5.c_reg_fd_v12_0_5_viv [\c_reg_fd_v12_0_5_viv(c_width=21...]
+Compiling architecture rtl of entity c_addsub_v12_0_12.c_addsub_v12_0_12_lut6_legacy [\c_addsub_v12_0_12_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_fabric_legacy [\c_addsub_v12_0_12_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_legacy [\c_addsub_v12_0_12_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_viv [\c_addsub_v12_0_12_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_14.addsub [\addsub(family="zynq",add_mode=2...]
+Compiling architecture struct_all of entity cordic_v6_0_14.delay [\delay(delay_len=1,family="zynq"...]
+Compiling architecture struct_all of entity cordic_v6_0_14.delay_bit [\delay_bit(delay_len=2,family="z...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_inp_config [\cordic_inp_config(p_xdevicefami...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_pha_acc_slice_par [\cordic_pha_acc_slice_par(p_xdev...]
+Compiling architecture struct_all of entity cordic_v6_0_14.delay [\delay(delay_len=1,family="zynq"...]
+Compiling architecture struct_all of entity cordic_v6_0_14.delay_bit [\delay_bit(delay_len=1,family="z...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_ctrl_slice_par [\cordic_ctrl_slice_par(p_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_dat_acc_slice_par [\cordic_dat_acc_slice_par(p_xdev...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng_slice_par [\cordic_eng_slice_par(p_xdevicef...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_eng [\cordic_eng(p_xdevicefamily="zyn...]
+Compiling architecture structural of entity c_reg_fd_v12_0_5.c_reg_fd_v12_0_5_viv [\c_reg_fd_v12_0_5_viv(c_width=21...]
+Compiling architecture rtl of entity c_addsub_v12_0_12.c_addsub_v12_0_12_lut6_legacy [\c_addsub_v12_0_12_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_fabric_legacy [\c_addsub_v12_0_12_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_legacy [\c_addsub_v12_0_12_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_12.c_addsub_v12_0_12_viv [\c_addsub_v12_0_12_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_14.addsub [\addsub(family="zynq",add_mode=0...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_round [\cordic_round(p_xdevicefamily="z...]
+Compiling architecture struct_all of entity cordic_v6_0_14.delay_bit [\delay_bit(delay_len=0,family="z...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_out_config [\cordic_out_config(p_xdevicefami...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_v6_0_14_synth [\cordic_v6_0_14_synth(c_architec...]
+Compiling architecture synth of entity cordic_v6_0_14.cordic_v6_0_14_viv [\cordic_v6_0_14_viv(c_architectu...]
+Compiling architecture xilinx of entity cordic_v6_0_14.cordic_v6_0_14 [\cordic_v6_0_14(c_architecture=2...]
+Compiling architecture cordic_0_arch of entity xil_defaultlib.cordic_0 [cordic_0_default]
+Compiling module work.blk_mem_gen_v8_4_2_output_stage(...
+Compiling module work.blk_mem_gen_v8_4_2_output_stage(...
+Compiling module work.blk_mem_gen_v8_4_2_softecc_outpu...
+Compiling module work.blk_mem_gen_v8_4_2_mem_module(C_...
+Compiling module work.blk_mem_gen_v8_4_2(C_FAMILY="zyn...
+Compiling module work.log2_lut_rom
+Compiling module work.ef_log2lut
+Compiling module work.expert_feat_rffi
+Compiling module work.tb_expert_feat_stress
+Compiling module work.glbl
+Built simulation snapshot stress
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim4/xsim.dir/stress/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Sat Oct 24 11:54:05 2026...

@@ -1,0 +1,116 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/Xilinx/Vivado/2018.3/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Administrator' on host 'desktop-0heh89s' (Windows NT_amd64 version 6.2) on Tue Oct 20 16:08:38 +0800 2026
+INFO: [HLS 200-10] In directory 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI'
+INFO: [HLS 200-10] Opening and resetting project 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csim'.
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/top.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/pl_lcwt.cpp' to the project
+INFO: [HLS 200-10] Adding test bench file 'LcwtMLP_RFFI/SRC/tb/tb_lcwt.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/top.hpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/pl_lcwt.hpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/pl_lcwt_config.hpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/pl_lcwt_weights.hpp' to the project
+INFO: [HLS 200-10] Opening and resetting solution 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csim/sol_csim'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-10] Setting target device to 'xc7z030ffg676-2'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1ns.
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../LcwtMLP_RFFI/SRC/tb/tb_lcwt.cpp in debug mode
+   Compiling ../../../../LcwtMLP_RFFI/SRC/pl_lcwt.cpp in debug mode
+   Compiling ../../../../LcwtMLP_RFFI/SRC/top.cpp in debug mode
+   Generating csim.exe
+In file included from D:/Xilinx/Vivado/2018.3/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_fpo.h:186,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_half.h:44,
+                 from D:/Xilinx/Vivado/2018.3/include/etc/ap_private.h:90,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_common.h:641,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_int.h:54,
+                 from ../../../../LcwtMLP_RFFI/SRC/tb/../top.hpp:33,
+                 from ../../../../LcwtMLP_RFFI/SRC/tb/tb_lcwt.cpp:22:
+D:/Xilinx/Vivado/2018.3/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/Xilinx/Vivado/2018.3/include/hls_fpo.h:186:0,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_half.h:44,
+                 from D:/Xilinx/Vivado/2018.3/include/etc/ap_private.h:90,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_common.h:641,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_int.h:54,
+                 from ../../../../LcwtMLP_RFFI/SRC/tb/../top.hpp:33,
+                 from ../../../../LcwtMLP_RFFI/SRC/tb/tb_lcwt.cpp:22:
+D:/Xilinx/Vivado/2018.3/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from D:/Xilinx/Vivado/2018.3/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_fpo.h:186,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_half.h:44,
+                 from D:/Xilinx/Vivado/2018.3/include/etc/ap_private.h:90,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_common.h:641,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_int.h:54,
+                 from ../../../../LcwtMLP_RFFI/SRC/pl_lcwt.cpp:21:
+D:/Xilinx/Vivado/2018.3/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/Xilinx/Vivado/2018.3/include/hls_fpo.h:186:0,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_half.h:44,
+                 from D:/Xilinx/Vivado/2018.3/include/etc/ap_private.h:90,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_common.h:641,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_int.h:54,
+                 from ../../../../LcwtMLP_RFFI/SRC/pl_lcwt.cpp:21:
+D:/Xilinx/Vivado/2018.3/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+In file included from D:/Xilinx/Vivado/2018.3/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_fpo.h:186,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_half.h:44,
+                 from D:/Xilinx/Vivado/2018.3/include/etc/ap_private.h:90,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_common.h:641,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_int.h:54,
+                 from ../../../../LcwtMLP_RFFI/SRC/top.hpp:33,
+                 from ../../../../LcwtMLP_RFFI/SRC/top.cpp:8:
+D:/Xilinx/Vivado/2018.3/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined
+ #define __GMP_LIBGMP_DLL  0
+ 
+In file included from D:/Xilinx/Vivado/2018.3/include/hls_fpo.h:186:0,
+                 from D:/Xilinx/Vivado/2018.3/include/hls_half.h:44,
+                 from D:/Xilinx/Vivado/2018.3/include/etc/ap_private.h:90,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_common.h:641,
+                 from D:/Xilinx/Vivado/2018.3/include/ap_int.h:54,
+                 from ../../../../LcwtMLP_RFFI/SRC/top.hpp:33,
+                 from ../../../../LcwtMLP_RFFI/SRC/top.cpp:8:
+D:/Xilinx/Vivado/2018.3/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+ #define __GMP_LIBGMP_DLL 1
+ 
+== WaveMLP PL testbench ==
+  golden vectors loaded (8 frames)
+  stream: 2512 beats (expect 2512), leftover 0
+  TLAST placement : OK (0 bad frames)
+  TKEEP/TSTRB     : OK (0 bad beats)
+-- stream logits vs reference --
+  logits     OK      160 values bit-exact   range[ -6047,  4453] nonzero  160/ 160
+-- stream tokens (frame 0) --
+  tok_out    OK      608 values bit-exact   range[   -18,    24] nonzero  501/ 608
+-- internal stages (frame 0) --
+  lcwt_re    OK      256 values bit-exact   range[  -499,   700] nonzero  254/ 256
+  lcwt_im    OK      256 values bit-exact   range[  -688,   594] nonzero  254/ 256
+  tok        OK      608 values bit-exact   range[  -282,   388] nonzero  604/ 608
+  ln         OK      608 values bit-exact   range[ -7884,  6800] nonzero  608/ 608
+  pre        OK      608 values bit-exact   range[ -7815,  6639] nonzero  608/ 608
+  gelu       OK      608 values bit-exact   range[   -44,  6639] nonzero  350/ 608
+  fc2        OK      608 values bit-exact   range[ -3028,  4643] nonzero  607/ 608
+  gap        OK       38 values bit-exact   range[  -583,   639] nonzero   38/  38
+  logits_db  OK       20 values bit-exact   range[ -4583,  2120] nonzero   20/  20
+-- non-degeneracy --
+  frame0 vs frame1 stream tokens differ in 576/608
+  frame0 vs frame1 logits differ in 20/20
+**PASS**
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+INFO: [Common 17-206] Exiting vivado_hls at Tue Oct 20 16:08:47 2026...

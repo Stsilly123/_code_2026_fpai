@@ -1,0 +1,29 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_cfo.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_cfo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_cmul16.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_cmul16
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_cmul24.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_cmul24
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_cumulant.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_cumulant
+INFO: [VRFC 10-311] analyzing module dsp_acc48
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_dwt_db4.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_dwt_db4
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_dwt_feat.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_dwt_feat
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_fft_log.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_fft_log
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_hist.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_hist
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_log2lut.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_log2lut
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_power.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_power
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_sqrt.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_sqrt
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/ef_zn.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_zn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/expert_feat_rffi.v" into library work
+INFO: [VRFC 10-311] analyzing module expert_feat_rffi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_afix1/tb_expert_dump.v" into library work
+INFO: [VRFC 10-311] analyzing module tb_expert_dump

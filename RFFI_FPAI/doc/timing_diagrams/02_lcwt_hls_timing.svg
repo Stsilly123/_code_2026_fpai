@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="780" viewBox="0 0 1240 780">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#BF9000"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#A6A6A6" stroke-width="1.6"/></pattern>
+</defs>
+<rect x="24.0" y="16.0" width="1192.0" height="50.0" fill="#FFFFFF" stroke="#BFBFBF" stroke-width="1"/>
+<rect x="24.0" y="16.0" width="1192.0" height="50.0" fill="#1F3864"/>
+<text x="40.0" y="48.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="19" fill="#FFFFFF" text-anchor="start" font-weight="600" font-style="normal">LcwtMLP_RFFI（HLS）时序：单次 ap_start 处理 8 帧</text>
+<text x="1200.0" y="45.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#DEEBF7" text-anchor="end" font-weight="400" font-style="normal">输入 8×256 拍 · 输出 8×304 拍（TLAST@303）· 34,081 ~ 134,433 拍/次</text>
+<rect x="24.0" y="100.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="119.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">clk</text>
+<text x="34.0" y="135.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">200 MHz</text>
+<rect x="240.0" y="100.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="140.0" x2="1200.0" y2="140.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="150.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="169.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">ap_start</text>
+<text x="34.0" y="185.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">avail_words ≥ 256 时脉冲</text>
+<rect x="240.0" y="150.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="190.0" x2="1200.0" y2="190.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="200.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="219.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">ap_idle</text>
+<text x="34.0" y="235.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">块级握手，无 AXI-Lite</text>
+<rect x="240.0" y="200.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="240.0" x2="1200.0" y2="240.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="250.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="269.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">din_TVALID / din_V_V</text>
+<text x="34.0" y="285.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">8 帧 × 256 拍</text>
+<rect x="240.0" y="250.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="290.0" x2="1200.0" y2="290.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="300.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="319.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">dout_TVALID</text>
+<text x="34.0" y="335.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">8 帧 × 304 拍</text>
+<rect x="240.0" y="300.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="340.0" x2="1200.0" y2="340.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="350.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="369.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">dout_TLAST</text>
+<text x="34.0" y="385.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">仅每帧第 303 拍</text>
+<rect x="240.0" y="350.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="390.0" x2="1200.0" y2="390.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="400.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="419.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">ap_done</text>
+<text x="34.0" y="435.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">34,081 ~ 134,433 拍</text>
+<rect x="240.0" y="400.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="440.0" x2="1200.0" y2="440.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="240.0" y1="94.0" x2="240.0" y2="446.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="377.1" y1="94.0" x2="377.1" y2="446.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="514.3" y1="94.0" x2="514.3" y2="446.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="651.4" y1="94.0" x2="651.4" y2="446.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="788.6" y1="94.0" x2="788.6" y2="446.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="925.7" y1="94.0" x2="925.7" y2="446.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="1062.9" y1="94.0" x2="1062.9" y2="446.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="1200.0" y1="94.0" x2="1200.0" y2="446.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="240.0" y="104.0" width="960.0" height="32.0" fill="#F2F7FC" stroke="#BDD7EE" stroke-width="1"/>
+<path d="M 240.0 120.0 L 1200.0 120.0" fill="none" stroke="#2E75B6" stroke-width="1" stroke-dasharray="2,6"/>
+<text x="720.0" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10" fill="#2E75B6" text-anchor="middle" font-weight="400" font-style="normal">200 MHz 连续（5 ns/拍）</text>
+<line x1="240.0" y1="181.0" x2="248.2" y2="181.0" stroke="#C55A11" stroke-width="1.8"/>
+<rect x="248.2" y="155.0" width="10.0" height="26.0" fill="#F8CBAD" stroke="#C55A11" stroke-width="1.2"/>
+<line x1="248.3" y1="181.0" x2="1200.0" y2="181.0" stroke="#C55A11" stroke-width="1.8"/>
+<text x="267.4" y="174.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#C55A11" text-anchor="start" font-weight="400" font-style="normal">单拍脉冲（ip_idle_r 延迟一拍，避免组合反馈）</text>
+<line x1="240.0" y1="207.0" x2="248.2" y2="207.0" stroke="#2E75B6" stroke-width="1.8"/>
+<rect x="240.0" y="207.0" width="8.2" height="4.0" fill="#2E75B6"/>
+<line x1="248.2" y1="231.0" x2="1161.8" y2="231.0" stroke="#C55A11" stroke-width="1.8"/>
+<line x1="1161.8" y1="207.0" x2="1200.0" y2="207.0" stroke="#C55A11" stroke-width="1.8"/>
+<rect x="1161.8" y="207.0" width="38.2" height="4.0" fill="#C55A11"/>
+<line x1="248.2" y1="207.0" x2="248.2" y2="231.0" stroke="#C55A11" stroke-width="1.8"/>
+<line x1="1161.8" y1="207.0" x2="1161.8" y2="231.0" stroke="#C55A11" stroke-width="1.8"/>
+<text x="261.9" y="218.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#C55A11" text-anchor="start" font-weight="400" font-style="normal">ap_idle = 0：8 帧处理区间</text>
+<line x1="240.0" y1="281.0" x2="248.9" y2="281.0" stroke="#2E75B6" stroke-width="1.8"/>
+<rect x="249.9" y="257.0" width="2.0" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<rect x="253.4" y="257.0" width="2.0" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<rect x="256.9" y="257.0" width="2.0" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<rect x="260.4" y="257.0" width="2.0" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<rect x="264.0" y="257.0" width="2.0" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<rect x="267.5" y="257.0" width="2.0" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<rect x="271.0" y="257.0" width="2.0" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<rect x="274.5" y="257.0" width="2.0" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<text x="384.0" y="300.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#2E75B6" text-anchor="start" font-weight="400" font-style="normal">共 2048 拍 = 8 帧，按帧顺序；每帧最后一拍 last=1</text>
+<rect x="473.7" y="304.0" width="688.1" height="28.0" fill="url(#hatch)" stroke="#A6A6A6" stroke-width="1" fill-opacity="0.35"/>
+<line x1="240.0" y1="331.0" x2="473.7" y2="331.0" stroke="#2E75B6" stroke-width="1.8"/>
+<rect x="473.7" y="305.0" width="7.0" height="26.0" fill="#BDD7EE" stroke="#2E75B6" stroke-width="1.1"/>
+<rect x="556.0" y="305.0" width="7.0" height="26.0" fill="#BDD7EE" stroke="#2E75B6" stroke-width="1.1"/>
+<rect x="638.3" y="305.0" width="7.0" height="26.0" fill="#BDD7EE" stroke="#2E75B6" stroke-width="1.1"/>
+<rect x="720.6" y="305.0" width="7.0" height="26.0" fill="#BDD7EE" stroke="#2E75B6" stroke-width="1.1"/>
+<rect x="802.8" y="305.0" width="7.0" height="26.0" fill="#BDD7EE" stroke="#2E75B6" stroke-width="1.1"/>
+<rect x="885.1" y="305.0" width="7.0" height="26.0" fill="#BDD7EE" stroke="#2E75B6" stroke-width="1.1"/>
+<rect x="967.4" y="305.0" width="7.0" height="26.0" fill="#BDD7EE" stroke="#2E75B6" stroke-width="1.1"/>
+<rect x="1049.7" y="305.0" width="7.0" height="26.0" fill="#BDD7EE" stroke="#2E75B6" stroke-width="1.1"/>
+<line x1="1161.8" y1="331.0" x2="1200.0" y2="331.0" stroke="#2E75B6" stroke-width="1.8"/>
+<text x="720.0" y="350.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#2E75B6" text-anchor="middle" font-weight="400" font-style="normal">8 × 304 拍（每拍 4 B，共 9728 B）；起始时刻随流水数据变化</text>
+<line x1="240.0" y1="381.0" x2="1200.0" y2="381.0" stroke="#548235" stroke-width="1.8"/>
+<rect x="481.9" y="355.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<line x1="481.9" y1="350.0" x2="481.9" y2="384.0" stroke="#548235" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="564.2" y="355.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<line x1="564.2" y1="350.0" x2="564.2" y2="384.0" stroke="#548235" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="646.5" y="355.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<line x1="646.5" y1="350.0" x2="646.5" y2="384.0" stroke="#548235" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="728.8" y="355.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<line x1="728.8" y1="350.0" x2="728.8" y2="384.0" stroke="#548235" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="811.1" y="355.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<line x1="811.1" y1="350.0" x2="811.1" y2="384.0" stroke="#548235" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="893.4" y="355.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<line x1="893.4" y1="350.0" x2="893.4" y2="384.0" stroke="#548235" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="975.6" y="355.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<line x1="975.6" y1="350.0" x2="975.6" y2="384.0" stroke="#548235" stroke-width="1" stroke-dasharray="2,3"/>
+<rect x="1057.9" y="355.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<line x1="1057.9" y1="350.0" x2="1057.9" y2="384.0" stroke="#548235" stroke-width="1" stroke-dasharray="2,3"/>
+<text x="720.0" y="400.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#548235" text-anchor="middle" font-weight="400" font-style="normal">TLAST 仅出现在 b=303（第 304 拍），共 8 个</text>
+<line x1="240.0" y1="431.0" x2="473.7" y2="431.0" stroke="#548235" stroke-width="1.8"/>
+<line x1="473.7" y1="431.0" x2="1161.8" y2="431.0" stroke="#548235" stroke-width="1.8"/>
+<line x1="1161.8" y1="431.0" x2="1200.0" y2="431.0" stroke="#548235" stroke-width="1.8"/>
+<rect x="473.7" y="407.0" width="4.0" height="24.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<rect x="1161.8" y="407.0" width="4.0" height="24.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<rect x="473.7" y="386.0" width="688.1" height="5.0" fill="#FFE699" stroke="#BF9000" stroke-width="1"/>
+<line x1="473.7" y1="386.0" x2="473.7" y2="407.0" stroke="#BF9000" stroke-width="1" stroke-dasharray="2,2"/>
+<line x1="1161.8" y1="386.0" x2="1161.8" y2="407.0" stroke="#BF9000" stroke-width="1" stroke-dasharray="2,2"/>
+<rect x="24.0" y="504.0" width="1176.0" height="220.0" fill="#FFFFFF" stroke="#BFBFBF" stroke-width="1"/>
+<text x="38.0" y="524.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12.5" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">单帧输出格式（304 拍 = 1216 B = 16 token × 38 dim × int16）</text>
+<rect x="24.0" y="537.0" width="216.0" height="30.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="551.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">dout_TVALID</text>
+<text x="34.0" y="564.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">连续 304 拍</text>
+<rect x="24.0" y="571.0" width="216.0" height="30.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="585.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">dout_TDATA</text>
+<text x="34.0" y="598.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">beat 0..303</text>
+<rect x="24.0" y="605.0" width="216.0" height="30.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="619.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">dout_TLAST</text>
+<text x="34.0" y="632.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">b=303</text>
+<rect x="24.0" y="639.0" width="216.0" height="30.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="653.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">dout_TKEEP</text>
+<text x="34.0" y="666.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">恒 0xF</text>
+<line x1="240.0" y1="539.0" x2="791.0" y2="539.0" stroke="#2E75B6" stroke-width="1.8"/>
+<rect x="240.0" y="539.0" width="551.0" height="4.0" fill="#2E75B6"/>
+<polygon points="246.0,573.0 785.0,573.0 789.0,586.0 785.0,599.0 246.0,599.0 242.0,586.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1.2"/>
+<text x="515.5" y="589.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">304 × 32 bit（2 × int16 Q4）</text>
+<line x1="240.0" y1="631.0" x2="789.2" y2="631.0" stroke="#548235" stroke-width="1.8"/>
+<rect x="789.2" y="607.0" width="4.0" height="24.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<text x="799.2" y="608.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.5" fill="#548235" text-anchor="start" font-weight="400" font-style="normal">TLAST</text>
+<line x1="240.0" y1="641.0" x2="791.0" y2="641.0" stroke="#2E75B6" stroke-width="1.8"/>
+<rect x="240.0" y="641.0" width="551.0" height="4.0" fill="#2E75B6"/>
+<line x1="240.0" y1="538.0" x2="240.0" y2="670.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="356.0" y1="538.0" x2="356.0" y2="670.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="472.0" y1="538.0" x2="472.0" y2="670.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="588.0" y1="538.0" x2="588.0" y2="670.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="704.0" y1="538.0" x2="704.0" y2="670.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="791.0" y1="538.0" x2="791.0" y2="670.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="240.0" y1="670.0" x2="820.0" y2="670.0" stroke="#1F3864" stroke-width="1.4"/>
+<line x1="240.0" y1="665.0" x2="240.0" y2="675.0" stroke="#1F3864" stroke-width="1"/>
+<text x="240.0" y="688.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">0</text>
+<line x1="356.0" y1="665.0" x2="356.0" y2="675.0" stroke="#1F3864" stroke-width="1"/>
+<text x="356.0" y="688.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">64</text>
+<line x1="472.0" y1="665.0" x2="472.0" y2="675.0" stroke="#1F3864" stroke-width="1"/>
+<text x="472.0" y="688.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">128</text>
+<line x1="588.0" y1="665.0" x2="588.0" y2="675.0" stroke="#1F3864" stroke-width="1"/>
+<text x="588.0" y="688.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">192</text>
+<line x1="704.0" y1="665.0" x2="704.0" y2="675.0" stroke="#1F3864" stroke-width="1"/>
+<text x="704.0" y="688.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">256</text>
+<line x1="791.0" y1="665.0" x2="791.0" y2="675.0" stroke="#1F3864" stroke-width="1"/>
+<text x="791.0" y="688.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">304</text>
+<text x="820.0" y="701.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="end" font-weight="400" font-style="normal">拍/帧</text>
+<rect x="848.0" y="532.0" width="348.0" height="101.0" fill="#FFF2CC" stroke="#BF9000" stroke-width="1" rx="3"/>
+<text x="856.0" y="546.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">调用：单次 ap_start 处理 8 帧；</text>
+<text x="856.0" y="560.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">  每帧折合 4,260 ~ 16,804 拍</text>
+<text x="856.0" y="575.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">  （21.3 ~ 84.0 µs），均小于 101.6 µs。</text>
+<text x="856.0" y="589.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">输出：8 × 304 = 2432 拍 / 次。</text>
+<text x="856.0" y="604.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">S2MM 每次按 1216 B 挂载一帧；</text>
+<text x="856.0" y="618.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">若长度仍设为 684，将在第 171 拍截断。</text>
+<line x1="240.0" y1="454.0" x2="1200.0" y2="454.0" stroke="#1F3864" stroke-width="1.4"/>
+<line x1="240.0" y1="449.0" x2="240.0" y2="459.0" stroke="#1F3864" stroke-width="1"/>
+<text x="240.0" y="472.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">0k</text>
+<text x="240.0" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.0</text>
+<line x1="377.1" y1="449.0" x2="377.1" y2="459.0" stroke="#1F3864" stroke-width="1"/>
+<text x="377.1" y="472.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">20k</text>
+<text x="377.1" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.1</text>
+<line x1="514.3" y1="449.0" x2="514.3" y2="459.0" stroke="#1F3864" stroke-width="1"/>
+<text x="514.3" y="472.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">40k</text>
+<text x="514.3" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.2</text>
+<line x1="651.4" y1="449.0" x2="651.4" y2="459.0" stroke="#1F3864" stroke-width="1"/>
+<text x="651.4" y="472.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">60k</text>
+<text x="651.4" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.3</text>
+<line x1="788.6" y1="449.0" x2="788.6" y2="459.0" stroke="#1F3864" stroke-width="1"/>
+<text x="788.6" y="472.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">80k</text>
+<text x="788.6" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.4</text>
+<line x1="925.7" y1="449.0" x2="925.7" y2="459.0" stroke="#1F3864" stroke-width="1"/>
+<text x="925.7" y="472.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">100k</text>
+<text x="925.7" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.5</text>
+<line x1="1062.9" y1="449.0" x2="1062.9" y2="459.0" stroke="#1F3864" stroke-width="1"/>
+<text x="1062.9" y="472.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">120k</text>
+<text x="1062.9" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.6</text>
+<line x1="1200.0" y1="449.0" x2="1200.0" y2="459.0" stroke="#1F3864" stroke-width="1"/>
+<text x="1200.0" y="472.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">140k</text>
+<text x="1200.0" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.7</text>
+<text x="1200.0" y="499.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="end" font-weight="400" font-style="normal">拍 / µs</text>
+<text x="24" y="770" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9" fill="#A6A6A6">数据来源：IP交付说明.md、IP改动说明_20261022.md、Signal_process.v 的 ap_start 逻辑。</text>
+</svg>

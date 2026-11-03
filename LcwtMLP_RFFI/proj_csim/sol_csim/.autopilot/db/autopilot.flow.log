@@ -1,0 +1,111 @@
+INFO-FLOW: Workspace D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csim/sol_csim opened at Thu Oct 22 20:21:33 +0800 2026
+Execute     set_part xc7z030ffg676-2 -tool vivado 
+Execute       add_library xilinx/zynq/zynq:xc7z030:ffg676:-2 
+Execute         get_default_platform 
+Execute         license_isbetapart xc7z030 
+Command         license_isbetapart done; error code: 1; 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/plb46.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/fsl.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/axi4.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds_compiler.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.lib 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_old.lib 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/target_info.tcl 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.hlp 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute           get_default_platform 
+Execute           config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute           config_chip_info -quiet -speed medium 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/target_info.tcl 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.hlp 
+Command         import_lib done; 0.144 sec.
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/virtex.gen 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/plb46.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/fsl.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/axi4.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.gen 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds_compiler.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
+Command             ap_source done; 0.184 sec.
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
+Command           ap_source done; 0.198 sec.
+Command         ap_source done; 0.203 sec.
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 19650}  {LUT 78600}     {FF 157200} {DSP48E 400}   {BRAM 530}  
+Execute         config_chip_info -quiet -speed medium 
+Command       add_library done; 0.361 sec.
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_hp.lib 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/target_info.tcl 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.hlp 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_hp.hlp 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO: [HLS 200-10] Setting target device to 'xc7z030ffg676-2'
+Execute       get_default_platform 
+Command     set_part done; 0.481 sec.
+Execute     create_clock -period 5 -name default 
+Execute       config_clock -quiet -name default -period 5 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+Execute     set_clock_uncertainty 20% 
+Execute       get_clock_period -default -name=default 
+Execute       config_clock -quiet -name default -uncertainty 1 -unit % 
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1ns.
+Execute     csim_design 
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+Execute       is_encrypted D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/tb/tb_lcwt.cpp 
+Execute       is_xip D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/tb/tb_lcwt.cpp 
+Execute       is_encrypted D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/pl_lcwt_weights.hpp 
+Execute       is_xip D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/pl_lcwt_weights.hpp 
+Execute       is_encrypted D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/pl_lcwt_config.hpp 
+Execute       is_xip D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/pl_lcwt_config.hpp 
+Execute       is_encrypted D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/pl_lcwt.hpp 
+Execute       is_xip D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/pl_lcwt.hpp 
+Execute       is_encrypted D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/top.hpp 
+Execute       is_xip D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/top.hpp 
+Execute       is_encrypted D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/pl_lcwt.cpp 
+Execute       is_xip D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/pl_lcwt.cpp 
+Execute       is_encrypted D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/top.cpp 
+Execute       is_xip D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/LcwtMLP_RFFI/SRC/top.cpp 
+Execute       get_default_platform 
+Execute       source run_sim.tcl 
+Command       ap_source done; 0.325 sec.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+Command     csim_design done; 10.664 sec.
+Execute     cleanup_all 

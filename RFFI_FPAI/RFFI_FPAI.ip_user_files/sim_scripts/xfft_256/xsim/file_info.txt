@@ -1,0 +1,2 @@
+xfft_256.vhd,vhdl,xil_defaultlib,../../../../RFFI_FPAI.srcs/sources_1/ip/xfft_256/sim/xfft_256.vhd,
+glbl.v,Verilog,xil_defaultlib,glbl.v

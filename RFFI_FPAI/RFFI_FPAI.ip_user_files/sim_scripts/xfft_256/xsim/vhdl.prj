@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../RFFI_FPAI.srcs/sources_1/ip/xfft_256/sim/xfft_256.vhd" \
+
+nosort

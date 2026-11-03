@@ -1,0 +1,9 @@
+LcwtMLP_RFFI_0 xilinx.com:hls:LcwtMLP_RFFI:1.0
+cordic_0 xilinx.com:ip:cordic:6.0
+fifo_generator_hls xilinx.com:ip:fifo_generator:13.2
+log2_lut_rom xilinx.com:ip:blk_mem_gen:8.4
+ps_ai_axi_interconnect_0_0 xilinx.com:ip:axi_interconnect:2.1
+ps_ai_axi_interconnect_1_0 xilinx.com:ip:axi_interconnect:2.1
+ps_ai_axi_interconnect_4_0 xilinx.com:ip:axi_interconnect:2.1
+ps_ai_xlconcat_0_0 xilinx.com:ip:xlconcat:2.1
+xfft_256 xilinx.com:ip:xfft:9.1

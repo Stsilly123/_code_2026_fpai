@@ -1,0 +1,51 @@
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source q1.tcl -notrace
+Command: open_checkpoint D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/ooc_rpt/post_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.027 . Memory (MB): peak = 264.047 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2787 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1287.086 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2018.3 (64-bit) build 2405991
+open_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1287.086 ; gain = 1023.039
+gsum_0_V_1_reg_33342[11]_i_2
+gsum_0_V_1_reg_33342[11]_i_3
+gsum_0_V_1_reg_33342[11]_i_4
+gsum_0_V_1_reg_33342[11]_i_5
+gsum_0_V_1_reg_33342[15]_i_2
+gsum_0_V_1_reg_33342[15]_i_3
+gsum_0_V_1_reg_33342[15]_i_4
+gsum_0_V_1_reg_33342[15]_i_5
+gsum_0_V_1_reg_33342[19]_i_2
+gsum_0_V_1_reg_33342[19]_i_3
+gsum_0_V_1_reg_33342[19]_i_4
+gsum_0_V_1_reg_33342[19]_i_5
+gsum_0_V_1_reg_33342[23]_i_2
+---regs---
+gsum_0_V_1_reg_33342_reg[0]
+gsum_0_V_1_reg_33342_reg[10]
+gsum_0_V_1_reg_33342_reg[11]
+gsum_0_V_1_reg_33342_reg[12]
+gsum_0_V_1_reg_33342_reg[13]
+gsum_0_V_1_reg_33342_reg[14]
+gsum_0_V_1_reg_33342_reg[15]
+gsum_0_V_1_reg_33342_reg[16]
+gsum_0_V_1_reg_33342_reg[17]
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 17:17:46 2026...

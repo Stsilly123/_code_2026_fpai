@@ -1,0 +1,2 @@
+cmos_clkgen_742_5_sim_netlist.v,verilog,xil_defaultlib,d:/FPGA_PR/RFFI_FPAI/SRC/ip/cmos_clkgen_742_5/cmos_clkgen_742_5_sim_netlist.v,incdir="../../../../SRC/ip/cmos_clkgen_742_5"
+glbl.v,Verilog,xil_defaultlib,glbl.v

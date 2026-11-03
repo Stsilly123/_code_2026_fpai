@@ -1,0 +1,391 @@
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu Oct 22 20:35:10 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'LcwtMLP_RFFI_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of LcwtMLP_RFFI_0 (xilinx.com:hls:LcwtMLP_RFFI:1.0) from (Rev. 610202258) to (Rev. 610222026)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Oct 20 23:03:43 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'LcwtMLP_RFFI_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of LcwtMLP_RFFI_0 (xilinx.com:hls:LcwtMLP_RFFI:1.0) from (Rev. 610201729) to (Rev. 610202258)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Oct 20 17:35:03 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'LcwtMLP_RFFI_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of LcwtMLP_RFFI_0 (xilinx.com:hls:LcwtMLP_RFFI:1.0) from (Rev. 610201421) to (Rev. 610201729)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Tue Oct 20 15:04:23 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'LcwtMLP_RFFI_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of LcwtMLP_RFFI_0 (xilinx.com:hls:LcwtMLP_RFFI:1.0) from (Rev. 610200009) to (Rev. 610201421)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Sun Oct 18 17:02:51 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'RFFI_FFT_ConvNet_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of RFFI_FFT_ConvNet_0 (xilinx.com:hls:RFFI_FFT_ConvNet:1.0) from (Rev. 610151217) to (Rev. 610181654)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu Oct 15 17:03:17 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'ps_ai_smartconnect_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of ps_ai_smartconnect_0_0 (xilinx.com:ip:smartconnect:1.0 (Rev. 10)) to Vivado generation flows.
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'ps_ai_smartconnect_0_0'.
+
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'ps_ai_smartconnect_0_0'. These changes may impact your design.
+
+
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Thu Oct 15 12:23:22 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'RFFI_FFT_ConvNet_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of RFFI_FFT_ConvNet_0 (xilinx.com:hls:RFFI_FFT_ConvNet:1.0) from (Rev. 610141952) to (Rev. 610151217)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'RFFI_FFT_ConvNet_0'.
+
+
+-Upgrade has removed interface 'logits_out_V_V'
+
+-Upgrade has removed interface 'tok_out_V_V'
+
+-Upgrade has added interface 'dout' (xilinx.com:interface:axis:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'RFFI_FFT_ConvNet_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'logits_out_V_V_TDATA'
+
+-Upgrade has removed port 'logits_out_V_V_TREADY'
+
+-Upgrade has removed port 'logits_out_V_V_TVALID'
+
+-Upgrade has removed port 'tok_out_V_V_TDATA'
+
+-Upgrade has removed port 'tok_out_V_V_TREADY'
+
+-Upgrade has removed port 'tok_out_V_V_TVALID'
+
+-Upgrade has added port 'dout_TDATA'
+
+-Upgrade has added port 'dout_TKEEP'
+
+-Upgrade has added port 'dout_TLAST'
+
+-Upgrade has added port 'dout_TREADY'
+
+-Upgrade has added port 'dout_TSTRB'
+
+-Upgrade has added port 'dout_TVALID'
+
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Wed Oct 14 19:57:33 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'RFFI_FFT_ConvNet_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of RFFI_FFT_ConvNet_0 (xilinx.com:hls:RFFI_FFT_ConvNet:1.0) from (Rev. 610141622) to (Rev. 610141952)
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Wed Oct 14 16:28:01 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'RFFI_FFT_ConvNet_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of RFFI_FFT_ConvNet_0 (xilinx.com:hls:RFFI_FFT_ConvNet:1.0) from (Rev. 610141538) to (Rev. 610141622)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'RFFI_FFT_ConvNet_0'.
+
+
+-Upgraded interface 'logits_out_V_V' (xilinx.com:interface:axis:1.0) differs from original interface 'xilinx.com:interface:acc_fifo_write:1.0'
+
+-Upgraded interface 'tok_out_V_V' (xilinx.com:interface:axis:1.0) differs from original interface 'xilinx.com:interface:acc_fifo_write:1.0'
+
+-Upgrade has removed interface 'ap_rst'
+
+-Upgrade has added interface 'ap_rst_n' (xilinx.com:signal:reset:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'RFFI_FFT_ConvNet_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'ap_rst'
+
+-Upgrade has removed port 'logits_out_V_V_din'
+
+-Upgrade has removed port 'logits_out_V_V_full_n'
+
+-Upgrade has removed port 'logits_out_V_V_write'
+
+-Upgrade has removed port 'tok_out_V_V_din'
+
+-Upgrade has removed port 'tok_out_V_V_full_n'
+
+-Upgrade has removed port 'tok_out_V_V_write'
+
+-Upgrade has added port 'ap_rst_n'
+
+-Upgrade has added port 'logits_out_V_V_TDATA'
+
+-Upgrade has added port 'logits_out_V_V_TREADY'
+
+-Upgrade has added port 'logits_out_V_V_TVALID'
+
+-Upgrade has added port 'tok_out_V_V_TDATA'
+
+-Upgrade has added port 'tok_out_V_V_TREADY'
+
+-Upgrade has added port 'tok_out_V_V_TVALID'
+
+
+
+
+
+
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2018.3 (win64) Build 2405991 Thu Dec  6 23:38:27 MST 2018
+| Date         : Wed Oct 14 16:05:12 2026
+| Host         : DESKTOP-0HEH89S running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7z030ffg676-2
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'RFFI_FFT_ConvNet_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of RFFI_FFT_ConvNet_0 (xilinx.com:hls:RFFI_FFT_ConvNet:1.0) from (Rev. 610121950) to (Rev. 610141538)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Interface Information
+------------------------
+
+Detected external interface differences while upgrading 'RFFI_FFT_ConvNet_0'.
+
+
+-Upgrade has removed interface 'logits_V_address0'
+
+-Upgrade has removed interface 'logits_V_d0'
+
+-Upgrade has removed interface 'tok_V_address0'
+
+-Upgrade has removed interface 'tok_V_address1'
+
+-Upgrade has removed interface 'tok_V_ce1'
+
+-Upgrade has removed interface 'tok_V_d0'
+
+-Upgrade has removed interface 'tok_V_d1'
+
+-Upgrade has removed interface 'tok_V_we1'
+
+-Upgrade has added interface 'logits_out_V_V' (xilinx.com:interface:acc_fifo_write:1.0)
+
+-Upgrade has added interface 'tok_out_V_V' (xilinx.com:interface:acc_fifo_write:1.0)
+
+
+3. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'RFFI_FFT_ConvNet_0'. These changes may impact your design.
+
+
+-Upgrade has removed port 'logits_V_address0'
+
+-Upgrade has removed port 'logits_V_ce0'
+
+-Upgrade has removed port 'logits_V_d0'
+
+-Upgrade has removed port 'logits_V_we0'
+
+-Upgrade has removed port 'tok_V_address0'
+
+-Upgrade has removed port 'tok_V_address1'
+
+-Upgrade has removed port 'tok_V_ce0'
+
+-Upgrade has removed port 'tok_V_ce1'
+
+-Upgrade has removed port 'tok_V_d0'
+
+-Upgrade has removed port 'tok_V_d1'
+
+-Upgrade has removed port 'tok_V_we0'
+
+-Upgrade has removed port 'tok_V_we1'
+
+-Upgrade has added port 'logits_out_V_V_din'
+
+-Upgrade has added port 'logits_out_V_V_full_n'
+
+-Upgrade has added port 'logits_out_V_V_write'
+
+-Upgrade has added port 'tok_out_V_V_din'
+
+-Upgrade has added port 'tok_out_V_V_full_n'
+
+-Upgrade has added port 'tok_out_V_V_write'
+
+

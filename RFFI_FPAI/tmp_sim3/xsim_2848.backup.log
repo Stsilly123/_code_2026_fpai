@@ -1,0 +1,44 @@
+#-----------------------------------------------------------
+# xsim v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Oct 24 11:47:40 2026
+# Process ID: 2848
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3
+# Command line: xsim.exe -mode tcl -source {xsim.dir/top/xsim_script.tcl}
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3/xsim.log
+# Journal file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/top/xsim_script.tcl
+# xsim {top} -autoloadwcfg -runall
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+run -all
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module tb_expert_feat.dut.u_log.u_rom.inst.native_mem_module.blk_mem_gen_v8_4_2_inst is using a behavioral model for simulation which will not precisely model memory collision behavior.
+  frame processed at cycle 19086
+  frame processed at cycle 37899
+  frame processed at cycle 56712
+  frame processed at cycle 75525
+  frame processed at cycle 94338
+  frame processed at cycle 113151
+  frame processed at cycle 131964
+  frame processed at cycle 150777
+capture: nout=2048 frames=8 drop=0 in_frames=8 busy=1
+elapsed 755.1 us (18877.50 cycles/frame)
+CORDIC atan 区间 (172..186): 13 字在 ±2 LSB 内
+E2E OK: 8 frames x 256 words (atan 区间 ±2 LSB)
+frame 0: 0/256 words out of tolerance
+frame 1: 0/256 words out of tolerance
+frame 2: 0/256 words out of tolerance
+frame 3: 0/256 words out of tolerance
+frame 4: 0/256 words out of tolerance
+frame 5: 0/256 words out of tolerance
+frame 6: 0/256 words out of tolerance
+frame 7: 0/256 words out of tolerance
+EXPERT E2E TB done: 0 errors
+$finish called at time : 755167500 ps : File "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3/tb_expert_feat.v" Line 147
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:43 . Memory (MB): peak = 219.148 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting xsim at Sat Oct 24 11:48:27 2026...

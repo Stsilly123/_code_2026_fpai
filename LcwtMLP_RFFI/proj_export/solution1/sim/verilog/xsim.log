@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# xsim v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Thu Oct 22 20:28:06 2026
+# Process ID: 11476
+# Current directory: D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog
+# Command line: xsim.exe -mode tcl -source {xsim.dir/LcwtMLP_RFFI/xsim_script.tcl}
+# Log file: D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/xsim.log
+# Journal file: D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/LcwtMLP_RFFI/xsim_script.tcl
+# xsim {LcwtMLP_RFFI} -autoloadwcfg -tclbatch {LcwtMLP_RFFI.tcl}
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source LcwtMLP_RFFI.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "113000"
+// RTL Simulation : 1 / 1 [100.00%] @ "367648000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 367667500 ps : File "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI.autotb.v" Line 300
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:07 . Memory (MB): peak = 219.387 ; gain = 0.000
+## quit
+INFO: [Common 17-206] Exiting xsim at Thu Oct 22 20:28:17 2026...

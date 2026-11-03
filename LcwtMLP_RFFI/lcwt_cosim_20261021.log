@@ -1,0 +1,1049 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/Xilinx/Vivado/2018.3/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Administrator' on host 'desktop-0heh89s' (Windows NT_amd64 version 6.2) on Wed Oct 21 13:15:17 +0800 2026
+INFO: [HLS 200-10] In directory 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI'
+INFO: [HLS 200-10] Opening project 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export'.
+INFO: [HLS 200-10] Adding test bench file 'LcwtMLP_RFFI/SRC/tb/tb_lcwt.cpp' to the project
+INFO: [HLS 200-10] Opening solution 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z030ffg676-2'
+INFO: [COSIM 212-47] Using XSIM for RTL simulation.
+INFO: [COSIM 212-14] Instrumenting C test bench ...
+   Build using "D:/Xilinx/Vivado/2018.3/msys64/mingw64/bin/g++"
+   Compiling pl_lcwt.cpp_pre.cpp.tb.cpp
+   Compiling top.cpp_pre.cpp.tb.cpp
+   Compiling tb_lcwt.cpp_pre.cpp.tb.cpp
+   Compiling apatb_LcwtMLP_RFFI.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM 212-302] Starting C TB testing ... 
+== WaveMLP PL testbench ==
+  golden vectors loaded (8 frames)
+  gelu LUT        : OK (0 negative, LUT[0]=8192 LUT[end]=10240, bias 8192)
+  stream: 2512 beats (expect 2512), leftover 0
+  TLAST placement : OK (0 bad frames)
+  TKEEP/TSTRB     : OK (0 bad beats)
+-- stream logits vs reference --
+  logits     OK      160 values bit-exact   range[ -6047,  4453] nonzero  160/ 160
+-- stream tokens (frame 0) --
+  tok_out    OK      608 values bit-exact   range[   -18,    24] nonzero  501/ 608
+-- internal stages (frame 0) --
+  lcwt_re    OK      256 values bit-exact   range[  -499,   700] nonzero  254/ 256
+  lcwt_im    OK      256 values bit-exact   range[  -688,   594] nonzero  254/ 256
+  tok        OK      608 values bit-exact   range[  -282,   388] nonzero  604/ 608
+  ln         OK      608 values bit-exact   range[ -7884,  6800] nonzero  608/ 608
+  pre        OK      608 values bit-exact   range[ -7815,  6639] nonzero  608/ 608
+  gelu       OK      608 values bit-exact   range[   -44,  6639] nonzero  350/ 608
+  fc2        OK      608 values bit-exact   range[ -3028,  4643] nonzero  607/ 608
+  gap        OK       38 values bit-exact   range[  -583,   639] nonzero   38/  38
+  logits_db  OK       20 values bit-exact   range[ -4583,  2120] nonzero   20/  20
+-- non-degeneracy --
+  frame0 vs frame1 stream tokens differ in 576/608
+  frame0 vs frame1 logits differ in 20/20
+**PASS**
+INFO: [COSIM 212-333] Generating C post check test bench ...
+INFO: [COSIM 212-12] Generating RTL test bench ...
+INFO: [COSIM 212-323] Starting verilog simulation. 
+INFO: [COSIM 212-15] Starting XSIM ...
+
+D:\FPGA\FPGA\FPAI_PL\HLS\LcwtMLP_RFFI\proj_export\solution1\sim\verilog>set PATH= 
+
+D:\FPGA\FPGA\FPAI_PL\HLS\LcwtMLP_RFFI\proj_export\solution1\sim\verilog>call D:/Xilinx/Vivado/2018.3/bin/xelab xil_defaultlib.apatb_LcwtMLP_RFFI_top glbl -prj LcwtMLP_RFFI.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile "D:/Xilinx/Vivado/2018.3/data/xsim/ip/xsim_ip.ini" --lib "ieee_proposed=./ieee_proposed" -s LcwtMLP_RFFI  
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "D:/Xilinx/Vivado/2018.3/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_LcwtMLP_RFFI_top glbl -prj LcwtMLP_RFFI.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --initfile D:/Xilinx/Vivado/2018.3/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s LcwtMLP_RFFI 
+Multi-threading is on. Using 10 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/AESL_autofifo_din_V_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_autofifo_din_V_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/AESL_axi_s_dout.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_s_dout
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/AESL_fifo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_LcwtMLP_RFFI_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_add_czy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_add_czy_AddSubnS_0
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_add_czy_AddSubnS_0_comb_adder
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_add_czy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_ama_cVB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_ama_cVB_DSP48_13
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_ama_cVB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_0iy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_0iy_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_0iy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_1iI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_1iI_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_1iI
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_2iS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_2iS_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_2iS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_3i2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_3i2_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_3i2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_4jc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_4jc_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_4jc
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_5jm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_5jm_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_5jm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_6jw.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_6jw_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_6jw
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_7jG.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_7jG_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_7jG
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_8jQ.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_8jQ_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_8jQ
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_9j0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_9j0_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_9j0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bak.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bak_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bak
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bbk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bbk_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bbk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bck.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bck_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bck
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bdk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bdk_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bdk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bek.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bek_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bek
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bfk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bfk_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bfk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bgk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bgk_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bgk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bhl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bhl_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bhl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bil.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bil_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bil
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bjl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bjl_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bjl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bkl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bkl_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bkl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bll.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bll_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bll
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bml.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bml_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bml
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bnm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bnm_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bnm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bom_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bpm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bpm_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bpm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_bqm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bqm_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_bqm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_PgM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_PgM_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_PgM
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_QgW.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_QgW_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_QgW
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_Rg6.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Rg6_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Rg6
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_Shg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Shg_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Shg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_Thq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Thq_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Thq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_UhA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_UhA_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_UhA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_VhK.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_VhK_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_VhK
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_WhU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_WhU_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_WhU
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_Xh4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Xh4_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Xh4
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_Yie.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Yie_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Yie
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC1_Zio.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Zio_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC1_Zio
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_fc2s_i.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_fc2s_i_ram
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_fc2s_i
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_b0s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_b0s_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_b0s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_b1s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_b1s_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_b1s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_b2s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_b2s_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_b2s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_b3s.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_b3s_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_b3s
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bAo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bAo_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bAo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bBo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bBo_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bBo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bCo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bCo_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bCo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bDo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bDo_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bDo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bEo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bEo_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bEo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bFp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bFp_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bFp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bGp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bGp_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bGp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bHp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bHp_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bHp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bIp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bIp_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bIp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bJp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bJp_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bJp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bKp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bKp_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bKp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bLp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bLp_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bLp
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bMq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bMq_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bMq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bNq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bNq_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bNq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bOq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bOq_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bOq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bPq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bPq_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bPq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bQq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bQq_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bQq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bRq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bRq_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bRq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bsm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bsm_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bsm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bSr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bSr_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bSr
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_btn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_btn_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_btn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bTr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bTr_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bTr
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bun.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bun_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bun
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bUr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bUr_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bUr
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bvn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bvn_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bvn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bVr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bVr_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bVr
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bwn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bwn_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bwn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bWr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bWr_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bWr
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bxn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bxn_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bxn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bXr.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bXr_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bXr
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_byn.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_byn_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_byn
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bYs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bYs_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bYs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bzo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bzo_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bzo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_FC2_bZs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bZs_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_FC2_bZs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_GELUbrm.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_GELUbrm_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_GELUbrm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_gps_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_gps_V_ram
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_gps_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADb4t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb4t_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb4t
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADb5t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb5t_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb5t
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADb6t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb6t_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb6t
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADb7t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb7t_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb7t
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADb8t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb8t_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb8t
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADb9t.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb9t_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADb9t
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADcau.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcau_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcau
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADcbu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcbu_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcbu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADccu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADccu_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADccu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADcdu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcdu_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcdu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADceu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADceu_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADceu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADcfu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcfu_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcfu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADcgu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcgu_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcgu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADchv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADchv_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADchv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADciv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADciv_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADciv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADcjv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcjv_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcjv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADckv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADckv_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADckv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADclv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADclv_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADclv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADcmv.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcmv_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcmv
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_HEADcnw.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcnw_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_HEADcnw
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_hr_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_hr_V_ram
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_hr_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_LCWTbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_LCWTbkb_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_LCWTbkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_LCWTcud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_LCWTcud_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_LCWTcud
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_lns_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_lns_V_ram
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_lns_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_LOFF.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_LOFF_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_LOFF
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_lr_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_lr_V_ram
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_lr_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cIz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cIz_DSP48_0
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cIz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cJz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cJz_DSP48_1
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cJz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cKz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cKz_DSP48_2
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cKz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cLz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cLz_DSP48_3
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cLz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cMA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cMA_DSP48_4
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cMA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cNA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cNA_DSP48_5
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cNA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cOA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cOA_DSP48_6
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cOA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cPA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cPA_DSP48_7
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cPA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cQA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cQA_DSP48_8
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cQA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cSB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cSB_DSP48_10
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cSB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cTB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cTB_DSP48_11
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cTB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cUB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cUB_DSP48_12
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cUB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cWB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cWB_DSP48_14
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cWB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cXB.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cXB_DSP48_15
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cXB
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cYC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cYC_DSP48_16
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cYC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mac_cZC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cZC_DSP48_17
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mac_cZC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cBy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cBy_MulnS_3
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cBy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cDy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cDy_MulnS_4
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cDy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cEy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cEy_MulnS_5
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cEy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cFz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cFz_MulnS_6
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cFz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cGz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cGz_MulnS_7
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cGz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cRA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cRA_DSP48_9
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cRA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cvx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cvx_MulnS_0
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cvx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cwx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cwx_MulnS_1
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cwx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mul_cyx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cyx_MulnS_2
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mul_cyx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_cAy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_cAy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_cCy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_cCy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_cHz.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_cHz
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_cow.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_cow
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_cpw.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_cpw
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_cqw.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_cqw
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_crw.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_crw
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_csw.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_csw
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_ctx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_ctx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_mux_cux.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_mux_cux
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCAem.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCAem_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCAem
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCBew.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCBew_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCBew
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCCeG.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCCeG_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCCeG
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCdEe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCdEe_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCdEe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCDeQ.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCDeQ_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCDeQ
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCEe0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCEe0_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCEe0
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCeOg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCeOg_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCeOg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCFfa.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCFfa_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCFfa
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCfYi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCfYi_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCfYi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCg8j.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCg8j_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCg8j
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCGfk.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCGfk_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCGfk
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATChbi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATChbi_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATChbi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCHfu.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCHfu_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCHfu
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCibs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCibs_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCibs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCIfE.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCIfE_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCIfE
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCjbC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCjbC_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCjbC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCJfO.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCJfO_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCJfO
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCkbM.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCkbM_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCkbM
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCKfY.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCKfY_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCKfY
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATClbW.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATClbW_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATClbW
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCLf8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCLf8_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCLf8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCmb6.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCmb6_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCmb6
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCMgi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCMgi_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCMgi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCncg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCncg_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCncg
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCNgs.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCNgs_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCNgs
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCocq.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCocq_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCocq
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCOgC.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCOgC_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCOgC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCpcA.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCpcA_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCpcA
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCqcK.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCqcK_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCqcK
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCrcU.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCrcU_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCrcU
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCsc4.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCsc4_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCsc4
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCtde.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCtde_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCtde
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCudo.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCudo_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCudo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCvdy.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCvdy_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCvdy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCwdI.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCwdI_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCwdI
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCxdS.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCxdS_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCxdS
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCyd2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCyd2_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCyd2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_PATCzec.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCzec_rom
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_PATCzec
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_tokT_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_tokT_V_ram
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_tokT_V
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_udivcxx.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_udivcxx_div_u
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_udivcxx_div
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_udivcxx
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI_xr0_V.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_xr0_V_ram
+INFO: [VRFC 10-311] analyzing module LcwtMLP_RFFI_xr0_V
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.LcwtMLP_RFFI_LOFF_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_LOFF(DataWidth=9,Ad...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_LCWTbkb_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_LCWTbkb(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_LCWTcud_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_LCWTcud(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCdEe_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCdEe(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCeOg_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCeOg(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCfYi_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCfYi(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCg8j_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCg8j(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATChbi_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATChbi(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCibs_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCibs(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCjbC_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCjbC(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCkbM_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCkbM(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATClbW_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATClbW(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCmb6_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCmb6(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCncg_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCncg(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCocq_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCocq(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCpcA_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCpcA(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCqcK_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCqcK(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCrcU_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCrcU(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCsc4_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCsc4(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCtde_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCtde(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCudo_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCudo(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCvdy_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCvdy(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCwdI_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCwdI(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCxdS_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCxdS(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCyd2_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCyd2(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCzec_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCzec(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCAem_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCAem(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCBew_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCBew(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCCeG_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCCeG(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCDeQ_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCDeQ(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCEe0_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCEe0(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCFfa_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCFfa(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCGfk_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCGfk(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCHfu_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCHfu(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCIfE_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCIfE(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCJfO_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCJfO(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCKfY_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCKfY(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCLf8_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCLf8(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCMgi_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCMgi(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCNgs_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCNgs(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCOgC_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_PATCOgC(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_PgM_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_PgM(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_QgW_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_QgW(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Rg6_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Rg6(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Shg_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Shg(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Thq_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Thq(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_UhA_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_UhA(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_VhK_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_VhK(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_WhU_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_WhU(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Xh4_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Xh4(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Yie_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Yie(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Zio_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_Zio(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_0iy_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_0iy(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_1iI_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_1iI(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_2iS_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_2iS(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_3i2_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_3i2(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_4jc_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_4jc(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_5jm_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_5jm(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_6jw_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_6jw(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_7jG_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_7jG(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_8jQ_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_8jQ(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_9j0_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_9j0(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bak_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bak(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bbk_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bbk(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bck_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bck(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bdk_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bdk(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bek_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bek(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bfk_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bfk(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bgk_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bgk(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bhl_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bhl(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bil_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bil(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bjl_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bjl(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bkl_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bkl(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bll_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bll(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bml_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bml(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bnm_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bnm(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bom_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bom(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bpm_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bpm(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bqm_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC1_bqm(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_GELUbrm_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_GELUbrm(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bsm_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bsm(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_btn_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_btn(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bun_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bun(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bvn_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bvn(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bwn_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bwn(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bxn_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bxn(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_byn_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_byn(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bzo_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bzo(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bAo_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bAo(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bBo_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bBo(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bCo_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bCo(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bDo_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bDo(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bEo_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bEo(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bFp_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bFp(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bGp_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bGp(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bHp_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bHp(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bIp_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bIp(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bJp_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bJp(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bKp_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bKp(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bLp_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bLp(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bMq_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bMq(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bNq_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bNq(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bOq_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bOq(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bPq_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bPq(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bQq_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bQq(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bRq_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bRq(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bSr_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bSr(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bTr_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bTr(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bUr_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bUr(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bVr_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bVr(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bWr_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bWr(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bXr_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bXr(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bYs_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bYs(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bZs_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_bZs(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_b0s_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_b0s(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_b1s_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_b1s(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_b2s_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_b2s(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_b3s_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_FC2_b3s(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb4t_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb4t(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb5t_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb5t(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb6t_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb6t(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb7t_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb7t(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb8t_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb8t(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb9t_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADb9t(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcau_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcau(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcbu_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcbu(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADccu_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADccu(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcdu_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcdu(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADceu_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADceu(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcfu_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcfu(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcgu_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcgu(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADchv_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADchv(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADciv_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADciv(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcjv_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcjv(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADckv_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADckv(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADclv_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADclv(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcmv_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcmv(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcnw_rom
+Compiling module xil_defaultlib.LcwtMLP_RFFI_HEADcnw(DataWidth=1...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_lr_V_ram
+Compiling module xil_defaultlib.LcwtMLP_RFFI_lr_V(DataWidth=25,A...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_hr_V_ram
+Compiling module xil_defaultlib.LcwtMLP_RFFI_hr_V(DataWidth=25,A...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_lns_V_ram
+Compiling module xil_defaultlib.LcwtMLP_RFFI_lns_V(DataWidth=16,...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_fc2s_i_ram
+Compiling module xil_defaultlib.LcwtMLP_RFFI_fc2s_i(DataWidth=32...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_gps_V_ram
+Compiling module xil_defaultlib.LcwtMLP_RFFI_gps_V(DataWidth=32,...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_xr0_V_ram
+Compiling module xil_defaultlib.LcwtMLP_RFFI_xr0_V(DataWidth=16,...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_tokT_V_ram
+Compiling module xil_defaultlib.LcwtMLP_RFFI_tokT_V(DataWidth=32...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_cow(ID=1,din4_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_cpw(ID=1,din0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_cqw(ID=1,din0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_crw(ID=1,din0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_csw(ID=1,din0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_ctx(ID=1,din0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_cux(ID=1,din38_...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cvx_MulnS_0
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cvx(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cwx_MulnS_1
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cwx(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_udivcxx_div_u(in0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_udivcxx_div(in0_WID...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_udivcxx(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cyx_MulnS_2
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cyx(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_add_czy_AddSubnS_0_...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_add_czy_AddSubnS_0_...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_add_czy_AddSubnS_0
+Compiling module xil_defaultlib.LcwtMLP_RFFI_add_czy(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_cAy(ID=1,din0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cBy_MulnS_3
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cBy(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_cCy(ID=1,din0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cDy_MulnS_4
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cDy(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cEy_MulnS_5
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cEy(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cFz_MulnS_6
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cFz(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cGz_MulnS_7
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cGz(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mux_cHz(ID=1,din0_W...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cIz_DSP48_0
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cIz(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cJz_DSP48_1
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cJz(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cKz_DSP48_2
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cKz(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cLz_DSP48_3
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cLz(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cMA_DSP48_4
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cMA(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cNA_DSP48_5
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cNA(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cOA_DSP48_6
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cOA(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cPA_DSP48_7
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cPA(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cQA_DSP48_8
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cQA(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cRA_DSP48_9
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mul_cRA(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cSB_DSP48_10
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cSB(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cTB_DSP48_11
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cTB(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cUB_DSP48_12
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cUB(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_ama_cVB_DSP48_13
+Compiling module xil_defaultlib.LcwtMLP_RFFI_ama_cVB(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cWB_DSP48_14
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cWB(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cXB_DSP48_15
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cXB(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cYC_DSP48_16
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cYC(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cZC_DSP48_17
+Compiling module xil_defaultlib.LcwtMLP_RFFI_mac_cZC(ID=1,NUM_ST...
+Compiling module xil_defaultlib.LcwtMLP_RFFI
+Compiling module xil_defaultlib.AESL_autofifo_din_V_V
+Compiling module xil_defaultlib.fifo(DEPTH=2512,WIDTH=32)
+Compiling module xil_defaultlib.fifo(DEPTH=2512,WIDTH=4)
+Compiling module xil_defaultlib.fifo(DEPTH=2512,WIDTH=1)
+Compiling module xil_defaultlib.AESL_axi_s_dout
+Compiling module xil_defaultlib.apatb_LcwtMLP_RFFI_top
+Compiling module work.glbl
+Built simulation snapshot LcwtMLP_RFFI
+
+****** Webtalk v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/xsim.dir/LcwtMLP_RFFI/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Wed Oct 21 13:16:08 2026...
+
+****** xsim v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source xsim.dir/LcwtMLP_RFFI/xsim_script.tcl
+# xsim {LcwtMLP_RFFI} -autoloadwcfg -tclbatch {LcwtMLP_RFFI.tcl}
+Vivado Simulator 2018.3
+Time resolution is 1 ps
+source LcwtMLP_RFFI.tcl
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "113000"
+// RTL Simulation : 1 / 1 [100.00%] @ "653888000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 653907500 ps : File "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1/sim/verilog/LcwtMLP_RFFI.autotb.v" Line 300
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:24 . Memory (MB): peak = 217.727 ; gain = 0.000
+## quit
+INFO: [Common 17-206] Exiting xsim at Wed Oct 21 13:16:37 2026...
+INFO: [COSIM 212-316] Starting C post checking ...
+== WaveMLP PL testbench ==
+  golden vectors loaded (8 frames)
+  gelu LUT        : OK (0 negative, LUT[0]=8192 LUT[end]=10240, bias 8192)
+  stream: 2512 beats (expect 2512), leftover 0
+  TLAST placement : OK (0 bad frames)
+  TKEEP/TSTRB     : OK (0 bad beats)
+-- stream logits vs reference --
+  logits     OK      160 values bit-exact   range[ -6047,  4453] nonzero  160/ 160
+-- stream tokens (frame 0) --
+  tok_out    OK      608 values bit-exact   range[   -18,    24] nonzero  501/ 608
+-- internal stages (frame 0) --
+  lcwt_re    OK      256 values bit-exact   range[  -499,   700] nonzero  254/ 256
+  lcwt_im    OK      256 values bit-exact   range[  -688,   594] nonzero  254/ 256
+  tok        OK      608 values bit-exact   range[  -282,   388] nonzero  604/ 608
+  ln         OK      608 values bit-exact   range[ -7884,  6800] nonzero  608/ 608
+  pre        OK      608 values bit-exact   range[ -7815,  6639] nonzero  608/ 608
+  gelu       OK      608 values bit-exact   range[   -44,  6639] nonzero  350/ 608
+  fc2        OK      608 values bit-exact   range[ -3028,  4643] nonzero  607/ 608
+  gap        OK       38 values bit-exact   range[  -583,   639] nonzero   38/  38
+  logits_db  OK       20 values bit-exact   range[ -4583,  2120] nonzero   20/  20
+-- non-degeneracy --
+  frame0 vs frame1 stream tokens differ in 576/608
+  frame0 vs frame1 logits differ in 20/20
+**PASS**
+INFO: [COSIM 212-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM 212-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.
+INFO: [Common 17-206] Exiting vivado_hls at Wed Oct 21 13:16:37 2026...

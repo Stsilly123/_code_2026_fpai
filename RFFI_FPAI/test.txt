@@ -1,0 +1,303 @@
+root@U:~/PS_Code/impl_fpai_app# bash run.sh start file
+[run] 已启动 pid=5823  preset=fusion  mode=file  port=9527  日志 /root/PS_Code/impl_fpai_app/run/rffi_deploy_fusion.log
+[2026-10-12 13:48:38.638] [info] Device Parameters:
+[2026-10-12 13:48:38.638] [info]        dma: 0x80000000
+[2026-10-12 13:48:38.638] [info]        npu: 0x40000000
+[2026-10-12 13:48:38.640] [info] [APP] [2/6] Device::Open() 返回
+[2026-10-12 13:48:38.640] [info] [APP] [3/6] 装载 XF 分折图（1 个 _ZG 图 × 5 平移）
+root@U:~/PS_Code/impl_fpai_app# bash run.sh log -f
+[2026-10-12 13:48:38.628] [info] [APP] [1/6] 打开设备 axi://zg330aiu?npu=0x40000000&dma=0x80000000
+[2026-10-12 13:48:38.638] [info] Device initialization successful, version information:
+[2026-10-12 13:48:38.638] [info]        icore: FMSHZGV3TECH-AID - 24160628
+[2026-10-12 13:48:38.638] [info]        device: 25122301
+[2026-10-12 13:48:38.638] [info] Device Protocol: axi
+[2026-10-12 13:48:38.638] [info] Device Name: zg330aiu
+[2026-10-12 13:48:38.638] [info] Device Parameters:
+[2026-10-12 13:48:38.638] [info]        dma: 0x80000000
+[2026-10-12 13:48:38.638] [info]        npu: 0x40000000
+[2026-10-12 13:48:38.640] [info] [APP] [2/6] Device::Open() 返回
+[2026-10-12 13:48:38.640] [info] [APP] [3/6] 装载 XF 分折图（1 个 _ZG 图 × 5 平移）
+[2026-10-12 13:48:50.610] [info] [XF] 装载 ./imodel/xf20/fold2_b5_ZG.json（输入 5×[2,256] = 10240 B）
+[2026-10-12 13:48:50.611] [info] [APP] XF 已就绪：1 折 × 5 平移（batch=5 一次前向）  单前向  reset=fold  全部成功才采用
+[2026-10-12 13:48:50.611] [info] [APP] [4/6] 打开 PL DMA（dma1=token, dma2=eq, dma3=expert）+ LCWT 头
+[2026-10-12 13:48:50.733] [info] [LCWT] 装载 ./imodel/lcwt_head/lcwt_head_20cls_lnps_ZG.json（输入 1x608x = 2432 B，LN 在 PS 侧）
+[2026-10-12 13:48:50.733] [info] [PLD]   axi_dma_0 寄存器 0x80400000 映射到 0x7f724bd000
+
+[2026-10-12 13:48:50.733] [info] [PLD]   axi_dma_1 寄存器 0x80410000 映射到 0x7f724ad000
+
+[2026-10-12 13:48:50.733] [info] [PLD]   axi_dma_2 寄存器 0x80420000 映射到 0x7f7249d000
+
+[2026-10-12 13:48:50.734] [info] [PLD]   axi_dma_3 寄存器 0x80430000 映射到 0x7f7248d000
+
+[2026-10-12 13:48:50.734] [info] [PLD]   /sys/class/u-dma-buf/udmabuf0/phys_addr = 0x0000000030100000
+
+[2026-10-12 13:48:50.734] [info] [PLD]   /sys/class/u-dma-buf/udmabuf0/size = 134217728
+
+[2026-10-12 13:48:50.734] [info] [PLD]   /sys/class/u-dma-buf/udmabuf0/sync_mode = 1
+
+[2026-10-12 13:48:50.734] [info] [PLD]   /sys/class/u-dma-buf/udmabuf0/dma_coherent = 0
+
+[2026-10-12 13:48:50.734] [info] [PLD]   /sys/class/u-dma-buf/udmabuf0/driver_version = 3.2.5
+
+[2026-10-12 13:48:50.734] [info] [PLD]   /sys/class/u-dma-buf/udmabuf0/sync_direction = 0
+
+[2026-10-12 13:48:50.734] [info] [PLD]   /sys/class/u-dma-buf/udmabuf0/sync_offset = 0x0
+
+[2026-10-12 13:48:50.734] [info] [PLD]   /sys/class/u-dma-buf/udmabuf0/sync_size = 64
+
+[2026-10-12 13:48:50.734] [info] [PLD]   udmabuf : 物理 0x30100000，映射 0x20000 字节到 0x7f7246d000
+
+[2026-10-12 13:48:50.734] [info] [PLD]   u-dma-buf 同步：用 sysfs（/sys/class/u-dma-buf/udmabuf0/sync_for_cpu 可写）
+
+[2026-10-12 13:48:50.734] [info] [PLD]   S2MM 走法 : 直读模式（写 DA+LENGTH）  <- 硬件自己说的（DMASR=0x00000001, bit3 SGIncld=0）
+
+[2026-10-12 13:48:50.734] [info] [PLD]   均衡通路: 直读，目标 +0x1c000，一次 8192 B（8 帧 × 1024 B），DMASR=0x00000001
+
+[2026-10-12 13:48:50.734] [info] [PLD]   专家通路: 直读，目标 +0x1e000，一次 8192 B（8 帧 × 1024 B），DMASR=0x00000001
+
+[2026-10-12 13:48:51.034] [info] [PLD]   开库排空 dout：0 帧
+
+[2026-10-12 13:48:51.335] [info] [PLD]   开库排空 eq：0 帧
+
+[2026-10-12 13:48:51.636] [info] [PLD]   开库排空 expert：0 帧
+
+[2026-10-12 13:48:51.636] [info] [APP] PL 已就绪：udmabuf0  DMA 0x80400000/0x80410000/0x80420000/0x80430000  模式=直读  eq=开  expert=开  TTA=-2/-1/0/1/2  token/16.000000  LCWT 头 (PS-LN + NPU) [1,608]→20  ./imodel/lcwt_head/lcwt_head_20cls_lnps_ZG.json
+[2026-10-12 13:48:51.636] [info] [APP] [5/6] 数据源 file://./samples/frames.bin
+[2026-10-12 13:48:51.636] [info] [APP] [6/6] 进入主循环
+[2026-10-12 13:48:51.636] [info] [APP] PL 跨帧流水：PL(下一帧) ∥ XF(本帧)；日志 ms=帧周期，lat=收到→出结果
+[2026-10-12 13:48:51.636] [info] [APP] 首帧均值 0.000087 标准差 0.012339
+[PLHASH] f00 in=e826bfede9bf3353 out=37863797e4e37c63
+[PLHASH] f00 eq=686d88806aea4079 eqstd=0.152648 agree=7
+[PLHASH] f00 exp=d4a21e5674370feb xagree=8 frame=0
+[2026-10-12 13:48:51.640] [info] [LCWT] 首次输出 shape=1x20x bits=32（已加 PS 常数项）
+[2026-10-12 13:48:51.646] [info] [XF] ./imodel/xf20/fold2_b5_ZG.json 第 1 次前向：forward 前
+[2026-10-12 13:48:51.646] [info] [XF] ./imodel/xf20/fold2_b5_ZG.json 开始 forward（含 waitForReady）
+[2026-10-12 13:48:51.647] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f01 in=674fc1cd61f56873 out=aefe0d432b5bb123
+[2026-10-12 13:48:51.648] [info] [XF] ./imodel/xf20/fold2_b5_ZG.json forward+wait 完成 ready=true
+[2026-10-12 13:48:51.648] [info] [XF] ./imodel/xf20/fold2_b5_ZG.json reset(1) 完成
+[2026-10-12 13:48:51.648] [info] [XF] ./imodel/xf20/fold2_b5_ZG.json .to(Host) 完成
+[2026-10-12 13:48:51.648] [info] [XF] 首次输出 shape=5x20x bits=32
+[PLHASH] f01 eq=cfbaa8a650a8c3ea eqstd=0.132043 agree=7
+[PLHASH] f01 exp=c5ee565231bc0e23 xagree=8 frame=0
+[2026-10-12 13:48:51.656] [info] [APP] 首帧 XF 概率: 0.9256 0.0034 0.0023 0.0055 0.0046 0.0032
+[2026-10-12 13:48:51.656] [info] [APP] 首帧 PL 概率: 0.6220 0.0000 0.0028 0.0066 0.0000 0.0003（8 帧一致 5，量化饱和 0）
+[2026-10-12 13:48:51.656] [info] [APP] 首帧均衡 IQ 均值 -0.001614 标准差 0.152648（8 帧一致 7）
+[2026-10-12 13:48:51.656] [info] [APP] 首帧专家特征 193 维，前 8 维: -0.3630 -0.1809 -0.3218 -0.5537 -0.2344 0.1277 0.1770 0.3777（8 帧一致 8，帧号 0）
+seq       0  top1 = 1-1    p=0.902  11-17 0.019  10-4 0.012  1-2 0.012  11-1 0.012    19.59 ms  lat 19.59 ms  [fusion]  [hit]  [gt 0 1-1]  [xf 1-1 0.926]  [pl 1-1 0.622]
+[2026-10-12 13:48:51.657] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f02 in=a1be322e4664a183 out=3001512cc92f8ea3
+[PLHASH] f02 eq=9e06d577747f6899 eqstd=0.121253 agree=7
+[PLHASH] f02 exp=6706a541883aad03 xagree=8 frame=0
+seq       1  top1 = 1-1    p=0.854  1-2 0.111  11-17 0.008  10-4 0.004  1-11 0.004    10.02 ms  lat 19.96 ms  [fusion]  [hit]  [gt 0 1-1]  [xf 1-1 0.885]  [pl 1-1 0.577]
+[2026-10-12 13:48:51.667] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f03 in=28ada4ac7b692543 out=57ea23f051933643
+[PLHASH] f03 eq=cd6cb3d756b0a3a1 eqstd=0.127257 agree=7
+[PLHASH] f03 exp=7a59344e9bc3454b xagree=8 frame=0
+seq       2  top1 = 1-10   p=0.946  1-2 0.014  10-11 0.014  1-12 0.005  1-11 0.004    10.11 ms  lat 19.68 ms  [fusion]  [hit]  [gt 1 1-10]  [xf 1-10 0.882]  [pl 1-10 0.720]
+[2026-10-12 13:48:51.677] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f04 in=cfb59fa41153b9c3 out=1b286405e49c6cd3
+[PLHASH] f04 eq=7d09dbdb89161b88 eqstd=0.145638 agree=7
+[PLHASH] f04 exp=bd49fdf7daab9e23 xagree=8 frame=0
+seq       3  top1 = 10-1   p=0.237  11-17 0.174  1-8 0.126  10-11 0.058  10-7 0.046     9.92 ms  lat 19.76 ms  [fusion]  [MISS]  [gt 1 1-10]  [xf 10-1 0.142]  [pl 1-8 0.462]
+[2026-10-12 13:48:51.687] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f05 in=26dddf51e19d6473 out=4977573cd2e79bc3
+[PLHASH] f05 eq=200406ff2c730baa eqstd=0.153837 agree=7
+[PLHASH] f05 exp=e3eecdee959668f3 xagree=8 frame=0
+seq       4  top1 = 1-11   p=0.863  10-17 0.037  1-2 0.035  10-11 0.033  10-7 0.005     9.70 ms  lat 19.38 ms  [fusion]  [hit]  [gt 2 1-11]  [xf 1-11 0.916]  [pl 10-11 0.360]
+[2026-10-12 13:48:51.697] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f06 in=495c2d3846e80583 out=ee1e8a7a4a8d05d3
+[PLHASH] f06 eq=f438339ff335f785 eqstd=0.137646 agree=7
+[PLHASH] f06 exp=f51072ce238b91f3 xagree=8 frame=0
+seq       5  top1 = 1-8    p=0.522  1-14 0.096  10-1 0.065  1-15 0.044  11-10 0.043    10.09 ms  lat 19.52 ms  [fusion]  [MISS]  [gt 3 1-12]  [xf 1-8 0.620]  [pl 1-14 0.734]
+[2026-10-12 13:48:51.707] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f07 in=ed176a0a097f2ee3 out=9a2c11dbd6b48183
+[PLHASH] f07 eq=9d42b696e046227f eqstd=0.135083 agree=7
+[PLHASH] f07 exp=ccf48d6111c62af3 xagree=8 frame=0
+seq       6  top1 = 1-12   p=0.943  1-19 0.033  1-11 0.007  10-17 0.006  1-2 0.005    10.20 ms  lat 20.05 ms  [fusion]  [hit]  [gt 3 1-12]  [xf 1-12 0.869]  [pl 1-12 0.874]
+[2026-10-12 13:48:51.717] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f08 in=edd8133d7c349b83 out=4f9db4d2a4a92503
+[PLHASH] f08 eq=bfa4167a8c331240 eqstd=0.156825 agree=7
+[PLHASH] f08 exp=adf444267f0bb783 xagree=8 frame=0
+seq       7  top1 = 1-14   p=0.839  1-18 0.027  11-17 0.027  1-8 0.022  1-15 0.017     9.89 ms  lat 19.83 ms  [fusion]  [hit]  [gt 4 1-14]  [xf 1-14 0.836]  [pl 1-14 0.636]
+[2026-10-12 13:48:52.727] [info] [PLD]   S2MM 超时 1000 ms（DMASR=0000000000，目标 +0x10000）
+
+[2026-10-12 13:48:52.727] [info] [PLD] S2MM 超时 1000 ms
+
+[2026-10-12 13:48:52.727] [info] [PLD]   MM2S 收场异常：DMASR=0x00014109 [Halted ERR ]  描述符 STATUS=0xffffffff <- COMPLETE（本次发 8192 B）
+
+[2026-10-12 13:48:52.727] [info] [PLD]   MM2S 错误位：
+[2026-10-12 13:48:52.727] [info] [PLD]  SGIntErr(取到 COMPLETE 已置位的旧描述符)
+[2026-10-12 13:48:52.727] [info] [PLD]
+
+[2026-10-12 13:48:53.028] [info] [PLD]   出错收场：排空 0 帧
+
+[PL] xfer 失败，重试一次：pl_dma_io_xfer 失败: Connection timed out
+[PLHASH] f09 in=f3b10d1561a91c93 out=7eaaadb19115abe3
+[PLHASH] f09 eq=52777ab8c2a321a3 eqstd=0.137870 agree=7
+[PLHASH] f09 exp=e1b3bd0cf2538183 xagree=8 frame=0
+seq       8  top1 = 1-14   p=0.939  1-8 0.026  10-1 0.004  1-2 0.004  11-17 0.003  1311.83 ms  lat 1321.49 ms  [fusion]  [hit]  [gt 4 1-14]  [xf 1-14 0.921]  [pl 1-14 0.567]
+[2026-10-12 13:48:53.039] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f10 in=78ca7bcc712f1f73 out=2489db7543f42ee3
+[PLHASH] f10 eq=e2743cb1c2511579 eqstd=0.154435 agree=7
+[PLHASH] f10 exp=e150665e3f5dcc2b xagree=8 frame=0
+seq       9  top1 = 1-15   p=0.924  10-4 0.055  11-1 0.006  11-17 0.004  10-1 0.002     9.60 ms  lat 1321.16 ms  [fusion]  [hit]  [gt 5 1-15]  [xf 1-15 0.892]  [pl 1-15 0.623]
+[2026-10-12 13:48:53.048] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f11 in=967f5ecdc385bbc3 out=bbd6e98b15f1dd63
+[PLHASH] f11 eq=fef45180c986e5dd eqstd=0.155652 agree=7
+[PLHASH] f11 exp=181ef3a14e844963 xagree=8 frame=0
+seq      10  top1 = 1-16   p=0.980  10-17 0.008  1-10 0.003  10-11 0.003  1-18 0.001     9.41 ms  lat 18.68 ms  [fusion]  [hit]  [gt 6 1-16]  [xf 1-16 0.948]  [pl 1-16 0.956]
+[2026-10-12 13:48:53.058] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f12 in=46782e0cea012983 out=97b2d2fd445b79c3
+[PLHASH] f12 eq=35dc8a8d84467ed4 eqstd=0.153540 agree=7
+[PLHASH] f12 exp=70c8450c2f0ec27b xagree=8 frame=0
+seq      11  top1 = 1-18   p=0.947  10-10 0.015  10-7 0.009  11-1 0.005  11-17 0.005     9.55 ms  lat 18.70 ms  [fusion]  [hit]  [gt 7 1-18]  [xf 1-18 0.882]  [pl 1-18 0.839]
+[2026-10-12 13:48:53.067] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f13 in=d826eec104df87c3 out=436ce4506fb48093
+[PLHASH] f13 eq=948abe4c451b80d9 eqstd=0.132182 agree=7
+[PLHASH] f13 exp=4a3feb219dc1bad3 xagree=8 frame=0
+seq      12  top1 = 1-18   p=0.952  10-10 0.013  10-7 0.011  11-17 0.007  11-1 0.003     9.50 ms  lat 18.82 ms  [fusion]  [hit]  [gt 7 1-18]  [xf 1-18 0.895]  [pl 1-18 0.848]
+[2026-10-12 13:48:54.077] [info] [PLD]   S2MM 超时 1000 ms（DMASR=0000000000，目标 +0x10000）
+
+[2026-10-12 13:48:54.077] [info] [PLD] S2MM 超时 1000 ms
+
+[2026-10-12 13:48:54.077] [info] [PLD]   MM2S 收场异常：DMASR=0x00014109 [Halted ERR ]  描述符 STATUS=0xffffffff <- COMPLETE（本次发 8192 B）
+
+[2026-10-12 13:48:54.077] [info] [PLD]   MM2S 错误位：
+[2026-10-12 13:48:54.077] [info] [PLD]  SGIntErr(取到 COMPLETE 已置位的旧描述符)
+[2026-10-12 13:48:54.077] [info] [PLD]
+
+[2026-10-12 13:48:54.378] [info] [PLD]   出错收场：排空 0 帧
+
+[PL] xfer 失败，重试一次：pl_dma_io_xfer 失败: Connection timed out
+[PLHASH] f14 in=78c8a2506de67513 out=6d9b505f8457e543
+[PLHASH] f14 eq=9b85f449f02cb03b eqstd=0.158391 agree=7
+[PLHASH] f14 exp=e3807e9e213ffef3 xagree=8 frame=0
+seq      13  top1 = 1-19   p=0.932  1-12 0.014  10-17 0.012  1-2 0.012  1-11 0.012  1312.14 ms  lat 1321.38 ms  [fusion]  [hit]  [gt 8 1-19]  [xf 1-19 0.877]  [pl 1-19 0.561]
+[2026-10-12 13:48:54.389] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f15 in=3283ab0335a1b543 out=14a37cbb0dde6fe3
+[PLHASH] f15 eq=74fee6dcd45e2bda eqstd=0.158431 agree=7
+[PLHASH] f15 exp=abaea688358fafbb xagree=8 frame=0
+seq      14  top1 = 1-19   p=0.862  1-12 0.028  10-1 0.026  1-2 0.015  1-1 0.015     9.60 ms  lat 1321.51 ms  [fusion]  [hit]  [gt 8 1-19]  [xf 1-19 0.818]  [pl 1-19 0.738]
+[2026-10-12 13:48:54.399] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f16 in=e713c657cf785e23 out=0a5598d2d65ccb33
+[PLHASH] f16 eq=393fb3dc69b64106 eqstd=0.148609 agree=7
+[PLHASH] f16 exp=15e097e30635040b xagree=8 frame=0
+seq      15  top1 = 1-1    p=0.833  1-2 0.132  1-19 0.006  1-11 0.005  1-12 0.004     9.46 ms  lat 18.72 ms  [fusion]  [MISS]  [gt 9 1-2]  [xf 1-1 0.832]  [pl 1-1 0.709]
+[2026-10-12 13:48:54.408] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f17 in=bee090c319f45503 out=9540a4438f117783
+[PLHASH] f17 eq=a046964f0375b8d1 eqstd=0.126175 agree=7
+[PLHASH] f17 exp=b6b90e2944ee6853 xagree=8 frame=0
+seq      16  top1 = 1-8    p=0.859  1-14 0.029  11-17 0.016  1-10 0.016  10-1 0.011     9.45 ms  lat 18.66 ms  [fusion]  [hit]  [gt 10 1-8]  [xf 1-8 0.850]  [pl 1-8 0.717]
+[2026-10-12 13:48:54.418] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f18 in=6f9ad79606e71343 out=f04a1ce220bd9cc3
+[PLHASH] f18 eq=0ca6b38667847a69 eqstd=0.238526 agree=7
+[PLHASH] f18 exp=85fc49db86d5233b xagree=8 frame=0
+seq      17  top1 = 1-8    p=0.886  1-14 0.036  10-11 0.017  1-10 0.008  1-2 0.007     9.97 ms  lat 19.17 ms  [fusion]  [hit]  [gt 10 1-8]  [xf 1-8 0.766]  [pl 1-8 0.805]
+[2026-10-12 13:48:54.428] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f19 in=c4ba1f37157b63d3 out=681a35b3b1c9e963
+[PLHASH] f19 eq=f3b59e9c4ea04ec7 eqstd=0.158636 agree=7
+[PLHASH] f19 exp=99a21b1c4118bef3 xagree=8 frame=0
+seq      18  top1 = 10-1   p=0.137  1-16 0.098  1-2 0.089  1-19 0.086  1-11 0.063    10.06 ms  lat 19.80 ms  [fusion]  [hit]  [gt 11 10-1]  [xf 1-16 0.411]  [pl 1-19 0.281]
+[2026-10-12 13:48:54.438] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f20 in=57f9f68b5636e993 out=033cf01bfdd22f03
+[PLHASH] f20 eq=4e856f27ff378cf9 eqstd=0.129730 agree=7
+[PLHASH] f20 exp=7b64c69f72b9fed3 xagree=8 frame=0
+seq      19  top1 = 10-10  p=0.955  11-1 0.012  11-10 0.009  11-17 0.005  1-14 0.004     9.44 ms  lat 19.24 ms  [fusion]  [hit]  [gt 12 10-10]  [xf 10-10 0.946]  [pl 10-10 0.772]
+[2026-10-12 13:48:54.447] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f21 in=8e0e30177554b763 out=e90981d244729d23
+[PLHASH] f21 eq=04768f4e4e7e41e4 eqstd=0.137661 agree=7
+[PLHASH] f21 exp=41e3d5f6b98f9c13 xagree=8 frame=0
+seq      20  top1 = 10-11  p=0.951  1-10 0.013  1-2 0.008  1-8 0.007  10-17 0.005    10.06 ms  lat 19.26 ms  [fusion]  [hit]  [gt 13 10-11]  [xf 10-11 0.868]  [pl 10-11 0.935]
+[2026-10-12 13:48:54.457] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f22 in=ae7e8d18756a46b3 out=a64d92def2952263
+[PLHASH] f22 eq=06c2ceb28a54601d eqstd=0.154863 agree=7
+[PLHASH] f22 exp=997ad3b0613daf93 xagree=8 frame=0
+seq      21  top1 = 10-11  p=0.914  1-14 0.014  10-17 0.012  1-16 0.012  1-10 0.009    10.02 ms  lat 19.81 ms  [fusion]  [hit]  [gt 13 10-11]  [xf 10-11 0.923]  [pl 10-11 0.581]
+[2026-10-12 13:48:54.467] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f23 in=0682505ab7733543 out=0adef421ea49f1a3
+[PLHASH] f23 eq=7599567bfd4d6051 eqstd=0.149707 agree=7
+[PLHASH] f23 exp=a9fb3a2e6dff5ad3 xagree=8 frame=0
+seq      22  top1 = 10-17  p=0.854  1-11 0.061  1-2 0.024  10-11 0.014  1-1 0.009     9.61 ms  lat 19.39 ms  [fusion]  [hit]  [gt 14 10-17]  [xf 10-17 0.918]  [pl 1-2 0.266]
+[2026-10-12 13:48:54.477] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f24 in=aca5238edf38b2a3 out=db7f34ca2dc979e3
+[PLHASH] f24 eq=38dd06996f48fd0e eqstd=0.161457 agree=7
+[PLHASH] f24 exp=0418bfc0c2184423 xagree=8 frame=0
+seq      23  top1 = 10-4   p=0.753  1-15 0.225  11-1 0.008  11-17 0.006  1-1 0.002     9.44 ms  lat 18.74 ms  [fusion]  [hit]  [gt 15 10-4]  [xf 10-4 0.733]  [pl 10-4 0.526]
+[2026-10-12 13:48:54.486] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f25 in=063cedb1503765a3 out=713b6d2d4a0db963
+[PLHASH] f25 eq=4208167da08e0269 eqstd=0.126369 agree=7
+[PLHASH] f25 exp=f69f1a0b82c3d653 xagree=8 frame=0
+seq      24  top1 = 10-4   p=0.901  1-15 0.073  11-17 0.008  11-1 0.005  10-1 0.003     9.54 ms  lat 18.73 ms  [fusion]  [hit]  [gt 15 10-4]  [xf 10-4 0.892]  [pl 10-4 0.574]
+[2026-10-12 13:48:54.496] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f26 in=d56f7486d56b0d83 out=b5213d83a0d82ab3
+[PLHASH] f26 eq=b949a2f3cbdfa8d0 eqstd=0.128703 agree=7
+[PLHASH] f26 exp=598c1f048f4e839b xagree=8 frame=0
+seq      25  top1 = 10-7   p=0.977  10-17 0.007  1-18 0.006  1-19 0.004  1-11 0.003     9.48 ms  lat 18.76 ms  [fusion]  [hit]  [gt 16 10-7]  [xf 10-7 0.944]  [pl 10-7 0.929]
+[2026-10-12 13:48:54.505] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f27 in=a1232ca88448fb13 out=d4f5708bbeb30d43
+[PLHASH] f27 eq=816c98be514a51d3 eqstd=0.149184 agree=7
+[PLHASH] f27 exp=5969b3d0a08893c3 xagree=8 frame=0
+seq      26  top1 = 10-7   p=0.919  11-17 0.030  1-18 0.024  10-10 0.006  10-17 0.004     9.50 ms  lat 18.74 ms  [fusion]  [hit]  [gt 16 10-7]  [xf 10-7 0.905]  [pl 10-7 0.688]
+[2026-10-12 13:48:54.515] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f28 in=24975357f3c3e163 out=e4940797375dde43
+[PLHASH] f28 eq=0064e79139294aec eqstd=0.133991 agree=7
+[PLHASH] f28 exp=e03bbab512c2ba73 xagree=8 frame=0
+seq      27  top1 = 11-1   p=0.952  10-4 0.011  1-15 0.008  11-17 0.008  1-1 0.005     9.48 ms  lat 18.72 ms  [fusion]  [hit]  [gt 17 11-1]  [xf 11-1 0.924]  [pl 11-1 0.816]
+[2026-10-12 13:48:54.524] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f29 in=d7b2a905cd933013 out=c02b220f949c9713
+[PLHASH] f29 eq=30ecd614c01b2940 eqstd=0.136955 agree=7
+[PLHASH] f29 exp=9c1f3029e16d5da3 xagree=8 frame=0
+seq      28  top1 = 11-10  p=0.936  1-11 0.011  1-2 0.008  1-14 0.008  1-12 0.006     9.95 ms  lat 19.18 ms  [fusion]  [hit]  [gt 18 11-10]  [xf 11-10 0.913]  [pl 11-10 0.835]
+[2026-10-12 13:48:54.534] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f30 in=fa6fe12ce3b60da3 out=fa65b461f7c7bba3
+[PLHASH] f30 eq=5dd253c38e55d631 eqstd=0.128095 agree=7
+[PLHASH] f30 exp=063c9c5facbd2bd3 xagree=8 frame=0
+seq      29  top1 = 11-10  p=0.934  1-14 0.029  10-10 0.008  11-17 0.007  1-2 0.005    10.11 ms  lat 19.80 ms  [fusion]  [hit]  [gt 18 11-10]  [xf 11-10 0.903]  [pl 11-10 0.607]
+[2026-10-12 13:48:54.544] [info] [PLD]   MM2S 收场异常：DMASR=0x0001100a [IOC ]  描述符 STATUS=0000000000 <- 没完成：卡在 HLS 之前或之中，先别怪 S2MM（本次发 8192 B）
+
+[PLHASH] f31 in=25682d526593bc33 out=06009b0cccfa46e3
+[PLHASH] f31 eq=2233864821d100f3 eqstd=0.152256 agree=7
+[PLHASH] f31 exp=493886e999b4e5d3 xagree=8 frame=0
+seq      30  top1 = 11-17  p=0.710  10-10 0.078  1-2 0.059  1-1 0.020  1-14 0.018     9.47 ms  lat 19.33 ms  [fusion]  [hit]  [gt 19 11-17]  [xf 11-17 0.610]  [pl 11-17 0.753]
+[2026-10-12 13:48:54.554] [info] [XF-T] 每次前向 fwd=1.356 reset=0.002 toHost=0.051 memcpy=0.0045 ms（32 次）
+seq      31  top1 = 11-17  p=0.958  11-1 0.013  10-10 0.009  1-1 0.006  10-7 0.003     1.73 ms  lat 10.94 ms  [fusion]  [hit]  [gt 19 11-17]  [xf 11-17 0.948]  [pl 11-17 0.732]
+
+帧数 32  周期 平均 91.18 ms  p50 9.70 ms  p95 1311.83 ms（最近 32 帧）
+单帧延迟（收到→出结果）平均 181.76 ms（比周期多一帧流水）
+XF 推理成功 32 帧  平均 1.49 ms / 帧；失败 0 次
+PL 推理成功 32 帧  平均 90.72 ms / 帧；失败 0 次，eq 不可用 0 次，专家不可用 0 次
+有真值 32/32 帧
+  XF   top1 = 87.50%  (32 帧可评)
+  PL   top1 = 81.25%  (32 帧可评)
+  融合 top1 = 90.62%  (32 帧可评；无可用结果 0 帧按错计)
+非法帧 0
+^C

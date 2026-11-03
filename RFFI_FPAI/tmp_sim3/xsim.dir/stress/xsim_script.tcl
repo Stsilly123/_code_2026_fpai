@@ -1,0 +1,1 @@
+xsim {stress} -autoloadwcfg -runall

@@ -1,0 +1,63 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'LcwtMLP_RFFI'" level="0">
+<item name = "Date">Thu Oct 22 20:22:22 2026
+</item>
+<item name = "Version">2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)</item>
+<item name = "Project">proj_csynth</item>
+<item name = "Solution">sol_csynth</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z030ffg676-2</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00, 3.884, 1.00</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">34081, 134433, 34081, 134433, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- FRAME">34080, 134432, 4260 ~ 16804, -, -, 8, no</column>
+<column name=" + RX">257, 257, 3, 1, 1, 256, yes</column>
+<column name=" + CP_IN">257, 257, 3, 1, 1, 256, yes</column>
+<column name=" + AN_LV">1000, 6824, 250 ~ 1706, -, -, 4, no</column>
+<column name="  ++ AN_WLOAD">17, 17, 3, 1, 1, 16, yes</column>
+<column name="  ++ AN_PRE">18, 18, 3, 1, 1, 16, yes</column>
+<column name="  ++ AN_PT">208, 1664, 13, -, -, 16 ~ 128, no</column>
+<column name="   +++ AN_MAC">5, 5, 3, 1, 1, 4, yes</column>
+<column name=" + SY_LV">1100, 7820, 275 ~ 1955, -, -, 4, no</column>
+<column name="  ++ SY_WLOAD">17, 17, 3, 1, 1, 16, yes</column>
+<column name="  ++ SY_PRE">11, 11, 4, 1, 1, 8, yes</column>
+<column name="  ++ SY_PT">240, 1920, 15, -, -, 16 ~ 128, no</column>
+<column name="   +++ SY_MAC">5, 5, 3, 1, 1, 4, yes</column>
+<column name=" + PL_TOKEN">1328, 1328, 83, -, -, 16, no</column>
+<column name="  ++ PT_RE">19, 19, 5, 1, 1, 16, yes</column>
+<column name="  ++ PT_IM">19, 19, 5, 1, 1, 16, yes</column>
+<column name="  ++ PT_WR">38, 38, 2, 1, 1, 38, yes</column>
+<column name=" + DR_TOK_L">308, 308, 6, 1, 1, 304, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+</profile>

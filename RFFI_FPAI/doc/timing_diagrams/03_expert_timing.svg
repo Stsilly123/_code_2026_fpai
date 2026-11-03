@@ -1,0 +1,524 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="1070" viewBox="0 0 1240 1070">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#BF9000"/></marker>
+<pattern id="hatch" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7" stroke="#A6A6A6" stroke-width="1.6"/></pattern>
+</defs>
+<rect x="24.0" y="16.0" width="1192.0" height="50.0" fill="#FFFFFF" stroke="#BFBFBF" stroke-width="1"/>
+<rect x="24.0" y="16.0" width="1192.0" height="50.0" fill="#1F3864"/>
+<text x="40.0" y="48.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="19" fill="#FFFFFF" text-anchor="start" font-weight="600" font-style="normal">expert_feat_rffi 时序：一帧（256 样点 → 256 字特征）</text>
+<text x="1200.0" y="45.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#DEEBF7" text-anchor="end" font-weight="400" font-style="normal">≈18,877 拍 ≈ 94.4 µs，低于 20,320 拍（101.6 µs）· 8 帧输入环 + 双 bank 输出</text>
+<rect x="24.0" y="100.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="119.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">clk</text>
+<text x="34.0" y="135.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">200 MHz</text>
+<rect x="240.0" y="100.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="140.0" x2="1200.0" y2="140.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="150.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="169.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">din_valid / din</text>
+<text x="34.0" y="185.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">33 bit {last,Q,I}</text>
+<rect x="240.0" y="150.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="190.0" x2="1200.0" y2="190.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="200.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="219.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">wr_done</text>
+<text x="34.0" y="235.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">第 255 字写满</text>
+<rect x="240.0" y="200.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="240.0" x2="1200.0" y2="240.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="250.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="269.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">nfull[3:0]</text>
+<text x="34.0" y="285.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">输入环排队帧数（深 8）</text>
+<rect x="240.0" y="250.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="290.0" x2="1200.0" y2="290.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="300.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="319.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">FSM state</text>
+<text x="34.0" y="335.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">单帧特征流水（编号见下方色带）</text>
+<rect x="240.0" y="300.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="340.0" x2="1200.0" y2="340.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="350.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="369.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">busy</text>
+<text x="34.0" y="385.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">= (state != IDLE) || out_active</text>
+<rect x="240.0" y="350.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="390.0" x2="1200.0" y2="390.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="400.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="419.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">feat_valid[bank]</text>
+<text x="34.0" y="435.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">双 bank 交替</text>
+<rect x="240.0" y="400.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="440.0" x2="1200.0" y2="440.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="450.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="469.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">m_tvalid</text>
+<text x="34.0" y="485.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">AXIS 输出</text>
+<rect x="240.0" y="450.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="490.0" x2="1200.0" y2="490.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="500.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="519.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">m_tdata[31:0]</text>
+<text x="34.0" y="535.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">特征字</text>
+<rect x="240.0" y="500.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="540.0" x2="1200.0" y2="540.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="550.0" width="216.0" height="40.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="569.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="12" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">m_tlast</text>
+<text x="34.0" y="585.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">第 255 字</text>
+<rect x="240.0" y="550.0" width="960.0" height="40.0" fill="#FBFCFE"/>
+<line x1="240.0" y1="590.0" x2="1200.0" y2="590.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="240.0" y1="94.0" x2="240.0" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="334.5" y1="94.0" x2="334.5" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="429.0" y1="94.0" x2="429.0" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="523.5" y1="94.0" x2="523.5" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="618.0" y1="94.0" x2="618.0" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="712.4" y1="94.0" x2="712.4" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="806.9" y1="94.0" x2="806.9" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="901.4" y1="94.0" x2="901.4" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="995.9" y1="94.0" x2="995.9" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="1090.4" y1="94.0" x2="1090.4" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="1184.9" y1="94.0" x2="1184.9" y2="596.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="240.0" y="104.0" width="960.0" height="32.0" fill="#F2F7FC" stroke="#BDD7EE" stroke-width="1"/>
+<path d="M 240.0 120.0 L 1200.0 120.0" fill="none" stroke="#2E75B6" stroke-width="1" stroke-dasharray="2,6"/>
+<text x="720.0" y="124.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10" fill="#2E75B6" text-anchor="middle" font-weight="400" font-style="normal">200 MHz 连续（5 ns/拍）</text>
+<line x1="240.0" y1="157.0" x2="252.1" y2="157.0" stroke="#2E75B6" stroke-width="1.8"/>
+<rect x="240.0" y="157.0" width="12.1" height="4.0" fill="#2E75B6"/>
+<rect x="240.0" y="157.0" width="12.1" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<line x1="570.7" y1="157.0" x2="582.8" y2="157.0" stroke="#2E75B6" stroke-width="1.8"/>
+<rect x="570.7" y="157.0" width="12.1" height="4.0" fill="#2E75B6"/>
+<rect x="570.7" y="157.0" width="12.1" height="26.0" fill="#DEEBF7" stroke="#2E75B6" stroke-width="1"/>
+<text x="603.8" y="174.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#2E75B6" text-anchor="start" font-weight="400" font-style="normal">处理期间输入环继续接收帧</text>
+<line x1="240.0" y1="231.0" x2="1200.0" y2="231.0" stroke="#548235" stroke-width="1.8"/>
+<rect x="250.1" y="205.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<rect x="580.8" y="205.0" width="5.0" height="26.0" fill="#548235" stroke="#548235" stroke-width="1"/>
+<path d="M 240.0 281.0 L 252.1 281.0 L 252.1 257.0 L 258.9 257.0 L 258.9 281.0" fill="none" stroke="#2E75B6" stroke-width="2"/>
+<text x="263.6" y="274.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.2" fill="#2E75B6" text-anchor="start" font-weight="400" font-style="normal">1 → 0（S_IDLE 状态取帧）</text>
+<rect x="240.0" y="302.0" width="46.8" height="36.0" fill="#BDD7EE" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="263.4" y="324.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">1</text>
+<rect x="286.8" y="302.0" width="2.2" height="36.0" fill="#BDD7EE" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="289.0" y="302.0" width="298.3" height="36.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="438.1" y="324.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">3</text>
+<rect x="587.3" y="302.0" width="35.4" height="36.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="605.0" y="324.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">4</text>
+<rect x="622.7" y="302.0" width="1.9" height="36.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="624.6" y="302.0" width="35.4" height="36.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="642.3" y="324.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">6</text>
+<rect x="660.0" y="302.0" width="1.9" height="36.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="661.9" y="302.0" width="33.1" height="36.0" fill="#FFE699" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="678.5" y="324.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">8</text>
+<rect x="695.0" y="302.0" width="184.3" height="36.0" fill="#FFE699" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="787.1" y="324.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">9</text>
+<rect x="879.3" y="302.0" width="203.1" height="36.0" fill="#F8CBAD" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="980.8" y="324.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">10</text>
+<rect x="1082.4" y="302.0" width="37.3" height="36.0" fill="#F8CBAD" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="1101.1" y="324.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">11</text>
+<rect x="1119.7" y="302.0" width="12.1" height="36.0" fill="#D9D2E9" stroke="#7F7F7F" stroke-width="0.8"/>
+<line x1="1200.0" y1="94.0" x2="1200.0" y2="596.0" stroke="#BFBFBF" stroke-width="1.2" stroke-dasharray="4,4"/>
+<line x1="1131.8" y1="94.0" x2="1131.8" y2="596.0" stroke="#C00000" stroke-width="1.3" stroke-dasharray="4,3"/>
+<text x="1125.8" y="86.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#C00000" text-anchor="end" font-weight="400" font-style="normal">处理结束（18,877 拍）</text>
+<line x1="240.0" y1="357.0" x2="1131.8" y2="357.0" stroke="#548235" stroke-width="1.8"/>
+<rect x="240.0" y="357.0" width="891.8" height="4.0" fill="#548235"/>
+<line x1="1131.8" y1="381.0" x2="1200.0" y2="381.0" stroke="#548235" stroke-width="1.8"/>
+<line x1="1131.8" y1="357.0" x2="1131.8" y2="381.0" stroke="#548235" stroke-width="1.8"/>
+<line x1="240.0" y1="431.0" x2="1131.8" y2="431.0" stroke="#7030A0" stroke-width="1.8"/>
+<rect x="1131.8" y="407.0" width="12.1" height="24.0" fill="#D9D2E9" stroke="#7030A0" stroke-width="1"/>
+<text x="1127.8" y="402.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7030A0" text-anchor="end" font-weight="400" font-style="normal">bank0 有效</text>
+<line x1="240.0" y1="481.0" x2="1131.8" y2="481.0" stroke="#C55A11" stroke-width="1.8"/>
+<line x1="1131.8" y1="457.0" x2="1143.9" y2="457.0" stroke="#C55A11" stroke-width="1.8"/>
+<rect x="1131.8" y="457.0" width="12.1" height="4.0" fill="#C55A11"/>
+<line x1="1143.9" y1="481.0" x2="1200.0" y2="481.0" stroke="#C55A11" stroke-width="1.8"/>
+<line x1="1131.8" y1="457.0" x2="1131.8" y2="481.0" stroke="#C55A11" stroke-width="1.8"/>
+<line x1="1143.9" y1="457.0" x2="1143.9" y2="481.0" stroke="#C55A11" stroke-width="1.8"/>
+<text x="1125.8" y="452.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#C55A11" text-anchor="end" font-weight="400" font-style="normal">256 拍连续输出</text>
+<rect x="1132.8" y="507.0" width="10.1" height="26.0" fill="#DEEBF7" stroke="#C55A11" stroke-width="1"/>
+<line x1="240.0" y1="581.0" x2="1200.0" y2="581.0" stroke="#548235" stroke-width="1.8"/>
+<line x1="1143.9" y1="556.0" x2="1143.9" y2="582.0" stroke="#548235" stroke-width="2"/>
+<text x="1143.7" y="552.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#548235" text-anchor="end" font-weight="400" font-style="normal">TLAST（单拍脉冲）</text>
+<line x1="240.0" y1="604.0" x2="1200.0" y2="604.0" stroke="#1F3864" stroke-width="1.4"/>
+<line x1="240.0" y1="599.0" x2="240.0" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="240.0" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">0</text>
+<text x="240.0" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.00</text>
+<line x1="334.5" y1="599.0" x2="334.5" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="334.5" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">2k</text>
+<text x="334.5" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.01</text>
+<line x1="429.0" y1="599.0" x2="429.0" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="429.0" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">4k</text>
+<text x="429.0" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.02</text>
+<line x1="523.5" y1="599.0" x2="523.5" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="523.5" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">6k</text>
+<text x="523.5" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.03</text>
+<line x1="618.0" y1="599.0" x2="618.0" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="618.0" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">8k</text>
+<text x="618.0" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.04</text>
+<line x1="712.4" y1="599.0" x2="712.4" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="712.4" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">10k</text>
+<text x="712.4" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.05</text>
+<line x1="806.9" y1="599.0" x2="806.9" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="806.9" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">12k</text>
+<text x="806.9" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.06</text>
+<line x1="901.4" y1="599.0" x2="901.4" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="901.4" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">14k</text>
+<text x="901.4" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.07</text>
+<line x1="995.9" y1="599.0" x2="995.9" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="995.9" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">16k</text>
+<text x="995.9" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.08</text>
+<line x1="1090.4" y1="599.0" x2="1090.4" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="1090.4" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">18k</text>
+<text x="1090.4" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.09</text>
+<line x1="1184.9" y1="599.0" x2="1184.9" y2="609.0" stroke="#1F3864" stroke-width="1"/>
+<text x="1184.9" y="622.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">20k</text>
+<text x="1184.9" y="635.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="middle" font-weight="400" font-style="normal">0.10</text>
+<text x="1200.0" y="649.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="end" font-weight="400" font-style="normal">拍 / µs</text>
+<rect x="24.0" y="670.0" width="1176.0" height="110.0" fill="#FFFFFF" stroke="#BFBFBF" stroke-width="1"/>
+<text x="38.0" y="690.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">FSM 状态序列（编号对应上方色带；各段拍数为计算值，总量 ≈18,877 拍）</text>
+<rect x="40.0" y="710.0" width="15.0" height="15.0" fill="#BDD7EE" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="45.5" y="721.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">1</text>
+<text x="62.0" y="722.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">ZN  990</text>
+<rect x="230.0" y="710.0" width="15.0" height="15.0" fill="#BDD7EE" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="235.5" y="721.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">2</text>
+<text x="252.0" y="722.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">LNRMS  47</text>
+<rect x="420.0" y="710.0" width="15.0" height="15.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="425.5" y="721.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">3</text>
+<text x="442.0" y="722.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">FFT  6.314k</text>
+<rect x="610.0" y="710.0" width="15.0" height="15.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="615.5" y="721.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">4</text>
+<text x="632.0" y="722.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">DWT_I  750</text>
+<rect x="800.0" y="710.0" width="15.0" height="15.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="805.5" y="721.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">5</text>
+<text x="822.0" y="722.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">DWTF_I  40</text>
+<rect x="990.0" y="710.0" width="15.0" height="15.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="995.5" y="721.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">6</text>
+<text x="1012.0" y="722.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">DWT_Q  750</text>
+<rect x="40.0" y="742.0" width="15.0" height="15.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="45.5" y="753.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">7</text>
+<text x="62.0" y="754.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">DWTF_Q  40</text>
+<rect x="230.0" y="742.0" width="15.0" height="15.0" fill="#FFE699" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="235.5" y="753.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">8</text>
+<text x="252.0" y="754.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">HIST  700</text>
+<rect x="420.0" y="742.0" width="15.0" height="15.0" fill="#FFE699" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="425.5" y="753.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">9</text>
+<text x="442.0" y="754.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">CUM  3.9k</text>
+<rect x="610.0" y="742.0" width="15.0" height="15.0" fill="#F8CBAD" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="615.5" y="753.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">10</text>
+<text x="632.0" y="754.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">CFO  4.3k</text>
+<rect x="800.0" y="742.0" width="15.0" height="15.0" fill="#F8CBAD" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="805.5" y="753.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">11</text>
+<text x="822.0" y="754.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">POW  790</text>
+<rect x="990.0" y="742.0" width="15.0" height="15.0" fill="#D9D2E9" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="995.5" y="753.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">12</text>
+<text x="1012.0" y="754.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.4" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">PACK  256</text>
+<rect x="24.0" y="800.0" width="1176.0" height="240.0" fill="#FFFFFF" stroke="#BFBFBF" stroke-width="1"/>
+<text x="38.0" y="820.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="11.0" fill="#1F3864" text-anchor="start" font-weight="600" font-style="normal">输出 AXIS 字级时序（256 拍 = 1024 B/帧）与特征字布局</text>
+<rect x="240.0" y="840.0" width="330.0" height="20.0" fill="#DEEBF7" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="570.0" y="840.0" width="25.8" height="20.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="595.8" y="840.0" width="72.2" height="20.0" fill="#FFE699" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="668.0" y="840.0" width="30.9" height="20.0" fill="#F8CBAD" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="698.9" y="840.0" width="23.2" height="20.0" fill="#D9D2E9" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="722.1" y="840.0" width="15.5" height="20.0" fill="#B4C6E7" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="737.6" y="840.0" width="10.3" height="20.0" fill="#D9D9D9" stroke="#7F7F7F" stroke-width="0.8"/>
+<rect x="747.9" y="840.0" width="152.1" height="20.0" fill="#FFFFFF" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="38.0" y="854.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">字地址</text>
+<rect x="240.0" y="870.0" width="9.0" height="9.0" fill="#DEEBF7" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="254.0" y="878.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">FFT log 幅度 0..127</text>
+<rect x="408.0" y="870.0" width="9.0" height="9.0" fill="#C6E0B4" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="422.0" y="878.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">DWT 能量 128..137</text>
+<rect x="576.0" y="870.0" width="9.0" height="9.0" fill="#FFE699" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="590.0" y="878.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">直方图/方位矩 138..165</text>
+<rect x="744.0" y="870.0" width="9.0" height="9.0" fill="#F8CBAD" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="758.0" y="878.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">累积量 166..177</text>
+<rect x="240.0" y="887.0" width="9.0" height="9.0" fill="#D9D2E9" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="254.0" y="895.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">CFO 178..186</text>
+<rect x="408.0" y="887.0" width="9.0" height="9.0" fill="#B4C6E7" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="422.0" y="895.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">功率 187..192</text>
+<rect x="576.0" y="887.0" width="9.0" height="9.0" fill="#D9D9D9" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="590.0" y="895.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">帧头 193..196</text>
+<rect x="744.0" y="887.0" width="9.0" height="9.0" fill="#FFFFFF" stroke="#7F7F7F" stroke-width="0.8"/>
+<text x="758.0" y="895.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">补零 197..255</text>
+<rect x="24.0" y="905.0" width="216.0" height="30.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="919.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">m_tvalid</text>
+<text x="34.0" y="932.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">每字占 1 拍</text>
+<line x1="240.0" y1="935.0" x2="900.0" y2="935.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="937.0" width="216.0" height="30.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="951.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">m_tdata</text>
+<text x="34.0" y="964.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">字 0..255</text>
+<line x1="240.0" y1="967.0" x2="900.0" y2="967.0" stroke="#E7E6E6" stroke-width="1"/>
+<rect x="24.0" y="969.0" width="216.0" height="30.0" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
+<text x="34.0" y="983.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="10.5" fill="#1F3864" text-anchor="start" font-weight="400" font-style="normal">m_tlast</text>
+<text x="34.0" y="996.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#7F7F7F" text-anchor="start" font-weight="400" font-style="normal">第 255 字</text>
+<line x1="240.0" y1="999.0" x2="900.0" y2="999.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="240.0" y1="942.0" x2="900.0" y2="942.0" stroke="#C55A11" stroke-width="1.8"/>
+<line x1="240.0" y1="920.0" x2="240.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="242.6" y1="920.0" x2="242.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="245.2" y1="920.0" x2="245.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="247.7" y1="920.0" x2="247.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="250.3" y1="920.0" x2="250.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="252.9" y1="920.0" x2="252.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="255.5" y1="920.0" x2="255.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="258.0" y1="920.0" x2="258.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="260.6" y1="920.0" x2="260.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="263.2" y1="920.0" x2="263.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="265.8" y1="920.0" x2="265.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="268.4" y1="920.0" x2="268.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="270.9" y1="920.0" x2="270.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="273.5" y1="920.0" x2="273.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="276.1" y1="920.0" x2="276.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="278.7" y1="920.0" x2="278.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="281.2" y1="920.0" x2="281.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="283.8" y1="920.0" x2="283.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="286.4" y1="920.0" x2="286.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="289.0" y1="920.0" x2="289.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="291.6" y1="920.0" x2="291.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="294.1" y1="920.0" x2="294.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="296.7" y1="920.0" x2="296.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="299.3" y1="920.0" x2="299.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="301.9" y1="920.0" x2="301.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="304.5" y1="920.0" x2="304.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="307.0" y1="920.0" x2="307.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="309.6" y1="920.0" x2="309.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="312.2" y1="920.0" x2="312.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="314.8" y1="920.0" x2="314.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="317.3" y1="920.0" x2="317.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="319.9" y1="920.0" x2="319.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="322.5" y1="920.0" x2="322.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="325.1" y1="920.0" x2="325.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="327.7" y1="920.0" x2="327.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="330.2" y1="920.0" x2="330.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="332.8" y1="920.0" x2="332.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="335.4" y1="920.0" x2="335.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="338.0" y1="920.0" x2="338.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="340.5" y1="920.0" x2="340.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="343.1" y1="920.0" x2="343.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="345.7" y1="920.0" x2="345.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="348.3" y1="920.0" x2="348.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="350.9" y1="920.0" x2="350.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="353.4" y1="920.0" x2="353.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="356.0" y1="920.0" x2="356.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="358.6" y1="920.0" x2="358.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="361.2" y1="920.0" x2="361.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="363.8" y1="920.0" x2="363.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="366.3" y1="920.0" x2="366.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="368.9" y1="920.0" x2="368.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="371.5" y1="920.0" x2="371.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="374.1" y1="920.0" x2="374.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="376.6" y1="920.0" x2="376.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="379.2" y1="920.0" x2="379.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="381.8" y1="920.0" x2="381.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="384.4" y1="920.0" x2="384.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="387.0" y1="920.0" x2="387.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="389.5" y1="920.0" x2="389.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="392.1" y1="920.0" x2="392.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="394.7" y1="920.0" x2="394.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="397.3" y1="920.0" x2="397.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="399.8" y1="920.0" x2="399.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="402.4" y1="920.0" x2="402.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="405.0" y1="920.0" x2="405.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="407.6" y1="920.0" x2="407.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="410.2" y1="920.0" x2="410.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="412.7" y1="920.0" x2="412.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="415.3" y1="920.0" x2="415.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="417.9" y1="920.0" x2="417.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="420.5" y1="920.0" x2="420.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="423.0" y1="920.0" x2="423.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="425.6" y1="920.0" x2="425.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="428.2" y1="920.0" x2="428.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="430.8" y1="920.0" x2="430.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="433.4" y1="920.0" x2="433.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="435.9" y1="920.0" x2="435.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="438.5" y1="920.0" x2="438.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="441.1" y1="920.0" x2="441.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="443.7" y1="920.0" x2="443.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="446.2" y1="920.0" x2="446.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="448.8" y1="920.0" x2="448.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="451.4" y1="920.0" x2="451.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="454.0" y1="920.0" x2="454.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="456.6" y1="920.0" x2="456.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="459.1" y1="920.0" x2="459.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="461.7" y1="920.0" x2="461.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="464.3" y1="920.0" x2="464.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="466.9" y1="920.0" x2="466.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="469.5" y1="920.0" x2="469.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="472.0" y1="920.0" x2="472.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="474.6" y1="920.0" x2="474.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="477.2" y1="920.0" x2="477.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="479.8" y1="920.0" x2="479.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="482.3" y1="920.0" x2="482.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="484.9" y1="920.0" x2="484.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="487.5" y1="920.0" x2="487.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="490.1" y1="920.0" x2="490.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="492.7" y1="920.0" x2="492.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="495.2" y1="920.0" x2="495.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="497.8" y1="920.0" x2="497.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="500.4" y1="920.0" x2="500.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="503.0" y1="920.0" x2="503.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="505.5" y1="920.0" x2="505.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="508.1" y1="920.0" x2="508.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="510.7" y1="920.0" x2="510.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="513.3" y1="920.0" x2="513.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="515.9" y1="920.0" x2="515.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="518.4" y1="920.0" x2="518.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="521.0" y1="920.0" x2="521.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="523.6" y1="920.0" x2="523.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="526.2" y1="920.0" x2="526.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="528.8" y1="920.0" x2="528.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="531.3" y1="920.0" x2="531.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="533.9" y1="920.0" x2="533.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="536.5" y1="920.0" x2="536.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="539.1" y1="920.0" x2="539.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="541.6" y1="920.0" x2="541.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="544.2" y1="920.0" x2="544.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="546.8" y1="920.0" x2="546.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="549.4" y1="920.0" x2="549.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="552.0" y1="920.0" x2="552.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="554.5" y1="920.0" x2="554.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="557.1" y1="920.0" x2="557.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="559.7" y1="920.0" x2="559.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="562.3" y1="920.0" x2="562.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="564.8" y1="920.0" x2="564.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="567.4" y1="920.0" x2="567.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="570.0" y1="920.0" x2="570.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="572.6" y1="920.0" x2="572.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="575.2" y1="920.0" x2="575.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="577.7" y1="920.0" x2="577.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="580.3" y1="920.0" x2="580.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="582.9" y1="920.0" x2="582.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="585.5" y1="920.0" x2="585.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="588.0" y1="920.0" x2="588.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="590.6" y1="920.0" x2="590.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="593.2" y1="920.0" x2="593.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="595.8" y1="920.0" x2="595.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="598.4" y1="920.0" x2="598.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="600.9" y1="920.0" x2="600.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="603.5" y1="920.0" x2="603.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="606.1" y1="920.0" x2="606.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="608.7" y1="920.0" x2="608.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="611.2" y1="920.0" x2="611.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="613.8" y1="920.0" x2="613.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="616.4" y1="920.0" x2="616.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="619.0" y1="920.0" x2="619.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="621.6" y1="920.0" x2="621.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="624.1" y1="920.0" x2="624.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="626.7" y1="920.0" x2="626.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="629.3" y1="920.0" x2="629.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="631.9" y1="920.0" x2="631.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="634.5" y1="920.0" x2="634.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="637.0" y1="920.0" x2="637.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="639.6" y1="920.0" x2="639.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="642.2" y1="920.0" x2="642.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="644.8" y1="920.0" x2="644.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="647.3" y1="920.0" x2="647.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="649.9" y1="920.0" x2="649.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="652.5" y1="920.0" x2="652.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="655.1" y1="920.0" x2="655.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="657.7" y1="920.0" x2="657.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="660.2" y1="920.0" x2="660.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="662.8" y1="920.0" x2="662.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="665.4" y1="920.0" x2="665.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="668.0" y1="920.0" x2="668.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="670.5" y1="920.0" x2="670.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="673.1" y1="920.0" x2="673.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="675.7" y1="920.0" x2="675.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="678.3" y1="920.0" x2="678.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="680.9" y1="920.0" x2="680.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="683.4" y1="920.0" x2="683.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="686.0" y1="920.0" x2="686.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="688.6" y1="920.0" x2="688.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="691.2" y1="920.0" x2="691.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="693.8" y1="920.0" x2="693.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="696.3" y1="920.0" x2="696.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="698.9" y1="920.0" x2="698.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="701.5" y1="920.0" x2="701.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="704.1" y1="920.0" x2="704.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="706.6" y1="920.0" x2="706.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="709.2" y1="920.0" x2="709.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="711.8" y1="920.0" x2="711.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="714.4" y1="920.0" x2="714.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="717.0" y1="920.0" x2="717.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="719.5" y1="920.0" x2="719.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="722.1" y1="920.0" x2="722.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="724.7" y1="920.0" x2="724.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="727.3" y1="920.0" x2="727.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="729.8" y1="920.0" x2="729.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="732.4" y1="920.0" x2="732.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="735.0" y1="920.0" x2="735.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="737.6" y1="920.0" x2="737.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="740.2" y1="920.0" x2="740.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="742.7" y1="920.0" x2="742.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="745.3" y1="920.0" x2="745.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="747.9" y1="920.0" x2="747.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="750.5" y1="920.0" x2="750.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="753.0" y1="920.0" x2="753.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="755.6" y1="920.0" x2="755.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="758.2" y1="920.0" x2="758.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="760.8" y1="920.0" x2="760.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="763.4" y1="920.0" x2="763.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="765.9" y1="920.0" x2="765.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="768.5" y1="920.0" x2="768.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="771.1" y1="920.0" x2="771.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="773.7" y1="920.0" x2="773.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="776.2" y1="920.0" x2="776.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="778.8" y1="920.0" x2="778.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="781.4" y1="920.0" x2="781.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="784.0" y1="920.0" x2="784.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="786.6" y1="920.0" x2="786.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="789.1" y1="920.0" x2="789.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="791.7" y1="920.0" x2="791.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="794.3" y1="920.0" x2="794.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="796.9" y1="920.0" x2="796.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="799.5" y1="920.0" x2="799.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="802.0" y1="920.0" x2="802.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="804.6" y1="920.0" x2="804.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="807.2" y1="920.0" x2="807.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="809.8" y1="920.0" x2="809.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="812.3" y1="920.0" x2="812.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="814.9" y1="920.0" x2="814.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="817.5" y1="920.0" x2="817.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="820.1" y1="920.0" x2="820.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="822.7" y1="920.0" x2="822.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="825.2" y1="920.0" x2="825.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="827.8" y1="920.0" x2="827.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="830.4" y1="920.0" x2="830.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="833.0" y1="920.0" x2="833.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="835.5" y1="920.0" x2="835.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="838.1" y1="920.0" x2="838.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="840.7" y1="920.0" x2="840.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="843.3" y1="920.0" x2="843.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="845.9" y1="920.0" x2="845.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="848.4" y1="920.0" x2="848.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="851.0" y1="920.0" x2="851.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="853.6" y1="920.0" x2="853.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="856.2" y1="920.0" x2="856.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="858.8" y1="920.0" x2="858.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="861.3" y1="920.0" x2="861.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="863.9" y1="920.0" x2="863.9" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="866.5" y1="920.0" x2="866.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="869.1" y1="920.0" x2="869.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="871.6" y1="920.0" x2="871.6" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="874.2" y1="920.0" x2="874.2" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="876.8" y1="920.0" x2="876.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="879.4" y1="920.0" x2="879.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="882.0" y1="920.0" x2="882.0" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="884.5" y1="920.0" x2="884.5" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="887.1" y1="920.0" x2="887.1" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="889.7" y1="920.0" x2="889.7" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="892.3" y1="920.0" x2="892.3" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="894.8" y1="920.0" x2="894.8" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<line x1="897.4" y1="920.0" x2="897.4" y2="931.0" stroke="#C55A11" stroke-width="1.0"/>
+<polygon points="246.0,939.0 894.0,939.0 898.0,952.0 894.0,965.0 246.0,965.0 242.0,952.0" fill="#DEEBF7" stroke="#C55A11" stroke-width="1.2"/>
+<text x="570.0" y="955.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.5" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">256 × 32 bit</text>
+<line x1="240.0" y1="995.0" x2="897.4" y2="995.0" stroke="#548235" stroke-width="1.8"/>
+<line x1="897.4" y1="970.0" x2="897.4" y2="984.0" stroke="#548235" stroke-width="2"/>
+<text x="891.4" y="966.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="8.6" fill="#548235" text-anchor="end" font-weight="400" font-style="normal">TLAST</text>
+<line x1="240.0" y1="866.0" x2="240.0" y2="998.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="405.0" y1="866.0" x2="405.0" y2="998.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="570.0" y1="866.0" x2="570.0" y2="998.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="735.0" y1="866.0" x2="735.0" y2="998.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="900.0" y1="866.0" x2="900.0" y2="998.0" stroke="#E7E6E6" stroke-width="1"/>
+<line x1="240.0" y1="1002.0" x2="900.0" y2="1002.0" stroke="#1F3864" stroke-width="1.4"/>
+<line x1="240.0" y1="997.0" x2="240.0" y2="1007.0" stroke="#1F3864" stroke-width="1"/>
+<text x="240.0" y="1020.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">0</text>
+<line x1="405.0" y1="997.0" x2="405.0" y2="1007.0" stroke="#1F3864" stroke-width="1"/>
+<text x="405.0" y="1020.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">64</text>
+<line x1="570.0" y1="997.0" x2="570.0" y2="1007.0" stroke="#1F3864" stroke-width="1"/>
+<text x="570.0" y="1020.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">128</text>
+<line x1="735.0" y1="997.0" x2="735.0" y2="1007.0" stroke="#1F3864" stroke-width="1"/>
+<text x="735.0" y="1020.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">192</text>
+<line x1="900.0" y1="997.0" x2="900.0" y2="1007.0" stroke="#1F3864" stroke-width="1"/>
+<text x="900.0" y="1020.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#1F3864" text-anchor="middle" font-weight="400" font-style="normal">256</text>
+<text x="900.0" y="1033.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.6" fill="#7F7F7F" text-anchor="end" font-weight="400" font-style="normal">拍/帧</text>
+<rect x="930.0" y="834.0" width="260.0" height="72.0" fill="#FFF2CC" stroke="#BF9000" stroke-width="1" rx="3"/>
+<text x="938.0" y="848.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">帧头 193..196：魔数 / 版本 /</text>
+<text x="938.0" y="862.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">帧号 / Q 格式（=12）。</text>
+<text x="938.0" y="877.0" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">PACK 完成即置 feat_valid；</text>
+<text x="938.0" y="891.5" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9.0" fill="#404040" text-anchor="start" font-weight="400" font-style="normal">输出与下一帧处理重叠。</text>
+<text x="24" y="1060" font-family="Microsoft YaHei,Segoe UI,sans-serif" font-size="9" fill="#A6A6A6">数据来源：SRC/pl_ai/expert/expert_feat_rffi.v 的 FSM 与输出引擎、expert/README.md。</text>
+</svg>

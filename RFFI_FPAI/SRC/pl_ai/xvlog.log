@@ -1,0 +1,5 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cumulant.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_cumulant
+INFO: [VRFC 10-311] analyzing module dsp_acc48
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/expert/ef_cfo.v" into library work
+INFO: [VRFC 10-311] analyzing module ef_cfo

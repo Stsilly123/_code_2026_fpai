@@ -1,0 +1,5 @@
+Vivado Simulator 2018.3
+Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/xelab.exe -L unisims_ver glbl tb_ef_cumulant -s cum 
+Multi-threading is on. Using 10 slave threads.
+ERROR: [XSIM 43-3225] Cannot find design unit work.glbl in library work located at xsim.dir/work.

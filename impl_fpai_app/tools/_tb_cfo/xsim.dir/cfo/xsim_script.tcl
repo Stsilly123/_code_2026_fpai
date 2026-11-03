@@ -1,0 +1,1 @@
+xsim {cfo} -autoloadwcfg -runall

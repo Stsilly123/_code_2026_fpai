@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Oct 24 11:49:10 2026
+# Process ID: 16856
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3
+# Command line: xsim.exe -mode tcl -source {xsim.dir/stress/xsim_script.tcl}
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3/xsim.log
+# Journal file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/tmp_sim3\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/stress/xsim_script.tcl
+run -all

@@ -1,0 +1,1 @@
+xsim {calls} -autoloadwcfg -runall

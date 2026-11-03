@@ -1,0 +1,7 @@
+Running: xsim.dir/LcwtMLP_RFFI/xsimk.exe -simmode gui -wdb LcwtMLP_RFFI.wdb -simrunnum 0 -socket 62442
+Design successfully loaded
+Design Loading Memory Usage: 8312 KB (Peak: 8312 KB)
+Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 12296 KB (Peak: 12296 KB)
+Simulation CPU Usage: 7093 ms

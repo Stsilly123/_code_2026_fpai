@@ -1,0 +1,1140 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// L-STF 均衡器（对应 SRC/pl_ai/LSTF均衡器Verilog实现指南.md）
+//
+// 输入不另开 AXIS：直接旁听 Signal_process 里 stream_buf 的输出
+//   din       = hls_din[31:0] = {Q[31:16], I[15:0]}（一字一拍）
+//   din_valid = hls_wr
+// 帧边界照样**按 256 字数**切（和 stream_buf 同一套规矩），与 IP 无关。
+//
+// 输出是标准 AXIS master（形状抄 Signal_process.dout：32bit、TKEEP、TLAST）：
+//   每帧 256 个字 = 256 对 IQ，TLAST 在第 256 字；m_tuser 逐字给出旁路标志
+//   （1 = 门控没过 / 信道全零，本帧原样输出）。
+//
+// 定点方案（与 tools/gen_lstf_eq_vectors.py 的 lstf_equalize_fixed 逐级对应）：
+//   SX=13 Q_TW=17 H_TGT=23 K_W=44 T_Q=24 ATAN_Q=18 CORDIC_N=18 CORDIC_P=21
+//   INV_LUT_BITS=7  GATE_K=46080  S_TAP=eH-17
+//
+// 运算引擎：一个共享复数 MAC（4 个 DSP48），A 口 25bit、B 口 18bit，
+//   4 级流水（issue -> 取操作数 -> 乘 -> 累加），1 拍可发一项，
+//   issue 后第 4 拍累加器可读（issue at T -> 读 at T+4）。
+//   复数乘：{re = ar*br - ai*bi, im = ar*bi + ai*br}
+//   |x|^2 用 conj 技巧：A=x、B=conj(x) -> re = |x|^2（Et 用它）
+//   Sp / P 走另外一对专用平方器（25x25，两路共用一组 DSP）
+//
+// 帧缓存：8 槽 x 256 字环形。处理一帧期间该槽不再被写（环形最多存 7 帧
+//   + 1 帧在处理；满了丢新帧并计 stat_drop）。
+//
+// 时序预算：一帧约 11k 拍 @200MHz = 55us，帧周期约 101us，约 1.8 倍余量。
+//////////////////////////////////////////////////////////////////////////////////
+
+module lstf_eq (
+    input  wire         clk,
+    input  wire         rst_n,
+    // 旁听 stream_buf 输出（与 FIFO/HLS 输入同一份数据）
+    input  wire [31:0]  din,          // {Q[31:16], I[15:0]}
+    input  wire         din_valid,    // 一个字一拍
+    // 均衡结果 AXIS master
+    output wire [31:0]  m_tdata,      // {Q[31:16], I[15:0]}，Q10 码值
+    output wire         m_tvalid,
+    input  wire         m_tready,
+    output wire [3:0]   m_tkeep,
+    output wire         m_tlast,
+    output wire         m_tuser,      // 1 = 本帧旁路（门控失败/全零）
+    // 状态
+    output wire [31:0]  stat_drop,    // 因 8 槽全满被丢掉的帧数
+    output wire [22:0]  stat_theta,   // 最近一帧的 CFO 角（Q2.18）
+    output wire         stat_gate,    // 最近一帧门控结果（1 = 做均衡）
+    output wire         busy
+);
+
+    // 常数表：四个 function，必须 include 在 module 里（Verilog-2001 不允许根作用域
+    // 声明 function）
+    `include "lstf_eq_rom.vh"
+
+    // ── 定点参数 ────────────────────────────────────────────────────────────
+    localparam integer SX   = 13;     // DFT 累加 -> X 的右移
+    localparam integer QTW  = 17;     // 旋转因子 / p_b 的 Q 格式
+    localparam integer HTG  = 23;     // 归一化后 |Hn|max 的位号
+    localparam [63:0]  GATE_K = 64'd46080;      // 180 << 2*(QTW-SX)
+    localparam integer NFR  = 256;    // 每帧字数
+
+    // ── 状态 ────────────────────────────────────────────────────────────────
+    localparam [4:0] ST_IDLE   = 5'd0,
+                     ST_ET     = 5'd1,
+                     ST_R1     = 5'd2,
+                     ST_ATAN   = 5'd3,
+                     ST_ROT    = 5'd4,
+                     ST_PB     = 5'd5,
+                     ST_DFT    = 5'd6,
+                     ST_GATE   = 5'd7,
+                     ST_LS     = 5'd8,
+                     ST_NORM   = 5'd9,
+                     ST_INTERP = 5'd10,
+                     ST_PW     = 5'd11,
+                     ST_RECIP  = 5'd12,
+                     ST_IDFT   = 5'd13,
+                     ST_FIR    = 5'd14,
+                     ST_BYP    = 5'd15,
+                     ST_NEXT   = 5'd16;
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  公共函数
+    // ════════════════════════════════════════════════════════════════════════
+    // 带舍入的算术移位；s<0 时左移（与 python rnd_shift 一致）
+    function signed [55:0] rnds;
+        input signed [55:0] v;
+        input signed [7:0]  s;
+        begin
+            if (s == 8'sd0)      rnds = v;
+            else if (s > 8'sd0)  rnds = (v + (56'sd1 <<< (s[5:0] - 6'd1))) >>> s[5:0];
+            else                 rnds = v <<< (-s);
+        end
+    endfunction
+
+    function signed [24:0] clip25;
+        input signed [55:0] v;
+        begin
+            if (v > 56'sd16777215)        clip25 = 25'sd16777215;
+            else if (v < -56'sd16777216)  clip25 = -25'sd16777216;
+            else                          clip25 = v[24:0];
+        end
+    endfunction
+
+    function signed [17:0] clip18;
+        input signed [55:0] v;
+        begin
+            if (v > 56'sd131071)          clip18 = 18'sd131071;
+            else if (v < -56'sd131072)    clip18 = -18'sd131072;
+            else                          clip18 = v[17:0];
+        end
+    endfunction
+
+    function signed [15:0] clip16;
+        input signed [55:0] v;
+        begin
+            if (v > 56'sd32767)           clip16 = 16'sd32767;
+            else if (v < -56'sd32768)     clip16 = -16'sd32768;
+            else                          clip16 = v[15:0];
+        end
+    endfunction
+
+    function [48:0] uabs49;
+        input signed [48:0] v;
+        begin
+            uabs49 = v[48] ? (-v) : v;
+        end
+    endfunction
+
+    // LSTF_SIGN = [1,-1,1,-1,-1,1,-1,-1,1,1,1,1]
+    function lstf_sign;
+        input [3:0] p;
+        begin
+            case (p)
+                4'd0, 4'd2, 4'd5, 4'd8, 4'd9, 4'd10, 4'd11: lstf_sign = 1'b1;
+                default:                                     lstf_sign = 1'b0;
+            endcase
+        end
+    endfunction
+
+    // FIR 系数序号：fir[j] = taps[(29-j)%20]
+    function [4:0] fir_idx;
+        input [4:0] j;
+        begin
+            fir_idx = (j < 5'd10) ? (5'd9 - j) : (5'd29 - j);
+        end
+    endfunction
+
+    // 归一化：nh>=0 左移，否则带舍入右移，再饱和到 25bit
+    function signed [24:0] hnorm;
+        input signed [48:0] v;
+        input signed [7:0]  nh;
+        reg   signed [55:0] vv;
+        begin
+            vv = {{7{v[48]}}, v};
+            if (nh >= 8'sd0) hnorm = clip25(vv <<< nh);
+            else             hnorm = clip25(rnds(vv, -nh));
+        end
+    endfunction
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  1. 帧缓存
+    // ════════════════════════════════════════════════════════════════════════
+    (* ram_style = "block" *) reg [31:0] frames [0:2047];   // 64Kbit：必须落 BRAM
+    reg  [10:0] wr_addr;
+    reg         wr_en;
+    reg  [31:0] wr_data;
+
+    reg  [7:0]  wr_word;       // 本帧已收字数
+    reg  [2:0]  wr_slot;
+    reg  [2:0]  rd_slot;
+    reg  [3:0]  frames_avail;  // 未处理帧数（不含正在处理的那帧）
+    reg         dropping;
+    reg  [2:0]  work_slot;
+    reg  [31:0] stat_drop_r;
+    reg  [31:0] mem_b_q;
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  2. MAC 引擎
+    // ════════════════════════════════════════════════════════════════════════
+    reg         iss;
+    reg  [1:0]  iss_a_sel;     // 0 = 直接寄存器, 1 = 帧缓存
+    reg  [1:0]  iss_b_sel;     // 0 = 直接寄存器, 1 = ROM, 2 = 帧缓存, 3 = 0
+    reg         iss_b_conj;
+    reg         iss_acc;
+    reg         iss_rom_i;
+    reg  [10:0] iss_addr;
+    reg  [8:0]  iss_rom;
+    reg  signed [24:0] iss_a_re, iss_a_im;
+    reg  signed [17:0] iss_b_re, iss_b_im;
+
+    reg         iss_d;
+    reg  [1:0]  a_sel_d, b_sel_d;
+    reg         bconj_d;
+    reg         accen_d;
+    reg         romi_d;
+    reg  signed [24:0] a_l_re, a_l_im;
+    reg  signed [17:0] b_l_re, b_l_im;
+
+    reg         mul_v_d;
+    reg         mulen_d;
+    reg  signed [24:0] mul_ar, mul_ai;
+    reg  signed [17:0] mul_br, mul_bi;
+
+    reg         prd_v_d;
+    reg         prden_d;
+    reg  signed [43:0] prd_re, prd_im;
+
+    reg  signed [55:0] acc_re, acc_im;
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  3. msb 扫描（顺序找最高有效位，避开 56bit 优先级编码器的长路径）
+    // ════════════════════════════════════════════════════════════════════════
+    reg  [55:0] scan_v_in;
+    reg  [55:0] scan_v;
+    reg  [5:0]  scan_i;
+    reg  [5:0]  scan_msb;
+    reg         scan_run;
+    reg         scan_done;
+    reg         scan_start;
+    reg         clr;
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  4. FSM 寄存器
+    // ════════════════════════════════════════════════════════════════════════
+    reg  [4:0]  state;
+    reg  [8:0]  cyc;       // 通用循环计数
+    reg  [7:0]  rn;        // CORR 项 n
+    reg  [2:0]  rq;        // CORR 相位
+    reg  [5:0]  it;        // CORDIC 迭代
+    reg  [1:0]  asub;      // ATAN 子状态
+    reg  [2:0]  rsub;      // ROT / RECIP 子状态
+    reg  [1:0]  nsub;      // NORM 子状态
+    reg  [3:0]  pbp;       // p_b 序号
+    reg  [2:0]  pbq;       // p_b 相位
+    reg  [3:0]  db, dp;    // DFT 块 / bin
+    reg  [4:0]  pk;        // PW 序号
+    reg  [4:0]  im;        // IDFT 输出序号
+    reg  [4:0]  rk;        // 倒数 bin
+    reg  [7:0]  fn;        // FIR 输出序号
+    reg  [8:0]  bn;        // 旁路输出序号
+
+    reg  signed [24:0] xr, xi;                  // DFT 输出 X
+    reg  signed [55:0] rr, ri;                  // lag-20 相关
+    reg  [55:0] et_reg;                         // 前 200 点能量
+    reg  [55:0] sp_reg;                         // 对齐前 |X|^2 之和
+    reg  signed [47:0] accbin_re [0:11];
+    reg  signed [47:0] accbin_im [0:11];
+    reg  signed [17:0] pb_re [0:9];
+    reg  signed [17:0] pb_im [0:9];
+    reg  signed [17:0] c_os, s_in;              // CFO 旋转因子
+    reg  signed [22:0] theta_r;                 // atan2 结果 Q2.18
+    reg  signed [25:0] xc, yc;                  // CORDIC 工作寄存器
+    reg  signed [22:0] zc;
+    reg  signed [48:0] hri [0:11], hrq [0:11];
+    reg  [48:0] hmv;
+    reg  [5:0]  eH;
+    reg  signed [7:0] nh_r;
+    reg  signed [24:0] hn_re [0:11], hn_im [0:11];
+    reg  signed [24:0] h20_re [0:19], h20_im [0:19];
+    // k=0 的中点 bin = (Hn5+Hn6)>>1：25bit 相加会溢出到第 26 位，必须先扩宽再移位
+    wire signed [25:0] hmid_re = $signed(hn_re[5]) + $signed(hn_re[6]);
+    wire signed [25:0] hmid_im = $signed(hn_im[5]) + $signed(hn_im[6]);
+    reg  [55:0] pl [0:19];
+    reg  [55:0] sump, eps_r;
+    reg  [5:0]  e_r;
+    reg  [17:0] m_reg;
+    reg  signed [17:0] r_reg;
+    reg  signed [24:0] w_re [0:19], w_im [0:19];
+    reg  signed [24:0] taps_re [0:19], taps_im [0:19];
+
+    reg         stat_gate_r;
+    reg  [22:0] stat_theta_r;
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  5. 输出 FIFO
+    // ════════════════════════════════════════════════════════════════════════
+    (* ram_style = "block" *) reg [33:0] ofifo [0:511];   // {tuser, tlast, Q, I}
+    reg  [8:0]  wrp, rdp;
+    reg  [9:0]  cnt;
+    reg  [33:0] out_q;
+    reg         out_v;
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  6. 组合派生信号
+    // ════════════════════════════════════════════════════════════════════════
+    wire [10:0] base = {work_slot, 8'h00};
+
+    // 帧缓存读出（地址组合、数据寄存 -> 1 拍延迟）
+    always @(posedge clk) begin
+        mem_b_q <= frames[iss_addr];
+    end
+
+    // 常数表 ROM（地址组合、数据寄存 -> 1 拍延迟）
+    reg  [35:0] dft_q, idft_q;
+    always @(posedge clk) begin
+        dft_q  <= lstf_dft_rom(iss_rom[7:0]);
+        idft_q <= lstf_idft_rom(iss_rom);
+    end
+    wire [35:0] rom_q = romi_d ? idft_q : dft_q;
+    wire signed [17:0] rom_cos = rom_q[35:18];
+    wire signed [17:0] rom_sin = rom_q[17:0];
+
+    // 取操作数（issue 后一拍，RAM/ROM 数据正好到）
+    wire signed [24:0] cap_ar = (a_sel_d == 2'd1) ? {{9{mem_b_q[15]}}, mem_b_q[15:0]} : a_l_re;
+    wire signed [24:0] cap_ai = (a_sel_d == 2'd1) ? {{9{mem_b_q[31]}}, mem_b_q[31:16]} : a_l_im;
+    wire signed [17:0] braw_re = (b_sel_d == 2'd1) ? rom_cos :
+                                 (b_sel_d == 2'd2) ? {{2{mem_b_q[15]}}, mem_b_q[15:0]} :
+                                 (b_sel_d == 2'd3) ? 18'sd0 : b_l_re;
+    wire signed [17:0] braw_im = (b_sel_d == 2'd1) ? rom_sin :
+                                 (b_sel_d == 2'd2) ? {{2{mem_b_q[31]}}, mem_b_q[31:16]} :
+                                 (b_sel_d == 2'd3) ? 18'sd0 : b_l_im;
+    wire signed [17:0] cap_br = braw_re;
+    wire signed [17:0] cap_bi = bconj_d ? (-braw_im) : braw_im;
+
+    // DFT 输出（组合舍入，25bit 与模型一致；16bit 输入保证 |X| < 2^24）
+    wire signed [55:0] xnew56  = (acc_re + 56'sd4096) >>> SX;
+    wire signed [55:0] xinew56 = (acc_im + 56'sd4096) >>> SX;
+    wire signed [24:0] xr_new = xnew56[24:0];
+    wire signed [24:0] xi_new = xinew56[24:0];
+
+    // Sp / P 专用平方器（共用一组 DSP）
+    wire signed [24:0] ss_re = (state == ST_PW) ? h20_re[pk] : xr_new;
+    wire signed [24:0] ss_im = (state == ST_PW) ? h20_im[pk] : xi_new;
+    wire signed [49:0] ss_r2 = ss_re * ss_re;
+    wire signed [49:0] ss_i2 = ss_im * ss_im;
+    wire        [50:0] ss_sum = ss_r2 + ss_i2;
+
+    // CORDIC：atan2（向量模式，y->0）
+    wire signed [55:0] rr_abs = rr[55] ? (-rr) : rr;
+    wire signed [55:0] ri_abs = ri[55] ? (-ri) : ri;
+    wire [55:0] atan_m = (rr_abs > ri_abs) ? rr_abs : ri_abs;
+    wire [5:0]  ash = (scan_msb > 6'd17) ? (scan_msb - 6'd17) : 6'd0;
+
+    wire signed [25:0] xnew_a = (yc < 0) ? (xc - (yc >>> it[4:0])) : (xc + (yc >>> it[4:0]));
+    wire signed [25:0] ynew_a = (yc < 0) ? (yc + (xc >>> it[4:0])) : (yc - (xc >>> it[4:0]));
+    wire signed [22:0] znew_a = (yc < 0) ? (zc - lstf_atan(it[4:0])) : (zc + lstf_atan(it[4:0]));
+
+    // CORDIC：旋转（z->0）
+    wire signed [25:0] xnew_r = (zc >= 0) ? (xc - (yc >>> it[4:0])) : (xc + (yc >>> it[4:0]));
+    wire signed [25:0] ynew_r = (zc >= 0) ? (yc + (xc >>> it[4:0])) : (yc - (xc >>> it[4:0]));
+    wire signed [22:0] znew_r = (zc >= 0) ? (zc - lstf_atan(it[4:0])) : (zc + lstf_atan(it[4:0]));
+    wire signed [25:0] xsh = (xnew_r + 26'sd8) >>> 4;
+    wire signed [25:0] ysh = (ynew_r + 26'sd8) >>> 4;
+    wire signed [17:0] cos_c = (xsh > 26'sd131071) ? 18'sd131071 : xsh[17:0];
+    wire signed [17:0] sin_c = (ysh > 26'sd131071)  ? 18'sd131071 :
+                               (ysh < -26'sd131072) ? -18'sd131072 : ysh[17:0];
+
+    // H_raw = sign*[(ar+ai) + j(aq-ai)]
+    wire signed [48:0] hsum_re = $signed(accbin_re[cyc[3:0]]) + $signed(accbin_im[cyc[3:0]]);
+    wire signed [48:0] hsum_im = $signed(accbin_im[cyc[3:0]]) - $signed(accbin_re[cyc[3:0]]);
+    wire signed [48:0] hri_c = lstf_sign(cyc[3:0]) ?  hsum_re : (-hsum_re);
+    wire signed [48:0] hrq_c = lstf_sign(cyc[3:0]) ?  hsum_im : (-hsum_im);
+    wire [48:0] hi_abs = uabs49(hri_c);
+    wire [48:0] hq_abs = uabs49(hrq_c);
+    wire [48:0] hmv_nxt = (hi_abs > hmv && hi_abs > hq_abs) ? hi_abs :
+                          (hq_abs > hmv) ? hq_abs : hmv;
+
+    // 倒数：d -> 尾数 m（18bit，bit17=1）
+    wire [55:0] d_cur = pl[rk] + eps_r;
+    wire signed [7:0] shm = $signed({2'b00, scan_msb}) - 8'sd17;
+    wire [55:0] dshift = (shm >= 8'sd0) ? (d_cur >> shm[5:0]) : (d_cur << (-shm));
+    wire [17:0] m_c = dshift[17:0];
+    wire [6:0]  idx_c = m_c[16:10];
+
+    // Newton 迭代：r <- r*(2 - m*r)，m 是 Q17
+    wire signed [35:0] mr = $signed({1'b0, m_reg}) * r_reg;
+    wire signed [35:0] t_c = mr >>> 17;
+    wire signed [17:0] u_c = 18'sd65536 - t_c[17:0];
+    wire signed [35:0] ru = r_reg * u_c;
+    wire signed [17:0] r1_c = ru >>> 15;
+    wire signed [17:0] r1_clip = (r1_c > 18'sd65535) ? 18'sd65535 :
+                                 (r1_c < -18'sd65536) ? -18'sd65536 : r1_c;
+    wire signed [17:0] r_new = (r1_clip <= 18'sd0) ? 18'sd1 : r1_clip;
+
+    wire signed [7:0] s_w = $signed({2'b00, e_r}) - 8'sd29;
+    wire signed [42:0] hprod_re = $signed(h20_re[rk]) * r_reg;
+    wire signed [42:0] hprod_im = -($signed(h20_im[rk]) * r_reg);
+    wire signed [55:0] wr_c = rnds({{13{hprod_re[42]}}, hprod_re}, s_w);
+    wire signed [55:0] wi_c = rnds({{13{hprod_im[42]}}, hprod_im}, s_w);
+
+    wire signed [7:0] s_tap = $signed({2'b00, eH}) - 8'sd17;
+
+    // eps = (sumP*5243)>>20
+    wire [55:0] sump_nxt = sump + {5'd0, ss_sum};
+    wire [71:0] eps_prod = {16'd0, sump_nxt} * 20'd5243;
+
+    // FIR
+    wire [4:0]  f_j   = cyc[4:0];
+    wire [4:0]  f_idx = fir_idx(f_j);
+    wire [8:0]  f_e   = {1'b0, fn} + {4'b0000, f_j};
+    wire [10:0] f_addr = base + (f_e < 9'd9 ? (9'd191 + f_e) : (f_e - 9'd9));
+    wire signed [55:0] fir_yi = rnds(acc_re, 8'sd24);
+    wire signed [55:0] fir_yq = rnds(acc_im, 8'sd24);
+
+    // DFT/IDFT 地址
+    //   样本地址按**块** db 走（第 b 块 = x[b*20+n]）
+    //   旋转因子按**bin** dp 走（第 p 个频点 = DFT_ROM[p*20+n]）—— 两者不能共用一个变量
+    wire [8:0] blk_off   = {1'b0, db, 4'b0000} + {3'b000, db, 2'b00};    // db*20
+    wire [8:0] bin_off   = {1'b0, dp, 4'b0000} + {3'b000, dp, 2'b00};    // dp*20
+    wire [8:0] idft_off  = {1'b0, im, 4'b0000} + {3'b000, im, 2'b00};    // im*20
+    wire [8:0] dft_rom_a  = bin_off  + {4'b0000, cyc[4:0]};
+    wire [8:0] idft_rom_a = idft_off + {4'b0000, cyc[4:0]};
+
+    // 门控
+    wire [63:0] gate_l = {8'd0, sp_reg} * 64'd11;
+    wire [63:0] gate_r = {8'd0, et_reg} * GATE_K;
+    wire        gate_ok = (et_reg != 56'd0) && (gate_l >= gate_r);
+
+    // 输出 FIFO 状态
+    wire        pop    = out_v & m_tready;
+    wire        refill = (~out_v | pop) & (cnt != 10'd0);
+    wire        fifo_full = (cnt == 10'd512) & out_v & (~pop);
+    wire        push;
+    wire [33:0] push_d;
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  7. 输入捕获（按 256 字数切帧）
+    // ════════════════════════════════════════════════════════════════════════
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            wr_word      <= 8'd0;
+            wr_slot      <= 3'd0;
+            rd_slot      <= 3'd0;
+            frames_avail <= 4'd0;
+            dropping     <= 1'b0;
+            stat_drop_r  <= 32'd0;
+            wr_en        <= 1'b0;
+            wr_addr      <= 11'd0;
+            wr_data      <= 32'd0;
+        end else begin
+            wr_en <= 1'b0;
+            if (din_valid) begin
+                // 8 槽里 1 个在处理、7 个排队，再满就丢整帧
+                if (!dropping && (frames_avail == 4'd7)) begin
+                    dropping    <= 1'b1;
+                    stat_drop_r <= stat_drop_r + 32'd1;
+                end
+                if (!dropping) begin
+                    wr_en   <= 1'b1;
+                    wr_addr <= {wr_slot, wr_word};
+                    wr_data <= din;
+                end
+                if (wr_word == 8'd255) begin
+                    wr_word  <= 8'd0;
+                    dropping <= 1'b0;
+                    if (!dropping) begin
+                        wr_slot      <= wr_slot + 3'd1;
+                        frames_avail <= frames_avail + 4'd1;
+                    end
+                end else begin
+                    wr_word <= wr_word + 8'd1;
+                end
+            end
+        end
+    end
+
+    always @(posedge clk) begin
+        if (wr_en) frames[wr_addr] <= wr_data;
+    end
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  8. MAC 引擎时序
+    // ════════════════════════════════════════════════════════════════════════
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            iss_d <= 1'b0; a_sel_d <= 2'd0; b_sel_d <= 2'd0; bconj_d <= 1'b0;
+            accen_d <= 1'b0; romi_d <= 1'b0;
+            a_l_re <= 25'sd0; a_l_im <= 25'sd0;
+            b_l_re <= 18'sd0; b_l_im <= 18'sd0;
+        end else begin
+            iss_d   <= iss;
+            a_sel_d <= iss_a_sel;
+            b_sel_d <= iss_b_sel;
+            bconj_d <= iss_b_conj;
+            accen_d <= iss_acc;
+            romi_d  <= iss_rom_i;
+            a_l_re  <= iss_a_re;
+            a_l_im  <= iss_a_im;
+            b_l_re  <= iss_b_re;
+            b_l_im  <= iss_b_im;
+        end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            mul_v_d <= 1'b0; mulen_d <= 1'b0;
+            mul_ar <= 25'sd0; mul_ai <= 25'sd0; mul_br <= 18'sd0; mul_bi <= 18'sd0;
+        end else begin
+            mul_v_d <= iss_d;
+            if (iss_d) begin
+                mul_ar  <= cap_ar;
+                mul_ai  <= cap_ai;
+                mul_br  <= cap_br;
+                mul_bi  <= cap_bi;
+                mulen_d <= accen_d;
+            end
+        end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            prd_v_d <= 1'b0; prden_d <= 1'b0;
+            prd_re <= 44'sd0; prd_im <= 44'sd0;
+        end else begin
+            prd_v_d <= mul_v_d;
+            if (mul_v_d) begin
+                prd_re  <= (mul_ar * mul_br) - (mul_ai * mul_bi);
+                prd_im  <= (mul_ar * mul_bi) + (mul_ai * mul_br);
+                prden_d <= mulen_d;
+            end
+        end
+    end
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            acc_re <= 56'sd0;
+            acc_im <= 56'sd0;
+        end else if (clr) begin
+            acc_re <= 56'sd0;
+            acc_im <= 56'sd0;
+        end else if (prd_v_d && prden_d) begin
+            acc_re <= acc_re + {{12{prd_re[43]}}, prd_re};
+            acc_im <= acc_im + {{12{prd_im[43]}}, prd_im};
+        end
+    end
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  9. msb 扫描
+    // ════════════════════════════════════════════════════════════════════════
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            scan_v <= 56'd0; scan_i <= 6'd0; scan_msb <= 6'd0;
+            scan_run <= 1'b0; scan_done <= 1'b0;
+        end else begin
+            scan_done <= 1'b0;
+            if (scan_start) begin
+                scan_v   <= scan_v_in;
+                scan_i   <= 6'd55;
+                scan_run <= 1'b1;
+            end else if (scan_run) begin
+                if (scan_v[scan_i]) begin
+                    scan_run <= 1'b0;
+                    scan_msb <= scan_i;
+                    scan_done <= 1'b1;
+                end else if (scan_i == 6'd0) begin
+                    scan_run <= 1'b0;
+                    scan_msb <= 6'd0;
+                    scan_done <= 1'b1;
+                end else begin
+                    scan_i <= scan_i - 6'd1;
+                end
+            end
+        end
+    end
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  10. 每拍的 issue 内容 / clr / scan_start
+    // ════════════════════════════════════════════════════════════════════════
+    always @(*) begin
+        iss         = 1'b0;
+        iss_a_sel   = 2'd0;
+        iss_b_sel   = 2'd0;
+        iss_b_conj  = 1'b0;
+        iss_acc     = 1'b1;
+        iss_rom_i   = 1'b0;
+        iss_addr    = 11'd0;
+        iss_rom     = 9'd0;
+        iss_a_re    = 25'sd0;
+        iss_a_im    = 25'sd0;
+        iss_b_re    = 18'sd0;
+        iss_b_im    = 18'sd0;
+        clr         = 1'b0;
+        scan_start  = 1'b0;
+        scan_v_in   = 56'd0;
+
+        case (state)
+        // ── 能量 Et = sum |x[n]|^2, n=0..199 ─────────────────────────────
+        ST_ET: begin
+            iss_addr = base + cyc[7:0];
+            if (cyc < 9'd200) begin
+                iss        = 1'b1;
+                iss_a_sel  = 2'd1;
+                iss_b_sel  = 2'd2;
+                iss_b_conj = 1'b1;
+            end
+            if (cyc == 9'd203) clr = 1'b1;
+        end
+
+        // ── lag-20 相关 r = sum x[n]*conj(x[n-20]) ───────────────────────
+        ST_R1: begin
+            iss_addr = base + {1'b0, rn} - ((rq == 3'd0) ? 9'd0 : 9'd20);
+            if (rq == 3'd2) begin
+                iss        = 1'b1;
+                iss_b_sel  = 2'd2;
+                iss_b_conj = 1'b1;
+                iss_a_re   = xr;
+                iss_a_im   = xi;
+            end
+            if (rq == 3'd6) clr = 1'b1;
+        end
+
+        // ── atan2：先扫 msb，再 18 次迭代 ───────────────────────────────
+        ST_ATAN: begin
+            if (asub == 2'd0) begin
+                scan_start = 1'b1;
+                scan_v_in  = atan_m;
+            end
+        end
+
+        // ── p_b 链 ─────────────────────────────────────────────────────
+        ST_PB: begin
+            if (pbq == 3'd0) begin
+                iss        = 1'b1;
+                iss_b_conj = 1'b1;
+                iss_a_re   = {{7{pb_re[pbp-4'd1][17]}}, pb_re[pbp-4'd1]};
+                iss_a_im   = {{7{pb_im[pbp-4'd1][17]}}, pb_im[pbp-4'd1]};
+                iss_b_re   = c_os;
+                iss_b_im   = s_in;
+                clr        = 1'b1;
+            end
+            if (pbq == 3'd4) clr = 1'b1;
+        end
+
+        // ── 12bin x 10blk DFT + 对齐累加 ────────────────────────────────
+        ST_DFT: begin
+            iss_addr = base + blk_off + {4'd0, cyc[4:0]};
+            if (cyc < 9'd20) begin
+                iss       = 1'b1;
+                iss_a_sel = 2'd1;
+                iss_b_sel = 2'd1;
+                iss_rom   = dft_rom_a;
+            end
+            if (cyc == 9'd23) clr = 1'b1;
+            if (cyc == 9'd24) begin
+                iss      = 1'b1;
+                iss_a_re = xr;
+                iss_a_im = xi;
+                iss_b_re = pb_re[db];
+                iss_b_im = pb_im[db];
+            end
+            if (cyc == 9'd28) clr = 1'b1;
+        end
+
+        // ── H_raw -> Hn 归一化 ──────────────────────────────────────────
+        ST_NORM: begin
+            if (nsub == 2'd0) begin
+                scan_start = 1'b1;
+                scan_v_in  = {7'd0, hmv};
+            end
+        end
+
+        // ── 倒数 ───────────────────────────────────────────────────────
+        ST_RECIP: begin
+            if (rsub == 3'd0) begin
+                scan_start = 1'b1;
+                scan_v_in  = d_cur;
+            end
+        end
+
+        // ── IDFT -> taps ───────────────────────────────────────────────
+        ST_IDFT: begin
+            iss_rom_i = 1'b1;
+            iss_rom   = idft_rom_a;
+            if (cyc < 9'd20) begin
+                iss       = 1'b1;
+                iss_b_sel = 2'd1;
+                iss_a_re  = w_re[cyc[4:0]];
+                iss_a_im  = w_im[cyc[4:0]];
+            end
+            if (cyc == 9'd0)  clr = 1'b1;
+            if (cyc == 9'd23) clr = 1'b1;
+        end
+
+        // ── FIR ────────────────────────────────────────────────────────
+        ST_FIR: begin
+            iss_addr = f_addr;
+            if (cyc < 9'd20) begin
+                iss       = 1'b1;
+                iss_b_sel = (f_e <= 9'd264) ? 2'd2 : 2'd3;
+                iss_a_re  = taps_re[f_idx];
+                iss_a_im  = taps_im[f_idx];
+            end
+            if (cyc == 9'd0)  clr = 1'b0;
+            if (cyc == 9'd0)  clr = 1'b1;
+            if (cyc == 9'd23) clr = 1'b1;
+        end
+
+        // ── 旁路输出 ───────────────────────────────────────────────────
+        ST_BYP: begin
+            iss_addr = base + ((bn < 9'd256) ? bn : 9'd255);
+        end
+
+        default: ;
+        endcase
+    end
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  11. FSM
+    // ════════════════════════════════════════════════════════════════════════
+    integer k;
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            state <= ST_IDLE;
+            cyc <= 9'd0; rn <= 8'd0; rq <= 3'd0; it <= 6'd0;
+            asub <= 2'd0; rsub <= 3'd0; nsub <= 2'd0;
+            pbp <= 4'd0; pbq <= 3'd0; db <= 4'd0; dp <= 4'd0;
+            pk <= 5'd0; im <= 5'd0; rk <= 5'd0; fn <= 8'd0; bn <= 9'd0;
+            work_slot <= 3'd0;
+            xr <= 25'sd0; xi <= 25'sd0;
+            rr <= 56'sd0; ri <= 56'sd0;
+            et_reg <= 56'd0; sp_reg <= 56'd0;
+            pb_re[0] <= 18'sd0; pb_im[0] <= 18'sd0;
+            c_os <= 18'sd0; s_in <= 18'sd0;
+            theta_r <= 23'sd0;
+            xc <= 26'sd0; yc <= 26'sd0; zc <= 23'sd0;
+            hmv <= 49'd0; eH <= 6'd0; nh_r <= 8'sd0;
+            sump <= 56'd0; eps_r <= 56'd0;
+            e_r <= 6'd0; m_reg <= 18'd0; r_reg <= 18'd0;
+            stat_gate_r <= 1'b0;
+            stat_theta_r <= 23'sd0;
+            for (k = 0; k < 12; k = k + 1) begin
+                accbin_re[k] <= 48'sd0; accbin_im[k] <= 48'sd0;
+                hri[k] <= 49'sd0; hrq[k] <= 49'sd0;
+                hn_re[k] <= 25'sd0; hn_im[k] <= 25'sd0;
+            end
+            for (k = 1; k < 10; k = k + 1) begin
+                pb_re[k] <= 18'sd0; pb_im[k] <= 18'sd0;
+            end
+            for (k = 0; k < 20; k = k + 1) begin
+                h20_re[k] <= 25'sd0; h20_im[k] <= 25'sd0;
+                pl[k] <= 56'd0;
+                w_re[k] <= 25'sd0; w_im[k] <= 25'sd0;
+                taps_re[k] <= 25'sd0; taps_im[k] <= 25'sd0;
+            end
+        end else begin
+            case (state)
+
+            // ── 取下一帧 ────────────────────────────────────────────────
+            ST_IDLE: begin
+                if (frames_avail != 4'd0) begin
+                    work_slot    <= rd_slot;
+                    rd_slot      <= rd_slot + 3'd1;
+                    frames_avail <= frames_avail - 4'd1;
+                    sp_reg <= 56'd0;
+                    hmv    <= 49'd0;
+                    for (k = 0; k < 12; k = k + 1) begin
+                        accbin_re[k] <= 48'sd0;
+                        accbin_im[k] <= 48'sd0;
+                    end
+                    state <= ST_ET;
+                    cyc   <= 9'd0;
+                end
+            end
+
+            // ── Et ──────────────────────────────────────────────────────
+            ST_ET: begin
+                if (cyc == 9'd203) begin
+                    et_reg <= acc_re;
+                    cyc    <= 9'd0;
+                    rn     <= 8'd20;
+                    rq     <= 3'd0;
+                    state  <= ST_R1;
+                end else begin
+                    cyc <= cyc + 9'd1;
+                end
+            end
+
+            // ── lag-20 相关 ─────────────────────────────────────────────
+            ST_R1: begin
+                case (rq)
+                3'd0: rq <= 3'd1;
+                3'd1: begin
+                    xr <= {{9{mem_b_q[15]}}, mem_b_q[15:0]};
+                    xi <= {{9{mem_b_q[31]}}, mem_b_q[31:16]};
+                    rq <= 3'd2;
+                end
+                3'd2: begin
+                    if (rn == 8'd199) rq <= 3'd3;
+                    else begin
+                        rn <= rn + 8'd1;
+                        rq <= 3'd0;
+                    end
+                end
+                3'd3, 3'd4, 3'd5: rq <= rq + 3'd1;
+                3'd6: begin
+                    rr    <= acc_re;
+                    ri    <= acc_im;
+                    state <= ST_ATAN;
+                    asub  <= 2'd0;
+                end
+                default: rq <= 3'd3;
+                endcase
+            end
+
+            // ── atan2 ───────────────────────────────────────────────────
+            ST_ATAN: begin
+                case (asub)
+                2'd0: asub <= 2'd1;
+                2'd1: begin
+                    if (scan_done) begin
+                        if ((rr == 56'sd0) && (ri == 56'sd0)) begin
+                            theta_r <= 23'sd0;
+                            state   <= ST_ROT;
+                            rsub    <= 3'd0;
+                        end else begin
+                            xc   <= {{30{rr[55]}}, rr} >>> ash;
+                            yc   <= {{30{ri[55]}}, ri} >>> ash;
+                            zc   <= 23'sd0;
+                            it   <= 6'd0;
+                            asub <= 2'd2;
+                        end
+                    end
+                end
+                2'd2: begin
+                    xc <= xnew_a;
+                    yc <= ynew_a;
+                    zc <= znew_a;
+                    if (it == 6'd17) begin
+                        theta_r <= znew_a;
+                        state   <= ST_ROT;
+                        rsub    <= 3'd0;
+                    end else begin
+                        it <= it + 6'd1;
+                    end
+                end
+                default: asub <= 2'd0;
+                endcase
+            end
+
+            // ── CFO 旋转因子 ────────────────────────────────────────────
+            ST_ROT: begin
+                case (rsub)
+                2'd0: begin
+                    xc   <= 26'sd1273537;
+                    yc   <= 26'sd0;
+                    zc   <= theta_r;
+                    it   <= 6'd0;
+                    rsub <= 3'd1;
+                end
+                2'd1: begin
+                    xc <= xnew_r;
+                    yc <= ynew_r;
+                    zc <= znew_r;
+                    if (it == 6'd17) begin
+                        c_os     <= cos_c;
+                        s_in     <= sin_c;
+                        pb_re[0] <= 18'sd131071;
+                        pb_im[0] <= 18'sd0;
+                        state    <= ST_PB;
+                        pbp      <= 4'd1;
+                        pbq      <= 3'd0;
+                    end else begin
+                        it <= it + 6'd1;
+                    end
+                end
+                default: rsub <= 3'd0;
+                endcase
+            end
+
+            // ── p_b[b] = p_b[b-1] * (c - j s) ──────────────────────────
+            ST_PB: begin
+                if (pbq == 3'd0) begin
+                    pbq <= 3'd1;
+                end else if (pbq == 3'd4) begin
+                    pb_re[pbp] <= clip18(rnds(acc_re, 8'sd17));
+                    pb_im[pbp] <= clip18(rnds(acc_im, 8'sd17));
+                    pbq <= 3'd0;
+                    if (pbp == 4'd9) begin
+                        state <= ST_DFT;
+                        db <= 4'd0; dp <= 4'd0; cyc <= 9'd0;
+                    end else begin
+                        pbp <= pbp + 4'd1;
+                    end
+                end else begin
+                    pbq <= pbq + 3'd1;
+                end
+            end
+
+            // ── DFT + 对齐 ─────────────────────────────────────────────
+            ST_DFT: begin
+                if (cyc == 9'd28) begin
+                    accbin_re[dp] <= accbin_re[dp] + acc_re[47:0];
+                    accbin_im[dp] <= accbin_im[dp] + acc_im[47:0];
+                    cyc <= 9'd0;
+                    if (dp == 4'd11) begin
+                        dp <= 4'd0;
+                        if (db == 4'd9) state <= ST_GATE;
+                        else            db <= db + 4'd1;
+                    end else begin
+                        dp <= dp + 4'd1;
+                    end
+                end else begin
+                    if (cyc == 9'd23) begin
+                        xr     <= xr_new;
+                        xi     <= xi_new;
+                        sp_reg <= sp_reg + {5'd0, ss_sum};
+                    end
+                    cyc <= cyc + 9'd1;
+                end
+            end
+
+            // ── 门控 ───────────────────────────────────────────────────
+            ST_GATE: begin
+                stat_gate_r  <= gate_ok;
+                stat_theta_r <= theta_r;
+                if (gate_ok) begin
+                    state <= ST_LS;
+                    cyc   <= 9'd0;
+                end else begin
+                    state <= ST_BYP;
+                    bn    <= 9'd0;
+                end
+            end
+
+            // ── H_raw + max ────────────────────────────────────────────
+            ST_LS: begin
+                hri[cyc[3:0]] <= hri_c;
+                hrq[cyc[3:0]] <= hrq_c;
+                hmv <= hmv_nxt;
+                if (cyc == 9'd11) begin
+                    if (hmv_nxt == 49'd0) begin
+                        state <= ST_BYP;
+                        bn    <= 9'd0;
+                    end else begin
+                        state <= ST_NORM;
+                        nsub  <= 2'd0;
+                    end
+                end else begin
+                    cyc <= cyc + 9'd1;
+                end
+            end
+
+            // ── 归一化到 2^23 ──────────────────────────────────────────
+            ST_NORM: begin
+                case (nsub)
+                2'd0: nsub <= 2'd1;
+                2'd1: begin
+                    if (scan_done) begin
+                        eH   <= scan_msb;
+                        nh_r <= 8'sd23 - {2'b00, scan_msb};
+                        nsub <= 2'd2;
+                    end
+                end
+                2'd2: begin
+                    for (k = 0; k < 12; k = k + 1) begin
+                        hn_re[k] <= hnorm(hri[k], nh_r);
+                        hn_im[k] <= hnorm(hrq[k], nh_r);
+                    end
+                    state <= ST_INTERP;
+                end
+                default: nsub <= 2'd0;
+                endcase
+            end
+
+            // ── 12 -> 20 bin ───────────────────────────────────────────
+            // k=-10..-7 -> Hn0; k=-6..-1 -> Hn0..5; k=0 -> (Hn5+Hn6)>>1;
+            // k=1..6 -> Hn6..11; k=7..9 -> Hn11
+            ST_INTERP: begin
+                h20_re[0] <= hn_re[0];  h20_im[0] <= hn_im[0];
+                h20_re[1] <= hn_re[0];  h20_im[1] <= hn_im[0];
+                h20_re[2] <= hn_re[0];  h20_im[2] <= hn_im[0];
+                h20_re[3] <= hn_re[0];  h20_im[3] <= hn_im[0];
+                h20_re[4] <= hn_re[0];  h20_im[4] <= hn_im[0];
+                h20_re[5] <= hn_re[1];  h20_im[5] <= hn_im[1];
+                h20_re[6] <= hn_re[2];  h20_im[6] <= hn_im[2];
+                h20_re[7] <= hn_re[3];  h20_im[7] <= hn_im[3];
+                h20_re[8] <= hn_re[4];  h20_im[8] <= hn_im[4];
+                h20_re[9] <= hn_re[5];  h20_im[9] <= hn_im[5];
+                h20_re[10] <= hmid_re >>> 1;
+                h20_im[10] <= hmid_im >>> 1;
+                h20_re[11] <= hn_re[6]; h20_im[11] <= hn_im[6];
+                h20_re[12] <= hn_re[7]; h20_im[12] <= hn_im[7];
+                h20_re[13] <= hn_re[8]; h20_im[13] <= hn_im[8];
+                h20_re[14] <= hn_re[9]; h20_im[14] <= hn_im[9];
+                h20_re[15] <= hn_re[10];h20_im[15] <= hn_im[10];
+                h20_re[16] <= hn_re[11];h20_im[16] <= hn_im[11];
+                h20_re[17] <= hn_re[11];h20_im[17] <= hn_im[11];
+                h20_re[18] <= hn_re[11];h20_im[18] <= hn_im[11];
+                h20_re[19] <= hn_re[11];h20_im[19] <= hn_im[11];
+                pk    <= 5'd0;
+                sump  <= 56'd0;
+                state <= ST_PW;
+            end
+
+            // ── P = |H20|^2，sumP ──────────────────────────────────────
+            ST_PW: begin
+                pl[pk] <= {5'd0, ss_sum};
+                sump   <= sump_nxt;
+                if (pk == 5'd19) begin
+                    eps_r <= eps_prod[71:20];
+                    state <= ST_RECIP;
+                    rk    <= 5'd0;
+                    rsub  <= 3'd0;
+                end else begin
+                    pk <= pk + 5'd1;
+                end
+            end
+
+            // ── W = conj(H) 2^K_W / (|H|^2 + eps) ──────────────────────
+            ST_RECIP: begin
+                case (rsub)
+                3'd0: rsub <= 3'd1;
+                2'd1: begin
+                    if (scan_done) begin
+                        e_r   <= scan_msb;
+                        m_reg <= m_c;
+                        r_reg <= {1'b0, lstf_inv(idx_c)};
+                        rsub  <= 3'd2;
+                    end
+                end
+                2'd2: begin
+                    r_reg <= r_new;
+                    rsub  <= 3'd3;
+                end
+                2'd3: begin
+                    r_reg <= r_new;
+                    rsub  <= 3'd4;
+                end
+                3'd4: begin
+                    w_re[rk] <= clip25(wr_c);
+                    w_im[rk] <= clip25(wi_c);
+                    rsub <= 3'd0;
+                    if (rk == 5'd19) begin
+                        state <= ST_IDFT;
+                        im    <= 5'd0;
+                        cyc   <= 9'd0;
+                    end else begin
+                        rk <= rk + 5'd1;
+                    end
+                end
+                default: rsub <= 3'd0;
+                endcase
+            end
+
+            // ── IDFT -> 20 tap ─────────────────────────────────────────
+            ST_IDFT: begin
+                if (cyc == 9'd23) begin
+                    taps_re[im] <= clip25(rnds(acc_re, s_tap));
+                    taps_im[im] <= clip25(rnds(acc_im, s_tap));
+                    cyc <= 9'd0;
+                    if (im == 5'd19) begin
+                        state <= ST_FIR;
+                        fn    <= 8'd0;
+                    end else begin
+                        im <= im + 5'd1;
+                    end
+                end else begin
+                    cyc <= cyc + 9'd1;
+                end
+            end
+
+            // ── 20 tap 复数 FIR ────────────────────────────────────────
+            ST_FIR: begin
+                if (cyc == 9'd23) begin
+                    if (!fifo_full) begin
+                        cyc <= 9'd0;
+                        if (fn == 8'd255) state <= ST_NEXT;
+                        else              fn <= fn + 8'd1;
+                    end
+                end else begin
+                    cyc <= cyc + 9'd1;
+                end
+            end
+
+            // ── 旁路输出（门控失败 / 全零）──────────────────────────────
+            ST_BYP: begin
+                if ((bn >= 9'd1) && fifo_full) begin
+                    // 等 FIFO
+                end else if (bn == 9'd256) begin
+                    bn    <= 9'd0;
+                    state <= ST_NEXT;
+                end else begin
+                    bn <= bn + 9'd1;
+                end
+            end
+
+            // ── 下一帧 / 空闲 ──────────────────────────────────────────
+            ST_NEXT: begin
+                if (frames_avail != 4'd0) begin
+                    work_slot    <= rd_slot;
+                    rd_slot      <= rd_slot + 3'd1;
+                    frames_avail <= frames_avail - 4'd1;
+                    sp_reg <= 56'd0;
+                    hmv    <= 49'd0;
+                    for (k = 0; k < 12; k = k + 1) begin
+                        accbin_re[k] <= 48'sd0;
+                        accbin_im[k] <= 48'sd0;
+                    end
+                    state <= ST_ET;
+                    cyc   <= 9'd0;
+                end else begin
+                    state <= ST_IDLE;
+                end
+            end
+
+            default: state <= ST_IDLE;
+            endcase
+        end
+    end
+
+    // ════════════════════════════════════════════════════════════════════════
+    //  12. 输出 FIFO（BRAM 寄存读出 FWFT）
+    // ════════════════════════════════════════════════════════════════════════
+    assign push = ((state == ST_FIR) && (cyc == 9'd23) && !fifo_full) ||
+                  ((state == ST_BYP) && (bn >= 9'd1) && !fifo_full);
+    assign push_d = (state == ST_FIR)
+                  ? {1'b0, (fn == 8'd255), clip16(fir_yq), clip16(fir_yi)}
+                  : {1'b1, (bn == 9'd256), mem_b_q[31:16], mem_b_q[15:0]};
+
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n) begin
+            wrp <= 9'd0; rdp <= 9'd0; cnt <= 10'd0;
+            out_q <= 34'd0; out_v <= 1'b0;
+        end else begin
+            if (push) begin
+                ofifo[wrp] <= push_d;
+                wrp <= wrp + 9'd1;
+            end
+            if (refill) begin
+                out_q <= ofifo[rdp];
+                rdp   <= rdp + 9'd1;
+            end
+            cnt <= cnt + (push ? 10'd1 : 10'd0) - (refill ? 10'd1 : 10'd0);
+            if (refill)   out_v <= 1'b1;
+            else if (pop) out_v <= 1'b0;
+        end
+    end
+
+    assign m_tvalid = out_v;
+    assign m_tdata  = out_q[31:0];
+    assign m_tlast  = out_q[32];
+    assign m_tuser  = out_q[33];
+    assign m_tkeep  = 4'hF;
+
+    assign stat_drop  = stat_drop_r;
+    assign stat_theta = stat_theta_r;
+    assign stat_gate  = stat_gate_r;
+    assign busy       = (state != ST_IDLE);
+
+endmodule

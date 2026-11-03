@@ -1,0 +1,850 @@
+INFO-FLOW: Workspace D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth opened at Thu Oct 22 20:22:03 +0800 2026
+Command     open_solution done; 0.25 sec.
+Execute     set_part xc7z030ffg676-2 -tool vivado 
+Execute       add_library xilinx/zynq/zynq:xc7z030:ffg676:-2 
+Execute         get_default_platform 
+Execute         license_isbetapart xc7z030 
+Command         license_isbetapart done; error code: 1; 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/xilinx_interface.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/plb46.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/fsl.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/axi4.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.lib 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds_compiler.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.lib 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_old.lib 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_vivado.lib 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/target_info.tcl 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.hlp 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute           get_default_platform 
+Execute           config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+Execute           config_chip_info -quiet -speed medium 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/target_info.tcl 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.hlp 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/virtex.gen 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/plb46.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/fsl.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/axi4.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.gen 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds_compiler.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
+Execute         get_default_platform 
+Execute         config_chip_info -quiet -resource  {SLICE 19650}  {LUT 78600}     {FF 157200} {DSP48E 400}   {BRAM 530}  
+Execute         config_chip_info -quiet -speed medium 
+Command       add_library done; 0.122 sec.
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+Execute         open_platform DefaultPlatform 
+Execute         import_lib D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv7.lib 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_hp.lib 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv.hlp 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/target_info.tcl 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.hlp 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.hlp 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.hlp 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_hp.hlp 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO: [HLS 200-10] Setting target device to 'xc7z030ffg676-2'
+Execute       get_default_platform 
+Command     set_part done; 0.174 sec.
+Execute     create_clock -period 5 -name default 
+Execute       config_clock -quiet -name default -period 5 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+Execute     set_clock_uncertainty 20% 
+Execute       get_clock_period -default -name=default 
+Execute       config_clock -quiet -name default -uncertainty 1 -unit % 
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1ns.
+Execute     csynth_design 
+Execute       get_config_compile -effort 
+Execute       get_config_compile -enable_clang39 
+Execute       get_config_compile -g 
+Execute       get_config_compile -lm 
+Execute       get_config_compile -ng 
+Execute       get_config_compile -opt_fp 
+Execute       get_config_compile -skip_cdt 
+Execute       get_config_compile -skip_syncheck 
+Execute       get_config_compile -skip_transform 
+Execute       config_compile -blackbox  
+Execute       get_config_compile -keep_printf 
+Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+Execute         get_config_schedule -relax_ii_for_timing 
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+Execute         get_config_schedule -suppress_dependence_error_break 
+INFO: [HLS 200-10] Analyzing design file 'LcwtMLP_RFFI/SRC/pl_lcwt.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling LcwtMLP_RFFI/SRC/pl_lcwt.cpp as C++
+Execute         get_default_platform 
+Execute         is_encrypted LcwtMLP_RFFI/SRC/pl_lcwt.cpp 
+Execute         get_default_platform 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "D:/Xilinx/Vivado/2018.3/msys" -hls  -fno-exceptions  -D__llvm__  -E "LcwtMLP_RFFI/SRC/pl_lcwt.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp" 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain D:/Xilinx/Vivado/2018.3/msys -hls -fno-exceptions -D__llvm__ -E LcwtMLP_RFFI/SRC/pl_lcwt.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp
+Command         clang done; 0.926 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.624 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "D:/Xilinx/Vivado/2018.3/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp"  -o "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/useless.bc"  
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain D:/Xilinx/Vivado/2018.3/msys -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/useless.bc
+Command         clang done; 0.853 sec.
+INFO-FLOW: Done: GCC PP time: 2.4 seconds per iteration
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp std=gnu++98 -directive=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/.systemc_flag -quiet -fix-errors D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.479 sec.
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp std=gnu++98 -directive=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/all.directive.json 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/all.directive.json -quiet -fix-errors D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.482 sec.
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-dataflow-lawyer.pl_lcwt.pp.0.cpp.diag.yml D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-dataflow-lawyer.pl_lcwt.pp.0.cpp.out.log 2> D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-dataflow-lawyer.pl_lcwt.pp.0.cpp.err.log 
+Command         ap_eval done; 0.569 sec.
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp std=gnu++98 
+Execute           ap_eval exec -ignorestderr D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/tidy-3.1.pl_lcwt.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/tidy-3.1.pl_lcwt.pp.0.cpp.out.log 2> D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/tidy-3.1.pl_lcwt.pp.0.cpp.err.log 
+Command           ap_eval done; 0.865 sec.
+Execute           ap_eval exec -ignorestderr D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-legacy-rewriter.pl_lcwt.pp.0.cpp.out.log 2> D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-legacy-rewriter.pl_lcwt.pp.0.cpp.err.log 
+Command           ap_eval done; 0.58 sec.
+Command         tidy_31 done; 1.494 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 2.5 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.938 sec.
+Execute         get_default_platform 
+INFO-FLOW: Processing labels
+Execute         clang -src D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain D:/Xilinx/Vivado/2018.3/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.bc" 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain D:/Xilinx/Vivado/2018.3/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.bc
+Command         clang done; 0.835 sec.
+INFO: [HLS 200-10] Analyzing design file 'LcwtMLP_RFFI/SRC/top.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute         is_m_axi_addr64 
+INFO-FLOW: Handling LcwtMLP_RFFI/SRC/top.cpp as C++
+Execute         get_default_platform 
+Execute         is_encrypted LcwtMLP_RFFI/SRC/top.cpp 
+Execute         get_default_platform 
+INFO-FLOW: Running: GCC PP
+INFO-FLOW: Source preprocessing
+Execute         clang  -fno-limit-debug-info -gcc-toolchain "D:/Xilinx/Vivado/2018.3/msys" -hls  -fno-exceptions  -D__llvm__  -E "LcwtMLP_RFFI/SRC/top.cpp"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  -o "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp" 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain D:/Xilinx/Vivado/2018.3/msys -hls -fno-exceptions -D__llvm__ -E LcwtMLP_RFFI/SRC/top.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp
+Command         clang done; 0.445 sec.
+Execute         tidy_31 xilinx-xfmat-array-geometry D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp std=gnu++98 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-xfmat-array-geometry -quiet -fix D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.221 sec.
+INFO-FLOW: Syntax Checking before pre-processing...
+Execute         clang -syntaxcheck -src D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp  -fno-limit-debug-info -gcc-toolchain "D:/Xilinx/Vivado/2018.3/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit  -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__  "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp"  -o "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/useless.bc"  
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain D:/Xilinx/Vivado/2018.3/msys -hls -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -fno-threadsafe-statics -fno-use-cxa-atexit -D__CLANG_3_1__ -D__cdecl= -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/useless.bc
+Command         clang done; 0.584 sec.
+INFO-FLOW: Done: GCC PP time: 1.3 seconds per iteration
+Execute         list_core -type functional_unit 
+Execute         tidy_31 xilinx-systemc-detector D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp std=gnu++98 -directive=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-systemc-detector -import-directive=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/.systemc_flag -quiet -fix-errors D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.198 sec.
+INFO-FLOW: Running: tidy-3.1 CDT preprocess
+Execute         tidy_31 xilinx-directive2pragma D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp std=gnu++98 -directive=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/all.directive.json 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-directive2pragma -import-directive=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/all.directive.json -quiet -fix-errors D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.191 sec.
+Execute         get_config_dataflow -strict_mode 
+Execute         ap_eval exec -ignorestderr D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-dataflow-lawyer.top.pp.0.cpp.diag.yml D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 -fstrict-dataflow > D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-dataflow-lawyer.top.pp.0.cpp.out.log 2> D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-dataflow-lawyer.top.pp.0.cpp.err.log 
+Command         ap_eval done; 0.177 sec.
+Execute         tidy_31 -errorcheck xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp std=gnu++98 
+Execute           ap_eval exec -ignorestderr D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -export-fixes=D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/tidy-3.1.top.pp.0.cpp.diag.yml -header-filter=.* -checks=-*,xilinx-constantarray-param,xilinx-resource-pragma-transformer,xilinx-xfmat-array-geometry -quiet -fix-errors D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/tidy-3.1.top.pp.0.cpp.out.log 2> D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/tidy-3.1.top.pp.0.cpp.err.log 
+Command           ap_eval done; 0.519 sec.
+Execute           ap_eval exec -ignorestderr D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/xilinx-legacy-rewriter D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pp.0.cpp -- -std=gnu++98 -fhls -ferror-limit=0 > D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-legacy-rewriter.top.pp.0.cpp.out.log 2> D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/xilinx-legacy-rewriter.top.pp.0.cpp.err.log 
+Command           ap_eval done; 0.187 sec.
+Command         tidy_31 done; 0.716 sec.
+INFO-FLOW: Done: tidy-3.1 CDT preprocess time: 1.1 seconds per iteration
+INFO-FLOW: Pragma Handling...
+Execute         tidy_31 xilinx-ssdm-intrinsics-arguments D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pragma.1.cpp std=gnu++98 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang-3.9-csynth/bin/tidy-3.1 -header-filter=.* -checks=-*,xilinx-ssdm-intrinsics-arguments -quiet -fix-errors D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pragma.1.cpp -- -std=gnu++98 -fhls -ferror-limit=0
+Command         tidy_31 done; 0.498 sec.
+Execute         get_default_platform 
+INFO-FLOW: Processing labels
+Execute         clang -src D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pragma.2.cpp  -fno-limit-debug-info -gcc-toolchain D:/Xilinx/Vivado/2018.3/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pragma.2.cpp"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -fno-threadsafe-statics  -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot" -I "D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o "D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.bc" 
+INFO-FLOW: exec D:/Xilinx/Vivado/2018.3/win64/tools/clang/bin/clang -fno-limit-debug-info -gcc-toolchain D:/Xilinx/Vivado/2018.3/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions -D__llvm__ -w D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.pragma.2.cpp -fno-math-errno -c -emit-llvm -O0 -mllvm -disable-llvm-optzns -fno-threadsafe-statics -fno-use-cxa-atexit -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot -I D:/Xilinx/Vivado/2018.3/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.bc
+Command         clang done; 0.6 sec.
+INFO-FLOW: Linking Debug ...
+Execute         llvm-ld D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/pl_lcwt.g.bc D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/top.g.bc -hls-opt -except-internalize LcwtMLP_RFFI -LD:/Xilinx/Vivado/2018.3/win64/lib -lhlsm -lhlsmc++ -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g 
+Command         llvm-ld done; 1.854 sec.
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 102.836 ; gain = 17.664
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 102.836 ; gain = 17.664
+Execute         get_config_sdx -target 
+Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute           cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+Execute           transform -promote-dbg-pointer D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.pp.bc -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.pp.0.bc -f 
+Execute           llvm-ld D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.pp.0.bc -disable-opt -LD:/Xilinx/Vivado/2018.3/win64/lib -lfloatconversion -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g.0 
+Command           llvm-ld done; 0.289 sec.
+INFO-FLOW: Running Standard Transforms...
+Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -lower-blackbox -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top LcwtMLP_RFFI -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g.0.bc -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [XFORM 203-603] Inlining function 'rx_frame' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/top.cpp:97).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_synthesis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:334).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_synthesis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:333).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_synthesis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:332).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_synthesis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:331).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_analysis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:173).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_analysis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:172).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_analysis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:171).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_analysis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:170).
+INFO: [XFORM 203-603] Inlining function 'lcwt_analysis' into 'lcwt_patch_core' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:446).
+INFO: [XFORM 203-603] Inlining function 'lcwt_synthesis' into 'lcwt_patch_core' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:447).
+INFO: [XFORM 203-603] Inlining function 'rq<16>' into 'patch_embed' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:414).
+INFO: [XFORM 203-603] Inlining function 'patch_embed' into 'lcwt_patch_core' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:450).
+INFO: [XFORM 203-603] Inlining function 'lcwt_patch_core' into 'LcwtMLP_RFFI_frame' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:465).
+INFO: [XFORM 203-603] Inlining function 'LcwtMLP_RFFI_frame' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/top.cpp:98).
+INFO: [XFORM 203-603] Inlining function 'sat16o' into 'drain_frame' (LcwtMLP_RFFI/SRC/top.cpp:66).
+INFO: [XFORM 203-603] Inlining function 'sat16o' into 'drain_frame' (LcwtMLP_RFFI/SRC/top.cpp:65).
+INFO: [XFORM 203-603] Inlining function 'drain_frame' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/top.cpp:99).
+Command           transform done; 0.397 sec.
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:15 . Memory (MB): peak = 124.219 ; gain = 39.047
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute           transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g.1.bc -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g.2.prechk.bc -f 
+Command           transform done; 0.18 sec.
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute           transform -syn-check D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g.2.prechk.bc -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:01 ; elapsed = 00:00:15 . Memory (MB): peak = 132.395 ; gain = 47.223
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.g.1.bc to D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute           transform -hls -tmp D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.o.1.bc -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'AN_WLOAD' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:83) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'AN_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:129) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'SY_WLOAD' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:229) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'SY_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:273) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'PT_RE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:390) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'PT_IM' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:401) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.3.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:85) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.3.1.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:87) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'AN_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:120) in function 'LcwtMLP_RFFI' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.3.3.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:122) in function 'LcwtMLP_RFFI' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'AN_LANE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:132) in function 'LcwtMLP_RFFI' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'AN_SUM' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:157) in function 'LcwtMLP_RFFI' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.4.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:231) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.4.1.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:233) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'SY_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:264) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.4.3.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:266) in function 'LcwtMLP_RFFI' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'SY_LANE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:276) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'SY_SUM' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:319) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'PT_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:384) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'PT_RE_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:394) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'PT_IM_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:405) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'PT_STORE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:412) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [XFORM 203-102] Automatically partitioning small array 'HOFF' completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'war.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:71) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:94) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wi.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:94) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'ac.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:116) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wsr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:218) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wlr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:240) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wli.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:240) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'whr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:240) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'whi.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:240) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'ac.V.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:260) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'PATCH_W.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'PATCH_B.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:378) in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'vv.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:380) accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:420:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'vv.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:380) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'HOFF' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'war.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:71) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'ac.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:116) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'wsr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:218) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'ac.V.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:260) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'war.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:71) in dimension 3 completely.
+INFO: [XFORM 203-101] Partitioning array 'wsr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:218) in dimension 3 completely.
+Command           transform done; 1.4 sec.
+INFO-FLOW: Presyn 2...
+Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.o.1.tmp.bc -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-603] Inlining function 'aesl_mux_load.4i32P.i2' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:80->LcwtMLP_RFFI/SRC/pl_lcwt.cpp:446->LcwtMLP_RFFI/SRC/pl_lcwt.cpp:465->LcwtMLP_RFFI/SRC/top.cpp:98).
+INFO: [XFORM 203-603] Inlining function 'aesl_mux_load.4i32P.i2' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:226->LcwtMLP_RFFI/SRC/pl_lcwt.cpp:447->LcwtMLP_RFFI/SRC/pl_lcwt.cpp:465->LcwtMLP_RFFI/SRC/top.cpp:98).
+INFO: [XFORM 203-11] Balancing expressions in function 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/top.cpp:80)...40 expression(s) balanced.
+Command           transform done; 0.749 sec.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:17 . Memory (MB): peak = 173.715 ; gain = 88.543
+INFO-FLOW: Building ssdm...
+Execute           transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -bitwidth -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -cdfg-build D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.o.2.bc -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'AN_PT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:107:39) in function 'LcwtMLP_RFFI' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'AN_LV' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:75:43) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'SY_PT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:257:38) in function 'LcwtMLP_RFFI' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'SY_LV' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:222:48) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'PL_TOKEN' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:377:40) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'DR_TOK' (LcwtMLP_RFFI/SRC/top.cpp:59:40) in function 'LcwtMLP_RFFI'.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'FRAME' (LcwtMLP_RFFI/SRC/top.cpp:96:41) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+Command           transform done; 1.664 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:05 ; elapsed = 00:00:19 . Memory (MB): peak = 189.320 ; gain = 104.148
+INFO-FLOW: Finish building internal data model.
+Command         opt_and_import_c done; 4.806 sec.
+Command       elaborate done; 17.692 sec.
+Execute       autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'LcwtMLP_RFFI' ...
+Execute         ap_set_top_model LcwtMLP_RFFI 
+Execute         get_model_list LcwtMLP_RFFI -filter all-wo-channel -topdown 
+Execute         preproc_iomode -model LcwtMLP_RFFI 
+Execute         get_model_list LcwtMLP_RFFI -filter all-wo-channel 
+INFO-FLOW: Model list for configure: LcwtMLP_RFFI
+INFO-FLOW: Configuring Module : LcwtMLP_RFFI ...
+Execute         set_default_model LcwtMLP_RFFI 
+Execute         apply_spec_resource_limit LcwtMLP_RFFI 
+INFO-FLOW: Model list for preprocess: LcwtMLP_RFFI
+INFO-FLOW: Preprocessing Module: LcwtMLP_RFFI ...
+Execute         set_default_model LcwtMLP_RFFI 
+Execute         cdfg_preprocess -model LcwtMLP_RFFI 
+Execute         rtl_gen_preprocess LcwtMLP_RFFI 
+INFO-FLOW: Model list for synthesis: LcwtMLP_RFFI
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'LcwtMLP_RFFI' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model LcwtMLP_RFFI 
+Execute         schedule -model LcwtMLP_RFFI 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'RX'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'CP_IN'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'AN_WLOAD'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'AN_PRE'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'AN_MAC'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'SY_WLOAD'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'SY_PRE'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'SY_MAC'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'PT_RE'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 5.
+INFO: [SCHED 204-61] Pipelining loop 'PT_IM'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 5.
+INFO: [SCHED 204-61] Pipelining loop 'PT_WR'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'DR_TOK_L'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 6.
+INFO: [SCHED 204-11] Finished scheduling.
+Command         schedule done; 1.596 sec.
+INFO: [HLS 200-111]  Elapsed time: 20.235 seconds; current allocated memory: 144.158 MB.
+Execute         report -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.verbose.sched.rpt -verbose -f 
+INFO: [HLS 200-434] Only 12 loops out of a total 18 loops have been pipelined in this design.
+Command         report done; 0.82 sec.
+Execute         db_write -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.sched.adb -f 
+Command         db_write done; 0.525 sec.
+INFO-FLOW: Finish scheduling LcwtMLP_RFFI.
+Execute         set_default_model LcwtMLP_RFFI 
+Execute         bind -model LcwtMLP_RFFI 
+BIND OPTION: fu_weight=[ 0.0 -- 1.0 ]
+BIND OPTION: model=LcwtMLP_RFFI
+BIND OPTION: reg_weight=[ 0.0 -- 1.0 ]
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+WARNING: [BIND 205-102] The specified resource core for memory 'tokT_V' will be ignored if a simpler one can be used.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command         bind done; 0.364 sec.
+INFO: [HLS 200-111]  Elapsed time: 1.735 seconds; current allocated memory: 155.079 MB.
+Execute         report -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.verbose.bind.rpt -verbose -f 
+Command         report done; 0.982 sec.
+Execute         db_write -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.bind.adb -f 
+Command         db_write done; 0.617 sec.
+INFO-FLOW: Finish binding LcwtMLP_RFFI.
+Execute         get_model_list LcwtMLP_RFFI -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute         rtl_gen_preprocess LcwtMLP_RFFI 
+INFO-FLOW: Model list for RTL generation: LcwtMLP_RFFI
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'LcwtMLP_RFFI' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         get_config_rtl -prefix 
+Execute         get_config_rtl -auto_prefix 
+Execute         create_rtl_model LcwtMLP_RFFI -vendor xilinx -mg_file D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.compgen.tcl 
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/din_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/dout_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/dout_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/dout_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/dout_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'LcwtMLP_RFFI' to 'ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_LCWT_A_V' to 'LcwtMLP_RFFI_LCWTbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_LCWT_S_V' to 'LcwtMLP_RFFI_LCWTcud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_0' to 'LcwtMLP_RFFI_PATCdEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_1' to 'LcwtMLP_RFFI_PATCeOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_2' to 'LcwtMLP_RFFI_PATCfYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_3' to 'LcwtMLP_RFFI_PATCg8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_4' to 'LcwtMLP_RFFI_PATChbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_5' to 'LcwtMLP_RFFI_PATCibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_6' to 'LcwtMLP_RFFI_PATCjbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_7' to 'LcwtMLP_RFFI_PATCkbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_8' to 'LcwtMLP_RFFI_PATClbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_9' to 'LcwtMLP_RFFI_PATCmb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_10' to 'LcwtMLP_RFFI_PATCncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_11' to 'LcwtMLP_RFFI_PATCocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_12' to 'LcwtMLP_RFFI_PATCpcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_13' to 'LcwtMLP_RFFI_PATCqcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_14' to 'LcwtMLP_RFFI_PATCrcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_15' to 'LcwtMLP_RFFI_PATCsc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_16' to 'LcwtMLP_RFFI_PATCtde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_17' to 'LcwtMLP_RFFI_PATCudo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_18' to 'LcwtMLP_RFFI_PATCvdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_19' to 'LcwtMLP_RFFI_PATCwdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_20' to 'LcwtMLP_RFFI_PATCxdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_21' to 'LcwtMLP_RFFI_PATCyd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_22' to 'LcwtMLP_RFFI_PATCzec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_23' to 'LcwtMLP_RFFI_PATCAem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_24' to 'LcwtMLP_RFFI_PATCBew' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_25' to 'LcwtMLP_RFFI_PATCCeG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_26' to 'LcwtMLP_RFFI_PATCDeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_27' to 'LcwtMLP_RFFI_PATCEe0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_28' to 'LcwtMLP_RFFI_PATCFfa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_29' to 'LcwtMLP_RFFI_PATCGfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_30' to 'LcwtMLP_RFFI_PATCHfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_31' to 'LcwtMLP_RFFI_PATCIfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_32' to 'LcwtMLP_RFFI_PATCJfO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_33' to 'LcwtMLP_RFFI_PATCKfY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_34' to 'LcwtMLP_RFFI_PATCLf8' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_35' to 'LcwtMLP_RFFI_PATCMgi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_36' to 'LcwtMLP_RFFI_PATCNgs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_37' to 'LcwtMLP_RFFI_PATCOgC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_42_32_1_1' to 'LcwtMLP_RFFI_mux_PgM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_164_16_1_1' to 'LcwtMLP_RFFI_mux_QgW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_164_25_1_1' to 'LcwtMLP_RFFI_mux_Rg6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_42_16_1_1' to 'LcwtMLP_RFFI_mux_Shg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_42_25_1_1' to 'LcwtMLP_RFFI_mux_Thq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_83_25_1_1' to 'LcwtMLP_RFFI_mux_UhA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_386_32_1_1' to 'LcwtMLP_RFFI_mux_VhK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_25s_16s_43ns_43_3_1' to 'LcwtMLP_RFFI_mac_WhU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_14s_25s_42s_42_3_1' to 'LcwtMLP_RFFI_mac_Xh4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_15s_25s_43s_43_3_1' to 'LcwtMLP_RFFI_mac_Yie' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_16s_25s_44ns_44_3_1' to 'LcwtMLP_RFFI_mac_Zio' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_14s_25s_43ns_43_3_1' to 'LcwtMLP_RFFI_mac_0iy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_15s_25s_44ns_44_3_1' to 'LcwtMLP_RFFI_mac_1iI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_16s_25s_44s_44_3_1' to 'LcwtMLP_RFFI_mac_2iS' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_0iy': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_1iI': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_2iS': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_WhU': 64 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_Xh4': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_Yie': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_Zio': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_PgM': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_QgW': 18 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_Rg6': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_Shg': 12 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_Thq': 6 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_UhA': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_VhK': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'LcwtMLP_RFFI'.
+Command         create_rtl_model done; 1.476 sec.
+INFO: [HLS 200-111]  Elapsed time: 3.126 seconds; current allocated memory: 171.436 MB.
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.rtl_wrap.cfg.tcl 
+Execute         gen_rtl LcwtMLP_RFFI -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/syn/systemc/LcwtMLP_RFFI -synmodules LcwtMLP_RFFI 
+Execute         gen_rtl LcwtMLP_RFFI -istop -style xilinx -f -lang vhdl -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/syn/vhdl/LcwtMLP_RFFI 
+Command         gen_rtl done; 0.261 sec.
+Execute         gen_rtl LcwtMLP_RFFI -istop -style xilinx -f -lang vlog -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/syn/verilog/LcwtMLP_RFFI 
+Command         gen_rtl done; 0.134 sec.
+Execute         export_constraint_db -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.constraint.tcl -f -tool general 
+Execute         report -model LcwtMLP_RFFI -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.design.xml -verbose -f -dv 
+Command         report done; 0.216 sec.
+Execute         report -model LcwtMLP_RFFI -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.sdaccel.xml -verbose -f -sdaccel 
+Command         report done; 0.348 sec.
+Execute         gen_tb_info LcwtMLP_RFFI -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI -p D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db 
+Execute         report -model LcwtMLP_RFFI -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/syn/report/LcwtMLP_RFFI_csynth.rpt -f 
+Command         report done; 0.131 sec.
+Execute         report -model LcwtMLP_RFFI -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/syn/report/LcwtMLP_RFFI_csynth.xml -f -x 
+Command         report done; 0.11 sec.
+Execute         report -model LcwtMLP_RFFI -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.verbose.rpt -verbose -f 
+Command         report done; 1.071 sec.
+Execute         db_write -model LcwtMLP_RFFI -o D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.adb -f 
+Command         db_write done; 0.902 sec.
+Execute         sc_get_clocks LcwtMLP_RFFI 
+Execute         get_config_export -vivado_clock 
+Execute         sc_get_portdomain LcwtMLP_RFFI 
+INFO-FLOW: Model list for RTL component generation: LcwtMLP_RFFI
+INFO-FLOW: Handling components in module [LcwtMLP_RFFI] ... 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.compgen.tcl 
+INFO-FLOW: Found component LcwtMLP_RFFI_mux_PgM.
+INFO-FLOW: Append model LcwtMLP_RFFI_mux_PgM
+INFO-FLOW: Found component LcwtMLP_RFFI_mux_QgW.
+INFO-FLOW: Append model LcwtMLP_RFFI_mux_QgW
+INFO-FLOW: Found component LcwtMLP_RFFI_mux_Rg6.
+INFO-FLOW: Append model LcwtMLP_RFFI_mux_Rg6
+INFO-FLOW: Found component LcwtMLP_RFFI_mux_Shg.
+INFO-FLOW: Append model LcwtMLP_RFFI_mux_Shg
+INFO-FLOW: Found component LcwtMLP_RFFI_mux_Thq.
+INFO-FLOW: Append model LcwtMLP_RFFI_mux_Thq
+INFO-FLOW: Found component LcwtMLP_RFFI_mux_UhA.
+INFO-FLOW: Append model LcwtMLP_RFFI_mux_UhA
+INFO-FLOW: Found component LcwtMLP_RFFI_mux_VhK.
+INFO-FLOW: Append model LcwtMLP_RFFI_mux_VhK
+INFO-FLOW: Found component LcwtMLP_RFFI_mac_WhU.
+INFO-FLOW: Append model LcwtMLP_RFFI_mac_WhU
+INFO-FLOW: Found component LcwtMLP_RFFI_mac_Xh4.
+INFO-FLOW: Append model LcwtMLP_RFFI_mac_Xh4
+INFO-FLOW: Found component LcwtMLP_RFFI_mac_Yie.
+INFO-FLOW: Append model LcwtMLP_RFFI_mac_Yie
+INFO-FLOW: Found component LcwtMLP_RFFI_mac_Zio.
+INFO-FLOW: Append model LcwtMLP_RFFI_mac_Zio
+INFO-FLOW: Found component LcwtMLP_RFFI_mac_0iy.
+INFO-FLOW: Append model LcwtMLP_RFFI_mac_0iy
+INFO-FLOW: Found component LcwtMLP_RFFI_mac_1iI.
+INFO-FLOW: Append model LcwtMLP_RFFI_mac_1iI
+INFO-FLOW: Found component LcwtMLP_RFFI_mac_2iS.
+INFO-FLOW: Append model LcwtMLP_RFFI_mac_2iS
+INFO-FLOW: Found component LcwtMLP_RFFI_LOFF.
+INFO-FLOW: Append model LcwtMLP_RFFI_LOFF
+INFO-FLOW: Found component LcwtMLP_RFFI_LCWTbkb.
+INFO-FLOW: Append model LcwtMLP_RFFI_LCWTbkb
+INFO-FLOW: Found component LcwtMLP_RFFI_LCWTcud.
+INFO-FLOW: Append model LcwtMLP_RFFI_LCWTcud
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCdEe.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCdEe
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCeOg.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCeOg
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCfYi.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCfYi
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCg8j.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCg8j
+INFO-FLOW: Found component LcwtMLP_RFFI_PATChbi.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATChbi
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCibs.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCibs
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCjbC.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCjbC
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCkbM.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCkbM
+INFO-FLOW: Found component LcwtMLP_RFFI_PATClbW.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATClbW
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCmb6.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCmb6
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCncg.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCncg
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCocq.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCocq
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCpcA.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCpcA
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCqcK.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCqcK
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCrcU.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCrcU
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCsc4.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCsc4
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCtde.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCtde
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCudo.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCudo
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCvdy.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCvdy
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCwdI.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCwdI
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCxdS.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCxdS
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCyd2.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCyd2
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCzec.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCzec
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCAem.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCAem
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCBew.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCBew
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCCeG.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCCeG
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCDeQ.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCDeQ
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCEe0.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCEe0
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCFfa.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCFfa
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCGfk.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCGfk
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCHfu.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCHfu
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCIfE.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCIfE
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCJfO.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCJfO
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCKfY.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCKfY
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCLf8.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCLf8
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCMgi.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCMgi
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCNgs.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCNgs
+INFO-FLOW: Found component LcwtMLP_RFFI_PATCOgC.
+INFO-FLOW: Append model LcwtMLP_RFFI_PATCOgC
+INFO-FLOW: Found component LcwtMLP_RFFI_lr_i.
+INFO-FLOW: Append model LcwtMLP_RFFI_lr_i
+INFO-FLOW: Found component LcwtMLP_RFFI_hr_i.
+INFO-FLOW: Append model LcwtMLP_RFFI_hr_i
+INFO-FLOW: Found component LcwtMLP_RFFI_xr0_V.
+INFO-FLOW: Append model LcwtMLP_RFFI_xr0_V
+INFO-FLOW: Found component LcwtMLP_RFFI_tokT_V.
+INFO-FLOW: Append model LcwtMLP_RFFI_tokT_V
+INFO-FLOW: Append model LcwtMLP_RFFI
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: LcwtMLP_RFFI_mux_PgM LcwtMLP_RFFI_mux_QgW LcwtMLP_RFFI_mux_Rg6 LcwtMLP_RFFI_mux_Shg LcwtMLP_RFFI_mux_Thq LcwtMLP_RFFI_mux_UhA LcwtMLP_RFFI_mux_VhK LcwtMLP_RFFI_mac_WhU LcwtMLP_RFFI_mac_Xh4 LcwtMLP_RFFI_mac_Yie LcwtMLP_RFFI_mac_Zio LcwtMLP_RFFI_mac_0iy LcwtMLP_RFFI_mac_1iI LcwtMLP_RFFI_mac_2iS LcwtMLP_RFFI_LOFF LcwtMLP_RFFI_LCWTbkb LcwtMLP_RFFI_LCWTcud LcwtMLP_RFFI_PATCdEe LcwtMLP_RFFI_PATCeOg LcwtMLP_RFFI_PATCfYi LcwtMLP_RFFI_PATCg8j LcwtMLP_RFFI_PATChbi LcwtMLP_RFFI_PATCibs LcwtMLP_RFFI_PATCjbC LcwtMLP_RFFI_PATCkbM LcwtMLP_RFFI_PATClbW LcwtMLP_RFFI_PATCmb6 LcwtMLP_RFFI_PATCncg LcwtMLP_RFFI_PATCocq LcwtMLP_RFFI_PATCpcA LcwtMLP_RFFI_PATCqcK LcwtMLP_RFFI_PATCrcU LcwtMLP_RFFI_PATCsc4 LcwtMLP_RFFI_PATCtde LcwtMLP_RFFI_PATCudo LcwtMLP_RFFI_PATCvdy LcwtMLP_RFFI_PATCwdI LcwtMLP_RFFI_PATCxdS LcwtMLP_RFFI_PATCyd2 LcwtMLP_RFFI_PATCzec LcwtMLP_RFFI_PATCAem LcwtMLP_RFFI_PATCBew LcwtMLP_RFFI_PATCCeG LcwtMLP_RFFI_PATCDeQ LcwtMLP_RFFI_PATCEe0 LcwtMLP_RFFI_PATCFfa LcwtMLP_RFFI_PATCGfk LcwtMLP_RFFI_PATCHfu LcwtMLP_RFFI_PATCIfE LcwtMLP_RFFI_PATCJfO LcwtMLP_RFFI_PATCKfY LcwtMLP_RFFI_PATCLf8 LcwtMLP_RFFI_PATCMgi LcwtMLP_RFFI_PATCNgs LcwtMLP_RFFI_PATCOgC LcwtMLP_RFFI_lr_i LcwtMLP_RFFI_hr_i LcwtMLP_RFFI_xr0_V LcwtMLP_RFFI_tokT_V LcwtMLP_RFFI
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mux_PgM
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mux_QgW
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mux_Rg6
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mux_Shg
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mux_Thq
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mux_UhA
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mux_VhK
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mac_WhU
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mac_Xh4
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mac_Yie
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mac_Zio
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mac_0iy
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mac_1iI
+INFO-FLOW: To file: write model LcwtMLP_RFFI_mac_2iS
+INFO-FLOW: To file: write model LcwtMLP_RFFI_LOFF
+INFO-FLOW: To file: write model LcwtMLP_RFFI_LCWTbkb
+INFO-FLOW: To file: write model LcwtMLP_RFFI_LCWTcud
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCdEe
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCeOg
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCfYi
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCg8j
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATChbi
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCibs
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCjbC
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCkbM
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATClbW
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCmb6
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCncg
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCocq
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCpcA
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCqcK
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCrcU
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCsc4
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCtde
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCudo
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCvdy
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCwdI
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCxdS
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCyd2
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCzec
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCAem
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCBew
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCCeG
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCDeQ
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCEe0
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCFfa
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCGfk
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCHfu
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCIfE
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCJfO
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCKfY
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCLf8
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCMgi
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCNgs
+INFO-FLOW: To file: write model LcwtMLP_RFFI_PATCOgC
+INFO-FLOW: To file: write model LcwtMLP_RFFI_lr_i
+INFO-FLOW: To file: write model LcwtMLP_RFFI_hr_i
+INFO-FLOW: To file: write model LcwtMLP_RFFI_xr0_V
+INFO-FLOW: To file: write model LcwtMLP_RFFI_tokT_V
+INFO-FLOW: To file: write model LcwtMLP_RFFI
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+INFO-FLOW: DBG:CMD: auto_generate_csynth_design
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/common.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/op.gen 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/interface.gen 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/virtex.gen 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/plb46.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/fsl.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/axi4.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.gen 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds_compiler.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=5.000 (was NA)
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.compgen.tcl 
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_LOFF_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_LCWTbkb_rom' using block ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_LCWTcud_rom' using block ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCdEe_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCeOg_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCfYi_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCg8j_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATChbi_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCibs_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCjbC_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCkbM_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATClbW_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCmb6_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCncg_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCocq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCpcA_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCqcK_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCrcU_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCsc4_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCtde_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCudo_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCvdy_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCwdI_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCxdS_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCyd2_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCzec_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCAem_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCBew_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCCeG_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCDeQ_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCEe0_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCFfa_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCGfk_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCHfu_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCIfE_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCJfO_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCKfY_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCLf8_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCMgi_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCNgs_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCOgC_rom' using distributed ROMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_lr_i_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_hr_i_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_xr0_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_tokT_V_ram (RAM_2P_BRAM)' using block RAMs.
+Command         ap_source done; 0.812 sec.
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/common.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/op.gen 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/generic/autopilot/interface.gen 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/virtex.gen 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/plb46.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/fsl.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/axi4.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/saxilite.gen 
+Execute                 source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/maxi.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/dds_compiler.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/util.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfft.gen 
+Execute               source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/ip/xfir.gen 
+Execute             source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/dsp48.gen 
+Execute         source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute           source D:/Xilinx/Vivado/2018.3/common/technology/xilinx/common/xilinx_fpv6.gen 
+INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=LcwtMLP_RFFI xml_exists=0
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.rtl_wrap.cfg.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.rtl_wrap.cfg.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.rtl_wrap.cfg.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.tbgen.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.compgen.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.constraint.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=12
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=5
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=1 #modelList=60 #gSsdmPorts=12
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.tbgen.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.tbgen.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.tbgen.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.tbgen.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.tbgen.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         get_config_sdx -target 
+Execute         get_config_export -xo 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/LcwtMLP_RFFI.constraint.tcl 
+Execute         sc_get_clocks LcwtMLP_RFFI 
+Execute         source D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/global.setting.tcl 
+Execute         get_config_sdx -target 
+Execute         get_config_sdx -profile 
+Execute         ::config_rtl 
+INFO-FLOW: DBG:CMD: add_json_sdx_info kernel file does not exist: D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/.autopilot/db/kernel.internal.xml
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:15 ; elapsed = 00:00:33 . Memory (MB): peak = 285.285 ; gain = 200.113
+INFO: [SYSC 207-301] Generating SystemC RTL for LcwtMLP_RFFI.
+INFO: [VHDL 208-304] Generating VHDL RTL for LcwtMLP_RFFI.
+INFO: [VLOG 209-307] Generating Verilog RTL for LcwtMLP_RFFI.
+Command       autosyn done; 14.942 sec.
+Execute       get_part 
+Execute       get_config_export -sdx_tcl 
+Command     csynth_design done; 32.654 sec.
+Execute     cleanup_all 

@@ -1,0 +1,812 @@
+
+****** Vivado(TM) HLS - High-Level Synthesis from C, C++ and SystemC v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source D:/Xilinx/Vivado/2018.3/scripts/vivado_hls/hls.tcl -notrace
+INFO: [HLS 200-10] Running 'D:/Xilinx/Vivado/2018.3/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Administrator' on host 'desktop-0heh89s' (Windows NT_amd64 version 6.2) on Tue Oct 20 00:06:46 +0800 2026
+INFO: [HLS 200-10] In directory 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI'
+INFO: [HLS 200-10] Creating and opening project 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export'.
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/top.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/pl_lcwt.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/top.hpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/pl_lcwt.hpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/pl_lcwt_config.hpp' to the project
+INFO: [HLS 200-10] Adding design file 'LcwtMLP_RFFI/SRC/pl_lcwt_weights.hpp' to the project
+INFO: [HLS 200-10] Creating and opening solution 'D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_export/solution1'.
+INFO: [HLS 200-10] Cleaning up the solution database.
+INFO: [HLS 200-10] Setting target device to 'xc7z030ffg676-2'
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [SYN 201-201] Setting up clock 'default' with an uncertainty of 1ns.
+INFO: [SCHED 204-61] Option 'relax_ii_for_timing' is enabled, will increase II to preserve clock frequency constraints.
+INFO: [HLS 200-10] Analyzing design file 'LcwtMLP_RFFI/SRC/pl_lcwt.cpp' ... 
+INFO: [HLS 200-10] Analyzing design file 'LcwtMLP_RFFI/SRC/top.cpp' ... 
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 103.492 ; gain = 18.500
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:14 . Memory (MB): peak = 103.492 ; gain = 18.500
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [XFORM 203-603] Inlining function 'rx_frame' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/top.cpp:118).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_synthesis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:390).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_synthesis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:389).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_synthesis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:388).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_synthesis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:387).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_analysis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:229).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_analysis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:228).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_analysis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:227).
+INFO: [XFORM 203-603] Inlining function 'rq<13>' into 'lcwt_analysis' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:226).
+INFO: [XFORM 203-603] Inlining function 'lcwt_analysis' into 'LcwtMLP_RFFI_frame' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:722).
+INFO: [XFORM 203-603] Inlining function 'lcwt_synthesis' into 'LcwtMLP_RFFI_frame' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:723).
+INFO: [XFORM 203-603] Inlining function 'rq<16>' into 'patch_embed' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:461).
+INFO: [XFORM 203-603] Inlining function 'patch_embed' into 'LcwtMLP_RFFI_frame' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:732).
+INFO: [XFORM 203-603] Inlining function 'bitlen_u32' into 'layernorm' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:499).
+INFO: [XFORM 203-603] Inlining function 'isqrt_u32' into 'layernorm' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:526).
+INFO: [XFORM 203-603] Inlining function 'sat16' into 'head' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:676).
+INFO: [XFORM 203-603] Inlining function 'sat16' into 'fc1_gelu' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:582).
+INFO: [XFORM 203-603] Inlining function 'sat16' into 'layernorm' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:538).
+INFO: [XFORM 203-603] Inlining function 'layernorm' into 'LcwtMLP_RFFI_frame' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:735).
+INFO: [XFORM 203-603] Inlining function 'rq<14>' into 'fc1_gelu' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:577).
+INFO: [XFORM 203-603] Inlining function 'gelu_q8' into 'fc1_gelu' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:582).
+INFO: [XFORM 203-603] Inlining function 'fc1_gelu' into 'LcwtMLP_RFFI_frame' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:738).
+INFO: [XFORM 203-603] Inlining function 'rq<12>' into 'head' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:676).
+INFO: [XFORM 203-603] Inlining function 'rq<12>' into 'fc2_gap' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:632).
+INFO: [XFORM 203-603] Inlining function 'fc2_gap' into 'LcwtMLP_RFFI_frame' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:739).
+INFO: [XFORM 203-603] Inlining function 'head' into 'LcwtMLP_RFFI_frame' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:740).
+INFO: [XFORM 203-603] Inlining function 'LcwtMLP_RFFI_frame' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/top.cpp:119).
+INFO: [XFORM 203-603] Inlining function 'sat16o' into 'drain_frame' (LcwtMLP_RFFI/SRC/top.cpp:66).
+INFO: [XFORM 203-603] Inlining function 'sat16o' into 'drain_frame' (LcwtMLP_RFFI/SRC/top.cpp:65).
+INFO: [XFORM 203-603] Inlining function 'drain_frame' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/top.cpp:121).
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:36 ; elapsed = 00:00:51 . Memory (MB): peak = 148.172 ; gain = 63.180
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:36 ; elapsed = 00:00:51 . Memory (MB): peak = 161.891 ; gain = 76.898
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'AN_WLOAD' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:139) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'AN_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:185) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'SY_WLOAD' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:285) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'SY_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:329) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'PT_RE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:437) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'PT_IM' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:448) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'F1_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:564) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'F2_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:619) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'HD_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:663) in function 'LcwtMLP_RFFI' for pipelining.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.3.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:141) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.3.1.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:143) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'AN_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:176) in function 'LcwtMLP_RFFI' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.3.3.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:178) in function 'LcwtMLP_RFFI' completely with a factor of 8.
+INFO: [HLS 200-489] Unrolling loop 'AN_LANE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:188) in function 'LcwtMLP_RFFI' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'AN_SUM' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:213) in function 'LcwtMLP_RFFI' completely with a factor of 4.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.4.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:287) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.4.1.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:289) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'SY_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:320) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'Loop-1.4.3.1.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:322) in function 'LcwtMLP_RFFI' completely with a factor of 16.
+INFO: [HLS 200-489] Unrolling loop 'SY_LANE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:332) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'SY_SUM' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:375) in function 'LcwtMLP_RFFI' completely with a factor of 2.
+INFO: [HLS 200-489] Unrolling loop 'PT_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:431) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'PT_RE_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:441) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'PT_IM_MAC' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:452) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'PT_STORE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:459) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'PT_MAX' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:465) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'PT_WR' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:473) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'BL' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:86) in function 'LcwtMLP_RFFI' completely with a factor of 32.
+INFO: [HLS 200-489] Unrolling loop 'F1_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:558) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'F1_LANE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:568) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'F2_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:602) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'F2_BIAS' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:613) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'F2_LANE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:623) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'F2_EP' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:630) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'GAP_DIV' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:640) in function 'LcwtMLP_RFFI' completely with a factor of 38.
+INFO: [HLS 200-489] Unrolling loop 'HD_INIT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:657) in function 'LcwtMLP_RFFI' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'HD_LANE' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:667) in function 'LcwtMLP_RFFI' completely with a factor of 20.
+INFO: [HLS 200-489] Unrolling loop 'HD_EP' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:674) in function 'LcwtMLP_RFFI' completely with a factor of 20.
+INFO: [XFORM 203-102] Automatically partitioning small array 'HOFF' completely based on array size.
+WARNING: [XFORM 203-104] Completely partitioning array 'tokT.V' (LcwtMLP_RFFI/SRC/top.cpp:101) accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:747:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'tokT.V' (LcwtMLP_RFFI/SRC/top.cpp:101) in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'lnT'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:754:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'lnT'  in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'preT'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:755:13), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'preT'  in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'gelT'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:756:13), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'gelT'  in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'fc2T'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:757:13), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'fc2T'  in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'gap'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:763:2), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'gap'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'logits.V' (LcwtMLP_RFFI/SRC/top.cpp:113) in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'toks.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:700) accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:513:30), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'toks.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:700) in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'lns.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:702) accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:538:25), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'lns.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:702) in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'pres.i'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:578:13), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'pres.i'  in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'gels.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:706) accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:582:32), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'gels.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:706) in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'fc2s.i'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:757:13), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'fc2s.i'  in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'gps.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:710) accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:665:24), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'gps.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:710) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'war.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:127) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:150) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wi.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:150) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'ac.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:172) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wsr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:274) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wlr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:296) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'wli.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:296) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'whr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:296) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'whi.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:296) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'ac.V.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:316) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'PATCH_W.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:425) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'v.V.2' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:427) in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'NORM_W.V'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:536:30), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'NORM_W.V'  in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'NORM_B.V'  accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:536:30), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'NORM_B.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'FC1_W.V'  in dimension 1 completely.
+WARNING: [XFORM 203-104] Completely partitioning array 'acc.V.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:554) accessed through non-constant indices on dimension 1 (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:577:17), which may result in long runtime and suboptimal QoR due to large multiplexers. Please consider wrapping the array access into a function or using a register file core instead.
+INFO: [XFORM 203-101] Partitioning array 'acc.V.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:554) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'FC2_W.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'gsum.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:598) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V.2' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:609) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'HEAD_W.V'  in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'acc.V.3' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:653) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'HOFF' in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'war.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:127) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'ac.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:172) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'wsr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:274) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'ac.V.1' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:316) in dimension 2 completely.
+INFO: [XFORM 203-101] Partitioning array 'war.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:127) in dimension 3 completely.
+INFO: [XFORM 203-101] Partitioning array 'wsr.V' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:274) in dimension 3 completely.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:68:35) to (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:68:29) in function 'LcwtMLP_RFFI'... converting 4 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:96:6) to (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:582:32) in function 'LcwtMLP_RFFI'... converting 4 basic blocks.
+INFO: [XFORM 203-603] Inlining function 'aesl_mux_load.4i32P.i2' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:136->LcwtMLP_RFFI/SRC/pl_lcwt.cpp:722->LcwtMLP_RFFI/SRC/top.cpp:119).
+INFO: [XFORM 203-603] Inlining function 'aesl_mux_load.4i32P.i2' into 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:282->LcwtMLP_RFFI/SRC/pl_lcwt.cpp:723->LcwtMLP_RFFI/SRC/top.cpp:119).
+INFO: [XFORM 203-11] Balancing expressions in function 'LcwtMLP_RFFI' (LcwtMLP_RFFI/SRC/top.cpp:92)...40 expression(s) balanced.
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:43 ; elapsed = 00:00:59 . Memory (MB): peak = 225.926 ; gain = 140.934
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'AN_PT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:163:39) in function 'LcwtMLP_RFFI' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'AN_LV' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:131:43) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'SY_PT' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:313:38) in function 'LcwtMLP_RFFI' : 
+
+the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'SY_LV' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:278:48) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'PT_TOKEN' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:424:40) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'LN_TOKEN' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:498:40) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'F1_TOKEN' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:553:40) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'F2_TOKEN' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:608:40) in function 'LcwtMLP_RFFI' : 
+
+the outer loop is not a perfect loop.
+INFO: [XFORM 203-541] Flattening a loop nest 'CP_OUT_T' (LcwtMLP_RFFI/SRC/pl_lcwt.cpp:744:40) in function 'LcwtMLP_RFFI'.
+INFO: [XFORM 203-541] Flattening a loop nest 'DR_TOK' (LcwtMLP_RFFI/SRC/top.cpp:59:40) in function 'LcwtMLP_RFFI'.
+WARNING: [XFORM 203-542] Cannot flatten a loop nest 'FRAME' (LcwtMLP_RFFI/SRC/top.cpp:117:41) in function 'LcwtMLP_RFFI' : 
+
+more than one sub loop.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:50 ; elapsed = 00:01:06 . Memory (MB): peak = 272.633 ; gain = 187.641
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'LcwtMLP_RFFI' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'LcwtMLP_RFFI' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'RX'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'CP_IN'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'AN_WLOAD'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'AN_PRE'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'AN_MAC'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'SY_WLOAD'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'SY_PRE'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'SY_MAC'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-61] Pipelining loop 'PT_RE'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 5.
+INFO: [SCHED 204-61] Pipelining loop 'PT_IM'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 5.
+INFO: [SCHED 204-61] Pipelining loop 'LN_STAT'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'ISQ'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 2, Final II = 2, Depth = 2.
+INFO: [SCHED 204-61] Pipelining loop 'LN_APPLY'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 23.
+INFO: [SCHED 204-61] Pipelining loop 'F1_MAC'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'F1_EP'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 11.
+INFO: [SCHED 204-61] Pipelining loop 'F2_MAC'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'HD_MAC'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 8.
+INFO: [SCHED 204-61] Pipelining loop 'CP_OUT_T_L'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 4.
+INFO: [SCHED 204-61] Pipelining loop 'DR_TOK_L'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 6.
+INFO: [SCHED 204-61] Pipelining loop 'DR_LOG'.
+INFO: [SCHED 204-61] Pipelining result : Target II = 1, Final II = 1, Depth = 3.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 70.325 seconds; current allocated memory: 233.621 MB.
+INFO: [HLS 200-434] Only 20 loops out of a total 29 loops have been pipelined in this design.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 9.945 seconds; current allocated memory: 266.158 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'LcwtMLP_RFFI' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/din_V_V' to 'ap_fifo'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/dout_V_data_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/dout_V_keep_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/dout_V_strb_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on port 'LcwtMLP_RFFI/dout_V_last_V' to 'axis' (register, both mode).
+INFO: [RTGEN 206-500] Setting interface mode on function 'LcwtMLP_RFFI' to 'ap_ctrl_hs'.
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_LCWT_A_V' to 'LcwtMLP_RFFI_LCWTbkb' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_LCWT_S_V' to 'LcwtMLP_RFFI_LCWTcud' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_0' to 'LcwtMLP_RFFI_PATCdEe' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_1' to 'LcwtMLP_RFFI_PATCeOg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_2' to 'LcwtMLP_RFFI_PATCfYi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_3' to 'LcwtMLP_RFFI_PATCg8j' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_4' to 'LcwtMLP_RFFI_PATChbi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_5' to 'LcwtMLP_RFFI_PATCibs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_6' to 'LcwtMLP_RFFI_PATCjbC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_7' to 'LcwtMLP_RFFI_PATCkbM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_8' to 'LcwtMLP_RFFI_PATClbW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_9' to 'LcwtMLP_RFFI_PATCmb6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_10' to 'LcwtMLP_RFFI_PATCncg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_11' to 'LcwtMLP_RFFI_PATCocq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_12' to 'LcwtMLP_RFFI_PATCpcA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_13' to 'LcwtMLP_RFFI_PATCqcK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_14' to 'LcwtMLP_RFFI_PATCrcU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_15' to 'LcwtMLP_RFFI_PATCsc4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_16' to 'LcwtMLP_RFFI_PATCtde' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_17' to 'LcwtMLP_RFFI_PATCudo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_18' to 'LcwtMLP_RFFI_PATCvdy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_19' to 'LcwtMLP_RFFI_PATCwdI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_20' to 'LcwtMLP_RFFI_PATCxdS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_21' to 'LcwtMLP_RFFI_PATCyd2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_22' to 'LcwtMLP_RFFI_PATCzec' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_23' to 'LcwtMLP_RFFI_PATCAem' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_24' to 'LcwtMLP_RFFI_PATCBew' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_25' to 'LcwtMLP_RFFI_PATCCeG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_26' to 'LcwtMLP_RFFI_PATCDeQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_27' to 'LcwtMLP_RFFI_PATCEe0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_28' to 'LcwtMLP_RFFI_PATCFfa' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_29' to 'LcwtMLP_RFFI_PATCGfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_30' to 'LcwtMLP_RFFI_PATCHfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_31' to 'LcwtMLP_RFFI_PATCIfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_32' to 'LcwtMLP_RFFI_PATCJfO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_33' to 'LcwtMLP_RFFI_PATCKfY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_34' to 'LcwtMLP_RFFI_PATCLf8' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_35' to 'LcwtMLP_RFFI_PATCMgi' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_36' to 'LcwtMLP_RFFI_PATCNgs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_PATCH_W_V_37' to 'LcwtMLP_RFFI_PATCOgC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_0' to 'LcwtMLP_RFFI_FC1_PgM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_1' to 'LcwtMLP_RFFI_FC1_QgW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_2' to 'LcwtMLP_RFFI_FC1_Rg6' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_3' to 'LcwtMLP_RFFI_FC1_Shg' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_4' to 'LcwtMLP_RFFI_FC1_Thq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_5' to 'LcwtMLP_RFFI_FC1_UhA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_6' to 'LcwtMLP_RFFI_FC1_VhK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_7' to 'LcwtMLP_RFFI_FC1_WhU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_8' to 'LcwtMLP_RFFI_FC1_Xh4' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_9' to 'LcwtMLP_RFFI_FC1_Yie' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_10' to 'LcwtMLP_RFFI_FC1_Zio' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_11' to 'LcwtMLP_RFFI_FC1_0iy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_12' to 'LcwtMLP_RFFI_FC1_1iI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_13' to 'LcwtMLP_RFFI_FC1_2iS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_14' to 'LcwtMLP_RFFI_FC1_3i2' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_15' to 'LcwtMLP_RFFI_FC1_4jc' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_16' to 'LcwtMLP_RFFI_FC1_5jm' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_17' to 'LcwtMLP_RFFI_FC1_6jw' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_18' to 'LcwtMLP_RFFI_FC1_7jG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_19' to 'LcwtMLP_RFFI_FC1_8jQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_20' to 'LcwtMLP_RFFI_FC1_9j0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_21' to 'LcwtMLP_RFFI_FC1_bak' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_22' to 'LcwtMLP_RFFI_FC1_bbk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_23' to 'LcwtMLP_RFFI_FC1_bck' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_24' to 'LcwtMLP_RFFI_FC1_bdk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_25' to 'LcwtMLP_RFFI_FC1_bek' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_26' to 'LcwtMLP_RFFI_FC1_bfk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_27' to 'LcwtMLP_RFFI_FC1_bgk' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_28' to 'LcwtMLP_RFFI_FC1_bhl' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_29' to 'LcwtMLP_RFFI_FC1_bil' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_30' to 'LcwtMLP_RFFI_FC1_bjl' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_31' to 'LcwtMLP_RFFI_FC1_bkl' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_32' to 'LcwtMLP_RFFI_FC1_bll' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_33' to 'LcwtMLP_RFFI_FC1_bml' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_34' to 'LcwtMLP_RFFI_FC1_bnm' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_35' to 'LcwtMLP_RFFI_FC1_bom' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_36' to 'LcwtMLP_RFFI_FC1_bpm' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC1_W_V_37' to 'LcwtMLP_RFFI_FC1_bqm' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_GELU_LUT_V' to 'LcwtMLP_RFFI_GELUbrm' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_0' to 'LcwtMLP_RFFI_FC2_bsm' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_1' to 'LcwtMLP_RFFI_FC2_btn' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_2' to 'LcwtMLP_RFFI_FC2_bun' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_3' to 'LcwtMLP_RFFI_FC2_bvn' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_4' to 'LcwtMLP_RFFI_FC2_bwn' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_5' to 'LcwtMLP_RFFI_FC2_bxn' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_6' to 'LcwtMLP_RFFI_FC2_byn' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_7' to 'LcwtMLP_RFFI_FC2_bzo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_8' to 'LcwtMLP_RFFI_FC2_bAo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_9' to 'LcwtMLP_RFFI_FC2_bBo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_10' to 'LcwtMLP_RFFI_FC2_bCo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_11' to 'LcwtMLP_RFFI_FC2_bDo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_12' to 'LcwtMLP_RFFI_FC2_bEo' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_13' to 'LcwtMLP_RFFI_FC2_bFp' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_14' to 'LcwtMLP_RFFI_FC2_bGp' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_15' to 'LcwtMLP_RFFI_FC2_bHp' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_16' to 'LcwtMLP_RFFI_FC2_bIp' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_17' to 'LcwtMLP_RFFI_FC2_bJp' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_18' to 'LcwtMLP_RFFI_FC2_bKp' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_19' to 'LcwtMLP_RFFI_FC2_bLp' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_20' to 'LcwtMLP_RFFI_FC2_bMq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_21' to 'LcwtMLP_RFFI_FC2_bNq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_22' to 'LcwtMLP_RFFI_FC2_bOq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_23' to 'LcwtMLP_RFFI_FC2_bPq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_24' to 'LcwtMLP_RFFI_FC2_bQq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_25' to 'LcwtMLP_RFFI_FC2_bRq' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_26' to 'LcwtMLP_RFFI_FC2_bSr' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_27' to 'LcwtMLP_RFFI_FC2_bTr' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_28' to 'LcwtMLP_RFFI_FC2_bUr' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_29' to 'LcwtMLP_RFFI_FC2_bVr' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_30' to 'LcwtMLP_RFFI_FC2_bWr' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_31' to 'LcwtMLP_RFFI_FC2_bXr' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_32' to 'LcwtMLP_RFFI_FC2_bYs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_33' to 'LcwtMLP_RFFI_FC2_bZs' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_34' to 'LcwtMLP_RFFI_FC2_b0s' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_35' to 'LcwtMLP_RFFI_FC2_b1s' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_36' to 'LcwtMLP_RFFI_FC2_b2s' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_FC2_W_V_37' to 'LcwtMLP_RFFI_FC2_b3s' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_0' to 'LcwtMLP_RFFI_HEADb4t' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_1' to 'LcwtMLP_RFFI_HEADb5t' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_2' to 'LcwtMLP_RFFI_HEADb6t' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_3' to 'LcwtMLP_RFFI_HEADb7t' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_4' to 'LcwtMLP_RFFI_HEADb8t' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_5' to 'LcwtMLP_RFFI_HEADb9t' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_6' to 'LcwtMLP_RFFI_HEADcau' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_7' to 'LcwtMLP_RFFI_HEADcbu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_8' to 'LcwtMLP_RFFI_HEADccu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_9' to 'LcwtMLP_RFFI_HEADcdu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_10' to 'LcwtMLP_RFFI_HEADceu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_11' to 'LcwtMLP_RFFI_HEADcfu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_12' to 'LcwtMLP_RFFI_HEADcgu' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_13' to 'LcwtMLP_RFFI_HEADchv' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_14' to 'LcwtMLP_RFFI_HEADciv' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_15' to 'LcwtMLP_RFFI_HEADcjv' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_16' to 'LcwtMLP_RFFI_HEADckv' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_17' to 'LcwtMLP_RFFI_HEADclv' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_18' to 'LcwtMLP_RFFI_HEADcmv' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_HEAD_W_V_19' to 'LcwtMLP_RFFI_HEADcnw' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_0_V' to 'LcwtMLP_RFFI_tokscow' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_1_V' to 'LcwtMLP_RFFI_tokscpw' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_2_V' to 'LcwtMLP_RFFI_tokscqw' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_3_V' to 'LcwtMLP_RFFI_tokscrw' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_4_V' to 'LcwtMLP_RFFI_tokscsw' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_5_V' to 'LcwtMLP_RFFI_toksctx' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_6_V' to 'LcwtMLP_RFFI_tokscux' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_7_V' to 'LcwtMLP_RFFI_tokscvx' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_8_V' to 'LcwtMLP_RFFI_tokscwx' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_9_V' to 'LcwtMLP_RFFI_tokscxx' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_10_V' to 'LcwtMLP_RFFI_tokscyx' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_11_V' to 'LcwtMLP_RFFI_toksczy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_12_V' to 'LcwtMLP_RFFI_tokscAy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_13_V' to 'LcwtMLP_RFFI_tokscBy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_14_V' to 'LcwtMLP_RFFI_tokscCy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_15_V' to 'LcwtMLP_RFFI_tokscDy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_16_V' to 'LcwtMLP_RFFI_tokscEy' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_17_V' to 'LcwtMLP_RFFI_tokscFz' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_18_V' to 'LcwtMLP_RFFI_tokscGz' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_19_V' to 'LcwtMLP_RFFI_tokscHz' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_20_V' to 'LcwtMLP_RFFI_tokscIz' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_21_V' to 'LcwtMLP_RFFI_tokscJz' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_22_V' to 'LcwtMLP_RFFI_tokscKz' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_23_V' to 'LcwtMLP_RFFI_tokscLz' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_24_V' to 'LcwtMLP_RFFI_tokscMA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_25_V' to 'LcwtMLP_RFFI_tokscNA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_26_V' to 'LcwtMLP_RFFI_tokscOA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_27_V' to 'LcwtMLP_RFFI_tokscPA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_28_V' to 'LcwtMLP_RFFI_tokscQA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_29_V' to 'LcwtMLP_RFFI_tokscRA' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_30_V' to 'LcwtMLP_RFFI_tokscSB' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_31_V' to 'LcwtMLP_RFFI_tokscTB' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_32_V' to 'LcwtMLP_RFFI_tokscUB' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_33_V' to 'LcwtMLP_RFFI_tokscVB' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_34_V' to 'LcwtMLP_RFFI_tokscWB' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_35_V' to 'LcwtMLP_RFFI_tokscXB' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_36_V' to 'LcwtMLP_RFFI_tokscYC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_toks_37_V' to 'LcwtMLP_RFFI_tokscZC' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_0_V' to 'LcwtMLP_RFFI_lns_c0C' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_1_V' to 'LcwtMLP_RFFI_lns_c1C' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_2_V' to 'LcwtMLP_RFFI_lns_c2C' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_3_V' to 'LcwtMLP_RFFI_lns_c3C' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_4_V' to 'LcwtMLP_RFFI_lns_c4D' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_5_V' to 'LcwtMLP_RFFI_lns_c5D' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_6_V' to 'LcwtMLP_RFFI_lns_c6D' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_7_V' to 'LcwtMLP_RFFI_lns_c7D' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_8_V' to 'LcwtMLP_RFFI_lns_c8D' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_9_V' to 'LcwtMLP_RFFI_lns_c9D' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_10_V' to 'LcwtMLP_RFFI_lns_daE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_11_V' to 'LcwtMLP_RFFI_lns_dbE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_12_V' to 'LcwtMLP_RFFI_lns_dcE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_13_V' to 'LcwtMLP_RFFI_lns_ddE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_14_V' to 'LcwtMLP_RFFI_lns_deE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_15_V' to 'LcwtMLP_RFFI_lns_dfE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_16_V' to 'LcwtMLP_RFFI_lns_dgE' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_17_V' to 'LcwtMLP_RFFI_lns_dhF' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_18_V' to 'LcwtMLP_RFFI_lns_diF' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_19_V' to 'LcwtMLP_RFFI_lns_djF' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_20_V' to 'LcwtMLP_RFFI_lns_dkF' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_21_V' to 'LcwtMLP_RFFI_lns_dlF' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_22_V' to 'LcwtMLP_RFFI_lns_dmF' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_23_V' to 'LcwtMLP_RFFI_lns_dnG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_24_V' to 'LcwtMLP_RFFI_lns_doG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_25_V' to 'LcwtMLP_RFFI_lns_dpG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_26_V' to 'LcwtMLP_RFFI_lns_dqG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_27_V' to 'LcwtMLP_RFFI_lns_drG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_28_V' to 'LcwtMLP_RFFI_lns_dsG' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_29_V' to 'LcwtMLP_RFFI_lns_dtH' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_30_V' to 'LcwtMLP_RFFI_lns_duH' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_31_V' to 'LcwtMLP_RFFI_lns_dvH' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_32_V' to 'LcwtMLP_RFFI_lns_dwH' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_33_V' to 'LcwtMLP_RFFI_lns_dxH' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_34_V' to 'LcwtMLP_RFFI_lns_dyH' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_35_V' to 'LcwtMLP_RFFI_lns_dzI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_36_V' to 'LcwtMLP_RFFI_lns_dAI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_lns_37_V' to 'LcwtMLP_RFFI_lns_dBI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_0_V' to 'LcwtMLP_RFFI_gelsdCI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_1_V' to 'LcwtMLP_RFFI_gelsdDI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_2_V' to 'LcwtMLP_RFFI_gelsdEI' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_3_V' to 'LcwtMLP_RFFI_gelsdFJ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_4_V' to 'LcwtMLP_RFFI_gelsdGJ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_5_V' to 'LcwtMLP_RFFI_gelsdHJ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_6_V' to 'LcwtMLP_RFFI_gelsdIJ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_7_V' to 'LcwtMLP_RFFI_gelsdJJ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_8_V' to 'LcwtMLP_RFFI_gelsdKJ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_9_V' to 'LcwtMLP_RFFI_gelsdLJ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_10_V' to 'LcwtMLP_RFFI_gelsdMK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_11_V' to 'LcwtMLP_RFFI_gelsdNK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_12_V' to 'LcwtMLP_RFFI_gelsdOK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_13_V' to 'LcwtMLP_RFFI_gelsdPK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_14_V' to 'LcwtMLP_RFFI_gelsdQK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_15_V' to 'LcwtMLP_RFFI_gelsdRK' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_16_V' to 'LcwtMLP_RFFI_gelsdSL' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_17_V' to 'LcwtMLP_RFFI_gelsdTL' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_18_V' to 'LcwtMLP_RFFI_gelsdUL' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_19_V' to 'LcwtMLP_RFFI_gelsdVL' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_20_V' to 'LcwtMLP_RFFI_gelsdWL' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_21_V' to 'LcwtMLP_RFFI_gelsdXL' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_22_V' to 'LcwtMLP_RFFI_gelsdYM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_23_V' to 'LcwtMLP_RFFI_gelsdZM' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_24_V' to 'LcwtMLP_RFFI_gelsd0M' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_25_V' to 'LcwtMLP_RFFI_gelsd1M' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_26_V' to 'LcwtMLP_RFFI_gelsd2M' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_27_V' to 'LcwtMLP_RFFI_gelsd3M' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_28_V' to 'LcwtMLP_RFFI_gelsd4N' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_29_V' to 'LcwtMLP_RFFI_gelsd5N' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_30_V' to 'LcwtMLP_RFFI_gelsd6N' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_31_V' to 'LcwtMLP_RFFI_gelsd7N' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_32_V' to 'LcwtMLP_RFFI_gelsd8N' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_33_V' to 'LcwtMLP_RFFI_gelsd9N' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_34_V' to 'LcwtMLP_RFFI_gelseaO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_35_V' to 'LcwtMLP_RFFI_gelsebO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_36_V' to 'LcwtMLP_RFFI_gelsecO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_gels_37_V' to 'LcwtMLP_RFFI_gelsedO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_0_V' to 'LcwtMLP_RFFI_tokTeeO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_1_V' to 'LcwtMLP_RFFI_tokTefO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_2_V' to 'LcwtMLP_RFFI_tokTegO' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_3_V' to 'LcwtMLP_RFFI_tokTehP' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_4_V' to 'LcwtMLP_RFFI_tokTeiP' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_5_V' to 'LcwtMLP_RFFI_tokTejP' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_6_V' to 'LcwtMLP_RFFI_tokTekP' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_7_V' to 'LcwtMLP_RFFI_tokTelP' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_8_V' to 'LcwtMLP_RFFI_tokTemP' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_9_V' to 'LcwtMLP_RFFI_tokTenQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_10_V' to 'LcwtMLP_RFFI_tokTeoQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_11_V' to 'LcwtMLP_RFFI_tokTepQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_12_V' to 'LcwtMLP_RFFI_tokTeqQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_13_V' to 'LcwtMLP_RFFI_tokTerQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_14_V' to 'LcwtMLP_RFFI_tokTesQ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_15_V' to 'LcwtMLP_RFFI_tokTetR' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_16_V' to 'LcwtMLP_RFFI_tokTeuR' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_17_V' to 'LcwtMLP_RFFI_tokTevR' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_18_V' to 'LcwtMLP_RFFI_tokTewR' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_19_V' to 'LcwtMLP_RFFI_tokTexR' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_20_V' to 'LcwtMLP_RFFI_tokTeyR' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_21_V' to 'LcwtMLP_RFFI_tokTezS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_22_V' to 'LcwtMLP_RFFI_tokTeAS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_23_V' to 'LcwtMLP_RFFI_tokTeBS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_24_V' to 'LcwtMLP_RFFI_tokTeCS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_25_V' to 'LcwtMLP_RFFI_tokTeDS' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_26_V' to 'LcwtMLP_RFFI_tokTeES' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_27_V' to 'LcwtMLP_RFFI_tokTeFT' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_28_V' to 'LcwtMLP_RFFI_tokTeGT' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_29_V' to 'LcwtMLP_RFFI_tokTeHT' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_30_V' to 'LcwtMLP_RFFI_tokTeIT' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_31_V' to 'LcwtMLP_RFFI_tokTeJT' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_32_V' to 'LcwtMLP_RFFI_tokTeKT' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_33_V' to 'LcwtMLP_RFFI_tokTeLT' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_34_V' to 'LcwtMLP_RFFI_tokTeMU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_35_V' to 'LcwtMLP_RFFI_tokTeNU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_36_V' to 'LcwtMLP_RFFI_tokTeOU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_tokT_37_V' to 'LcwtMLP_RFFI_tokTePU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_42_32_1_1' to 'LcwtMLP_RFFI_mux_eQU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_164_16_1_1' to 'LcwtMLP_RFFI_mux_eRU' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_164_25_1_1' to 'LcwtMLP_RFFI_mux_eSV' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_42_16_1_1' to 'LcwtMLP_RFFI_mux_eTV' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_42_25_1_1' to 'LcwtMLP_RFFI_mux_eUV' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_83_25_1_1' to 'LcwtMLP_RFFI_mux_eVV' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_386_32_1_1' to 'LcwtMLP_RFFI_mux_eWV' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_29s_7ns_35_5_1' to 'LcwtMLP_RFFI_mul_eXV' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_40s_42ns_81_6_1' to 'LcwtMLP_RFFI_mul_eYW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_udiv_24ns_32ns_32_28_seq_1' to 'LcwtMLP_RFFI_udiveZW' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_32s_32ns_64_5_1' to 'LcwtMLP_RFFI_mul_e0W' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_add_129ns_129ns_129_2_1' to 'LcwtMLP_RFFI_add_e1W' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_386_16_1_1' to 'LcwtMLP_RFFI_mux_e2W' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_64s_16ns_80_9_1' to 'LcwtMLP_RFFI_mul_e3W' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_386_44_1_1' to 'LcwtMLP_RFFI_mux_e4X' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_13s_2ns_15_2_1' to 'LcwtMLP_RFFI_mul_e5X' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_32s_13s_44_5_1' to 'LcwtMLP_RFFI_mul_e6X' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_32s_14s_44_5_1' to 'LcwtMLP_RFFI_mul_e7X' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_32s_15s_44_5_1' to 'LcwtMLP_RFFI_mul_e8X' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_325_32_1_1' to 'LcwtMLP_RFFI_mux_e9X' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mux_325_16_1_1' to 'LcwtMLP_RFFI_mux_faY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_25s_16s_43ns_43_3_1' to 'LcwtMLP_RFFI_mac_fbY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_14s_25s_42s_42_3_1' to 'LcwtMLP_RFFI_mac_fcY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_15s_25s_43s_43_3_1' to 'LcwtMLP_RFFI_mac_fdY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_16s_25s_44ns_44_3_1' to 'LcwtMLP_RFFI_mac_feY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_14s_25s_43ns_43_3_1' to 'LcwtMLP_RFFI_mac_ffY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_15s_25s_44ns_44_3_1' to 'LcwtMLP_RFFI_mac_fgY' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_16s_25s_44s_44_3_1' to 'LcwtMLP_RFFI_mac_fhZ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_13s_13s_29s_29_3_1' to 'LcwtMLP_RFFI_mac_fiZ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_mulsub_18s_18s_35s_36_3_1' to 'LcwtMLP_RFFI_mac_fjZ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mul_mul_19s_21ns_40_3_1' to 'LcwtMLP_RFFI_mul_fkZ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_13s_16s_34s_34_3_1' to 'LcwtMLP_RFFI_mac_flZ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_14s_16s_34s_34_3_1' to 'LcwtMLP_RFFI_mac_fmZ' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_13s_16s_33s_33_3_1' to 'LcwtMLP_RFFI_mac_fn0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_ama_submuladd_3ns_2ns_13ns_15ns_16_3_1' to 'LcwtMLP_RFFI_ama_fo0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_13s_16s_34ns_34_3_1' to 'LcwtMLP_RFFI_mac_fp0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_14s_16s_34ns_34_3_1' to 'LcwtMLP_RFFI_mac_fq0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_13s_16s_33ns_33_3_1' to 'LcwtMLP_RFFI_mac_fr0' due to the length limit 20
+INFO: [SYN 201-210] Renamed object name 'LcwtMLP_RFFI_mac_muladd_14s_16s_35ns_35_3_1' to 'LcwtMLP_RFFI_mac_fs0' due to the length limit 20
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_add_e1W': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_ama_fo0': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fbY': 64 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fcY': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fdY': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_feY': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_ffY': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fgY': 21 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fhZ': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fiZ': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fjZ': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_flZ': 9 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fmZ': 16 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fn0': 13 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fp0': 3 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fq0': 32 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fr0': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mac_fs0': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_e0W': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_e3W': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_e5X': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_e6X': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_e7X': 11 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_e8X': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_eXV': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_eYW': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mul_fkZ': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_e2W': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_e4X': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_e9X': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_eQU': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_eRU': 18 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_eSV': 2 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_eTV': 12 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_eUV': 6 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_eVV': 8 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_eWV': 4 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_mux_faY': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'LcwtMLP_RFFI_udiveZW': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'LcwtMLP_RFFI'.
+INFO: [HLS 200-111]  Elapsed time: 23.329 seconds; current allocated memory: 304.122 MB.
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_mul_eXV_MulnS_0'
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_mul_eYW_MulnS_1'
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_udiveZW_div'
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_mul_e0W_MulnS_2'
+INFO: [RTMG 210-283] Generating pipelined adder/subtractor : 'LcwtMLP_RFFI_add_e1W_AddSubnS_0'
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_mul_e3W_MulnS_3'
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_mul_e5X_MulnS_4'
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_mul_e6X_MulnS_5'
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_mul_e7X_MulnS_6'
+INFO: [RTMG 210-282] Generating pipelined core: 'LcwtMLP_RFFI_mul_e8X_MulnS_7'
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_LOFF_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_LCWTbkb_rom' using block ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_LCWTcud_rom' using block ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCdEe_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCeOg_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCfYi_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCg8j_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATChbi_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCibs_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCjbC_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCkbM_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATClbW_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCmb6_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCncg_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCocq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCpcA_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCqcK_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCrcU_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCsc4_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCtde_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCudo_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCvdy_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCwdI_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCxdS_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCyd2_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCzec_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCAem_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCBew_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCCeG_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCDeQ_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCEe0_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCFfa_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCGfk_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCHfu_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCIfE_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCJfO_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCKfY_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCLf8_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCMgi_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCNgs_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_PATCOgC_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_PgM_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_QgW_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_Rg6_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_Shg_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_Thq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_UhA_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_VhK_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_WhU_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_Xh4_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_Yie_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_Zio_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_0iy_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_1iI_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_2iS_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_3i2_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_4jc_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_5jm_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_6jw_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_7jG_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_8jQ_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_9j0_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bak_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bbk_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bck_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bdk_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bek_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bfk_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bgk_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bhl_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bil_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bjl_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bkl_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bll_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bml_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bnm_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bom_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bpm_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC1_bqm_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_GELUbrm_rom' using auto ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bsm_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_btn_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bun_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bvn_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bwn_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bxn_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_byn_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bzo_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bAo_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bBo_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bCo_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bDo_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bEo_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bFp_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bGp_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bHp_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bIp_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bJp_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bKp_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bLp_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bMq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bNq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bOq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bPq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bQq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bRq_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bSr_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bTr_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bUr_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bVr_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bWr_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bXr_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bYs_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_bZs_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_b0s_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_b1s_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_b2s_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_FC2_b3s_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADb4t_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADb5t_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADb6t_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADb7t_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADb8t_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADb9t_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADcau_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADcbu_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADccu_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADcdu_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADceu_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADcfu_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADcgu_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADchv_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADciv_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADcjv_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADckv_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADclv_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADcmv_rom' using distributed ROMs.
+INFO: [RTMG 210-279] Implementing memory 'LcwtMLP_RFFI_HEADcnw_rom' using distributed ROMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_lr_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_hr_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_am_V_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_tokscow_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_tokscqw_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_tokscLz_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_lns_c0C_ram (RAM)' using distributed RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_xr0_V_ram (RAM)' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'LcwtMLP_RFFI_tokTeeO_ram (RAM)' using distributed RAMs.
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:01:41 ; elapsed = 00:02:16 . Memory (MB): peak = 497.027 ; gain = 412.035
+INFO: [SYSC 207-301] Generating SystemC RTL for LcwtMLP_RFFI.
+INFO: [VHDL 208-304] Generating VHDL RTL for LcwtMLP_RFFI.
+INFO: [VLOG 209-307] Generating Verilog RTL for LcwtMLP_RFFI.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+bad lexical cast: source type value could not be interpreted as target
+    while executing
+"rdi::set_property core_revision 2610200009 {component component_1}"
+    invoked from within
+"set_property core_revision $Revision $core"
+    (file "run_ippack.tcl" line 1009)
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 00:09:10 2026...
+ERROR: [IMPL 213-28] Failed to generate IP.
+command 'ap_source' returned error code
+    while executing
+"source [lindex $::argv 1] "
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel \#0 { source [lindex $::argv 1] } "
+
+INFO: [HLS 200-112] Total elapsed time: 145.04 seconds; peak allocated memory: 304.122 MB.
+INFO: [Common 17-206] Exiting vivado_hls at Tue Oct 20 00:09:10 2026...

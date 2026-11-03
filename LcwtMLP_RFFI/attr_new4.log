@@ -1,0 +1,90 @@
+
+****** Vivado v2018.3 (64-bit)
+  **** SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+  **** IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source attr_lut.tcl -notrace
+Command: open_checkpoint D:/FPGA/FPGA/FPAI_PL/HLS/LcwtMLP_RFFI/proj_csynth/sol_csynth/ooc_rpt/post_synth.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.031 . Memory (MB): peak = 250.398 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2787 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 1286.914 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2018.3 (64-bit) build 2405991
+open_checkpoint: Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 1286.914 ; gain = 1036.516
+TOTAL LUT cells = 15667
+  51 tokT_V_U/LcwtMLP_RFFI_tokT_V_ram_U/ram_reg
+  51 neg_mul_reg_31282[51]
+  49 LcwtMLP_RFFI_mul_cyx_U53/LcwtMLP_RFFI_mul_cyx_MulnS_2_U/tmp_product_
+  48 LcwtMLP_RFFI_udivcxx_U52/LcwtMLP_RFFI_udivcxx_div_U/LcwtMLP_RFFI_udivcxx_div_u_0/cal_tmp_carry_
+  36 LcwtMLP_RFFI_mul_cyx_U53/LcwtMLP_RFFI_mul_cyx_MulnS_2_U/tmp_product
+  36 tmp_222_reg_31310[0]
+  36 LcwtMLP_RFFI_mul_cyx_U53/LcwtMLP_RFFI_mul_cyx_MulnS_2_U/p_0271_0_i_i_reg_10817_reg
+  34 LcwtMLP_RFFI_mac_cXB_U301/LcwtMLP_RFFI_mac_cXB_DSP48_15_U/p
+  33 p_0620_0_i_i_reg_10782[31]
+  32 neg_ti1_reg_31277[3]
+  30 li_V_U/LcwtMLP_RFFI_lr_V_ram_U/ram_reg
+  27 tmp_172_reg_32342[0]
+  25 LcwtMLP_RFFI_mux_csw_U23/ac_V_6_3_reg_7392_reg
+  25 LcwtMLP_RFFI_mux_ctx_U34/ac_V_1_5_reg_9743_reg
+  25 LcwtMLP_RFFI_mux_ctx_U33/ac_V_1_4_reg_9767_reg
+  25 LcwtMLP_RFFI_mux_ctx_U47/ac_V_1_6_1_reg_9707_reg
+  25 LcwtMLP_RFFI_mux_csw_U11/ac_V_6_1_reg_7416_reg
+  25 LcwtMLP_RFFI_mux_cqw_U5/ac_V_6_reg_7428_reg
+  25 LcwtMLP_RFFI_mux_ctx_U45/ac_V_1_4_1_reg_9755_reg
+  25 LcwtMLP_RFFI_mux_ctx_U48/ac_V_1_7_1_reg_9683_reg
+  25 LcwtMLP_RFFI_mux_csw_U12/ac_V_7_1_reg_7368_reg
+  25 LcwtMLP_RFFI_mux_csw_U17/ac_V_6_2_reg_7404_reg
+  25 LcwtMLP_RFFI_mux_ctx_U35/ac_V_1_6_reg_9719_reg
+  25 LcwtMLP_RFFI_mux_cqw_U6/ac_V_7_reg_7380_reg
+  25 LcwtMLP_RFFI_mux_csw_U18/ac_V_7_2_reg_7356_reg
+  25 LcwtMLP_RFFI_mux_csw_U24/ac_V_7_3_reg_7344_reg
+  25 LcwtMLP_RFFI_mux_ctx_U36/ac_V_1_7_reg_9695_reg
+  25 LcwtMLP_RFFI_mux_ctx_U46/ac_V_1_5_1_reg_9731_reg
+  22 ap_CS_fsm[0]
+  21 LcwtMLP_RFFI_mac_cQA_U223/LcwtMLP_RFFI_mac_cQA_DSP48_8_U/tmp_202_reg_31236[0]
+  21 tmp_268_reg_31450[15]
+  20 tmp_193_reg_32417[15]
+  20 ap_CS_fsm[101]
+  20 icmp1_reg_32336[0]
+  19 logits_19_V_reg_34917[15]
+  19 logits_14_V_reg_34870[15]
+  19 logits_5_V_reg_34825[15]
+  19 logits_4_V_reg_34820[15]
+  19 logits_17_V_reg_34885[15]
+  19 logits_16_V_reg_34880[15]
+  19 logits_7_V_reg_34835[15]
+  19 logits_6_V_reg_34830[15]
+  19 logits_11_V_reg_34855[15]
+  19 logits_18_V_reg_34890[15]
+  19 logits_9_V_reg_34845[15]
+  19 logits_10_V_reg_34850[15]
+  19 logits_1_V_reg_34805[15]
+  19 logits_8_V_reg_34840[15]
+  19 logits_0_V_reg_34800[15]
+  19 logits_13_V_reg_34865[15]
+  19 logits_12_V_reg_34860[15]
+  19 logits_3_V_reg_34815[15]
+  19 logits_2_V_reg_34810[15]
+  19 logits_15_V_reg_34875[15]
+  18 icmp54_reg_31445[0]
+  18 icmp2_reg_32407[0]
+  18 dout_V_data_V_1_payload_A[31]
+  17 icmp9_reg_34730[0]
+  17 icmp17_reg_34770[0]
+  17 icmp4_reg_34705[0]
+  17 icmp22_reg_34795[0]
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 17:13:16 2026...

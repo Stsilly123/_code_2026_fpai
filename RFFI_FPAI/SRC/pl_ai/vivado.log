@@ -1,0 +1,923 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Tue Oct 20 13:53:57 2026
+# Process ID: 2188
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai
+# Command line: vivado.exe -mode batch -nojournal -notrace -source C:/Users/Administrator/AppData/Local/Temp/eq_synth.tcl
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/vivado.log
+# Journal file: 
+#-----------------------------------------------------------
+source C:/Users/Administrator/AppData/Local/Temp/eq_synth.tcl -notrace
+Command: synth_design -top lstf_eq -part xc7z030ffg676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z030'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z030'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10524 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 364.387 ; gain = 104.570
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'lstf_eq' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:31]
+	Parameter SX bound to: 13 - type: integer 
+	Parameter QTW bound to: 17 - type: integer 
+	Parameter HTG bound to: 23 - type: integer 
+	Parameter GATE_K bound to: 64'b0000000000000000000000000000000000000000000000001011010000000000 
+	Parameter NFR bound to: 256 - type: integer 
+	Parameter ST_IDLE bound to: 5'b00000 
+	Parameter ST_ET bound to: 5'b00001 
+	Parameter ST_R1 bound to: 5'b00010 
+	Parameter ST_ATAN bound to: 5'b00011 
+	Parameter ST_ROT bound to: 5'b00100 
+	Parameter ST_PB bound to: 5'b00101 
+	Parameter ST_DFT bound to: 5'b00110 
+	Parameter ST_GATE bound to: 5'b00111 
+	Parameter ST_LS bound to: 5'b01000 
+	Parameter ST_NORM bound to: 5'b01001 
+	Parameter ST_INTERP bound to: 5'b01010 
+	Parameter ST_PW bound to: 5'b01011 
+	Parameter ST_RECIP bound to: 5'b01100 
+	Parameter ST_IDFT bound to: 5'b01101 
+	Parameter ST_FIR bound to: 5'b01110 
+	Parameter ST_BYP bound to: 5'b01111 
+	Parameter ST_NEXT bound to: 5'b10000 
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:989]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1104]
+INFO: [Synth 8-226] default block is never used [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:748]
+WARNING: [Synth 8-5788] Register ofifo_reg in module lstf_eq is has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code 
+WARNING: [Synth 8-4767] Trying to implement RAM 'ofifo_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "ofifo_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'lstf_eq' (1#1) [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:31]
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[3] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[2] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[1] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[0] driven by constant 1
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 521.129 ; gain = 261.312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 521.129 ; gain = 261.312
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z030ffg676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 521.129 ; gain = 261.312
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Synth 8-4471] merging register 'h20_re_reg[1][24:0]' into 'h20_re_reg[0][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1149]
+INFO: [Synth 8-4471] merging register 'h20_re_reg[2][24:0]' into 'h20_re_reg[0][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1149]
+INFO: [Synth 8-4471] merging register 'h20_re_reg[3][24:0]' into 'h20_re_reg[0][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1149]
+INFO: [Synth 8-4471] merging register 'h20_re_reg[4][24:0]' into 'h20_re_reg[0][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1149]
+INFO: [Synth 8-4471] merging register 'h20_re_reg[17][24:0]' into 'h20_re_reg[16][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1149]
+INFO: [Synth 8-4471] merging register 'h20_re_reg[18][24:0]' into 'h20_re_reg[16][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1149]
+INFO: [Synth 8-4471] merging register 'h20_re_reg[19][24:0]' into 'h20_re_reg[16][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1149]
+INFO: [Synth 8-4471] merging register 'h20_im_reg[1][24:0]' into 'h20_im_reg[0][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1150]
+INFO: [Synth 8-4471] merging register 'h20_im_reg[2][24:0]' into 'h20_im_reg[0][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1150]
+INFO: [Synth 8-4471] merging register 'h20_im_reg[3][24:0]' into 'h20_im_reg[0][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1150]
+INFO: [Synth 8-4471] merging register 'h20_im_reg[4][24:0]' into 'h20_im_reg[0][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1150]
+INFO: [Synth 8-4471] merging register 'h20_im_reg[17][24:0]' into 'h20_im_reg[16][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1150]
+INFO: [Synth 8-4471] merging register 'h20_im_reg[18][24:0]' into 'h20_im_reg[16][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1150]
+INFO: [Synth 8-4471] merging register 'h20_im_reg[19][24:0]' into 'h20_im_reg[16][24:0]' [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1150]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1403]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1947]
+INFO: [Synth 8-5546] ROM "pb_re" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "pb_re_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "pb_re_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[10]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "accbin_re_reg[11]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[0]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[1]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[2]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[3]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[4]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[5]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[6]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[7]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[8]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[9]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[10]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "hri_reg[11]" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "pl_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pl_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "w_re_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[0]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[1]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[2]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[3]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[4]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[5]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[6]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[7]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[8]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[9]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[10]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[11]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[12]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[13]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[14]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[15]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[16]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[17]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[18]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "taps_re_reg[19]" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "iss_addr1" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "iss" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "iss" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "iss_b_sel" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "iss_rom_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "clr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "clr" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "clr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "scan_start" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "scan_start" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "scan_start" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "scan_i" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "scan_msb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "state" won't be mapped to RAM because address size (49) is larger than maximum supported(25)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "cyc" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rn" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rq" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "rq" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "it" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "rsub" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "nsub" won't be mapped to RAM because address size (49) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "pbp" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "db" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "dp" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "pk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "im" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rk" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "fn" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "bn" won't be mapped to RAM because address size (49) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "xr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "rr" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "xc" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "lstf_sign" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1152]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 2 [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1151]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 694.898 ; gain = 435.082
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |lstf_eq__GB0  |           1|     21100|
+|2     |lstf_eq__GB1  |           1|     12734|
+|3     |lstf_eq__GB2  |           1|      9788|
+|4     |lstf_eq__GB3  |           1|     21543|
+|5     |lstf_eq__GB4  |           1|     31617|
+|6     |lstf_eq__GB5  |           1|      9291|
++------+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     56 Bit       Adders := 18    
+	   2 Input     51 Bit       Adders := 1     
+	   2 Input     49 Bit       Adders := 5     
+	   3 Input     49 Bit       Adders := 1     
+	   2 Input     48 Bit       Adders := 2     
+	   2 Input     26 Bit       Adders := 6     
+	   3 Input     26 Bit       Adders := 2     
+	   2 Input     23 Bit       Adders := 1     
+	   3 Input     23 Bit       Adders := 1     
+	   2 Input     18 Bit       Adders := 2     
+	   4 Input     11 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   4 Input     10 Bit       Adders := 1     
+	   3 Input      9 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 6     
+	   2 Input      8 Bit       Adders := 4     
+	   2 Input      7 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 5     
+	   2 Input      5 Bit       Adders := 5     
+	   2 Input      4 Bit       Adders := 4     
+	   2 Input      3 Bit       Adders := 4     
++---Registers : 
+	               56 Bit    Registers := 27    
+	               49 Bit    Registers := 25    
+	               48 Bit    Registers := 24    
+	               44 Bit    Registers := 2     
+	               36 Bit    Registers := 2     
+	               34 Bit    Registers := 513   
+	               32 Bit    Registers := 1     
+	               26 Bit    Registers := 2     
+	               25 Bit    Registers := 136   
+	               23 Bit    Registers := 3     
+	               18 Bit    Registers := 28    
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 4     
+	                6 Bit    Registers := 5     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 4     
+	                3 Bit    Registers := 6     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 15    
++---Multipliers : 
+	                13x56  Multipliers := 1     
+	                16x56  Multipliers := 1     
+	                 4x56  Multipliers := 1     
++---RAMs : 
+	              64K Bit         RAMs := 1     
++---ROMs : 
+	                              ROMs := 2     
++---Muxes : 
+	   2 Input     56 Bit        Muxes := 12    
+	   4 Input     56 Bit        Muxes := 1     
+	  18 Input     56 Bit        Muxes := 2     
+	   2 Input     49 Bit        Muxes := 11    
+	  18 Input     49 Bit        Muxes := 1     
+	  18 Input     48 Bit        Muxes := 2     
+	   2 Input     36 Bit        Muxes := 1     
+	   2 Input     34 Bit        Muxes := 1     
+	   4 Input     26 Bit        Muxes := 2     
+	   2 Input     26 Bit        Muxes := 8     
+	   2 Input     25 Bit        Muxes := 28    
+	  11 Input     25 Bit        Muxes := 2     
+	   4 Input     23 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 4     
+	   2 Input     19 Bit        Muxes := 2     
+	   2 Input     18 Bit        Muxes := 17    
+	   4 Input     18 Bit        Muxes := 1     
+	  18 Input     18 Bit        Muxes := 2     
+	  11 Input     18 Bit        Muxes := 2     
+	   3 Input     18 Bit        Muxes := 1     
+	   6 Input     18 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 4     
+	   2 Input     11 Bit        Muxes := 3     
+	  11 Input     11 Bit        Muxes := 2     
+	   2 Input      9 Bit        Muxes := 9     
+	  11 Input      9 Bit        Muxes := 2     
+	  18 Input      9 Bit        Muxes := 2     
+	   4 Input      9 Bit        Muxes := 1     
+	  18 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 3     
+	   4 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	  18 Input      5 Bit        Muxes := 3     
+	  18 Input      4 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 2     
+	  18 Input      3 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 1     
+	  21 Input      2 Bit        Muxes := 1     
+	  11 Input      2 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   3 Input      2 Bit        Muxes := 1     
+	  20 Input      1 Bit        Muxes := 19    
+	   2 Input      1 Bit        Muxes := 592   
+	  23 Input      1 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 4     
+	  18 Input      1 Bit        Muxes := 60    
+	   4 Input      1 Bit        Muxes := 25    
+	   6 Input      1 Bit        Muxes := 8     
+	  19 Input      1 Bit        Muxes := 19    
+	  24 Input      1 Bit        Muxes := 20    
+	   3 Input      1 Bit        Muxes := 17    
+	  21 Input      1 Bit        Muxes := 9     
+	   7 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module lstf_eq 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     56 Bit       Adders := 18    
+	   2 Input     51 Bit       Adders := 1     
+	   2 Input     49 Bit       Adders := 5     
+	   3 Input     49 Bit       Adders := 1     
+	   2 Input     48 Bit       Adders := 2     
+	   2 Input     26 Bit       Adders := 6     
+	   3 Input     26 Bit       Adders := 2     
+	   2 Input     23 Bit       Adders := 1     
+	   3 Input     23 Bit       Adders := 1     
+	   2 Input     18 Bit       Adders := 2     
+	   4 Input     11 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   4 Input     10 Bit       Adders := 1     
+	   3 Input      9 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 6     
+	   2 Input      8 Bit       Adders := 4     
+	   2 Input      7 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 5     
+	   2 Input      5 Bit       Adders := 5     
+	   2 Input      4 Bit       Adders := 4     
+	   2 Input      3 Bit       Adders := 4     
++---Registers : 
+	               56 Bit    Registers := 27    
+	               49 Bit    Registers := 25    
+	               48 Bit    Registers := 24    
+	               44 Bit    Registers := 2     
+	               36 Bit    Registers := 2     
+	               34 Bit    Registers := 513   
+	               32 Bit    Registers := 1     
+	               26 Bit    Registers := 2     
+	               25 Bit    Registers := 136   
+	               23 Bit    Registers := 3     
+	               18 Bit    Registers := 28    
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 4     
+	                8 Bit    Registers := 4     
+	                6 Bit    Registers := 5     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 4     
+	                3 Bit    Registers := 6     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 15    
++---Multipliers : 
+	                13x56  Multipliers := 1     
+	                16x56  Multipliers := 1     
+	                 4x56  Multipliers := 1     
++---RAMs : 
+	              64K Bit         RAMs := 1     
++---ROMs : 
+	                              ROMs := 2     
++---Muxes : 
+	   2 Input     56 Bit        Muxes := 12    
+	   4 Input     56 Bit        Muxes := 1     
+	  18 Input     56 Bit        Muxes := 2     
+	   2 Input     49 Bit        Muxes := 11    
+	  18 Input     49 Bit        Muxes := 1     
+	  18 Input     48 Bit        Muxes := 2     
+	   2 Input     36 Bit        Muxes := 1     
+	   2 Input     34 Bit        Muxes := 1     
+	   4 Input     26 Bit        Muxes := 2     
+	   2 Input     26 Bit        Muxes := 8     
+	   2 Input     25 Bit        Muxes := 28    
+	  11 Input     25 Bit        Muxes := 2     
+	   4 Input     23 Bit        Muxes := 1     
+	   2 Input     23 Bit        Muxes := 4     
+	   2 Input     19 Bit        Muxes := 2     
+	   2 Input     18 Bit        Muxes := 17    
+	   4 Input     18 Bit        Muxes := 1     
+	  18 Input     18 Bit        Muxes := 2     
+	  11 Input     18 Bit        Muxes := 2     
+	   3 Input     18 Bit        Muxes := 1     
+	   6 Input     18 Bit        Muxes := 1     
+	   2 Input     16 Bit        Muxes := 4     
+	   2 Input     11 Bit        Muxes := 3     
+	  11 Input     11 Bit        Muxes := 2     
+	   2 Input      9 Bit        Muxes := 9     
+	  11 Input      9 Bit        Muxes := 2     
+	  18 Input      9 Bit        Muxes := 2     
+	   4 Input      9 Bit        Muxes := 1     
+	  18 Input      8 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 3     
+	   4 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	  18 Input      5 Bit        Muxes := 3     
+	  18 Input      4 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   6 Input      3 Bit        Muxes := 2     
+	  18 Input      3 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 1     
+	  21 Input      2 Bit        Muxes := 1     
+	  11 Input      2 Bit        Muxes := 2     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 3     
+	   3 Input      2 Bit        Muxes := 1     
+	  20 Input      1 Bit        Muxes := 19    
+	   2 Input      1 Bit        Muxes := 592   
+	  23 Input      1 Bit        Muxes := 1     
+	  11 Input      1 Bit        Muxes := 4     
+	  18 Input      1 Bit        Muxes := 60    
+	   4 Input      1 Bit        Muxes := 25    
+	   6 Input      1 Bit        Muxes := 8     
+	  19 Input      1 Bit        Muxes := 19    
+	  24 Input      1 Bit        Muxes := 20    
+	   3 Input      1 Bit        Muxes := 17    
+	  21 Input      1 Bit        Muxes := 9     
+	   7 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 400 (col length:80)
+BRAMs: 530 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5546] ROM "clr" won't be mapped to RAM because it is too sparse
+DSP Report: Generating DSP prd_re1, operation Mode is: A*B.
+DSP Report: operator prd_re1 is absorbed into DSP prd_re1.
+DSP Report: Generating DSP prd_re0, operation Mode is: PCIN-A*B.
+DSP Report: operator prd_re0 is absorbed into DSP prd_re0.
+DSP Report: operator prd_re1 is absorbed into DSP prd_re0.
+DSP Report: Generating DSP prd_im1, operation Mode is: A*B.
+DSP Report: operator prd_im1 is absorbed into DSP prd_im1.
+DSP Report: Generating DSP prd_im0, operation Mode is: PCIN+A*B.
+DSP Report: operator prd_im0 is absorbed into DSP prd_im0.
+DSP Report: operator prd_im1 is absorbed into DSP prd_im0.
+DSP Report: Generating DSP ss_r2, operation Mode is: A*B.
+DSP Report: operator ss_r2 is absorbed into DSP ss_r2.
+DSP Report: operator ss_r2 is absorbed into DSP ss_r2.
+DSP Report: Generating DSP ss_r2, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ss_r2 is absorbed into DSP ss_r2.
+DSP Report: operator ss_r2 is absorbed into DSP ss_r2.
+DSP Report: Generating DSP hprod_re, operation Mode is: A*B.
+DSP Report: operator hprod_re is absorbed into DSP hprod_re.
+DSP Report: Generating DSP ss_i2, operation Mode is: A*B.
+DSP Report: operator ss_i2 is absorbed into DSP ss_i2.
+DSP Report: operator ss_i2 is absorbed into DSP ss_i2.
+DSP Report: Generating DSP ss_i2, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator ss_i2 is absorbed into DSP ss_i2.
+DSP Report: operator ss_i2 is absorbed into DSP ss_i2.
+DSP Report: Generating DSP p_0_out, operation Mode is: A*B.
+DSP Report: operator p_0_out is absorbed into DSP p_0_out.
+INFO: [Synth 8-5544] ROM "iss_addr1" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "pbp" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "pb_re" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "it" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "p_1_out0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "iss" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "p_1_out0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "fn" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rq" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "rn" won't be mapped to RAM because it is too sparse
+DSP Report: Generating DSP mr, operation Mode is: A*B.
+DSP Report: operator mr is absorbed into DSP mr.
+DSP Report: Generating DSP ru, operation Mode is: A*B.
+DSP Report: operator ru is absorbed into DSP ru.
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[3] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[2] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[1] driven by constant 1
+WARNING: [Synth 8-3917] design lstf_eq has port m_tkeep[0] driven by constant 1
+INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM frames_reg to conserve power
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\a_sel_d_reg[1] )
+INFO: [Synth 8-3886] merging instance 'i_0/prd_re_reg[42]' (FDCE) to 'i_0/prd_re_reg[43]'
+INFO: [Synth 8-3886] merging instance 'i_0/eps_r_reg[54]' (FDCE) to 'i_0/eps_r_reg[55]'
+INFO: [Synth 8-3886] merging instance 'i_0/eps_r_reg[55]' (FDCE) to 'i_0/eps_r_reg[53]'
+INFO: [Synth 8-3886] merging instance 'i_0/eps_r_reg[50]' (FDCE) to 'i_0/eps_r_reg[53]'
+INFO: [Synth 8-3886] merging instance 'i_0/eps_r_reg[51]' (FDCE) to 'i_0/eps_r_reg[53]'
+INFO: [Synth 8-3886] merging instance 'i_0/eps_r_reg[52]' (FDCE) to 'i_0/eps_r_reg[53]'
+INFO: [Synth 8-3886] merging instance 'i_0/eps_r_reg[53]' (FDCE) to 'i_0/eps_r_reg[49]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\eps_r_reg[49] )
+INFO: [Synth 8-3886] merging instance 'i_3/nh_r_reg[6]' (FDCE) to 'i_3/nh_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[19][51]' (FDCE) to 'i_3/pl_reg[19][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[18][51]' (FDCE) to 'i_3/pl_reg[18][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[17][51]' (FDCE) to 'i_3/pl_reg[17][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[16][51]' (FDCE) to 'i_3/pl_reg[16][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[15][51]' (FDCE) to 'i_3/pl_reg[15][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[14][51]' (FDCE) to 'i_3/pl_reg[14][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[13][51]' (FDCE) to 'i_3/pl_reg[13][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[12][51]' (FDCE) to 'i_3/pl_reg[12][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[11][51]' (FDCE) to 'i_3/pl_reg[11][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[10][51]' (FDCE) to 'i_3/pl_reg[10][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[9][51]' (FDCE) to 'i_3/pl_reg[9][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[8][51]' (FDCE) to 'i_3/pl_reg[8][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[7][51]' (FDCE) to 'i_3/pl_reg[7][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[6][51]' (FDCE) to 'i_3/pl_reg[6][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[5][51]' (FDCE) to 'i_3/pl_reg[5][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[4][51]' (FDCE) to 'i_3/pl_reg[4][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[3][51]' (FDCE) to 'i_3/pl_reg[3][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[2][51]' (FDCE) to 'i_3/pl_reg[2][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[1][51]' (FDCE) to 'i_3/pl_reg[1][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[0][51]' (FDCE) to 'i_3/pl_reg[0][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[19][52]' (FDCE) to 'i_3/pl_reg[19][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[18][52]' (FDCE) to 'i_3/pl_reg[18][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[17][52]' (FDCE) to 'i_3/pl_reg[17][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[16][52]' (FDCE) to 'i_3/pl_reg[16][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[15][52]' (FDCE) to 'i_3/pl_reg[15][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[14][52]' (FDCE) to 'i_3/pl_reg[14][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[13][52]' (FDCE) to 'i_3/pl_reg[13][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[12][52]' (FDCE) to 'i_3/pl_reg[12][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[11][52]' (FDCE) to 'i_3/pl_reg[11][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[10][52]' (FDCE) to 'i_3/pl_reg[10][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[9][52]' (FDCE) to 'i_3/pl_reg[9][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[8][52]' (FDCE) to 'i_3/pl_reg[8][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[7][52]' (FDCE) to 'i_3/pl_reg[7][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[6][52]' (FDCE) to 'i_3/pl_reg[6][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[5][52]' (FDCE) to 'i_3/pl_reg[5][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[4][52]' (FDCE) to 'i_3/pl_reg[4][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[3][52]' (FDCE) to 'i_3/pl_reg[3][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[2][52]' (FDCE) to 'i_3/pl_reg[2][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[1][52]' (FDCE) to 'i_3/pl_reg[1][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[0][52]' (FDCE) to 'i_3/pl_reg[0][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[19][53]' (FDCE) to 'i_3/pl_reg[19][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[18][53]' (FDCE) to 'i_3/pl_reg[18][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[17][53]' (FDCE) to 'i_3/pl_reg[17][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[16][53]' (FDCE) to 'i_3/pl_reg[16][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[15][53]' (FDCE) to 'i_3/pl_reg[15][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[14][53]' (FDCE) to 'i_3/pl_reg[14][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[13][53]' (FDCE) to 'i_3/pl_reg[13][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[12][53]' (FDCE) to 'i_3/pl_reg[12][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[11][53]' (FDCE) to 'i_3/pl_reg[11][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[10][53]' (FDCE) to 'i_3/pl_reg[10][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[9][53]' (FDCE) to 'i_3/pl_reg[9][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[8][53]' (FDCE) to 'i_3/pl_reg[8][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[7][53]' (FDCE) to 'i_3/pl_reg[7][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[6][53]' (FDCE) to 'i_3/pl_reg[6][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[5][53]' (FDCE) to 'i_3/pl_reg[5][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[4][53]' (FDCE) to 'i_3/pl_reg[4][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[3][53]' (FDCE) to 'i_3/pl_reg[3][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[2][53]' (FDCE) to 'i_3/pl_reg[2][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[1][53]' (FDCE) to 'i_3/pl_reg[1][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[0][53]' (FDCE) to 'i_3/pl_reg[0][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[19][54]' (FDCE) to 'i_3/pl_reg[19][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[18][54]' (FDCE) to 'i_3/pl_reg[18][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[17][54]' (FDCE) to 'i_3/pl_reg[17][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[16][54]' (FDCE) to 'i_3/pl_reg[16][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[15][54]' (FDCE) to 'i_3/pl_reg[15][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[14][54]' (FDCE) to 'i_3/pl_reg[14][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[13][54]' (FDCE) to 'i_3/pl_reg[13][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[12][54]' (FDCE) to 'i_3/pl_reg[12][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[11][54]' (FDCE) to 'i_3/pl_reg[11][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[10][54]' (FDCE) to 'i_3/pl_reg[10][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[9][54]' (FDCE) to 'i_3/pl_reg[9][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[8][54]' (FDCE) to 'i_3/pl_reg[8][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[7][54]' (FDCE) to 'i_3/pl_reg[7][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[6][54]' (FDCE) to 'i_3/pl_reg[6][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[5][54]' (FDCE) to 'i_3/pl_reg[5][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[4][54]' (FDCE) to 'i_3/pl_reg[4][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[3][54]' (FDCE) to 'i_3/pl_reg[3][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[2][54]' (FDCE) to 'i_3/pl_reg[2][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[1][54]' (FDCE) to 'i_3/pl_reg[1][55]'
+INFO: [Synth 8-3886] merging instance 'i_3/pl_reg[0][54]' (FDCE) to 'i_3/pl_reg[0][55]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[19][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[18][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[17][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[16][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[15][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[14][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[13][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[12][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[11][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[10][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[9][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[8][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[7][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[6][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[5][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[4][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[3][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[2][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[1][55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pl_reg[0][55] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:30 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|lstf_eq     | lstf_inv   | 128x15        | LUT            | 
+|lstf_eq     | dft_q_reg  | 256x36        | Block RAM      | 
+|lstf_eq     | idft_q_reg | 512x36        | Block RAM      | 
+|lstf_eq     | lstf_inv   | 128x15        | LUT            | 
++------------+------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping  Report (see note below)
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|lstf_eq     | frames_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|lstf_eq     | A*B            | 25     | 18     | -      | -      | 43     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | PCIN-A*B       | 25     | 18     | -      | -      | 43     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | A*B            | 25     | 18     | -      | -      | 43     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | PCIN+A*B       | 25     | 18     | -      | -      | 44     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | A*B            | 25     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | (PCIN>>17)+A*B | 25     | 8      | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | A*B            | 25     | 18     | -      | -      | 43     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | A*B            | 25     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | (PCIN>>17)+A*B | 25     | 8      | -      | -      | 33     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | A*B            | 25     | 18     | -      | -      | 43     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | A*B            | 19     | 18     | -      | -      | 37     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|lstf_eq     | A*B            | 18     | 18     | -      | -      | 36     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-6837] The timing for the instance i_2/i_451/frames_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_2/i_451/frames_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_2/i_0/dft_q_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_2/i_0/dft_q_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_2/i_1/idft_q_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_2/i_1/idft_q_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1193]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1193]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1193]
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |lstf_eq__GB0  |           1|     11827|
+|2     |lstf_eq__GB1  |           1|      8216|
+|3     |lstf_eq__GB2  |           1|      6397|
+|4     |lstf_eq__GB3  |           1|     13153|
+|5     |lstf_eq__GB4  |           1|     30218|
+|6     |lstf_eq__GB5  |           1|      5411|
++------+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:31 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping  Report
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|lstf_eq     | frames_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |lstf_eq__GB0  |           1|     11827|
+|2     |lstf_eq__GB1  |           1|      8216|
+|3     |lstf_eq__GB2  |           1|      6397|
+|4     |lstf_eq__GB3  |           1|     13153|
+|5     |lstf_eq__GB4  |           1|     30218|
+|6     |lstf_eq__GB5  |           1|      5411|
++------+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1330]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1330]
+INFO: [Synth 8-3886] merging instance 'r_reg_reg[16]' (FDCE) to 'r_reg_reg[17]'
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1314]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1193]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1193]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1193]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1193]
+INFO: [Synth 8-5844] Detected registers with asynchronous reset at DSP/BRAM block boundary. Consider using synchronous reset for optimal packing [D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/SRC/pl_ai/lstf_eq.v:1193]
+INFO: [Synth 8-6837] The timing for the instance frames_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance frames_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance dft_q_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance dft_q_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance idft_q_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance idft_q_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:37 ; elapsed = 00:01:37 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:39 ; elapsed = 00:01:40 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:39 ; elapsed = 00:01:40 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:39 ; elapsed = 00:01:40 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:40 ; elapsed = 00:01:40 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:40 ; elapsed = 00:01:41 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:40 ; elapsed = 00:01:41 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |CARRY4   |   725|
+|3     |DSP48E1  |    12|
+|4     |LUT1     |   606|
+|5     |LUT2     |  1174|
+|6     |LUT3     |  1216|
+|7     |LUT4     |  1250|
+|8     |LUT5     |  2298|
+|9     |LUT6     | 11039|
+|10    |MUXF7    |  2641|
+|11    |MUXF8    |  1089|
+|12    |RAMB18E1 |     2|
+|13    |RAMB36E1 |     2|
+|14    |FDCE     |  8398|
+|15    |FDRE     | 17408|
+|16    |IBUF     |    36|
+|17    |OBUF     |    96|
++------+---------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       | 47993|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:40 ; elapsed = 00:01:41 . Memory (MB): peak = 1033.535 ; gain = 773.719
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 10 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:40 ; elapsed = 00:01:41 . Memory (MB): peak = 1033.535 ; gain = 773.719
+Synthesis Optimization Complete : Time (s): cpu = 00:01:40 ; elapsed = 00:01:41 . Memory (MB): peak = 1033.535 ; gain = 773.719
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 4471 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'lstf_eq' is not ideal for floorplanning, since the cellview 'lstf_eq' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1033.535 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+339 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:48 ; elapsed = 00:01:49 . Memory (MB): peak = 1033.535 ; gain = 783.223
+INFO: [Common 17-206] Exiting Vivado at Tue Oct 20 13:55:48 2026...
