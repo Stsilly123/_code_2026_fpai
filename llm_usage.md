@@ -4,20 +4,17 @@
 
 ## 一、AI 用在了哪里
 
-1. **文字与排版**：Markdown 文档的结构、表格对齐、术语统一、错别字。技术内容、数据和判断由本人提供。
-2. **脚本样板**：`build.sh`、`run.sh` 的参数解析与日志组织，Python 小工具的 argparse 骨架。具体逻辑由本人改定。
+1. **文字与排版**：Markdown 文档的结构、表格对齐、术语统一、错别字。
+2. **脚本样板**：`build.sh`、`run.sh` 的参数解析与日志组织，Python 小工具的 argparse 骨架。
 3. **查报错、查用法**：Vivado / HLS / 交叉编译报错时，检索报错含义和排查顺序，当作线索参考。
 4. **注释与命名**：给已有代码补中文注释、统一命名，不改行为。
 5. **翻译**：英文摘要与术语。
 6. **仓库整理**：清理内层 `.git`、建顶层仓库、写 `.gitignore` / `.gitattributes`、把超过 GitHub 100 MB 上限的 `RFFIHost_portable_win64.zip` 改用 Git LFS 纳入、整理提交信息。上传哪些内容由本人确定。
-
+7. **算法与模型**：RFFI Transformer 与 LCWT 改进结构、训练与 ONNX 导出、`PerSampleNorm` 的图外复刻、五折 TTA、193 维专家特征、三路 log 空间融合与权重标定、100TAI→30TAI 目标重编译。
 ## 二、本人完成的部分
-
-- **算法与模型**：RFFI Transformer 与 LCWT 改进结构、训练与 ONNX 导出、`PerSampleNorm` 的图外复刻、五折 TTA、193 维专家特征、三路 log 空间融合与权重标定、100TAI→30TAI 目标重编译。
 - **PL 设计**：HLS 加速器微架构与流水划分、token 布局、片上缓冲；4 路 DMA 数据通路与 Block Design 集成；时序收敛与 XDC 约束。
 - **板级调试**：ZG330 上跑 `axi://ql100aiu` 导致卡死 `readl` 的定位；DMA3 异常结合 ILA 定位；IP 补丁与 Vivado 2018.3 版本适配。
 - **PS 侧与上位机**：`impl_fpai_app` 主循环、网口收帧/回帧、图内 Cast 与 dtype 等实现约束、构建与运行体系、板卡接口文档。
-- **测试与文档**：采样与对拍流程、精度复现（32 帧 top1 71.88%，fp32 75.00%，argmax 一致率 87.50%），README 与各篇工程文档的技术内容。
 
 ## 三、使用原则
 
