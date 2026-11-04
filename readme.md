@@ -1,3 +1,3 @@
-_code_pl 为fpga工程,impl按照设置的方式去跑，增量编译文件见github，如果不使用增量编译，需要先跑一次时序有问题，再按照跑出的dcp文件增量编译
+_code_pl 为fpga工程,impl按照设置的方式去跑，增量编译文件见github，如果不使用增量编译，需要先跑一次，再按照跑出的dcp文件增量编译才能通过时序
 RFFIHost_portable为上位机打包程序
 impl_fpai_app为板端程序，file模式不可用，压缩不了file测试文件，正常连接tcp没问题
