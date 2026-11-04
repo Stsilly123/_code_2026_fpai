@@ -1,0 +1,347 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Sat Oct 24 22:18:09 2026
+# Process ID: 20200
+# Current directory: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI
+# Command line: vivado.exe -mode batch -source C:/Users/ADMINI~1/AppData/Local/Temp/srl_chk2.tcl
+# Log file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/vivado.log
+# Journal file: D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI\vivado.jou
+#-----------------------------------------------------------
+source C:/Users/ADMINI~1/AppData/Local/Temp/srl_chk2.tcl
+# open_checkpoint {D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/expert_ooc.dcp}
+Command: open_checkpoint D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/ef_ooc/expert_ooc.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.032 . Memory (MB): peak = 271.168 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1507 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2018.3
+INFO: [Device 21-403] Loading part xc7z030ffg676-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1331.996 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 110 instances were transformed.
+  RAM128X1D => RAM128X1D (RAMD64E, RAMD64E, MUXF7, MUXF7, RAMD64E, RAMD64E): 4 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
+  RAM64M => RAM64M (RAMD64E, RAMD64E, RAMD64E, RAMD64E): 88 instances
+  RAM64X1D => RAM64X1D (RAMD64E, RAMD64E): 6 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2018.3 (64-bit) build 2405991
+open_checkpoint: Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1331.996 ; gain = 1060.828
+# set cfo [get_cells -hier -filter {REF_NAME == SRL16E && NAME =~ *u_cfo*}]
+# puts "SRL16E_CFO [llength $cfo]"
+SRL16E_CFO 65
+# set bad 0
+# foreach c $cfo {
+#   foreach i {0 1 2 3} {
+#     set p [get_pins -quiet ${c}/A${i}]
+#     if {$p eq ""} { continue }
+#     set n [get_nets -quiet -of_objects $p]
+#     set drv [get_pins -quiet -of_objects $n -filter {DIRECTION == OUT}]
+#     set dnames [list]
+#     foreach d $drv { if {![regexp {/VCC/|/GND/} $d]} { lappend dnames $d } }
+#     if {[llength $dnames] > 0} { puts "VARIDX $c A$i <- $dnames"; incr bad }
+#   }
+# }
+# puts "CFO_VARIDX_A $bad"
+CFO_VARIDX_A 0
+# set atv [get_cells -hier -filter {NAME =~ *u_cfo/atv*}]
+# puts "ATV_CELLS [llength $atv]"
+ATV_CELLS 284
+# foreach c $atv { puts "  $c [get_property REF_NAME $c]" }
+  u_cfo/atv[5][0]_i_1__0 LUT2
+  u_cfo/atv[5][10]_i_1__0 LUT5
+  u_cfo/atv[5][10]_i_2 LUT3
+  u_cfo/atv[5][10]_i_3 LUT5
+  u_cfo/atv[5][11]_i_1__0 LUT5
+  u_cfo/atv[5][11]_i_2__0 LUT3
+  u_cfo/atv[5][11]_i_3__0 LUT6
+  u_cfo/atv[5][12]_i_1__0 LUT5
+  u_cfo/atv[5][12]_i_2__0 LUT3
+  u_cfo/atv[5][12]_i_3__0 LUT6
+  u_cfo/atv[5][13]_i_1__0 LUT5
+  u_cfo/atv[5][13]_i_2__0 LUT3
+  u_cfo/atv[5][13]_i_3__0 LUT6
+  u_cfo/atv[5][14]_i_1__0 LUT5
+  u_cfo/atv[5][14]_i_2__0 LUT3
+  u_cfo/atv[5][14]_i_3__0 LUT6
+  u_cfo/atv[5][15]_i_1__0 LUT5
+  u_cfo/atv[5][15]_i_2__0 LUT5
+  u_cfo/atv[5][15]_i_3__0 LUT5
+  u_cfo/atv[5][15]_i_4__0 LUT5
+  u_cfo/atv[5][15]_i_5__0 LUT5
+  u_cfo/atv[5][15]_i_6__0 LUT6
+  u_cfo/atv[5][15]_i_7__0 LUT6
+  u_cfo/atv[5][15]_i_8__0 LUT5
+  u_cfo/atv[5][15]_i_9__0 LUT5
+  u_cfo/atv[5][16]_i_1__0 LUT2
+  u_cfo/atv[5][17]_i_1__0 LUT6
+  u_cfo/atv[5][17]_i_2__0 LUT4
+  u_cfo/atv[5][18]_i_1__0 LUT6
+  u_cfo/atv[5][18]_i_2__0 LUT4
+  u_cfo/atv[5][18]_i_3__0 LUT2
+  u_cfo/atv[5][19]_i_1__0 LUT5
+  u_cfo/atv[5][19]_i_2__0 LUT5
+  u_cfo/atv[5][1]_i_1__0 LUT6
+  u_cfo/atv[5][1]_i_2__0 LUT4
+  u_cfo/atv[5][20]_i_1__0 LUT5
+  u_cfo/atv[5][20]_i_2__0 LUT5
+  u_cfo/atv[5][21]_i_1__0 LUT5
+  u_cfo/atv[5][21]_i_2__0 LUT6
+  u_cfo/atv[5][22]_i_1__0 LUT5
+  u_cfo/atv[5][22]_i_2__0 LUT6
+  u_cfo/atv[5][23]_i_1__0 LUT5
+  u_cfo/atv[5][23]_i_2__0 LUT6
+  u_cfo/atv[5][24]_i_1__0 LUT5
+  u_cfo/atv[5][24]_i_2__0 LUT6
+  u_cfo/atv[5][25]_i_1__0 LUT5
+  u_cfo/atv[5][25]_i_2__0 LUT3
+  u_cfo/atv[5][25]_i_3__0 LUT5
+  u_cfo/atv[5][26]_i_1__0 LUT5
+  u_cfo/atv[5][26]_i_2 LUT3
+  u_cfo/atv[5][26]_i_3 LUT5
+  u_cfo/atv[5][27]_i_1__0 LUT5
+  u_cfo/atv[5][27]_i_2__0 LUT3
+  u_cfo/atv[5][27]_i_3__0 LUT6
+  u_cfo/atv[5][28]_i_1__0 LUT5
+  u_cfo/atv[5][28]_i_2__0 LUT3
+  u_cfo/atv[5][28]_i_3__0 LUT6
+  u_cfo/atv[5][29]_i_1__0 LUT5
+  u_cfo/atv[5][29]_i_2__0 LUT3
+  u_cfo/atv[5][29]_i_3__0 LUT6
+  u_cfo/atv[5][2]_i_1__0 LUT6
+  u_cfo/atv[5][2]_i_2__0 LUT4
+  u_cfo/atv[5][30]_i_1__0 LUT5
+  u_cfo/atv[5][30]_i_2__0 LUT3
+  u_cfo/atv[5][30]_i_3__0 LUT6
+  u_cfo/atv[5][31]_i_10__0 LUT5
+  u_cfo/atv[5][31]_i_11__0 LUT2
+  u_cfo/atv[5][31]_i_12__0 LUT3
+  u_cfo/atv[5][31]_i_1__0 LUT5
+  u_cfo/atv[5][31]_i_2__0 LUT5
+  u_cfo/atv[5][31]_i_3__0 LUT5
+  u_cfo/atv[5][31]_i_4__0 LUT6
+  u_cfo/atv[5][31]_i_5__0 LUT6
+  u_cfo/atv[5][31]_i_6__0 LUT5
+  u_cfo/atv[5][31]_i_7__0 LUT5
+  u_cfo/atv[5][31]_i_8__0 LUT6
+  u_cfo/atv[5][31]_i_9__0 LUT5
+  u_cfo/atv[5][3]_i_1__0 LUT5
+  u_cfo/atv[5][3]_i_2__0 LUT5
+  u_cfo/atv[5][4]_i_1__0 LUT5
+  u_cfo/atv[5][4]_i_2__0 LUT5
+  u_cfo/atv[5][5]_i_1__0 LUT5
+  u_cfo/atv[5][5]_i_2__0 LUT6
+  u_cfo/atv[5][6]_i_1__0 LUT5
+  u_cfo/atv[5][6]_i_2__0 LUT6
+  u_cfo/atv[5][7]_i_1__0 LUT5
+  u_cfo/atv[5][7]_i_2__0 LUT6
+  u_cfo/atv[5][8]_i_1__0 LUT5
+  u_cfo/atv[5][8]_i_2__0 LUT6
+  u_cfo/atv[5][9]_i_1__0 LUT5
+  u_cfo/atv[5][9]_i_2__0 LUT3
+  u_cfo/atv[5][9]_i_3__0 LUT5
+  u_cfo/atv_reg[0][0] FDRE
+  u_cfo/atv_reg[0][10] FDRE
+  u_cfo/atv_reg[0][11] FDRE
+  u_cfo/atv_reg[0][12] FDRE
+  u_cfo/atv_reg[0][13] FDRE
+  u_cfo/atv_reg[0][14] FDRE
+  u_cfo/atv_reg[0][15] FDRE
+  u_cfo/atv_reg[0][16] FDRE
+  u_cfo/atv_reg[0][17] FDRE
+  u_cfo/atv_reg[0][18] FDRE
+  u_cfo/atv_reg[0][19] FDRE
+  u_cfo/atv_reg[0][1] FDRE
+  u_cfo/atv_reg[0][20] FDRE
+  u_cfo/atv_reg[0][21] FDRE
+  u_cfo/atv_reg[0][22] FDRE
+  u_cfo/atv_reg[0][23] FDRE
+  u_cfo/atv_reg[0][24] FDRE
+  u_cfo/atv_reg[0][25] FDRE
+  u_cfo/atv_reg[0][26] FDRE
+  u_cfo/atv_reg[0][27] FDRE
+  u_cfo/atv_reg[0][28] FDRE
+  u_cfo/atv_reg[0][29] FDRE
+  u_cfo/atv_reg[0][2] FDRE
+  u_cfo/atv_reg[0][30] FDRE
+  u_cfo/atv_reg[0][31] FDRE
+  u_cfo/atv_reg[0][3] FDRE
+  u_cfo/atv_reg[0][4] FDRE
+  u_cfo/atv_reg[0][5] FDRE
+  u_cfo/atv_reg[0][6] FDRE
+  u_cfo/atv_reg[0][7] FDRE
+  u_cfo/atv_reg[0][8] FDRE
+  u_cfo/atv_reg[0][9] FDRE
+  u_cfo/atv_reg[1][0] FDRE
+  u_cfo/atv_reg[1][10] FDRE
+  u_cfo/atv_reg[1][11] FDRE
+  u_cfo/atv_reg[1][12] FDRE
+  u_cfo/atv_reg[1][13] FDRE
+  u_cfo/atv_reg[1][14] FDRE
+  u_cfo/atv_reg[1][15] FDRE
+  u_cfo/atv_reg[1][16] FDRE
+  u_cfo/atv_reg[1][17] FDRE
+  u_cfo/atv_reg[1][18] FDRE
+  u_cfo/atv_reg[1][19] FDRE
+  u_cfo/atv_reg[1][1] FDRE
+  u_cfo/atv_reg[1][20] FDRE
+  u_cfo/atv_reg[1][21] FDRE
+  u_cfo/atv_reg[1][22] FDRE
+  u_cfo/atv_reg[1][23] FDRE
+  u_cfo/atv_reg[1][24] FDRE
+  u_cfo/atv_reg[1][25] FDRE
+  u_cfo/atv_reg[1][26] FDRE
+  u_cfo/atv_reg[1][27] FDRE
+  u_cfo/atv_reg[1][28] FDRE
+  u_cfo/atv_reg[1][29] FDRE
+  u_cfo/atv_reg[1][2] FDRE
+  u_cfo/atv_reg[1][30] FDRE
+  u_cfo/atv_reg[1][31] FDRE
+  u_cfo/atv_reg[1][3] FDRE
+  u_cfo/atv_reg[1][4] FDRE
+  u_cfo/atv_reg[1][5] FDRE
+  u_cfo/atv_reg[1][6] FDRE
+  u_cfo/atv_reg[1][7] FDRE
+  u_cfo/atv_reg[1][8] FDRE
+  u_cfo/atv_reg[1][9] FDRE
+  u_cfo/atv_reg[2][0] FDRE
+  u_cfo/atv_reg[2][10] FDRE
+  u_cfo/atv_reg[2][11] FDRE
+  u_cfo/atv_reg[2][12] FDRE
+  u_cfo/atv_reg[2][13] FDRE
+  u_cfo/atv_reg[2][14] FDRE
+  u_cfo/atv_reg[2][15] FDRE
+  u_cfo/atv_reg[2][16] FDRE
+  u_cfo/atv_reg[2][17] FDRE
+  u_cfo/atv_reg[2][18] FDRE
+  u_cfo/atv_reg[2][19] FDRE
+  u_cfo/atv_reg[2][1] FDRE
+  u_cfo/atv_reg[2][20] FDRE
+  u_cfo/atv_reg[2][21] FDRE
+  u_cfo/atv_reg[2][22] FDRE
+  u_cfo/atv_reg[2][23] FDRE
+  u_cfo/atv_reg[2][24] FDRE
+  u_cfo/atv_reg[2][25] FDRE
+  u_cfo/atv_reg[2][26] FDRE
+  u_cfo/atv_reg[2][27] FDRE
+  u_cfo/atv_reg[2][28] FDRE
+  u_cfo/atv_reg[2][29] FDRE
+  u_cfo/atv_reg[2][2] FDRE
+  u_cfo/atv_reg[2][30] FDRE
+  u_cfo/atv_reg[2][31] FDRE
+  u_cfo/atv_reg[2][3] FDRE
+  u_cfo/atv_reg[2][4] FDRE
+  u_cfo/atv_reg[2][5] FDRE
+  u_cfo/atv_reg[2][6] FDRE
+  u_cfo/atv_reg[2][7] FDRE
+  u_cfo/atv_reg[2][8] FDRE
+  u_cfo/atv_reg[2][9] FDRE
+  u_cfo/atv_reg[3][0] FDRE
+  u_cfo/atv_reg[3][10] FDRE
+  u_cfo/atv_reg[3][11] FDRE
+  u_cfo/atv_reg[3][12] FDRE
+  u_cfo/atv_reg[3][13] FDRE
+  u_cfo/atv_reg[3][14] FDRE
+  u_cfo/atv_reg[3][15] FDRE
+  u_cfo/atv_reg[3][16] FDRE
+  u_cfo/atv_reg[3][17] FDRE
+  u_cfo/atv_reg[3][18] FDRE
+  u_cfo/atv_reg[3][19] FDRE
+  u_cfo/atv_reg[3][1] FDRE
+  u_cfo/atv_reg[3][20] FDRE
+  u_cfo/atv_reg[3][21] FDRE
+  u_cfo/atv_reg[3][22] FDRE
+  u_cfo/atv_reg[3][23] FDRE
+  u_cfo/atv_reg[3][24] FDRE
+  u_cfo/atv_reg[3][25] FDRE
+  u_cfo/atv_reg[3][26] FDRE
+  u_cfo/atv_reg[3][27] FDRE
+  u_cfo/atv_reg[3][28] FDRE
+  u_cfo/atv_reg[3][29] FDRE
+  u_cfo/atv_reg[3][2] FDRE
+  u_cfo/atv_reg[3][30] FDRE
+  u_cfo/atv_reg[3][31] FDRE
+  u_cfo/atv_reg[3][3] FDRE
+  u_cfo/atv_reg[3][4] FDRE
+  u_cfo/atv_reg[3][5] FDRE
+  u_cfo/atv_reg[3][6] FDRE
+  u_cfo/atv_reg[3][7] FDRE
+  u_cfo/atv_reg[3][8] FDRE
+  u_cfo/atv_reg[3][9] FDRE
+  u_cfo/atv_reg[4][0] FDRE
+  u_cfo/atv_reg[4][10] FDRE
+  u_cfo/atv_reg[4][11] FDRE
+  u_cfo/atv_reg[4][12] FDRE
+  u_cfo/atv_reg[4][13] FDRE
+  u_cfo/atv_reg[4][14] FDRE
+  u_cfo/atv_reg[4][15] FDRE
+  u_cfo/atv_reg[4][16] FDRE
+  u_cfo/atv_reg[4][17] FDRE
+  u_cfo/atv_reg[4][18] FDRE
+  u_cfo/atv_reg[4][19] FDRE
+  u_cfo/atv_reg[4][1] FDRE
+  u_cfo/atv_reg[4][20] FDRE
+  u_cfo/atv_reg[4][21] FDRE
+  u_cfo/atv_reg[4][22] FDRE
+  u_cfo/atv_reg[4][23] FDRE
+  u_cfo/atv_reg[4][24] FDRE
+  u_cfo/atv_reg[4][25] FDRE
+  u_cfo/atv_reg[4][26] FDRE
+  u_cfo/atv_reg[4][27] FDRE
+  u_cfo/atv_reg[4][28] FDRE
+  u_cfo/atv_reg[4][29] FDRE
+  u_cfo/atv_reg[4][2] FDRE
+  u_cfo/atv_reg[4][30] FDRE
+  u_cfo/atv_reg[4][31] FDRE
+  u_cfo/atv_reg[4][3] FDRE
+  u_cfo/atv_reg[4][4] FDRE
+  u_cfo/atv_reg[4][5] FDRE
+  u_cfo/atv_reg[4][6] FDRE
+  u_cfo/atv_reg[4][7] FDRE
+  u_cfo/atv_reg[4][8] FDRE
+  u_cfo/atv_reg[4][9] FDRE
+  u_cfo/atv_reg[5][0] FDRE
+  u_cfo/atv_reg[5][10] FDRE
+  u_cfo/atv_reg[5][11] FDRE
+  u_cfo/atv_reg[5][12] FDRE
+  u_cfo/atv_reg[5][13] FDRE
+  u_cfo/atv_reg[5][14] FDRE
+  u_cfo/atv_reg[5][15] FDRE
+  u_cfo/atv_reg[5][16] FDRE
+  u_cfo/atv_reg[5][17] FDRE
+  u_cfo/atv_reg[5][18] FDRE
+  u_cfo/atv_reg[5][19] FDRE
+  u_cfo/atv_reg[5][1] FDRE
+  u_cfo/atv_reg[5][20] FDRE
+  u_cfo/atv_reg[5][21] FDRE
+  u_cfo/atv_reg[5][22] FDRE
+  u_cfo/atv_reg[5][23] FDRE
+  u_cfo/atv_reg[5][24] FDRE
+  u_cfo/atv_reg[5][25] FDRE
+  u_cfo/atv_reg[5][26] FDRE
+  u_cfo/atv_reg[5][27] FDRE
+  u_cfo/atv_reg[5][28] FDRE
+  u_cfo/atv_reg[5][29] FDRE
+  u_cfo/atv_reg[5][2] FDRE
+  u_cfo/atv_reg[5][30] FDRE
+  u_cfo/atv_reg[5][31] FDRE
+  u_cfo/atv_reg[5][3] FDRE
+  u_cfo/atv_reg[5][4] FDRE
+  u_cfo/atv_reg[5][5] FDRE
+  u_cfo/atv_reg[5][6] FDRE
+  u_cfo/atv_reg[5][7] FDRE
+  u_cfo/atv_reg[5][8] FDRE
+  u_cfo/atv_reg[5][9] FDRE
+# set ain [get_pins -quiet -of_objects [get_cells -hier -filter {NAME =~ *u_cfo*}] -filter {NAME =~ *at_in*}]
+# puts "ATIN_PINS [llength $ain]"
+ATIN_PINS 838
+# close_design
+INFO: [Common 17-206] Exiting Vivado at Sat Oct 24 22:18:29 2026...

@@ -1,1 +1,7 @@
-RFFIHost_portable_win64.zip filter=lfs diff=lfs merge=lfs -text
+# GitHub 单文件不得超过 100MB，以下大文件用 Git LFS 托管
+_code_2026_fmsh.rar filter=lfs diff=lfs merge=lfs -text
+_code_pl.rar filter=lfs diff=lfs merge=lfs -text
+ai7030_edif_top_routed.dcp filter=lfs diff=lfs merge=lfs -text
+RFFIHost_portable_win64.rar filter=lfs diff=lfs merge=lfs -text
+RFFI_FPAI/SRC/edif/AI_Mate.edif filter=lfs diff=lfs merge=lfs -text
+RFFI_FPAI/SRC/edif/AI_Mate_no_detpost.edif filter=lfs diff=lfs merge=lfs -text

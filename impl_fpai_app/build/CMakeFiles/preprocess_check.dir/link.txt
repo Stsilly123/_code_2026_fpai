@@ -1,0 +1,1 @@
+/usr/bin/aarch64-linux-gnu-g++ -O3 -DNDEBUG CMakeFiles/preprocess_check.dir/tools/preprocess_check.cpp.o -o preprocess_check   -L/mnt/docker_data/fpai_demo_app/deps/thirdparty/a  -Wl,-rpath,/mnt/docker_data/fpai_demo_app/deps/thirdparty/a -lfmt -lyaml-cpp -lpthread -ldl -lzlib 

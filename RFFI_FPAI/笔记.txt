@@ -1,2 +1,0 @@
-搭建好platform（未实际测试）
-IQ数据接口为DMA AXIS 

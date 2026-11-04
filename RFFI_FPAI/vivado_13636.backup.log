@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Nov  4 14:37:35 2026
+# Process ID: 13636
+# Current directory: D:/提交/RFFI_FPAI
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10612 D:\提交\RFFI_FPAI\RFFI_FPAI.xpr
+# Log file: D:/提交/RFFI_FPAI/vivado.log
+# Journal file: D:/提交/RFFI_FPAI\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/提交/RFFI_FPAI/RFFI_FPAI.xpr
+INFO: [Project 1-313] Project file moved from 'D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI' since last save.
+CRITICAL WARNING: [Project 1-311] Could not find the file 'D:/提交/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/bd/ps_ai/ip/ps_ai_mig_7series_0_0/mig_b.prj', nor could it be found using path 'D:/FPGA/FPGA/FPAI_PL/RFFI_FPAI/RFFI_FPAI.srcs/sources_1/bd/ps_ai/ip/ps_ai_mig_7series_0_0/mig_b.prj'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/提交/RFFI_FPAI/PS_AI IP'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/提交/RFFI_FPAI/IP_REPO/xilinx_com_hls_RFFI_FFT_ConvNet_1_0'.
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'd:/提交/RFFI_FPAI/IP_REPO/xilinx_com_hls_LcwtMLP_RFFI_1_0'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2018.3/data/ip'.
+WARNING: [IP_Flow 19-1663] Duplicate IP found for 'xilinx.com:ip:processing_system7:5.5'. The one found in IP location 'd:/提交/RFFI_FPAI/PS_AI IP/processing_system7_v5_5' will take precedence over the same IP in the Xilinx installed IP.
+WARNING: [IP_Flow 19-4830] Duplicate Interface found for 'xilinx.com:display_processing_system7:fixedio:1.0'. The one found in location 'd:/提交/RFFI_FPAI/PS_AI IP/processing_system7_v5_5/fixedio.xml' will take precedence over the same Interface in location 'd:/Xilinx/Vivado/2018.3/data/ip/xilinx/processing_system7_v5_5/fixedio.xml'
+WARNING: [IP_Flow 19-4830] Duplicate Interface found for 'xilinx.com:display_processing_system7:hpstatusctrl:1.0'. The one found in location 'd:/提交/RFFI_FPAI/PS_AI IP/processing_system7_v5_5/hpstatusctrl.xml' will take precedence over the same Interface in location 'd:/Xilinx/Vivado/2018.3/data/ip/xilinx/processing_system7_v5_5/hpstatusctrl.xml'
+WARNING: [IP_Flow 19-4830] Duplicate Interface found for 'xilinx.com:display_processing_system7:usbctrl:1.0'. The one found in location 'd:/提交/RFFI_FPAI/PS_AI IP/processing_system7_v5_5/usbctrl.xml' will take precedence over the same Interface in location 'd:/Xilinx/Vivado/2018.3/data/ip/xilinx/processing_system7_v5_5/usbctrl.xml'
+open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 1014.852 ; gain = 396.070
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Nov  4 14:38:17 2026...

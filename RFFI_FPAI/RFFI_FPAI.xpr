@@ -212,65 +212,65 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_Signal_process_0_0/ps_ai_Signal_process_0_0.xci">
-          <Proxy FileSetName="ps_ai_Signal_process_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_axi_dma_2_0/ps_ai_axi_dma_2_0.xci">
-          <Proxy FileSetName="ps_ai_axi_dma_2_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_proc_sys_reset_1_0/ps_ai_proc_sys_reset_1_0.xci">
           <Proxy FileSetName="ps_ai_proc_sys_reset_1_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_xbar_0/ps_ai_xbar_0.xci">
-          <Proxy FileSetName="ps_ai_xbar_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_processing_system7_0_0/ps_ai_processing_system7_0_0.xci">
-          <Proxy FileSetName="ps_ai_processing_system7_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_axi_dma_1_1/ps_ai_axi_dma_1_1.xci">
-          <Proxy FileSetName="ps_ai_axi_dma_1_1"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_xbar_2/ps_ai_xbar_2.xci">
-          <Proxy FileSetName="ps_ai_xbar_2"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_axi_dma_0_1/ps_ai_axi_dma_0_1.xci">
-          <Proxy FileSetName="ps_ai_axi_dma_0_1"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_proc_sys_reset_0_0/ps_ai_proc_sys_reset_0_0.xci">
           <Proxy FileSetName="ps_ai_proc_sys_reset_0_0"/>
         </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_processing_system7_0_0/ps_ai_processing_system7_0_0.xci">
+          <Proxy FileSetName="ps_ai_processing_system7_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_xbar_0/ps_ai_xbar_0.xci">
+          <Proxy FileSetName="ps_ai_xbar_0"/>
+        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_util_vector_logic_0_0/ps_ai_util_vector_logic_0_0.xci">
           <Proxy FileSetName="ps_ai_util_vector_logic_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_smartconnect_0_0/ps_ai_smartconnect_0_0.xci">
-          <Proxy FileSetName="ps_ai_smartconnect_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_axi_dma_1_0/ps_ai_axi_dma_1_0.xci">
-          <Proxy FileSetName="ps_ai_axi_dma_1_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_smartconnect_0_1/ps_ai_smartconnect_0_1.xci">
-          <Proxy FileSetName="ps_ai_smartconnect_0_1"/>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_xbar_2/ps_ai_xbar_2.xci">
+          <Proxy FileSetName="ps_ai_xbar_2"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_xbar_1/ps_ai_xbar_1.xci">
           <Proxy FileSetName="ps_ai_xbar_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_s00_regslice_1/ps_ai_s00_regslice_1.xci">
-          <Proxy FileSetName="ps_ai_s00_regslice_1"/>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_smartconnect_0_1/ps_ai_smartconnect_0_1.xci">
+          <Proxy FileSetName="ps_ai_smartconnect_0_1"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_auto_pc_1/ps_ai_auto_pc_1.xci">
           <Proxy FileSetName="ps_ai_auto_pc_1"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_s00_regslice_0/ps_ai_s00_regslice_0.xci">
-          <Proxy FileSetName="ps_ai_s00_regslice_0"/>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_smartconnect_0_0/ps_ai_smartconnect_0_0.xci">
+          <Proxy FileSetName="ps_ai_smartconnect_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_m00_regslice_0/ps_ai_m00_regslice_0.xci">
-          <Proxy FileSetName="ps_ai_m00_regslice_0"/>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_axi_dma_2_0/ps_ai_axi_dma_2_0.xci">
+          <Proxy FileSetName="ps_ai_axi_dma_2_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_axi_dma_1_0/ps_ai_axi_dma_1_0.xci">
+          <Proxy FileSetName="ps_ai_axi_dma_1_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_s01_regslice_0/ps_ai_s01_regslice_0.xci">
+          <Proxy FileSetName="ps_ai_s01_regslice_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_Signal_process_0_0/ps_ai_Signal_process_0_0.xci">
+          <Proxy FileSetName="ps_ai_Signal_process_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_auto_pc_0/ps_ai_auto_pc_0.xci">
           <Proxy FileSetName="ps_ai_auto_pc_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_s01_regslice_0/ps_ai_s01_regslice_0.xci">
-          <Proxy FileSetName="ps_ai_s01_regslice_0"/>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_m00_regslice_0/ps_ai_m00_regslice_0.xci">
+          <Proxy FileSetName="ps_ai_m00_regslice_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_axi_dma_1_1/ps_ai_axi_dma_1_1.xci">
+          <Proxy FileSetName="ps_ai_axi_dma_1_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_s00_regslice_0/ps_ai_s00_regslice_0.xci">
+          <Proxy FileSetName="ps_ai_s00_regslice_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_s00_regslice_1/ps_ai_s00_regslice_1.xci">
+          <Proxy FileSetName="ps_ai_s00_regslice_1"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="ps_ai.bd" FileRelPathName="ip/ps_ai_axi_dma_0_1/ps_ai_axi_dma_0_1.xci">
+          <Proxy FileSetName="ps_ai_axi_dma_0_1"/>
         </CompFileExtendedInfo>
       </File>
       <File Path="$PPRDIR/SRC/AI_Mate_stub.v">
@@ -943,14 +943,11 @@
     </Simulator>
   </Simulators>
   <Runs Version="1" Minor="10">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z030ffg676-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7z030ffg676-2" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design" PreStepTclHook="$PPRDIR/ip_patch/process_control/synthesis_pre.tcl"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
@@ -1163,9 +1160,7 @@
     </Run>
     <Run Id="ps_ai_Signal_process_0_0_synth_1" Type="Ft3:Synth" SrcSet="ps_ai_Signal_process_0_0" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_Signal_process_0_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ps_ai_Signal_process_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1174,9 +1169,7 @@
     </Run>
     <Run Id="ps_ai_s00_regslice_1_synth_1" Type="Ft3:Synth" SrcSet="ps_ai_s00_regslice_1" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_s00_regslice_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ps_ai_s00_regslice_1_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1185,9 +1178,7 @@
     </Run>
     <Run Id="ps_ai_auto_pc_1_synth_1" Type="Ft3:Synth" SrcSet="ps_ai_auto_pc_1" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_auto_pc_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ps_ai_auto_pc_1_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1196,9 +1187,7 @@
     </Run>
     <Run Id="ps_ai_s00_regslice_0_synth_1" Type="Ft3:Synth" SrcSet="ps_ai_s00_regslice_0" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_s00_regslice_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ps_ai_s00_regslice_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1207,9 +1196,7 @@
     </Run>
     <Run Id="ps_ai_m00_regslice_0_synth_1" Type="Ft3:Synth" SrcSet="ps_ai_m00_regslice_0" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_m00_regslice_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ps_ai_m00_regslice_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1218,9 +1205,7 @@
     </Run>
     <Run Id="ps_ai_auto_pc_0_synth_1" Type="Ft3:Synth" SrcSet="ps_ai_auto_pc_0" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_auto_pc_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ps_ai_auto_pc_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -1229,20 +1214,16 @@
     </Run>
     <Run Id="ps_ai_s01_regslice_0_synth_1" Type="Ft3:Synth" SrcSet="ps_ai_s01_regslice_0" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_s01_regslice_0" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" Dir="$PRUNDIR/ps_ai_s01_regslice_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" IncrementalCheckpoint="$PPRDIR/../../../../Temp/incr_ref/ai7030_edif_top_routed.dcp" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" IncrementalCheckpoint="$PPRDIR/../../../../Temp/incr_ref/ai7030_edif_top_routed.dcp" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design" PreStepTclHook="$PPRDIR/ip_patch/process_control/implementation_opt_pre.tcl" PostStepTclHook="$PPRDIR/ip_patch/process_control/implementation_opt_post.tcl">
           <Option Id="Directive">0</Option>
@@ -1264,7 +1245,6 @@
         </Step>
         <Step Id="write_bitstream" PreStepTclHook="$PPRDIR/ip_patch/process_control/write_bitstream_pre.tcl" PostStepTclHook="$PPRDIR/ip_patch/process_control/write_bitstream_post.tcl"/>
       </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2018"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
@@ -1638,9 +1618,7 @@
     </Run>
     <Run Id="ps_ai_Signal_process_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_Signal_process_0_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="ps_ai_Signal_process_0_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1656,9 +1634,7 @@
     </Run>
     <Run Id="ps_ai_s00_regslice_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_s00_regslice_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="ps_ai_s00_regslice_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1674,9 +1650,7 @@
     </Run>
     <Run Id="ps_ai_auto_pc_1_impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_auto_pc_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="ps_ai_auto_pc_1_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1692,9 +1666,7 @@
     </Run>
     <Run Id="ps_ai_s00_regslice_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_s00_regslice_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="ps_ai_s00_regslice_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1710,9 +1682,7 @@
     </Run>
     <Run Id="ps_ai_m00_regslice_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_m00_regslice_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="ps_ai_m00_regslice_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1728,9 +1698,7 @@
     </Run>
     <Run Id="ps_ai_auto_pc_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_auto_pc_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="ps_ai_auto_pc_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -1746,9 +1714,7 @@
     </Run>
     <Run Id="ps_ai_s01_regslice_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z030ffg676-2" ConstrsSet="ps_ai_s01_regslice_0" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" SynthRun="ps_ai_s01_regslice_0_synth_1" IncludeInArchive="false" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>

@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# IP Build 2404404 on Fri Dec  7 01:43:56 MST 2018
+# Start of session at: Wed Nov  4 14:37:35 2026
+# Process ID: 13636
+# Current directory: D:/提交/RFFI_FPAI
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent10612 D:\提交\RFFI_FPAI\RFFI_FPAI.xpr
+# Log file: D:/提交/RFFI_FPAI/vivado.log
+# Journal file: D:/提交/RFFI_FPAI\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/提交/RFFI_FPAI/RFFI_FPAI.xpr
